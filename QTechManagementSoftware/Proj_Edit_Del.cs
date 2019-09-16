@@ -266,9 +266,7 @@ namespace QTechManagementSoftware
                 }
             }
 
-            // 
-
-
+            // If a match is not found, create a new folder with a new file name of the form [4-digit code]_[project code]_[project desc]
             if (!matchFound)
             {
                 // Obtains the last entry to generate a new 4-digit code prefix folder name
