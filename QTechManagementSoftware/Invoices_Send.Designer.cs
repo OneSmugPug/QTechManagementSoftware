@@ -139,7 +139,7 @@
             // 
             // bunifuSeparator1
             // 
-            this.bunifuSeparator1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.bunifuSeparator1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.bunifuSeparator1.BackColor = System.Drawing.Color.Transparent;
             this.bunifuSeparator1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
@@ -158,8 +158,8 @@
             this.dgv_LInvSent.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightGray;
             this.dgv_LInvSent.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgv_LInvSent.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.dgv_LInvSent.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv_LInvSent.AutoGenerateContextFilters = true;
             this.dgv_LInvSent.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -174,7 +174,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgv_LInvSent.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgv_LInvSent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_LInvSent.ColumnHeadersHeight = 25;
             this.dgv_LInvSent.DateWithTime = false;
             this.dgv_LInvSent.EnableHeadersVisualStyles = false;
             this.dgv_LInvSent.Location = new System.Drawing.Point(0, 277);
@@ -347,7 +347,6 @@
             this.Controls.Add(this.bunifuCustomLabel3);
             this.Controls.Add(this.bunifuCustomLabel2);
             this.Controls.Add(this.bunifuCustomLabel1);
-            this.Controls.Add(this.bunifuSeparator1);
             this.Controls.Add(this.dgv_LInvSent);
             this.Controls.Add(this.dtp_LIS_To);
             this.Controls.Add(this.dtp_LIS_From);
@@ -357,6 +356,7 @@
             this.Controls.Add(this.btn_LIS_Filter);
             this.Controls.Add(this.btn_LIS_NewIS);
             this.Controls.Add(this.btn_LIS_ClearFilter);
+            this.Controls.Add(this.bunifuSeparator1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(850, 510);
@@ -367,6 +367,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv_LInvSent)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion

@@ -203,8 +203,8 @@
             this.dgv_Contractors.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightGray;
             this.dgv_Contractors.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgv_Contractors.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.dgv_Contractors.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv_Contractors.AutoGenerateContextFilters = true;
             this.dgv_Contractors.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -219,7 +219,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgv_Contractors.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgv_Contractors.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_Contractors.ColumnHeadersHeight = 25;
             this.dgv_Contractors.DateWithTime = false;
             this.dgv_Contractors.EnableHeadersVisualStyles = false;
             this.dgv_Contractors.Location = new System.Drawing.Point(-1, 278);
@@ -239,10 +239,10 @@
             // 
             // bunifuSeparator1
             // 
-            this.bunifuSeparator1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.bunifuSeparator1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.bunifuSeparator1.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuSeparator1.LineColor = System.Drawing.Color.DimGray;
+            this.bunifuSeparator1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
             this.bunifuSeparator1.LineThickness = 1;
             this.bunifuSeparator1.Location = new System.Drawing.Point(17, 207);
             this.bunifuSeparator1.Name = "bunifuSeparator1";
@@ -349,7 +349,6 @@
             this.Controls.Add(this.bunifuCustomLabel3);
             this.Controls.Add(this.bunifuCustomLabel2);
             this.Controls.Add(this.bunifuCustomLabel1);
-            this.Controls.Add(this.bunifuSeparator1);
             this.Controls.Add(this.dgv_Contractors);
             this.Controls.Add(this.dtp_LQ_To);
             this.Controls.Add(this.dtp_LQ_From);
@@ -359,6 +358,7 @@
             this.Controls.Add(this.btn_LQ_Filter);
             this.Controls.Add(this.btn_C_NewWW);
             this.Controls.Add(this.btn_LQ_ClearFilter);
+            this.Controls.Add(this.bunifuSeparator1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(640, 510);
@@ -369,6 +369,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Contractors)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion

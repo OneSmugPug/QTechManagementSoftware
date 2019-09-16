@@ -203,8 +203,8 @@
             this.dgv_LOrders.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightGray;
             this.dgv_LOrders.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgv_LOrders.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.dgv_LOrders.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv_LOrders.AutoGenerateContextFilters = true;
             this.dgv_LOrders.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -219,7 +219,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgv_LOrders.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgv_LOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_LOrders.ColumnHeadersHeight = 25;
             this.dgv_LOrders.DateWithTime = false;
             this.dgv_LOrders.EnableHeadersVisualStyles = false;
             this.dgv_LOrders.Location = new System.Drawing.Point(1, 278);
@@ -325,10 +325,10 @@
             // 
             // bunifuSeparator1
             // 
-            this.bunifuSeparator1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.bunifuSeparator1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.bunifuSeparator1.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuSeparator1.LineColor = System.Drawing.Color.DimGray;
+            this.bunifuSeparator1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
             this.bunifuSeparator1.LineThickness = 1;
             this.bunifuSeparator1.Location = new System.Drawing.Point(17, 207);
             this.bunifuSeparator1.Name = "bunifuSeparator1";
@@ -343,7 +343,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(963, 618);
-            this.Controls.Add(this.bunifuSeparator1);
             this.Controls.Add(this.txt_LO_CCode);
             this.Controls.Add(this.txt_LO_CName);
             this.Controls.Add(this.bunifuCustomLabel4);
@@ -359,6 +358,7 @@
             this.Controls.Add(this.btn_LO_Filter);
             this.Controls.Add(this.btn_LO_NewOrder);
             this.Controls.Add(this.btn_LO_ClearFilter);
+            this.Controls.Add(this.bunifuSeparator1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(963, 618);
@@ -369,6 +369,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv_LOrders)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion

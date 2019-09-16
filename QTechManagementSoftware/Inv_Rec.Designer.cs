@@ -137,8 +137,8 @@
             this.dgv_LInvRec.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightGray;
             this.dgv_LInvRec.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgv_LInvRec.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.dgv_LInvRec.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv_LInvRec.AutoGenerateContextFilters = true;
             this.dgv_LInvRec.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -153,7 +153,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgv_LInvRec.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgv_LInvRec.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_LInvRec.ColumnHeadersHeight = 25;
             this.dgv_LInvRec.DateWithTime = false;
             this.dgv_LInvRec.EnableHeadersVisualStyles = false;
             this.dgv_LInvRec.Location = new System.Drawing.Point(0, 56);
@@ -217,6 +217,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv_LInvRec)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion
