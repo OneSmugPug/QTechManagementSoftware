@@ -279,7 +279,9 @@ namespace QTechManagementSoftware
                         if (!matchFound)
                         {
                             // Obtains project IDs to obtain the last known entry for Projects to generate a new project ID
-                            projDT = ((Projects)((Home)this.Owner).GetCurForm()).GetProjects();
+                            da = new SqlDataAdapter("SELECT * FROM Projects", conn);
+                            projDT = new DataTable();
+                            da.Fill(projDT);
 
                             int CCode = 0;
                             string projCode;
@@ -301,10 +303,10 @@ namespace QTechManagementSoftware
                             using (SqlCommand cmd = new SqlCommand("INSERT INTO Projects VALUES (@ProjID, @Date, @ClientCode, @ClientName, @Desc, @QNum)", conn))
                             {
                                 cmd.Parameters.AddWithValue("@ProjID", projCode.Trim());
-                                //cmd.Parameters.AddWithValue("@Date", dtp_PA_Date.Value);
+                                cmd.Parameters.AddWithValue("@Date", DBNull.Value);
                                 cmd.Parameters.AddWithValue("@ClientCode", txt_QED_CCode.Text.Trim());
                                 cmd.Parameters.AddWithValue("@ClientName", txt_QED_CName.Text.Trim());
-                                //cmd.Parameters.AddWithValue("@Desc", txt_PA_Desc.Text.Trim());
+                                cmd.Parameters.AddWithValue("@Desc", DBNull.Value);
                                 cmd.Parameters.AddWithValue("@QNum", txt_QED_QNum.Text.Trim());
                                 cmd.ExecuteNonQuery();
                             }
