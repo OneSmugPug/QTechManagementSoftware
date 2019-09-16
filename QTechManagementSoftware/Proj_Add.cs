@@ -67,6 +67,7 @@ namespace QTechManagementSoftware
                     txt_PA_CName.Text = dr["Name"].ToString().Trim();
             }
 
+            // Obtains project IDs to obtain the last known entry for Projects
             projDT = ((Projects)((Home)this.Owner).GetCurForm()).GetProjects();
 
             int CCode = 0;
@@ -143,12 +144,12 @@ namespace QTechManagementSoftware
                             cmd.Parameters.AddWithValue("@QNum", txt_PA_QNum.Text.Trim());
                             cmd.ExecuteNonQuery();
                         }
-                        using (SqlCommand cmd = new SqlCommand("INSERT INTO Quotes_Send(Quote_Number, Client) VALUES (@QNum, @Client)", conn))
-                        {
-                            cmd.Parameters.AddWithValue("@QNum", txt_PA_QNum.Text.Trim());
-                            cmd.Parameters.AddWithValue("@Client", txt_PA_CName.Text.Trim());
-                            cmd.ExecuteNonQuery();
-                        }
+                        //using (SqlCommand cmd = new SqlCommand("INSERT INTO Quotes_Send(Quote_Number, Client) VALUES (@QNum, @Client)", conn))
+                        //{
+                        //    cmd.Parameters.AddWithValue("@QNum", txt_PA_QNum.Text.Trim());
+                        //    cmd.Parameters.AddWithValue("@Client", txt_PA_CName.Text.Trim());
+                        //    cmd.ExecuteNonQuery();
+                        //}
 
                         MessageBox.Show("New project successfully added.", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.Close();

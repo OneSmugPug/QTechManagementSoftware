@@ -31,15 +31,16 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PettyCash));
             this.dgv_PettyCash = new ADGV.AdvancedDataGridView();
-            this.txt_PC_Tot = new System.Windows.Forms.TextBox();
-            this.lblSubtotal = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.btn_PC_Export = new System.Windows.Forms.Button();
             this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PersonName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Credit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Debit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txt_PC_Tot = new System.Windows.Forms.TextBox();
+            this.lblSubtotal = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.btn_PC_Export = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_PettyCash)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,8 +49,8 @@
             this.dgv_PettyCash.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightGray;
             this.dgv_PettyCash.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgv_PettyCash.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.dgv_PettyCash.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv_PettyCash.AutoGenerateContextFilters = true;
             this.dgv_PettyCash.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -65,6 +66,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgv_PettyCash.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_PettyCash.ColumnHeadersHeight = 25;
+            this.dgv_PettyCash.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgv_PettyCash.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Date,
             this.PersonName,
@@ -77,7 +79,6 @@
             this.dgv_PettyCash.Name = "dgv_PettyCash";
             this.dgv_PettyCash.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgv_PettyCash.RowHeadersVisible = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Empty;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
             this.dgv_PettyCash.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgv_PettyCash.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
@@ -86,6 +87,41 @@
             this.dgv_PettyCash.TimeFilter = false;
             this.dgv_PettyCash.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dgv_PettyCash_CellValueChanged);
             this.dgv_PettyCash.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dgv_PettyCash_RowEnter);
+            // 
+            // Date
+            // 
+            this.Date.HeaderText = "Date";
+            this.Date.MinimumWidth = 22;
+            this.Date.Name = "Date";
+            this.Date.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // PersonName
+            // 
+            this.PersonName.HeaderText = "Person Name";
+            this.PersonName.MinimumWidth = 22;
+            this.PersonName.Name = "PersonName";
+            this.PersonName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // Desc
+            // 
+            this.Desc.HeaderText = "Description";
+            this.Desc.MinimumWidth = 22;
+            this.Desc.Name = "Desc";
+            this.Desc.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // Credit
+            // 
+            this.Credit.HeaderText = "Credit";
+            this.Credit.MinimumWidth = 22;
+            this.Credit.Name = "Credit";
+            this.Credit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // Debit
+            // 
+            this.Debit.HeaderText = "Debit";
+            this.Debit.MinimumWidth = 22;
+            this.Debit.Name = "Debit";
+            this.Debit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // txt_PC_Tot
             // 
@@ -132,41 +168,6 @@
             this.btn_PC_Export.MouseEnter += new System.EventHandler(this.Btn_PC_Export_MouseEnter);
             this.btn_PC_Export.MouseLeave += new System.EventHandler(this.Btn_PC_Export_MouseLeave);
             // 
-            // Date
-            // 
-            this.Date.HeaderText = "Date";
-            this.Date.MinimumWidth = 22;
-            this.Date.Name = "Date";
-            this.Date.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            // 
-            // PersonName
-            // 
-            this.PersonName.HeaderText = "Person Name";
-            this.PersonName.MinimumWidth = 22;
-            this.PersonName.Name = "PersonName";
-            this.PersonName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            // 
-            // Desc
-            // 
-            this.Desc.HeaderText = "Description";
-            this.Desc.MinimumWidth = 22;
-            this.Desc.Name = "Desc";
-            this.Desc.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            // 
-            // Credit
-            // 
-            this.Credit.HeaderText = "Credit";
-            this.Credit.MinimumWidth = 22;
-            this.Credit.Name = "Credit";
-            this.Credit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            // 
-            // Debit
-            // 
-            this.Debit.HeaderText = "Debit";
-            this.Debit.MinimumWidth = 22;
-            this.Debit.Name = "Debit";
-            this.Debit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            // 
             // PettyCash
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -178,6 +179,7 @@
             this.Controls.Add(this.txt_PC_Tot);
             this.Controls.Add(this.dgv_PettyCash);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PettyCash";
             this.Text = "PettyCash";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -185,6 +187,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv_PettyCash)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion

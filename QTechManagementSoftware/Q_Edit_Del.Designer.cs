@@ -33,27 +33,27 @@
             this.btn_QED_Done = new System.Windows.Forms.Button();
             this.btn_QED_Close = new System.Windows.Forms.Button();
             this.gb_OA_ODetails = new System.Windows.Forms.GroupBox();
-            this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.bunifuCustomLabel3 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.bunifuCustomLabel4 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.cb_QED_OrderPlaced = new Bunifu.Framework.UI.BunifuCheckbox();
-            this.dtp_QED_Date = new Bunifu.Framework.UI.BunifuDatepicker();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.txt_QED_Desc = new System.Windows.Forms.TextBox();
-            this.ln_QED_Desc = new Bunifu.Framework.UI.BunifuSeparator();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.txt_QED_QNum = new System.Windows.Forms.TextBox();
             this.ln_QED_CONum = new Bunifu.Framework.UI.BunifuSeparator();
+            this.txt_QED_QNum = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.ln_QED_Desc = new Bunifu.Framework.UI.BunifuSeparator();
+            this.txt_QED_Desc = new System.Windows.Forms.TextBox();
+            this.dtp_QED_Date = new Bunifu.Framework.UI.BunifuDatepicker();
+            this.cb_QED_OrderPlaced = new Bunifu.Framework.UI.BunifuCheckbox();
+            this.bunifuCustomLabel4 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.bunifuCustomLabel3 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.gb_OA_CDetails = new System.Windows.Forms.GroupBox();
-            this.bunifuCustomLabel5 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.bunifuCustomLabel6 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.txt_QED_CName = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.txt_QED_CCode = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.txt_QED_CName = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.bunifuCustomLabel6 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.bunifuCustomLabel5 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel7 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.gb_OA_ODetails.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.gb_OA_CDetails.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -130,115 +130,6 @@
             this.gb_OA_ODetails.TabStop = false;
             this.gb_OA_ODetails.Text = "Quote Details";
             // 
-            // bunifuCustomLabel1
-            // 
-            this.bunifuCustomLabel1.AutoSize = true;
-            this.bunifuCustomLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bunifuCustomLabel1.Location = new System.Drawing.Point(337, 88);
-            this.bunifuCustomLabel1.Name = "bunifuCustomLabel1";
-            this.bunifuCustomLabel1.Size = new System.Drawing.Size(92, 17);
-            this.bunifuCustomLabel1.TabIndex = 0;
-            this.bunifuCustomLabel1.Text = "Order Placed";
-            // 
-            // bunifuCustomLabel2
-            // 
-            this.bunifuCustomLabel2.AutoSize = true;
-            this.bunifuCustomLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bunifuCustomLabel2.Location = new System.Drawing.Point(38, 61);
-            this.bunifuCustomLabel2.Name = "bunifuCustomLabel2";
-            this.bunifuCustomLabel2.Size = new System.Drawing.Size(83, 17);
-            this.bunifuCustomLabel2.TabIndex = 1;
-            this.bunifuCustomLabel2.Text = "Description:";
-            // 
-            // bunifuCustomLabel3
-            // 
-            this.bunifuCustomLabel3.AutoSize = true;
-            this.bunifuCustomLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bunifuCustomLabel3.Location = new System.Drawing.Point(381, 26);
-            this.bunifuCustomLabel3.Name = "bunifuCustomLabel3";
-            this.bunifuCustomLabel3.Size = new System.Drawing.Size(79, 17);
-            this.bunifuCustomLabel3.TabIndex = 2;
-            this.bunifuCustomLabel3.Text = "Date Send:";
-            // 
-            // bunifuCustomLabel4
-            // 
-            this.bunifuCustomLabel4.AutoSize = true;
-            this.bunifuCustomLabel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bunifuCustomLabel4.Location = new System.Drawing.Point(16, 26);
-            this.bunifuCustomLabel4.Name = "bunifuCustomLabel4";
-            this.bunifuCustomLabel4.Size = new System.Drawing.Size(105, 17);
-            this.bunifuCustomLabel4.TabIndex = 3;
-            this.bunifuCustomLabel4.Text = "Quote Number:";
-            // 
-            // cb_QED_OrderPlaced
-            // 
-            this.cb_QED_OrderPlaced.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(135)))), ((int)(((byte)(140)))));
-            this.cb_QED_OrderPlaced.ChechedOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(135)))), ((int)(((byte)(140)))));
-            this.cb_QED_OrderPlaced.Checked = false;
-            this.cb_QED_OrderPlaced.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.cb_QED_OrderPlaced.ForeColor = System.Drawing.Color.White;
-            this.cb_QED_OrderPlaced.Location = new System.Drawing.Point(311, 88);
-            this.cb_QED_OrderPlaced.Name = "cb_QED_OrderPlaced";
-            this.cb_QED_OrderPlaced.Size = new System.Drawing.Size(20, 20);
-            this.cb_QED_OrderPlaced.TabIndex = 4;
-            // 
-            // dtp_QED_Date
-            // 
-            this.dtp_QED_Date.BackColor = System.Drawing.Color.Silver;
-            this.dtp_QED_Date.BorderRadius = 0;
-            this.dtp_QED_Date.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.dtp_QED_Date.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtp_QED_Date.FormatCustom = null;
-            this.dtp_QED_Date.Location = new System.Drawing.Point(462, 25);
-            this.dtp_QED_Date.Name = "dtp_QED_Date";
-            this.dtp_QED_Date.Size = new System.Drawing.Size(238, 25);
-            this.dtp_QED_Date.TabIndex = 5;
-            this.dtp_QED_Date.Value = new System.DateTime(2019, 9, 14, 12, 56, 2, 399);
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.ln_QED_Desc);
-            this.panel1.Controls.Add(this.txt_QED_Desc);
-            this.panel1.Location = new System.Drawing.Point(125, 57);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(586, 27);
-            this.panel1.TabIndex = 6;
-            // 
-            // txt_QED_Desc
-            // 
-            this.txt_QED_Desc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_QED_Desc.BackColor = System.Drawing.Color.Silver;
-            this.txt_QED_Desc.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_QED_Desc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_QED_Desc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.txt_QED_Desc.Location = new System.Drawing.Point(2, 5);
-            this.txt_QED_Desc.Name = "txt_QED_Desc";
-            this.txt_QED_Desc.Size = new System.Drawing.Size(969, 16);
-            this.txt_QED_Desc.TabIndex = 0;
-            this.txt_QED_Desc.Leave += new System.EventHandler(this.Txt_QED_Desc_Leave);
-            this.txt_QED_Desc.MouseEnter += new System.EventHandler(this.Txt_QED_Desc_MouseEnter);
-            this.txt_QED_Desc.MouseLeave += new System.EventHandler(this.Txt_QED_Desc_MouseLeave);
-            // 
-            // ln_QED_Desc
-            // 
-            this.ln_QED_Desc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ln_QED_Desc.BackColor = System.Drawing.Color.Transparent;
-            this.ln_QED_Desc.LineColor = System.Drawing.Color.Gray;
-            this.ln_QED_Desc.LineThickness = 1;
-            this.ln_QED_Desc.Location = new System.Drawing.Point(-1, 18);
-            this.ln_QED_Desc.Name = "ln_QED_Desc";
-            this.ln_QED_Desc.Size = new System.Drawing.Size(974, 10);
-            this.ln_QED_Desc.TabIndex = 1;
-            this.ln_QED_Desc.TabStop = false;
-            this.ln_QED_Desc.Transparency = 255;
-            this.ln_QED_Desc.Vertical = false;
-            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.ln_QED_CONum);
@@ -248,9 +139,24 @@
             this.panel2.Size = new System.Drawing.Size(177, 27);
             this.panel2.TabIndex = 7;
             // 
+            // ln_QED_CONum
+            // 
+            this.ln_QED_CONum.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ln_QED_CONum.BackColor = System.Drawing.Color.Transparent;
+            this.ln_QED_CONum.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.ln_QED_CONum.LineThickness = 1;
+            this.ln_QED_CONum.Location = new System.Drawing.Point(-1, 18);
+            this.ln_QED_CONum.Name = "ln_QED_CONum";
+            this.ln_QED_CONum.Size = new System.Drawing.Size(179, 10);
+            this.ln_QED_CONum.TabIndex = 1;
+            this.ln_QED_CONum.TabStop = false;
+            this.ln_QED_CONum.Transparency = 255;
+            this.ln_QED_CONum.Vertical = false;
+            // 
             // txt_QED_QNum
             // 
-            this.txt_QED_QNum.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txt_QED_QNum.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_QED_QNum.BackColor = System.Drawing.Color.Silver;
             this.txt_QED_QNum.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -265,20 +171,115 @@
             this.txt_QED_QNum.MouseEnter += new System.EventHandler(this.Txt_QED_ONum_MouseEnter);
             this.txt_QED_QNum.MouseLeave += new System.EventHandler(this.Txt_QED_ONum_MouseLeave);
             // 
-            // ln_QED_CONum
+            // panel1
             // 
-            this.ln_QED_CONum.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.panel1.Controls.Add(this.ln_QED_Desc);
+            this.panel1.Controls.Add(this.txt_QED_Desc);
+            this.panel1.Location = new System.Drawing.Point(125, 57);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(586, 27);
+            this.panel1.TabIndex = 6;
+            // 
+            // ln_QED_Desc
+            // 
+            this.ln_QED_Desc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.ln_QED_CONum.BackColor = System.Drawing.Color.Transparent;
-            this.ln_QED_CONum.LineColor = System.Drawing.Color.Gray;
-            this.ln_QED_CONum.LineThickness = 1;
-            this.ln_QED_CONum.Location = new System.Drawing.Point(-1, 18);
-            this.ln_QED_CONum.Name = "ln_QED_CONum";
-            this.ln_QED_CONum.Size = new System.Drawing.Size(179, 10);
-            this.ln_QED_CONum.TabIndex = 1;
-            this.ln_QED_CONum.TabStop = false;
-            this.ln_QED_CONum.Transparency = 255;
-            this.ln_QED_CONum.Vertical = false;
+            this.ln_QED_Desc.BackColor = System.Drawing.Color.Transparent;
+            this.ln_QED_Desc.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.ln_QED_Desc.LineThickness = 1;
+            this.ln_QED_Desc.Location = new System.Drawing.Point(-1, 18);
+            this.ln_QED_Desc.Name = "ln_QED_Desc";
+            this.ln_QED_Desc.Size = new System.Drawing.Size(974, 10);
+            this.ln_QED_Desc.TabIndex = 1;
+            this.ln_QED_Desc.TabStop = false;
+            this.ln_QED_Desc.Transparency = 255;
+            this.ln_QED_Desc.Vertical = false;
+            // 
+            // txt_QED_Desc
+            // 
+            this.txt_QED_Desc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_QED_Desc.BackColor = System.Drawing.Color.Silver;
+            this.txt_QED_Desc.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_QED_Desc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_QED_Desc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
+            this.txt_QED_Desc.Location = new System.Drawing.Point(2, 5);
+            this.txt_QED_Desc.Name = "txt_QED_Desc";
+            this.txt_QED_Desc.Size = new System.Drawing.Size(969, 16);
+            this.txt_QED_Desc.TabIndex = 0;
+            this.txt_QED_Desc.Leave += new System.EventHandler(this.Txt_QED_Desc_Leave);
+            this.txt_QED_Desc.MouseEnter += new System.EventHandler(this.Txt_QED_Desc_MouseEnter);
+            this.txt_QED_Desc.MouseLeave += new System.EventHandler(this.Txt_QED_Desc_MouseLeave);
+            // 
+            // dtp_QED_Date
+            // 
+            this.dtp_QED_Date.BackColor = System.Drawing.Color.Silver;
+            this.dtp_QED_Date.BorderRadius = 0;
+            this.dtp_QED_Date.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
+            this.dtp_QED_Date.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtp_QED_Date.FormatCustom = null;
+            this.dtp_QED_Date.Location = new System.Drawing.Point(462, 25);
+            this.dtp_QED_Date.Name = "dtp_QED_Date";
+            this.dtp_QED_Date.Size = new System.Drawing.Size(238, 25);
+            this.dtp_QED_Date.TabIndex = 5;
+            this.dtp_QED_Date.Value = new System.DateTime(2019, 9, 14, 12, 56, 2, 399);
+            // 
+            // cb_QED_OrderPlaced
+            // 
+            this.cb_QED_OrderPlaced.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(135)))), ((int)(((byte)(140)))));
+            this.cb_QED_OrderPlaced.ChechedOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(135)))), ((int)(((byte)(140)))));
+            this.cb_QED_OrderPlaced.Checked = false;
+            this.cb_QED_OrderPlaced.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
+            this.cb_QED_OrderPlaced.ForeColor = System.Drawing.Color.White;
+            this.cb_QED_OrderPlaced.Location = new System.Drawing.Point(311, 88);
+            this.cb_QED_OrderPlaced.Name = "cb_QED_OrderPlaced";
+            this.cb_QED_OrderPlaced.Size = new System.Drawing.Size(20, 20);
+            this.cb_QED_OrderPlaced.TabIndex = 4;
+            this.cb_QED_OrderPlaced.OnChange += new System.EventHandler(this.Cb_QED_OrderPlaced_OnChange);
+            // 
+            // bunifuCustomLabel4
+            // 
+            this.bunifuCustomLabel4.AutoSize = true;
+            this.bunifuCustomLabel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.bunifuCustomLabel4.Location = new System.Drawing.Point(16, 26);
+            this.bunifuCustomLabel4.Name = "bunifuCustomLabel4";
+            this.bunifuCustomLabel4.Size = new System.Drawing.Size(105, 17);
+            this.bunifuCustomLabel4.TabIndex = 3;
+            this.bunifuCustomLabel4.Text = "Quote Number:";
+            // 
+            // bunifuCustomLabel3
+            // 
+            this.bunifuCustomLabel3.AutoSize = true;
+            this.bunifuCustomLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.bunifuCustomLabel3.Location = new System.Drawing.Point(381, 26);
+            this.bunifuCustomLabel3.Name = "bunifuCustomLabel3";
+            this.bunifuCustomLabel3.Size = new System.Drawing.Size(79, 17);
+            this.bunifuCustomLabel3.TabIndex = 2;
+            this.bunifuCustomLabel3.Text = "Date Send:";
+            // 
+            // bunifuCustomLabel2
+            // 
+            this.bunifuCustomLabel2.AutoSize = true;
+            this.bunifuCustomLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.bunifuCustomLabel2.Location = new System.Drawing.Point(38, 61);
+            this.bunifuCustomLabel2.Name = "bunifuCustomLabel2";
+            this.bunifuCustomLabel2.Size = new System.Drawing.Size(83, 17);
+            this.bunifuCustomLabel2.TabIndex = 1;
+            this.bunifuCustomLabel2.Text = "Description:";
+            // 
+            // bunifuCustomLabel1
+            // 
+            this.bunifuCustomLabel1.AutoSize = true;
+            this.bunifuCustomLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.bunifuCustomLabel1.Location = new System.Drawing.Point(337, 88);
+            this.bunifuCustomLabel1.Name = "bunifuCustomLabel1";
+            this.bunifuCustomLabel1.Size = new System.Drawing.Size(92, 17);
+            this.bunifuCustomLabel1.TabIndex = 0;
+            this.bunifuCustomLabel1.Text = "Order Placed";
             // 
             // gb_OA_CDetails
             // 
@@ -295,27 +296,27 @@
             this.gb_OA_CDetails.TabStop = false;
             this.gb_OA_CDetails.Text = "Client Details";
             // 
-            // bunifuCustomLabel5
+            // txt_QED_CCode
             // 
-            this.bunifuCustomLabel5.AutoSize = true;
-            this.bunifuCustomLabel5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bunifuCustomLabel5.Location = new System.Drawing.Point(18, 25);
-            this.bunifuCustomLabel5.Name = "bunifuCustomLabel5";
-            this.bunifuCustomLabel5.Size = new System.Drawing.Size(84, 17);
-            this.bunifuCustomLabel5.TabIndex = 0;
-            this.bunifuCustomLabel5.Text = "Client Code:";
-            // 
-            // bunifuCustomLabel6
-            // 
-            this.bunifuCustomLabel6.AutoSize = true;
-            this.bunifuCustomLabel6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bunifuCustomLabel6.Location = new System.Drawing.Point(395, 25);
-            this.bunifuCustomLabel6.Name = "bunifuCustomLabel6";
-            this.bunifuCustomLabel6.Size = new System.Drawing.Size(88, 17);
-            this.bunifuCustomLabel6.TabIndex = 1;
-            this.bunifuCustomLabel6.Text = "Client Name:";
+            this.txt_QED_CCode.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_QED_CCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.txt_QED_CCode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
+            this.txt_QED_CCode.HintForeColor = System.Drawing.Color.Empty;
+            this.txt_QED_CCode.HintText = "";
+            this.txt_QED_CCode.isPassword = false;
+            this.txt_QED_CCode.LineFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
+            this.txt_QED_CCode.LineIdleColor = System.Drawing.Color.Gray;
+            this.txt_QED_CCode.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
+            this.txt_QED_CCode.LineThickness = 1;
+            this.txt_QED_CCode.Location = new System.Drawing.Point(108, 15);
+            this.txt_QED_CCode.Margin = new System.Windows.Forms.Padding(4);
+            this.txt_QED_CCode.Name = "txt_QED_CCode";
+            this.txt_QED_CCode.Size = new System.Drawing.Size(223, 30);
+            this.txt_QED_CCode.TabIndex = 3;
+            this.txt_QED_CCode.TabStop = false;
+            this.txt_QED_CCode.Text = "bunifuMaterialTextbox1";
+            this.txt_QED_CCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txt_QED_CCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Txt_QED_CCode_KeyDown);
             // 
             // txt_QED_CName
             // 
@@ -339,27 +340,27 @@
             this.txt_QED_CName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txt_QED_CName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Txt_QED_CName_KeyDown);
             // 
-            // txt_QED_CCode
+            // bunifuCustomLabel6
             // 
-            this.txt_QED_CCode.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_QED_CCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.txt_QED_CCode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.txt_QED_CCode.HintForeColor = System.Drawing.Color.Empty;
-            this.txt_QED_CCode.HintText = "";
-            this.txt_QED_CCode.isPassword = false;
-            this.txt_QED_CCode.LineFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
-            this.txt_QED_CCode.LineIdleColor = System.Drawing.Color.Gray;
-            this.txt_QED_CCode.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
-            this.txt_QED_CCode.LineThickness = 1;
-            this.txt_QED_CCode.Location = new System.Drawing.Point(108, 15);
-            this.txt_QED_CCode.Margin = new System.Windows.Forms.Padding(4);
-            this.txt_QED_CCode.Name = "txt_QED_CCode";
-            this.txt_QED_CCode.Size = new System.Drawing.Size(223, 30);
-            this.txt_QED_CCode.TabIndex = 3;
-            this.txt_QED_CCode.TabStop = false;
-            this.txt_QED_CCode.Text = "bunifuMaterialTextbox1";
-            this.txt_QED_CCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.txt_QED_CCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Txt_QED_CCode_KeyDown);
+            this.bunifuCustomLabel6.AutoSize = true;
+            this.bunifuCustomLabel6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.bunifuCustomLabel6.Location = new System.Drawing.Point(395, 25);
+            this.bunifuCustomLabel6.Name = "bunifuCustomLabel6";
+            this.bunifuCustomLabel6.Size = new System.Drawing.Size(88, 17);
+            this.bunifuCustomLabel6.TabIndex = 1;
+            this.bunifuCustomLabel6.Text = "Client Name:";
+            // 
+            // bunifuCustomLabel5
+            // 
+            this.bunifuCustomLabel5.AutoSize = true;
+            this.bunifuCustomLabel5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.bunifuCustomLabel5.Location = new System.Drawing.Point(18, 25);
+            this.bunifuCustomLabel5.Name = "bunifuCustomLabel5";
+            this.bunifuCustomLabel5.Size = new System.Drawing.Size(84, 17);
+            this.bunifuCustomLabel5.TabIndex = 0;
+            this.bunifuCustomLabel5.Text = "Client Code:";
             // 
             // bunifuCustomLabel7
             // 
@@ -400,14 +401,15 @@
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Q_Edit_Del_MouseUp);
             this.gb_OA_ODetails.ResumeLayout(false);
             this.gb_OA_ODetails.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.gb_OA_CDetails.ResumeLayout(false);
             this.gb_OA_CDetails.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion

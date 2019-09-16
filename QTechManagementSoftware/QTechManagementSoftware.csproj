@@ -267,11 +267,26 @@
     <EmbeddedResource Include="ClientList.resx">
       <DependentUpon>ClientList.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Contractors.resx">
+      <DependentUpon>Contractors.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Con_List.resx">
       <DependentUpon>Con_List.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HoursAdd.resx">
+      <DependentUpon>HoursAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Int_Invoices_Send.resx">
+      <DependentUpon>Int_Invoices_Send.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Int_Orders.resx">
+      <DependentUpon>Int_Orders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Int_Quotes.resx">
+      <DependentUpon>Int_Quotes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Invoices_Send.resx">
       <DependentUpon>Invoices_Send.cs</DependentUpon>
@@ -279,8 +294,47 @@
     <EmbeddedResource Include="Inv_Rec.resx">
       <DependentUpon>Inv_Rec.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Inv_Rec_Add.resx">
+      <DependentUpon>Inv_Rec_Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inv_Rec_Edit_Del.resx">
+      <DependentUpon>Inv_Rec_Edit_Del.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inv_Send_Add.resx">
+      <DependentUpon>Inv_Send_Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inv_Send_Edit_Del.resx">
+      <DependentUpon>Inv_Send_Edit_Del.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="New_Expense.resx">
+      <DependentUpon>New_Expense.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Orders.resx">
       <DependentUpon>Orders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="O_Add.resx">
+      <DependentUpon>O_Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="O_Edit_Del.resx">
+      <DependentUpon>O_Edit_Del.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PettyCash.resx">
+      <DependentUpon>PettyCash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Projects.resx">
+      <DependentUpon>Projects.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Proj_Add.resx">
+      <DependentUpon>Proj_Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Proj_AddExp.resx">
+      <DependentUpon>Proj_AddExp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Proj_Dialog.resx">
+      <DependentUpon>Proj_Dialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Proj_Edit_Del.resx">
+      <DependentUpon>Proj_Edit_Del.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -294,6 +348,12 @@
     </Compile>
     <EmbeddedResource Include="Quotes.resx">
       <DependentUpon>Quotes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Q_Add.resx">
+      <DependentUpon>Q_Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Q_Edit_Del.resx">
+      <DependentUpon>Q_Edit_Del.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

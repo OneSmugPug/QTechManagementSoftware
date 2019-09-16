@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Proj_Dialog));
             this.btn_PD_AddExp = new System.Windows.Forms.Button();
             this.btn_PD_EditProj = new System.Windows.Forms.Button();
             this.btn_PD_Close = new System.Windows.Forms.Button();
@@ -112,6 +113,7 @@
             this.Controls.Add(this.btn_PD_Close);
             this.Controls.Add(this.btn_PD_AddExp);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Proj_Dialog";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -120,6 +122,7 @@
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Proj_Dialog_MouseUp);
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion

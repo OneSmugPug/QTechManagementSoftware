@@ -150,7 +150,7 @@
             // 
             // ln_HA_CCode
             // 
-            this.ln_HA_CCode.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.ln_HA_CCode.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ln_HA_CCode.BackColor = System.Drawing.Color.Transparent;
             this.ln_HA_CCode.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
@@ -165,7 +165,7 @@
             // 
             // txt_HA_CCode
             // 
-            this.txt_HA_CCode.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txt_HA_CCode.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_HA_CCode.BackColor = System.Drawing.Color.Silver;
             this.txt_HA_CCode.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -200,7 +200,7 @@
             // 
             // ln_HA_Name
             // 
-            this.ln_HA_Name.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.ln_HA_Name.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ln_HA_Name.BackColor = System.Drawing.Color.Transparent;
             this.ln_HA_Name.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
@@ -215,7 +215,7 @@
             // 
             // txt_HA_Name
             // 
-            this.txt_HA_Name.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txt_HA_Name.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_HA_Name.BackColor = System.Drawing.Color.Silver;
             this.txt_HA_Name.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -250,7 +250,7 @@
             // 
             // ln_HA_EName
             // 
-            this.ln_HA_EName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.ln_HA_EName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ln_HA_EName.BackColor = System.Drawing.Color.Transparent;
             this.ln_HA_EName.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
@@ -265,7 +265,7 @@
             // 
             // txt_HA_EName
             // 
-            this.txt_HA_EName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txt_HA_EName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_HA_EName.BackColor = System.Drawing.Color.Silver;
             this.txt_HA_EName.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -300,7 +300,7 @@
             // 
             // btn_HA_Surname
             // 
-            this.btn_HA_Surname.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.btn_HA_Surname.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_HA_Surname.BackColor = System.Drawing.Color.Transparent;
             this.btn_HA_Surname.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
@@ -315,7 +315,7 @@
             // 
             // txt_HA_Surname
             // 
-            this.txt_HA_Surname.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txt_HA_Surname.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_HA_Surname.BackColor = System.Drawing.Color.Silver;
             this.txt_HA_Surname.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -479,7 +479,7 @@
             // 
             // txt_HA_DolPH
             // 
-            this.txt_HA_DolPH.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txt_HA_DolPH.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_HA_DolPH.BackColor = System.Drawing.Color.Silver;
             this.txt_HA_DolPH.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -495,7 +495,7 @@
             // 
             // ln_HA_DolPH
             // 
-            this.ln_HA_DolPH.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.ln_HA_DolPH.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ln_HA_DolPH.BackColor = System.Drawing.Color.Transparent;
             this.ln_HA_DolPH.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
@@ -519,7 +519,7 @@
             // 
             // ln_HA_Code
             // 
-            this.ln_HA_Code.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.ln_HA_Code.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ln_HA_Code.BackColor = System.Drawing.Color.Transparent;
             this.ln_HA_Code.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
@@ -534,7 +534,7 @@
             // 
             // txt_HA_Code
             // 
-            this.txt_HA_Code.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txt_HA_Code.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_HA_Code.BackColor = System.Drawing.Color.Silver;
             this.txt_HA_Code.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -572,7 +572,7 @@
             // 
             // txt_HA_HW
             // 
-            this.txt_HA_HW.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txt_HA_HW.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_HA_HW.BackColor = System.Drawing.Color.Silver;
             this.txt_HA_HW.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -597,7 +597,7 @@
             // 
             // ln_HA_TotBE
             // 
-            this.ln_HA_TotBE.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.ln_HA_TotBE.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ln_HA_TotBE.BackColor = System.Drawing.Color.Transparent;
             this.ln_HA_TotBE.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
@@ -612,7 +612,7 @@
             // 
             // txt_HA_TotBE
             // 
-            this.txt_HA_TotBE.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txt_HA_TotBE.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_HA_TotBE.BackColor = System.Drawing.Color.Silver;
             this.txt_HA_TotBE.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -638,7 +638,7 @@
             // 
             // ln_HA_ExcRate
             // 
-            this.ln_HA_ExcRate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.ln_HA_ExcRate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ln_HA_ExcRate.BackColor = System.Drawing.Color.Transparent;
             this.ln_HA_ExcRate.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
@@ -653,7 +653,7 @@
             // 
             // txt_HA_ExcRate
             // 
-            this.txt_HA_ExcRate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txt_HA_ExcRate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_HA_ExcRate.BackColor = System.Drawing.Color.Silver;
             this.txt_HA_ExcRate.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -678,7 +678,7 @@
             // 
             // ln_HA_TotAE
             // 
-            this.ln_HA_TotAE.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.ln_HA_TotAE.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ln_HA_TotAE.BackColor = System.Drawing.Color.Transparent;
             this.ln_HA_TotAE.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
@@ -693,7 +693,7 @@
             // 
             // txt_HA_TotAE
             // 
-            this.txt_HA_TotAE.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txt_HA_TotAE.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_HA_TotAE.BackColor = System.Drawing.Color.Silver;
             this.txt_HA_TotAE.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -781,7 +781,7 @@
             // 
             // ln_HA_QTCut
             // 
-            this.ln_HA_QTCut.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.ln_HA_QTCut.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ln_HA_QTCut.BackColor = System.Drawing.Color.Transparent;
             this.ln_HA_QTCut.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
@@ -796,7 +796,7 @@
             // 
             // txt_HA_QTCut
             // 
-            this.txt_HA_QTCut.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txt_HA_QTCut.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_HA_QTCut.BackColor = System.Drawing.Color.Silver;
             this.txt_HA_QTCut.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -833,7 +833,7 @@
             // 
             // ln_HA_FTotal
             // 
-            this.ln_HA_FTotal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.ln_HA_FTotal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ln_HA_FTotal.BackColor = System.Drawing.Color.Transparent;
             this.ln_HA_FTotal.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
@@ -848,7 +848,7 @@
             // 
             // txt_HA_FTotal
             // 
-            this.txt_HA_FTotal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txt_HA_FTotal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_HA_FTotal.BackColor = System.Drawing.Color.Silver;
             this.txt_HA_FTotal.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -1029,6 +1029,7 @@
             this.panel3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion

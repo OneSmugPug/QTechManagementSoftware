@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using QTechManagementSoftware.Properties;
 using System;
+using System.Collections.Generic;
 
 namespace QTechManagementSoftware
 {
@@ -11,6 +12,7 @@ namespace QTechManagementSoftware
     {
         private bool mouseDown = false;
         private DataTable dt;
+        private DataTable projDT;
         private int SELECTED_QUOTE;
         private Point lastLocation;
 
@@ -239,6 +241,81 @@ namespace QTechManagementSoftware
         private void Q_Edit_Del_MouseUp(object sender, MouseEventArgs e)
         {
             mouseDown = false;
+        }
+
+        //================================================================================================================================================//
+        // ORDER PLACED CHECKBOX                                                                                                                          //
+        //================================================================================================================================================//
+        private void Cb_QED_OrderPlaced_OnChange(object sender, EventArgs e)
+        {
+            bool matchFound = false;
+            if (cb_QED_OrderPlaced.Checked)
+            {
+                using (SqlConnection conn = DBUtils.GetDBConnection())
+                {
+                    conn.Open();
+                    try
+                    {
+                        // Generates string array with QNum values from Projects
+                        SqlDataAdapter da = new SqlDataAdapter("SELECT QNum FROM Projects", conn);
+                        DataSet ds = new DataSet();
+                        da.Fill(ds);
+                        List<string> keyValues = new List<string>();
+                        foreach (DataRow row in ds.Tables[0].Rows)
+                        {
+                            keyValues.Add(row["QNum"].ToString());
+                        }
+
+                        // Checks if there exists a project with the same QNum as on the Q_Add form
+                        foreach (string key in keyValues)
+                        {
+                            if (txt_QED_QNum.Text.Equals(key))
+                            {
+                                matchFound = true;
+                            }
+                        }
+
+                        // If there is no match found then create a blank project in Projects table
+                        if (!matchFound)
+                        {
+                            // Obtains project IDs to obtain the last known entry for Projects to generate a new project ID
+                            projDT = ((Projects)((Home)this.Owner).GetCurForm()).GetProjects();
+
+                            int CCode = 0;
+                            string projCode;
+                            foreach (DataRow row in projDT.Rows)
+                            {
+                                string[] strArray = row["Project_ID"].ToString().Trim().Split('_');
+
+                                int x = 0;
+
+                                if (strArray[1].Equals(txt_QED_CCode.Text))
+                                    x = Convert.ToInt32(strArray[0].Remove(0, 1));
+
+                                if (x > CCode)
+                                    CCode = x;
+                            }
+                            projCode = "P" + (CCode + 1).ToString("000") + "_" + txt_QED_CCode.Text;
+
+                            // Inserts the new project
+                            using (SqlCommand cmd = new SqlCommand("INSERT INTO Projects VALUES (@ProjID, @Date, @ClientCode, @ClientName, @Desc, @QNum)", conn))
+                            {
+                                cmd.Parameters.AddWithValue("@ProjID", projCode.Trim());
+                                //cmd.Parameters.AddWithValue("@Date", dtp_PA_Date.Value);
+                                cmd.Parameters.AddWithValue("@ClientCode", txt_QED_CCode.Text.Trim());
+                                cmd.Parameters.AddWithValue("@ClientName", txt_QED_CName.Text.Trim());
+                                //cmd.Parameters.AddWithValue("@Desc", txt_PA_Desc.Text.Trim());
+                                cmd.Parameters.AddWithValue("@QNum", txt_QED_QNum.Text.Trim());
+                                cmd.ExecuteNonQuery();
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
         }
     }
 }

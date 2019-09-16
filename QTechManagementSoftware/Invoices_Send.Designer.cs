@@ -175,6 +175,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgv_LInvSent.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_LInvSent.ColumnHeadersHeight = 25;
+            this.dgv_LInvSent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgv_LInvSent.DateWithTime = false;
             this.dgv_LInvSent.EnableHeadersVisualStyles = false;
             this.dgv_LInvSent.Location = new System.Drawing.Point(0, 277);

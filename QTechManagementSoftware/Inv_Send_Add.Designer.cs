@@ -146,7 +146,7 @@
             // 
             // ln_ISA_INInst
             // 
-            this.ln_ISA_INInst.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.ln_ISA_INInst.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ln_ISA_INInst.BackColor = System.Drawing.Color.Transparent;
             this.ln_ISA_INInst.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
@@ -161,7 +161,7 @@
             // 
             // txt_ISA_INInst
             // 
-            this.txt_ISA_INInst.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txt_ISA_INInst.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_ISA_INInst.BackColor = System.Drawing.Color.Silver;
             this.txt_ISA_INInst.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -289,7 +289,7 @@
             // 
             // ln_ISA_VAT
             // 
-            this.ln_ISA_VAT.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.ln_ISA_VAT.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ln_ISA_VAT.BackColor = System.Drawing.Color.Transparent;
             this.ln_ISA_VAT.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
@@ -304,7 +304,7 @@
             // 
             // txt_ISA_VAT
             // 
-            this.txt_ISA_VAT.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txt_ISA_VAT.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_ISA_VAT.BackColor = System.Drawing.Color.Silver;
             this.txt_ISA_VAT.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -330,7 +330,7 @@
             // 
             // ln_ISA_InvNum
             // 
-            this.ln_ISA_InvNum.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.ln_ISA_InvNum.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ln_ISA_InvNum.BackColor = System.Drawing.Color.Transparent;
             this.ln_ISA_InvNum.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
@@ -345,7 +345,7 @@
             // 
             // txt_ISA_InvNum
             // 
-            this.txt_ISA_InvNum.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txt_ISA_InvNum.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_ISA_InvNum.BackColor = System.Drawing.Color.Silver;
             this.txt_ISA_InvNum.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -370,7 +370,7 @@
             // 
             // ln_ISA_Amt
             // 
-            this.ln_ISA_Amt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.ln_ISA_Amt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ln_ISA_Amt.BackColor = System.Drawing.Color.Transparent;
             this.ln_ISA_Amt.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
@@ -385,7 +385,7 @@
             // 
             // txt_ISA_Amt
             // 
-            this.txt_ISA_Amt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txt_ISA_Amt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_ISA_Amt.BackColor = System.Drawing.Color.Silver;
             this.txt_ISA_Amt.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -411,7 +411,7 @@
             // 
             // ln_ISA_Desc
             // 
-            this.ln_ISA_Desc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.ln_ISA_Desc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ln_ISA_Desc.BackColor = System.Drawing.Color.Transparent;
             this.ln_ISA_Desc.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
@@ -426,7 +426,7 @@
             // 
             // txt_ISA_Desc
             // 
-            this.txt_ISA_Desc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txt_ISA_Desc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_ISA_Desc.BackColor = System.Drawing.Color.Silver;
             this.txt_ISA_Desc.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -614,6 +614,7 @@
             this.gb_ISA_CDetails.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion

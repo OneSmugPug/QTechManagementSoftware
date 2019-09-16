@@ -198,8 +198,8 @@
             this.dgv_IQuotes.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightGray;
             this.dgv_IQuotes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgv_IQuotes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.dgv_IQuotes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv_IQuotes.AutoGenerateContextFilters = true;
             this.dgv_IQuotes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -214,7 +214,8 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgv_IQuotes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgv_IQuotes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_IQuotes.ColumnHeadersHeight = 25;
+            this.dgv_IQuotes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgv_IQuotes.DateWithTime = false;
             this.dgv_IQuotes.EnableHeadersVisualStyles = false;
             this.dgv_IQuotes.Location = new System.Drawing.Point(0, 279);
@@ -348,6 +349,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv_IQuotes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion

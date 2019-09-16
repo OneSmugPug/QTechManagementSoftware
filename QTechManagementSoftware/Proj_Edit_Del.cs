@@ -4,6 +4,8 @@ using System.Drawing;
 using System.Windows.Forms;
 using QTechManagementSoftware.Properties;
 using System;
+using System.IO;
+using System.Linq;
 
 namespace QTechManagementSoftware
 {
@@ -11,6 +13,7 @@ namespace QTechManagementSoftware
     {
         private bool mouseDown = false;
         private DataTable dt;
+        DataTable folderNamesDt;
         private static int SELECTED_PROJECT;
         private Point lastLocation;
 
@@ -234,6 +237,55 @@ namespace QTechManagementSoftware
         private void Proj_Edit_Del_MouseUp(object sender, MouseEventArgs e)
         {
             mouseDown = false;
+        }
+
+        //================================================================================================================================================//
+        // CREATE PROJECT FOLDERS BUTTON                                                                                                                  //
+        //================================================================================================================================================//
+        private void Btn_PED_CreateProjFolder_Click(object sender, EventArgs e)
+        {
+            bool matchFound = false;
+            string Dpath = @"\\192.168.8.121\Projects\";
+            string searchPattern = "*.*";
+            folderNamesDt = new DataTable();
+            folderNamesDt.Columns.Add("FileName");
+            DataRow dRow;
+
+            // Populates a data table with folder names and checks if a folder with the current project code exists and updates matchedFound
+            var resultData = Directory.GetFiles(Dpath, searchPattern, SearchOption.AllDirectories)
+                .Select(x => new { FileName = Path.GetFileName(x), FilePath = x });
+            foreach (var item in resultData)
+            {
+                dRow = folderNamesDt.NewRow();
+                dRow["FileName"] = item.FileName;
+                folderNamesDt.Rows.Add(dRow);
+
+                if (item.FileName.Contains(txt_PED_ProjCode.Text)) // Check for exstra conditions **
+                {
+                    matchFound = true;
+                }
+            }
+
+            // 
+
+
+            if (!matchFound)
+            {
+                // Obtains the last entry to generate a new 4-digit code prefix folder name
+                int FCode = 0;
+                string newFolderName;
+                foreach (DataRow row in folderNamesDt.Rows)
+                {
+                    string[] strArray = row["FileName"].ToString().Trim().Split('_');
+
+                    int x = Convert.ToInt32(strArray[0].Remove(0, 1));
+
+                    if (x > FCode)
+                        FCode = x;
+                }
+                newFolderName = (FCode + 1).ToString("000") + "_" + txt_PED_ProjCode.Text + "_" + txt_PED_Desc.Text;
+            }
+            
         }
     }
 }

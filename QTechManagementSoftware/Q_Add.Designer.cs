@@ -233,7 +233,7 @@
             // 
             // ln_QA_CONum
             // 
-            this.ln_QA_CONum.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.ln_QA_CONum.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ln_QA_CONum.BackColor = System.Drawing.Color.Transparent;
             this.ln_QA_CONum.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
@@ -248,7 +248,7 @@
             // 
             // txt_QA_QNum
             // 
-            this.txt_QA_QNum.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txt_QA_QNum.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_QA_QNum.BackColor = System.Drawing.Color.Silver;
             this.txt_QA_QNum.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -274,7 +274,7 @@
             // 
             // ln_QA_Desc
             // 
-            this.ln_QA_Desc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.ln_QA_Desc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ln_QA_Desc.BackColor = System.Drawing.Color.Transparent;
             this.ln_QA_Desc.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
@@ -289,7 +289,7 @@
             // 
             // txt_QA_Desc
             // 
-            this.txt_QA_Desc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txt_QA_Desc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_QA_Desc.BackColor = System.Drawing.Color.Silver;
             this.txt_QA_Desc.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -314,6 +314,7 @@
             this.cb_QA_OrderPlaced.Name = "cb_QA_OrderPlaced";
             this.cb_QA_OrderPlaced.Size = new System.Drawing.Size(20, 20);
             this.cb_QA_OrderPlaced.TabIndex = 4;
+            this.cb_QA_OrderPlaced.OnChange += new System.EventHandler(this.Cb_QA_OrderPlaced_OnChange);
             // 
             // bunifuCustomLabel6
             // 
@@ -406,6 +407,7 @@
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion

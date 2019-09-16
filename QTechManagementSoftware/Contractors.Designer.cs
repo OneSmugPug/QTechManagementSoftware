@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Contractors));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Contractors));
             this.txt_C_TotPaid = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txt_C_TotHours = new System.Windows.Forms.TextBox();
@@ -166,7 +166,7 @@
             // 
             // bunifuSeparator1
             // 
-            this.bunifuSeparator1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.bunifuSeparator1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.bunifuSeparator1.BackColor = System.Drawing.Color.Transparent;
             this.bunifuSeparator1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
@@ -331,7 +331,6 @@
             this.btn_C_Edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_C_Edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_C_Edit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btn_C_Edit.Image = ((System.Drawing.Image)(resources.GetObject("btn_C_Edit.Image")));
             this.btn_C_Edit.Location = new System.Drawing.Point(261, 161);
             this.btn_C_Edit.Name = "btn_C_Edit";
             this.btn_C_Edit.Size = new System.Drawing.Size(149, 40);
@@ -353,7 +352,6 @@
             this.btn_C_Prev.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_C_Prev.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_C_Prev.ForeColor = System.Drawing.Color.White;
-            this.btn_C_Prev.Image = ((System.Drawing.Image)(resources.GetObject("btn_C_Prev.Image")));
             this.btn_C_Prev.Location = new System.Drawing.Point(18, 21);
             this.btn_C_Prev.Name = "btn_C_Prev";
             this.btn_C_Prev.Size = new System.Drawing.Size(49, 149);
@@ -372,7 +370,6 @@
             this.btn_C_Next.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_C_Next.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_C_Next.ForeColor = System.Drawing.Color.White;
-            this.btn_C_Next.Image = ((System.Drawing.Image)(resources.GetObject("btn_C_Next.Image")));
             this.btn_C_Next.Location = new System.Drawing.Point(898, 21);
             this.btn_C_Next.Name = "btn_C_Next";
             this.btn_C_Next.Size = new System.Drawing.Size(49, 149);
@@ -390,7 +387,6 @@
             this.btn_C_SelCon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_C_SelCon.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_C_SelCon.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btn_C_SelCon.Image = ((System.Drawing.Image)(resources.GetObject("btn_C_SelCon.Image")));
             this.btn_C_SelCon.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btn_C_SelCon.Location = new System.Drawing.Point(722, 161);
             this.btn_C_SelCon.Name = "btn_C_SelCon";
@@ -411,7 +407,6 @@
             this.btn_C_Filter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_C_Filter.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_C_Filter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btn_C_Filter.Image = ((System.Drawing.Image)(resources.GetObject("btn_C_Filter.Image")));
             this.btn_C_Filter.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btn_C_Filter.Location = new System.Drawing.Point(554, 232);
             this.btn_C_Filter.Name = "btn_C_Filter";
@@ -517,8 +512,8 @@
             this.dgv_Contractors.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightGray;
             this.dgv_Contractors.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgv_Contractors.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.dgv_Contractors.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv_Contractors.AutoGenerateContextFilters = true;
             this.dgv_Contractors.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -533,7 +528,8 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgv_Contractors.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgv_Contractors.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_Contractors.ColumnHeadersHeight = 25;
+            this.dgv_Contractors.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgv_Contractors.DateWithTime = false;
             this.dgv_Contractors.EnableHeadersVisualStyles = false;
             this.dgv_Contractors.Location = new System.Drawing.Point(1, 277);
@@ -634,6 +630,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txt_C_TotPaid);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(963, 618);
             this.Name = "Contractors";
             this.Text = "Contractors";
@@ -642,6 +639,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Contractors)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion

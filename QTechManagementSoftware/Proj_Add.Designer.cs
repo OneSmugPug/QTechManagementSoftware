@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Proj_Add));
             this.btn_PA_Cancel = new System.Windows.Forms.Button();
             this.btn_PA_Done = new System.Windows.Forms.Button();
             this.btn_PA_Close = new System.Windows.Forms.Button();
@@ -200,7 +201,7 @@
             // 
             // ln_PA_ProjCode
             // 
-            this.ln_PA_ProjCode.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.ln_PA_ProjCode.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ln_PA_ProjCode.BackColor = System.Drawing.Color.Transparent;
             this.ln_PA_ProjCode.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
@@ -215,7 +216,7 @@
             // 
             // txt_PA_ProjCode
             // 
-            this.txt_PA_ProjCode.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txt_PA_ProjCode.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_PA_ProjCode.BackColor = System.Drawing.Color.Silver;
             this.txt_PA_ProjCode.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -240,7 +241,7 @@
             // 
             // ln_PA_Desc
             // 
-            this.ln_PA_Desc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.ln_PA_Desc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ln_PA_Desc.BackColor = System.Drawing.Color.Transparent;
             this.ln_PA_Desc.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
@@ -255,7 +256,7 @@
             // 
             // txt_PA_Desc
             // 
-            this.txt_PA_Desc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txt_PA_Desc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_PA_Desc.BackColor = System.Drawing.Color.Silver;
             this.txt_PA_Desc.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -280,7 +281,7 @@
             // 
             // ln_PA_QNum
             // 
-            this.ln_PA_QNum.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.ln_PA_QNum.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ln_PA_QNum.BackColor = System.Drawing.Color.Transparent;
             this.ln_PA_QNum.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
@@ -296,7 +297,7 @@
             // 
             // txt_PA_QNum
             // 
-            this.txt_PA_QNum.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txt_PA_QNum.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_PA_QNum.BackColor = System.Drawing.Color.Silver;
             this.txt_PA_QNum.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -411,6 +412,7 @@
             this.Controls.Add(this.btn_PA_Done);
             this.Controls.Add(this.btn_PA_Cancel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Proj_Add";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Proj_Add";
@@ -430,6 +432,7 @@
             this.gb_OA_CDetails.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion

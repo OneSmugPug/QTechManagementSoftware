@@ -31,6 +31,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Proj_AddExp));
             this.btn_PAE_RemoveLine = new System.Windows.Forms.Button();
             this.lblTotDol = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.txt_PAE_TotDol = new System.Windows.Forms.TextBox();
@@ -111,8 +112,8 @@
             this.dgv_ProjAddExp.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightGray;
             this.dgv_ProjAddExp.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgv_ProjAddExp.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.dgv_ProjAddExp.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv_ProjAddExp.AutoGenerateContextFilters = true;
             this.dgv_ProjAddExp.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -128,6 +129,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgv_ProjAddExp.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_ProjAddExp.ColumnHeadersHeight = 25;
+            this.dgv_ProjAddExp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgv_ProjAddExp.DateWithTime = false;
             this.dgv_ProjAddExp.Location = new System.Drawing.Point(0, 56);
             this.dgv_ProjAddExp.Name = "dgv_ProjAddExp";
@@ -327,6 +329,7 @@
             this.Controls.Add(this.lblTotDol);
             this.Controls.Add(this.btn_PAE_RemoveLine);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Proj_AddExp";
             this.Text = "Proj_AddExp";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -334,6 +337,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv_ProjAddExp)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion

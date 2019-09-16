@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(New_Expense));
             this.pnl_NE_User = new System.Windows.Forms.Panel();
             this.ln_NE_User = new Bunifu.Framework.UI.BunifuSeparator();
             this.txt_NE_User = new System.Windows.Forms.TextBox();
@@ -62,7 +63,7 @@
             // 
             // ln_NE_User
             // 
-            this.ln_NE_User.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.ln_NE_User.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ln_NE_User.BackColor = System.Drawing.Color.Transparent;
             this.ln_NE_User.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
@@ -77,7 +78,7 @@
             // 
             // txt_NE_User
             // 
-            this.txt_NE_User.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txt_NE_User.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_NE_User.BackColor = System.Drawing.Color.Silver;
             this.txt_NE_User.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -102,7 +103,7 @@
             // 
             // ln_NE_Val
             // 
-            this.ln_NE_Val.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.ln_NE_Val.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ln_NE_Val.BackColor = System.Drawing.Color.Transparent;
             this.ln_NE_Val.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
@@ -117,7 +118,7 @@
             // 
             // txt_NE_Val
             // 
-            this.txt_NE_Val.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txt_NE_Val.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_NE_Val.BackColor = System.Drawing.Color.Silver;
             this.txt_NE_Val.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -142,7 +143,7 @@
             // 
             // ln_NE_Desc
             // 
-            this.ln_NE_Desc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.ln_NE_Desc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ln_NE_Desc.BackColor = System.Drawing.Color.Transparent;
             this.ln_NE_Desc.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
@@ -157,7 +158,7 @@
             // 
             // txt_NE_Desc
             // 
-            this.txt_NE_Desc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txt_NE_Desc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_NE_Desc.BackColor = System.Drawing.Color.Silver;
             this.txt_NE_Desc.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -316,6 +317,7 @@
             this.Controls.Add(this.pnl_NE_Val);
             this.Controls.Add(this.pnl_NE_User);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "New_Expense";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "New_Expense";
@@ -331,6 +333,7 @@
             this.pnl_NE_Desc.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion

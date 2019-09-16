@@ -28,35 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Proj_Edit_Del));
             this.btn_PED_Cancel = new System.Windows.Forms.Button();
             this.btn_PED_Done = new System.Windows.Forms.Button();
             this.btn_PED_Close = new System.Windows.Forms.Button();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.gb_OA_ODetails = new System.Windows.Forms.GroupBox();
-            this.gb_OA_CDetails = new System.Windows.Forms.GroupBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.txt_PED_QNum = new System.Windows.Forms.TextBox();
-            this.ln_PED_QNum = new Bunifu.Framework.UI.BunifuSeparator();
-            this.txt_PED_Desc = new System.Windows.Forms.TextBox();
-            this.ln_PED_Desc = new Bunifu.Framework.UI.BunifuSeparator();
-            this.txt_PED_ProjCode = new System.Windows.Forms.TextBox();
-            this.ln_PED_ProjCode = new Bunifu.Framework.UI.BunifuSeparator();
-            this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.bunifuCustomLabel3 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.bunifuCustomLabel4 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.bunifuCustomLabel5 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.dtp_PED_Date = new Bunifu.Framework.UI.BunifuDatepicker();
-            this.txt_PED_CCode = new Bunifu.Framework.UI.BunifuMaterialTextbox();
-            this.txt_PED_CName = new Bunifu.Framework.UI.BunifuMaterialTextbox();
-            this.bunifuCustomLabel6 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.bunifuCustomLabel5 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.bunifuCustomLabel4 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.bunifuCustomLabel3 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.ln_PED_ProjCode = new Bunifu.Framework.UI.BunifuSeparator();
+            this.txt_PED_ProjCode = new System.Windows.Forms.TextBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.ln_PED_Desc = new Bunifu.Framework.UI.BunifuSeparator();
+            this.txt_PED_Desc = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.ln_PED_QNum = new Bunifu.Framework.UI.BunifuSeparator();
+            this.txt_PED_QNum = new System.Windows.Forms.TextBox();
+            this.gb_OA_CDetails = new System.Windows.Forms.GroupBox();
             this.bunifuCustomLabel7 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.bunifuCustomLabel6 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.txt_PED_CName = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.txt_PED_CCode = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.btn_PED_CreateProjFolder = new System.Windows.Forms.Button();
             this.gb_OA_ODetails.SuspendLayout();
-            this.gb_OA_CDetails.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.gb_OA_CDetails.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_PED_Cancel
@@ -143,38 +145,62 @@
             this.gb_OA_ODetails.TabStop = false;
             this.gb_OA_ODetails.Text = "Project Details";
             // 
-            // gb_OA_CDetails
+            // dtp_PED_Date
             // 
-            this.gb_OA_CDetails.Controls.Add(this.bunifuCustomLabel7);
-            this.gb_OA_CDetails.Controls.Add(this.bunifuCustomLabel6);
-            this.gb_OA_CDetails.Controls.Add(this.txt_PED_CName);
-            this.gb_OA_CDetails.Controls.Add(this.txt_PED_CCode);
-            this.gb_OA_CDetails.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.gb_OA_CDetails.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.gb_OA_CDetails.Location = new System.Drawing.Point(11, 42);
-            this.gb_OA_CDetails.Name = "gb_OA_CDetails";
-            this.gb_OA_CDetails.Size = new System.Drawing.Size(698, 59);
-            this.gb_OA_CDetails.TabIndex = 5;
-            this.gb_OA_CDetails.TabStop = false;
-            this.gb_OA_CDetails.Text = "Client Details";
+            this.dtp_PED_Date.BackColor = System.Drawing.Color.Silver;
+            this.dtp_PED_Date.BorderRadius = 0;
+            this.dtp_PED_Date.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
+            this.dtp_PED_Date.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtp_PED_Date.FormatCustom = null;
+            this.dtp_PED_Date.Location = new System.Drawing.Point(438, 26);
+            this.dtp_PED_Date.Name = "dtp_PED_Date";
+            this.dtp_PED_Date.Size = new System.Drawing.Size(238, 25);
+            this.dtp_PED_Date.TabIndex = 7;
+            this.dtp_PED_Date.Value = new System.DateTime(2019, 9, 13, 12, 47, 36, 274);
             // 
-            // panel1
+            // bunifuCustomLabel5
             // 
-            this.panel1.Controls.Add(this.ln_PED_QNum);
-            this.panel1.Controls.Add(this.txt_PED_QNum);
-            this.panel1.Location = new System.Drawing.Point(129, 90);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(156, 26);
-            this.panel1.TabIndex = 0;
+            this.bunifuCustomLabel5.AutoSize = true;
+            this.bunifuCustomLabel5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.bunifuCustomLabel5.Location = new System.Drawing.Point(30, 27);
+            this.bunifuCustomLabel5.Name = "bunifuCustomLabel5";
+            this.bunifuCustomLabel5.Size = new System.Drawing.Size(93, 17);
+            this.bunifuCustomLabel5.TabIndex = 6;
+            this.bunifuCustomLabel5.Text = "Project Code:";
             // 
-            // panel2
+            // bunifuCustomLabel4
             // 
-            this.panel2.Controls.Add(this.ln_PED_Desc);
-            this.panel2.Controls.Add(this.txt_PED_Desc);
-            this.panel2.Location = new System.Drawing.Point(129, 56);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(547, 27);
-            this.panel2.TabIndex = 1;
+            this.bunifuCustomLabel4.AutoSize = true;
+            this.bunifuCustomLabel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.bunifuCustomLabel4.Location = new System.Drawing.Point(390, 29);
+            this.bunifuCustomLabel4.Name = "bunifuCustomLabel4";
+            this.bunifuCustomLabel4.Size = new System.Drawing.Size(42, 17);
+            this.bunifuCustomLabel4.TabIndex = 5;
+            this.bunifuCustomLabel4.Text = "Date:";
+            // 
+            // bunifuCustomLabel3
+            // 
+            this.bunifuCustomLabel3.AutoSize = true;
+            this.bunifuCustomLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.bunifuCustomLabel3.Location = new System.Drawing.Point(40, 62);
+            this.bunifuCustomLabel3.Name = "bunifuCustomLabel3";
+            this.bunifuCustomLabel3.Size = new System.Drawing.Size(79, 17);
+            this.bunifuCustomLabel3.TabIndex = 4;
+            this.bunifuCustomLabel3.Text = "Description";
+            // 
+            // bunifuCustomLabel2
+            // 
+            this.bunifuCustomLabel2.AutoSize = true;
+            this.bunifuCustomLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.bunifuCustomLabel2.Location = new System.Drawing.Point(18, 95);
+            this.bunifuCustomLabel2.Name = "bunifuCustomLabel2";
+            this.bunifuCustomLabel2.Size = new System.Drawing.Size(105, 17);
+            this.bunifuCustomLabel2.TabIndex = 3;
+            this.bunifuCustomLabel2.Text = "Quote Number:";
             // 
             // panel3
             // 
@@ -185,73 +211,24 @@
             this.panel3.Size = new System.Drawing.Size(210, 27);
             this.panel3.TabIndex = 2;
             // 
-            // txt_PED_QNum
+            // ln_PED_ProjCode
             // 
-            this.txt_PED_QNum.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.ln_PED_ProjCode.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_PED_QNum.BackColor = System.Drawing.Color.Silver;
-            this.txt_PED_QNum.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_PED_QNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_PED_QNum.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.txt_PED_QNum.Location = new System.Drawing.Point(2, 6);
-            this.txt_PED_QNum.Name = "txt_PED_QNum";
-            this.txt_PED_QNum.ReadOnly = true;
-            this.txt_PED_QNum.Size = new System.Drawing.Size(153, 16);
-            this.txt_PED_QNum.TabIndex = 0;
-            this.txt_PED_QNum.TabStop = false;
-            this.txt_PED_QNum.Leave += new System.EventHandler(this.Txt_PED_QNum_Leave);
-            this.txt_PED_QNum.MouseEnter += new System.EventHandler(this.Txt_PED_QNum_MouseEnter);
-            this.txt_PED_QNum.MouseLeave += new System.EventHandler(this.Txt_PED_QNum_MouseLeave);
-            // 
-            // ln_PED_QNum
-            // 
-            this.ln_PED_QNum.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ln_PED_QNum.BackColor = System.Drawing.Color.Transparent;
-            this.ln_PED_QNum.LineColor = System.Drawing.Color.Gray;
-            this.ln_PED_QNum.LineThickness = 1;
-            this.ln_PED_QNum.Location = new System.Drawing.Point(-1, 18);
-            this.ln_PED_QNum.Name = "ln_PED_QNum";
-            this.ln_PED_QNum.Size = new System.Drawing.Size(158, 10);
-            this.ln_PED_QNum.TabIndex = 1;
-            this.ln_PED_QNum.TabStop = false;
-            this.ln_PED_QNum.Transparency = 255;
-            this.ln_PED_QNum.Vertical = false;
-            // 
-            // txt_PED_Desc
-            // 
-            this.txt_PED_Desc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_PED_Desc.BackColor = System.Drawing.Color.Silver;
-            this.txt_PED_Desc.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_PED_Desc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_PED_Desc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.txt_PED_Desc.Location = new System.Drawing.Point(2, 7);
-            this.txt_PED_Desc.Name = "txt_PED_Desc";
-            this.txt_PED_Desc.Size = new System.Drawing.Size(935, 16);
-            this.txt_PED_Desc.TabIndex = 0;
-            this.txt_PED_Desc.Leave += new System.EventHandler(this.Txt_PED_Desc_Leave);
-            this.txt_PED_Desc.MouseEnter += new System.EventHandler(this.Txt_PED_Desc_MouseEnter);
-            this.txt_PED_Desc.MouseLeave += new System.EventHandler(this.Txt_PED_Desc_MouseLeave);
-            // 
-            // ln_PED_Desc
-            // 
-            this.ln_PED_Desc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ln_PED_Desc.BackColor = System.Drawing.Color.Transparent;
-            this.ln_PED_Desc.LineColor = System.Drawing.Color.Gray;
-            this.ln_PED_Desc.LineThickness = 1;
-            this.ln_PED_Desc.Location = new System.Drawing.Point(-1, 18);
-            this.ln_PED_Desc.Name = "ln_PED_Desc";
-            this.ln_PED_Desc.Size = new System.Drawing.Size(930, 10);
-            this.ln_PED_Desc.TabIndex = 1;
-            this.ln_PED_Desc.TabStop = false;
-            this.ln_PED_Desc.Transparency = 255;
-            this.ln_PED_Desc.Vertical = false;
+            this.ln_PED_ProjCode.BackColor = System.Drawing.Color.Transparent;
+            this.ln_PED_ProjCode.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.ln_PED_ProjCode.LineThickness = 1;
+            this.ln_PED_ProjCode.Location = new System.Drawing.Point(-1, 18);
+            this.ln_PED_ProjCode.Name = "ln_PED_ProjCode";
+            this.ln_PED_ProjCode.Size = new System.Drawing.Size(222, 10);
+            this.ln_PED_ProjCode.TabIndex = 1;
+            this.ln_PED_ProjCode.TabStop = false;
+            this.ln_PED_ProjCode.Transparency = 255;
+            this.ln_PED_ProjCode.Vertical = false;
             // 
             // txt_PED_ProjCode
             // 
-            this.txt_PED_ProjCode.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txt_PED_ProjCode.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_PED_ProjCode.BackColor = System.Drawing.Color.Silver;
             this.txt_PED_ProjCode.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -267,99 +244,124 @@
             this.txt_PED_ProjCode.MouseEnter += new System.EventHandler(this.Txt_PED_ProjCode_MouseEnter);
             this.txt_PED_ProjCode.MouseLeave += new System.EventHandler(this.Txt_PED_ProjCode_MouseLeave);
             // 
-            // ln_PED_ProjCode
+            // panel2
             // 
-            this.ln_PED_ProjCode.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.panel2.Controls.Add(this.ln_PED_Desc);
+            this.panel2.Controls.Add(this.txt_PED_Desc);
+            this.panel2.Location = new System.Drawing.Point(129, 56);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(547, 27);
+            this.panel2.TabIndex = 1;
+            // 
+            // ln_PED_Desc
+            // 
+            this.ln_PED_Desc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.ln_PED_ProjCode.BackColor = System.Drawing.Color.Transparent;
-            this.ln_PED_ProjCode.LineColor = System.Drawing.Color.Gray;
-            this.ln_PED_ProjCode.LineThickness = 1;
-            this.ln_PED_ProjCode.Location = new System.Drawing.Point(-1, 18);
-            this.ln_PED_ProjCode.Name = "ln_PED_ProjCode";
-            this.ln_PED_ProjCode.Size = new System.Drawing.Size(222, 10);
-            this.ln_PED_ProjCode.TabIndex = 1;
-            this.ln_PED_ProjCode.TabStop = false;
-            this.ln_PED_ProjCode.Transparency = 255;
-            this.ln_PED_ProjCode.Vertical = false;
+            this.ln_PED_Desc.BackColor = System.Drawing.Color.Transparent;
+            this.ln_PED_Desc.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.ln_PED_Desc.LineThickness = 1;
+            this.ln_PED_Desc.Location = new System.Drawing.Point(-1, 18);
+            this.ln_PED_Desc.Name = "ln_PED_Desc";
+            this.ln_PED_Desc.Size = new System.Drawing.Size(548, 10);
+            this.ln_PED_Desc.TabIndex = 1;
+            this.ln_PED_Desc.TabStop = false;
+            this.ln_PED_Desc.Transparency = 255;
+            this.ln_PED_Desc.Vertical = false;
             // 
-            // bunifuCustomLabel2
+            // txt_PED_Desc
             // 
-            this.bunifuCustomLabel2.AutoSize = true;
-            this.bunifuCustomLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bunifuCustomLabel2.Location = new System.Drawing.Point(18, 95);
-            this.bunifuCustomLabel2.Name = "bunifuCustomLabel2";
-            this.bunifuCustomLabel2.Size = new System.Drawing.Size(105, 17);
-            this.bunifuCustomLabel2.TabIndex = 3;
-            this.bunifuCustomLabel2.Text = "Quote Number:";
+            this.txt_PED_Desc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_PED_Desc.BackColor = System.Drawing.Color.Silver;
+            this.txt_PED_Desc.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_PED_Desc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_PED_Desc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
+            this.txt_PED_Desc.Location = new System.Drawing.Point(2, 7);
+            this.txt_PED_Desc.Name = "txt_PED_Desc";
+            this.txt_PED_Desc.Size = new System.Drawing.Size(547, 16);
+            this.txt_PED_Desc.TabIndex = 0;
+            this.txt_PED_Desc.Leave += new System.EventHandler(this.Txt_PED_Desc_Leave);
+            this.txt_PED_Desc.MouseEnter += new System.EventHandler(this.Txt_PED_Desc_MouseEnter);
+            this.txt_PED_Desc.MouseLeave += new System.EventHandler(this.Txt_PED_Desc_MouseLeave);
             // 
-            // bunifuCustomLabel3
+            // panel1
             // 
-            this.bunifuCustomLabel3.AutoSize = true;
-            this.bunifuCustomLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bunifuCustomLabel3.Location = new System.Drawing.Point(40, 62);
-            this.bunifuCustomLabel3.Name = "bunifuCustomLabel3";
-            this.bunifuCustomLabel3.Size = new System.Drawing.Size(79, 17);
-            this.bunifuCustomLabel3.TabIndex = 4;
-            this.bunifuCustomLabel3.Text = "Description";
+            this.panel1.Controls.Add(this.ln_PED_QNum);
+            this.panel1.Controls.Add(this.txt_PED_QNum);
+            this.panel1.Location = new System.Drawing.Point(129, 90);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(156, 26);
+            this.panel1.TabIndex = 0;
             // 
-            // bunifuCustomLabel4
+            // ln_PED_QNum
             // 
-            this.bunifuCustomLabel4.AutoSize = true;
-            this.bunifuCustomLabel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bunifuCustomLabel4.Location = new System.Drawing.Point(390, 29);
-            this.bunifuCustomLabel4.Name = "bunifuCustomLabel4";
-            this.bunifuCustomLabel4.Size = new System.Drawing.Size(42, 17);
-            this.bunifuCustomLabel4.TabIndex = 5;
-            this.bunifuCustomLabel4.Text = "Date:";
+            this.ln_PED_QNum.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ln_PED_QNum.BackColor = System.Drawing.Color.Transparent;
+            this.ln_PED_QNum.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.ln_PED_QNum.LineThickness = 1;
+            this.ln_PED_QNum.Location = new System.Drawing.Point(-1, 18);
+            this.ln_PED_QNum.Name = "ln_PED_QNum";
+            this.ln_PED_QNum.Size = new System.Drawing.Size(158, 10);
+            this.ln_PED_QNum.TabIndex = 1;
+            this.ln_PED_QNum.TabStop = false;
+            this.ln_PED_QNum.Transparency = 255;
+            this.ln_PED_QNum.Vertical = false;
             // 
-            // bunifuCustomLabel5
+            // txt_PED_QNum
             // 
-            this.bunifuCustomLabel5.AutoSize = true;
-            this.bunifuCustomLabel5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bunifuCustomLabel5.Location = new System.Drawing.Point(30, 27);
-            this.bunifuCustomLabel5.Name = "bunifuCustomLabel5";
-            this.bunifuCustomLabel5.Size = new System.Drawing.Size(93, 17);
-            this.bunifuCustomLabel5.TabIndex = 6;
-            this.bunifuCustomLabel5.Text = "Project Code:";
+            this.txt_PED_QNum.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_PED_QNum.BackColor = System.Drawing.Color.Silver;
+            this.txt_PED_QNum.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_PED_QNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_PED_QNum.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
+            this.txt_PED_QNum.Location = new System.Drawing.Point(2, 6);
+            this.txt_PED_QNum.Name = "txt_PED_QNum";
+            this.txt_PED_QNum.ReadOnly = true;
+            this.txt_PED_QNum.Size = new System.Drawing.Size(153, 16);
+            this.txt_PED_QNum.TabIndex = 0;
+            this.txt_PED_QNum.TabStop = false;
+            this.txt_PED_QNum.Leave += new System.EventHandler(this.Txt_PED_QNum_Leave);
+            this.txt_PED_QNum.MouseEnter += new System.EventHandler(this.Txt_PED_QNum_MouseEnter);
+            this.txt_PED_QNum.MouseLeave += new System.EventHandler(this.Txt_PED_QNum_MouseLeave);
             // 
-            // dtp_PED_Date
+            // gb_OA_CDetails
             // 
-            this.dtp_PED_Date.BackColor = System.Drawing.Color.Silver;
-            this.dtp_PED_Date.BorderRadius = 0;
-            this.dtp_PED_Date.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.dtp_PED_Date.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtp_PED_Date.FormatCustom = null;
-            this.dtp_PED_Date.Location = new System.Drawing.Point(438, 26);
-            this.dtp_PED_Date.Name = "dtp_PED_Date";
-            this.dtp_PED_Date.Size = new System.Drawing.Size(238, 25);
-            this.dtp_PED_Date.TabIndex = 7;
-            this.dtp_PED_Date.Value = new System.DateTime(2019, 9, 13, 12, 47, 36, 274);
+            this.gb_OA_CDetails.Controls.Add(this.bunifuCustomLabel7);
+            this.gb_OA_CDetails.Controls.Add(this.bunifuCustomLabel6);
+            this.gb_OA_CDetails.Controls.Add(this.txt_PED_CName);
+            this.gb_OA_CDetails.Controls.Add(this.txt_PED_CCode);
+            this.gb_OA_CDetails.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.gb_OA_CDetails.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
+            this.gb_OA_CDetails.Location = new System.Drawing.Point(11, 42);
+            this.gb_OA_CDetails.Name = "gb_OA_CDetails";
+            this.gb_OA_CDetails.Size = new System.Drawing.Size(698, 59);
+            this.gb_OA_CDetails.TabIndex = 5;
+            this.gb_OA_CDetails.TabStop = false;
+            this.gb_OA_CDetails.Text = "Client Details";
             // 
-            // txt_PED_CCode
+            // bunifuCustomLabel7
             // 
-            this.txt_PED_CCode.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_PED_CCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.txt_PED_CCode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.txt_PED_CCode.HintForeColor = System.Drawing.Color.Empty;
-            this.txt_PED_CCode.HintText = "";
-            this.txt_PED_CCode.isPassword = false;
-            this.txt_PED_CCode.LineFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
-            this.txt_PED_CCode.LineIdleColor = System.Drawing.Color.Gray;
-            this.txt_PED_CCode.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
-            this.txt_PED_CCode.LineThickness = 1;
-            this.txt_PED_CCode.Location = new System.Drawing.Point(109, 15);
-            this.txt_PED_CCode.Margin = new System.Windows.Forms.Padding(4);
-            this.txt_PED_CCode.Name = "txt_PED_CCode";
-            this.txt_PED_CCode.Size = new System.Drawing.Size(202, 30);
-            this.txt_PED_CCode.TabIndex = 0;
-            this.txt_PED_CCode.TabStop = false;
-            this.txt_PED_CCode.Text = "bunifuMaterialTextbox1";
-            this.txt_PED_CCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.txt_PED_CCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Ddb_PED_CCode_KeyDown);
+            this.bunifuCustomLabel7.AutoSize = true;
+            this.bunifuCustomLabel7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.bunifuCustomLabel7.Location = new System.Drawing.Point(18, 25);
+            this.bunifuCustomLabel7.Name = "bunifuCustomLabel7";
+            this.bunifuCustomLabel7.Size = new System.Drawing.Size(84, 17);
+            this.bunifuCustomLabel7.TabIndex = 3;
+            this.bunifuCustomLabel7.Text = "Client Code:";
+            // 
+            // bunifuCustomLabel6
+            // 
+            this.bunifuCustomLabel6.AutoSize = true;
+            this.bunifuCustomLabel6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.bunifuCustomLabel6.Location = new System.Drawing.Point(359, 25);
+            this.bunifuCustomLabel6.Name = "bunifuCustomLabel6";
+            this.bunifuCustomLabel6.Size = new System.Drawing.Size(88, 17);
+            this.bunifuCustomLabel6.TabIndex = 2;
+            this.bunifuCustomLabel6.Text = "Client Name:";
             // 
             // txt_PED_CName
             // 
@@ -383,27 +385,43 @@
             this.txt_PED_CName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txt_PED_CName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Txt_PED_CName_KeyDown);
             // 
-            // bunifuCustomLabel6
+            // txt_PED_CCode
             // 
-            this.bunifuCustomLabel6.AutoSize = true;
-            this.bunifuCustomLabel6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bunifuCustomLabel6.Location = new System.Drawing.Point(359, 25);
-            this.bunifuCustomLabel6.Name = "bunifuCustomLabel6";
-            this.bunifuCustomLabel6.Size = new System.Drawing.Size(88, 17);
-            this.bunifuCustomLabel6.TabIndex = 2;
-            this.bunifuCustomLabel6.Text = "Client Name:";
+            this.txt_PED_CCode.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_PED_CCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.txt_PED_CCode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
+            this.txt_PED_CCode.HintForeColor = System.Drawing.Color.Empty;
+            this.txt_PED_CCode.HintText = "";
+            this.txt_PED_CCode.isPassword = false;
+            this.txt_PED_CCode.LineFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
+            this.txt_PED_CCode.LineIdleColor = System.Drawing.Color.Gray;
+            this.txt_PED_CCode.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
+            this.txt_PED_CCode.LineThickness = 1;
+            this.txt_PED_CCode.Location = new System.Drawing.Point(109, 15);
+            this.txt_PED_CCode.Margin = new System.Windows.Forms.Padding(4);
+            this.txt_PED_CCode.Name = "txt_PED_CCode";
+            this.txt_PED_CCode.Size = new System.Drawing.Size(202, 30);
+            this.txt_PED_CCode.TabIndex = 0;
+            this.txt_PED_CCode.TabStop = false;
+            this.txt_PED_CCode.Text = "bunifuMaterialTextbox1";
+            this.txt_PED_CCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txt_PED_CCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Ddb_PED_CCode_KeyDown);
             // 
-            // bunifuCustomLabel7
+            // btn_PED_CreateProjFolder
             // 
-            this.bunifuCustomLabel7.AutoSize = true;
-            this.bunifuCustomLabel7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bunifuCustomLabel7.Location = new System.Drawing.Point(18, 25);
-            this.bunifuCustomLabel7.Name = "bunifuCustomLabel7";
-            this.bunifuCustomLabel7.Size = new System.Drawing.Size(84, 17);
-            this.bunifuCustomLabel7.TabIndex = 3;
-            this.bunifuCustomLabel7.Text = "Client Code:";
+            this.btn_PED_CreateProjFolder.FlatAppearance.BorderSize = 0;
+            this.btn_PED_CreateProjFolder.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
+            this.btn_PED_CreateProjFolder.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
+            this.btn_PED_CreateProjFolder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_PED_CreateProjFolder.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_PED_CreateProjFolder.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btn_PED_CreateProjFolder.Location = new System.Drawing.Point(16, 255);
+            this.btn_PED_CreateProjFolder.Name = "btn_PED_CreateProjFolder";
+            this.btn_PED_CreateProjFolder.Size = new System.Drawing.Size(200, 40);
+            this.btn_PED_CreateProjFolder.TabIndex = 6;
+            this.btn_PED_CreateProjFolder.Text = "Create Project Folders";
+            this.btn_PED_CreateProjFolder.UseVisualStyleBackColor = true;
+            this.btn_PED_CreateProjFolder.Click += new System.EventHandler(this.Btn_PED_CreateProjFolder_Click);
             // 
             // Proj_Edit_Del
             // 
@@ -411,6 +429,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(720, 306);
+            this.Controls.Add(this.btn_PED_CreateProjFolder);
             this.Controls.Add(this.gb_OA_CDetails);
             this.Controls.Add(this.gb_OA_ODetails);
             this.Controls.Add(this.bunifuCustomLabel1);
@@ -418,6 +437,7 @@
             this.Controls.Add(this.btn_PED_Done);
             this.Controls.Add(this.btn_PED_Cancel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Proj_Edit_Del";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Proj_Edit_Del";
@@ -427,16 +447,17 @@
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Proj_Edit_Del_MouseUp);
             this.gb_OA_ODetails.ResumeLayout(false);
             this.gb_OA_ODetails.PerformLayout();
-            this.gb_OA_CDetails.ResumeLayout(false);
-            this.gb_OA_CDetails.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.gb_OA_CDetails.ResumeLayout(false);
+            this.gb_OA_CDetails.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion
@@ -465,5 +486,6 @@
         private Bunifu.Framework.UI.BunifuMaterialTextbox txt_PED_CCode;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel7;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel6;
+        private System.Windows.Forms.Button btn_PED_CreateProjFolder;
     }
 }

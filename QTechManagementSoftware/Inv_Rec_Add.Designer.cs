@@ -256,7 +256,7 @@
             // 
             // ln_IRA_VAT
             // 
-            this.ln_IRA_VAT.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.ln_IRA_VAT.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ln_IRA_VAT.BackColor = System.Drawing.Color.Transparent;
             this.ln_IRA_VAT.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
@@ -271,7 +271,7 @@
             // 
             // txt_IRA_VAT
             // 
-            this.txt_IRA_VAT.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txt_IRA_VAT.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_IRA_VAT.BackColor = System.Drawing.Color.Silver;
             this.txt_IRA_VAT.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -297,7 +297,7 @@
             // 
             // ln_IRA_InvNum
             // 
-            this.ln_IRA_InvNum.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.ln_IRA_InvNum.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ln_IRA_InvNum.BackColor = System.Drawing.Color.Transparent;
             this.ln_IRA_InvNum.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
@@ -312,7 +312,7 @@
             // 
             // txt_IRA_InvNum
             // 
-            this.txt_IRA_InvNum.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txt_IRA_InvNum.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_IRA_InvNum.BackColor = System.Drawing.Color.Silver;
             this.txt_IRA_InvNum.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -337,7 +337,7 @@
             // 
             // ln_IRA_Amt
             // 
-            this.ln_IRA_Amt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.ln_IRA_Amt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ln_IRA_Amt.BackColor = System.Drawing.Color.Transparent;
             this.ln_IRA_Amt.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
@@ -352,7 +352,7 @@
             // 
             // txt_IRA_Amt
             // 
-            this.txt_IRA_Amt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txt_IRA_Amt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_IRA_Amt.BackColor = System.Drawing.Color.Silver;
             this.txt_IRA_Amt.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -378,7 +378,7 @@
             // 
             // ln_IRA_Desc
             // 
-            this.ln_IRA_Desc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.ln_IRA_Desc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ln_IRA_Desc.BackColor = System.Drawing.Color.Transparent;
             this.ln_IRA_Desc.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
@@ -393,7 +393,7 @@
             // 
             // txt_IRA_Desc
             // 
-            this.txt_IRA_Desc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txt_IRA_Desc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_IRA_Desc.BackColor = System.Drawing.Color.Silver;
             this.txt_IRA_Desc.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -418,7 +418,7 @@
             // 
             // ln_IRA_SuppName
             // 
-            this.ln_IRA_SuppName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.ln_IRA_SuppName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ln_IRA_SuppName.BackColor = System.Drawing.Color.Transparent;
             this.ln_IRA_SuppName.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
@@ -433,7 +433,7 @@
             // 
             // txt_IRA_SuppName
             // 
-            this.txt_IRA_SuppName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txt_IRA_SuppName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_IRA_SuppName.BackColor = System.Drawing.Color.Silver;
             this.txt_IRA_SuppName.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -497,6 +497,7 @@
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion
