@@ -245,43 +245,41 @@ namespace QTechManagementSoftware
         private void Btn_PED_CreateProjFolder_Click(object sender, EventArgs e)
         {
             bool matchFound = false;
-            string Dpath = @"\\192.168.8.121\Projects\";
-            string searchPattern = "*.*";
+            string Dpath = @"\\192.168.8.121\Projects";
             folderNamesDt = new DataTable();
             folderNamesDt.Columns.Add("FileName");
             DataRow dRow;
 
             // Populates a data table with folder names and checks if a folder with the current project code exists and updates matchedFound
-            var resultData = Directory.GetFiles(Dpath, searchPattern, SearchOption.AllDirectories)
-                .Select(x => new { FileName = Path.GetFileName(x), FilePath = x });
-            foreach (var item in resultData)
+            DirectoryInfo di = new DirectoryInfo(Dpath);
+            DirectoryInfo[] diArr = di.GetDirectories();
+            foreach (DirectoryInfo dri in diArr)
             {
-                dRow = folderNamesDt.NewRow();
-                dRow["FileName"] = item.FileName;
-                folderNamesDt.Rows.Add(dRow);
-
-                if (item.FileName.Contains(txt_PED_ProjCode.Text)) // Check for exstra conditions **
+                if (dri.Name.Equals(txt_PED_ProjCode.Text)) // Check for exstra conditions **
                 {
                     matchFound = true;
                 }
             }
+
 
             // If a match is not found, create a new folder with a new file name of the form [4-digit code]_[project code]_[project desc]
             if (!matchFound)
             {
                 // Obtains the last entry to generate a new 4-digit code prefix folder name
                 int FCode = 0;
-                string newFolderName;
-                foreach (DataRow row in folderNamesDt.Rows)
+                foreach (DirectoryInfo dri in diArr)
                 {
-                    string[] strArray = row["FileName"].ToString().Trim().Split('_');
+                    string[] strArray = dri.Name.Trim().Split('_');
 
-                    int x = Convert.ToInt32(strArray[0].Remove(0, 1));
+                    int x = Convert.ToInt32(strArray[0]);
 
                     if (x > FCode)
                         FCode = x;
                 }
-                newFolderName = (FCode + 1).ToString("000") + "_" + txt_PED_ProjCode.Text + "_" + txt_PED_Desc.Text;
+
+                // Creates the new directory
+                Dpath = Path.Combine(Dpath, (FCode + 1).ToString("0000") + "_" + txt_PED_ProjCode.Text + "_" + txt_PED_Desc.Text);
+                System.IO.Directory.CreateDirectory(Dpath);
             }
             
         }
