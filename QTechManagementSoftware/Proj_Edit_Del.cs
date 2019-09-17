@@ -13,7 +13,6 @@ namespace QTechManagementSoftware
     {
         private bool mouseDown = false;
         private DataTable dt;
-        DataTable folderNamesDt;
         private static int SELECTED_PROJECT;
         private Point lastLocation;
 
@@ -246,9 +245,11 @@ namespace QTechManagementSoftware
         {
             bool matchFound = false;
             string Dpath = @"\\192.168.8.121\Projects";
-            folderNamesDt = new DataTable();
-            folderNamesDt.Columns.Add("FileName");
-            DataRow dRow;
+
+            if (Directory.Exists(Dpath))
+{
+                Console.WriteLine("Successfully found the directory");
+            }
 
             // Populates a data table with folder names and checks if a folder with the current project code exists and updates matchedFound
             DirectoryInfo di = new DirectoryInfo(Dpath);

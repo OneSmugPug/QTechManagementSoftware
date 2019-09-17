@@ -261,13 +261,13 @@ namespace QTechManagementSoftware
                     try
                     {
                         // Generates string array with QNum values from Projects
-                        SqlDataAdapter da = new SqlDataAdapter("SELECT QNum FROM Projects", conn);
+                        SqlDataAdapter da = new SqlDataAdapter("SELECT Quote_Number FROM Projects", conn);
                         DataSet ds = new DataSet();
                         da.Fill(ds);
                         List<string> keyValues = new List<string>();
                         foreach (DataRow row in ds.Tables[0].Rows)
                         {
-                            keyValues.Add(row["QNum"].ToString());
+                            keyValues.Add(row["Quote_Number"].ToString());
                         }
 
                         // Checks if there exists a project with the same QNum as on the Q_Add form
