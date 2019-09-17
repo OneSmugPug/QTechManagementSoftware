@@ -284,7 +284,7 @@
             this.txt_OA_CONum.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_OA_CONum.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_OA_CONum.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.txt_OA_CONum.Location = new System.Drawing.Point(2, 6);
+            this.txt_OA_CONum.Location = new System.Drawing.Point(2, 3);
             this.txt_OA_CONum.Name = "txt_OA_CONum";
             this.txt_OA_CONum.Size = new System.Drawing.Size(208, 16);
             this.txt_OA_CONum.TabIndex = 0;
@@ -321,7 +321,7 @@
             this.txt_OA_Desc.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_OA_Desc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_OA_Desc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.txt_OA_Desc.Location = new System.Drawing.Point(2, 6);
+            this.txt_OA_Desc.Location = new System.Drawing.Point(2, 3);
             this.txt_OA_Desc.Name = "txt_OA_Desc";
             this.txt_OA_Desc.Size = new System.Drawing.Size(544, 16);
             this.txt_OA_Desc.TabIndex = 0;
@@ -358,7 +358,7 @@
             this.txt_OA_Amt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_OA_Amt.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_OA_Amt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.txt_OA_Amt.Location = new System.Drawing.Point(2, 6);
+            this.txt_OA_Amt.Location = new System.Drawing.Point(2, 3);
             this.txt_OA_Amt.Name = "txt_OA_Amt";
             this.txt_OA_Amt.Size = new System.Drawing.Size(115, 16);
             this.txt_OA_Amt.TabIndex = 0;
@@ -395,7 +395,7 @@
             this.txt_OA_PercInv.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_OA_PercInv.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_OA_PercInv.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.txt_OA_PercInv.Location = new System.Drawing.Point(3, 7);
+            this.txt_OA_PercInv.Location = new System.Drawing.Point(2, 3);
             this.txt_OA_PercInv.Name = "txt_OA_PercInv";
             this.txt_OA_PercInv.Size = new System.Drawing.Size(58, 16);
             this.txt_OA_PercInv.TabIndex = 0;
@@ -433,7 +433,7 @@
             this.txt_OA_PercRec.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_OA_PercRec.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_OA_PercRec.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.txt_OA_PercRec.Location = new System.Drawing.Point(3, 7);
+            this.txt_OA_PercRec.Location = new System.Drawing.Point(2, 3);
             this.txt_OA_PercRec.Name = "txt_OA_PercRec";
             this.txt_OA_PercRec.Size = new System.Drawing.Size(58, 16);
             this.txt_OA_PercRec.TabIndex = 0;
@@ -472,7 +472,7 @@
             this.txt_OA_QNum.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_OA_QNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_OA_QNum.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.txt_OA_QNum.Location = new System.Drawing.Point(2, 6);
+            this.txt_OA_QNum.Location = new System.Drawing.Point(2, 3);
             this.txt_OA_QNum.Name = "txt_OA_QNum";
             this.txt_OA_QNum.Size = new System.Drawing.Size(153, 16);
             this.txt_OA_QNum.TabIndex = 0;

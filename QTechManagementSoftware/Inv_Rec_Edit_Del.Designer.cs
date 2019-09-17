@@ -268,7 +268,7 @@
             this.ln_IRED_Desc.LineThickness = 1;
             this.ln_IRED_Desc.Location = new System.Drawing.Point(-1, 18);
             this.ln_IRED_Desc.Name = "ln_IRED_Desc";
-            this.ln_IRED_Desc.Size = new System.Drawing.Size(855, 10);
+            this.ln_IRED_Desc.Size = new System.Drawing.Size(500, 10);
             this.ln_IRED_Desc.TabIndex = 1;
             this.ln_IRED_Desc.TabStop = false;
             this.ln_IRED_Desc.Transparency = 255;
@@ -282,9 +282,9 @@
             this.txt_IRED_Desc.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_IRED_Desc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_IRED_Desc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.txt_IRED_Desc.Location = new System.Drawing.Point(2, 5);
+            this.txt_IRED_Desc.Location = new System.Drawing.Point(2, 3);
             this.txt_IRED_Desc.Name = "txt_IRED_Desc";
-            this.txt_IRED_Desc.Size = new System.Drawing.Size(850, 16);
+            this.txt_IRED_Desc.Size = new System.Drawing.Size(499, 16);
             this.txt_IRED_Desc.TabIndex = 0;
             this.txt_IRED_Desc.Leave += new System.EventHandler(this.Txt_IRED_Desc_Leave);
             this.txt_IRED_Desc.MouseEnter += new System.EventHandler(this.Txt_IRED_Desc_MouseEnter);
@@ -308,7 +308,7 @@
             this.ln_IRED_VAT.LineThickness = 1;
             this.ln_IRED_VAT.Location = new System.Drawing.Point(-1, 18);
             this.ln_IRED_VAT.Name = "ln_IRED_VAT";
-            this.ln_IRED_VAT.Size = new System.Drawing.Size(212, 10);
+            this.ln_IRED_VAT.Size = new System.Drawing.Size(185, 10);
             this.ln_IRED_VAT.TabIndex = 1;
             this.ln_IRED_VAT.TabStop = false;
             this.ln_IRED_VAT.Transparency = 255;
@@ -324,7 +324,7 @@
             this.txt_IRED_VAT.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
             this.txt_IRED_VAT.Location = new System.Drawing.Point(2, 4);
             this.txt_IRED_VAT.Name = "txt_IRED_VAT";
-            this.txt_IRED_VAT.Size = new System.Drawing.Size(207, 16);
+            this.txt_IRED_VAT.Size = new System.Drawing.Size(184, 16);
             this.txt_IRED_VAT.TabIndex = 0;
             this.txt_IRED_VAT.TextChanged += new System.EventHandler(this.Txt_IRED_VAT_TextChanged);
             this.txt_IRED_VAT.Leave += new System.EventHandler(this.Txt_IRED_VAT_Leave);
@@ -349,7 +349,7 @@
             this.ln_IRED_Amt.LineThickness = 1;
             this.ln_IRED_Amt.Location = new System.Drawing.Point(-1, 18);
             this.ln_IRED_Amt.Name = "ln_IRED_Amt";
-            this.ln_IRED_Amt.Size = new System.Drawing.Size(243, 10);
+            this.ln_IRED_Amt.Size = new System.Drawing.Size(200, 10);
             this.ln_IRED_Amt.TabIndex = 1;
             this.ln_IRED_Amt.TabStop = false;
             this.ln_IRED_Amt.Transparency = 255;
@@ -365,7 +365,7 @@
             this.txt_IRED_Amt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
             this.txt_IRED_Amt.Location = new System.Drawing.Point(2, 5);
             this.txt_IRED_Amt.Name = "txt_IRED_Amt";
-            this.txt_IRED_Amt.Size = new System.Drawing.Size(238, 16);
+            this.txt_IRED_Amt.Size = new System.Drawing.Size(199, 16);
             this.txt_IRED_Amt.TabIndex = 0;
             this.txt_IRED_Amt.TextChanged += new System.EventHandler(this.Txt_IRED_Amt_TextChanged);
             this.txt_IRED_Amt.Leave += new System.EventHandler(this.Txt_IRED_Amt_Leave);
@@ -390,7 +390,7 @@
             this.ln_IRED_InvNum.LineThickness = 1;
             this.ln_IRED_InvNum.Location = new System.Drawing.Point(-1, 18);
             this.ln_IRED_InvNum.Name = "ln_IRED_InvNum";
-            this.ln_IRED_InvNum.Size = new System.Drawing.Size(250, 10);
+            this.ln_IRED_InvNum.Size = new System.Drawing.Size(185, 10);
             this.ln_IRED_InvNum.TabIndex = 1;
             this.ln_IRED_InvNum.TabStop = false;
             this.ln_IRED_InvNum.Transparency = 255;
@@ -404,9 +404,9 @@
             this.txt_IRED_InvNum.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_IRED_InvNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_IRED_InvNum.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.txt_IRED_InvNum.Location = new System.Drawing.Point(2, 4);
+            this.txt_IRED_InvNum.Location = new System.Drawing.Point(2, 3);
             this.txt_IRED_InvNum.Name = "txt_IRED_InvNum";
-            this.txt_IRED_InvNum.Size = new System.Drawing.Size(246, 16);
+            this.txt_IRED_InvNum.Size = new System.Drawing.Size(184, 16);
             this.txt_IRED_InvNum.TabIndex = 0;
             this.txt_IRED_InvNum.Leave += new System.EventHandler(this.Txt_IRA_InvNum_Leave);
             this.txt_IRED_InvNum.MouseEnter += new System.EventHandler(this.Txt_IRED_InvNum_MouseEnter);
@@ -442,7 +442,7 @@
             this.txt_IRED_SuppName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_IRED_SuppName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_IRED_SuppName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.txt_IRED_SuppName.Location = new System.Drawing.Point(2, 5);
+            this.txt_IRED_SuppName.Location = new System.Drawing.Point(2, 3);
             this.txt_IRED_SuppName.Name = "txt_IRED_SuppName";
             this.txt_IRED_SuppName.Size = new System.Drawing.Size(261, 16);
             this.txt_IRED_SuppName.TabIndex = 0;

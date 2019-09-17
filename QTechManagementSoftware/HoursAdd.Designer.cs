@@ -171,7 +171,7 @@
             this.txt_HA_CCode.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_HA_CCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_HA_CCode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.txt_HA_CCode.Location = new System.Drawing.Point(2, 6);
+            this.txt_HA_CCode.Location = new System.Drawing.Point(2, 3);
             this.txt_HA_CCode.Name = "txt_HA_CCode";
             this.txt_HA_CCode.ReadOnly = true;
             this.txt_HA_CCode.Size = new System.Drawing.Size(115, 16);
@@ -221,7 +221,7 @@
             this.txt_HA_Name.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_HA_Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_HA_Name.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.txt_HA_Name.Location = new System.Drawing.Point(2, 6);
+            this.txt_HA_Name.Location = new System.Drawing.Point(2, 3);
             this.txt_HA_Name.Name = "txt_HA_Name";
             this.txt_HA_Name.ReadOnly = true;
             this.txt_HA_Name.Size = new System.Drawing.Size(171, 16);
@@ -271,7 +271,7 @@
             this.txt_HA_EName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_HA_EName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_HA_EName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.txt_HA_EName.Location = new System.Drawing.Point(2, 6);
+            this.txt_HA_EName.Location = new System.Drawing.Point(2, 3);
             this.txt_HA_EName.Name = "txt_HA_EName";
             this.txt_HA_EName.ReadOnly = true;
             this.txt_HA_EName.Size = new System.Drawing.Size(214, 16);
@@ -319,11 +319,12 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_HA_Surname.BackColor = System.Drawing.Color.Silver;
             this.txt_HA_Surname.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_HA_Surname.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_HA_Surname.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(143)))));
-            this.txt_HA_Surname.Location = new System.Drawing.Point(2, 6);
+            this.txt_HA_Surname.Location = new System.Drawing.Point(2, 3);
             this.txt_HA_Surname.Name = "txt_HA_Surname";
             this.txt_HA_Surname.ReadOnly = true;
-            this.txt_HA_Surname.Size = new System.Drawing.Size(209, 13);
+            this.txt_HA_Surname.Size = new System.Drawing.Size(209, 16);
             this.txt_HA_Surname.TabIndex = 0;
             this.txt_HA_Surname.TabStop = false;
             // 
@@ -484,7 +485,7 @@
             this.txt_HA_DolPH.BackColor = System.Drawing.Color.Silver;
             this.txt_HA_DolPH.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_HA_DolPH.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_HA_DolPH.Location = new System.Drawing.Point(3, 6);
+            this.txt_HA_DolPH.Location = new System.Drawing.Point(2, 3);
             this.txt_HA_DolPH.Name = "txt_HA_DolPH";
             this.txt_HA_DolPH.Size = new System.Drawing.Size(140, 16);
             this.txt_HA_DolPH.TabIndex = 1;
@@ -540,7 +541,7 @@
             this.txt_HA_Code.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_HA_Code.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_HA_Code.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.txt_HA_Code.Location = new System.Drawing.Point(2, 6);
+            this.txt_HA_Code.Location = new System.Drawing.Point(2, 3);
             this.txt_HA_Code.Name = "txt_HA_Code";
             this.txt_HA_Code.Size = new System.Drawing.Size(142, 16);
             this.txt_HA_Code.TabIndex = 0;
@@ -578,7 +579,7 @@
             this.txt_HA_HW.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_HA_HW.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_HA_HW.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.txt_HA_HW.Location = new System.Drawing.Point(2, 7);
+            this.txt_HA_HW.Location = new System.Drawing.Point(2, 3);
             this.txt_HA_HW.Name = "txt_HA_HW";
             this.txt_HA_HW.Size = new System.Drawing.Size(79, 16);
             this.txt_HA_HW.TabIndex = 0;
@@ -590,6 +591,7 @@
             // 
             this.panel7.Controls.Add(this.ln_HA_TotBE);
             this.panel7.Controls.Add(this.txt_HA_TotBE);
+            this.panel7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel7.Location = new System.Drawing.Point(421, 106);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(143, 26);
@@ -618,7 +620,7 @@
             this.txt_HA_TotBE.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_HA_TotBE.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_HA_TotBE.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.txt_HA_TotBE.Location = new System.Drawing.Point(3, 7);
+            this.txt_HA_TotBE.Location = new System.Drawing.Point(2, 3);
             this.txt_HA_TotBE.Name = "txt_HA_TotBE";
             this.txt_HA_TotBE.Size = new System.Drawing.Size(140, 16);
             this.txt_HA_TotBE.TabIndex = 0;
@@ -659,7 +661,7 @@
             this.txt_HA_ExcRate.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_HA_ExcRate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_HA_ExcRate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.txt_HA_ExcRate.Location = new System.Drawing.Point(3, 7);
+            this.txt_HA_ExcRate.Location = new System.Drawing.Point(2, 3);
             this.txt_HA_ExcRate.Name = "txt_HA_ExcRate";
             this.txt_HA_ExcRate.Size = new System.Drawing.Size(139, 16);
             this.txt_HA_ExcRate.TabIndex = 0;
@@ -699,7 +701,7 @@
             this.txt_HA_TotAE.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_HA_TotAE.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_HA_TotAE.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.txt_HA_TotAE.Location = new System.Drawing.Point(2, 6);
+            this.txt_HA_TotAE.Location = new System.Drawing.Point(2, 3);
             this.txt_HA_TotAE.Name = "txt_HA_TotAE";
             this.txt_HA_TotAE.ReadOnly = true;
             this.txt_HA_TotAE.Size = new System.Drawing.Size(140, 16);
@@ -802,7 +804,7 @@
             this.txt_HA_QTCut.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_HA_QTCut.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_HA_QTCut.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.txt_HA_QTCut.Location = new System.Drawing.Point(2, 6);
+            this.txt_HA_QTCut.Location = new System.Drawing.Point(2, 3);
             this.txt_HA_QTCut.Name = "txt_HA_QTCut";
             this.txt_HA_QTCut.Size = new System.Drawing.Size(140, 16);
             this.txt_HA_QTCut.TabIndex = 0;
@@ -854,7 +856,7 @@
             this.txt_HA_FTotal.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_HA_FTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_HA_FTotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.txt_HA_FTotal.Location = new System.Drawing.Point(2, 6);
+            this.txt_HA_FTotal.Location = new System.Drawing.Point(2, 3);
             this.txt_HA_FTotal.Name = "txt_HA_FTotal";
             this.txt_HA_FTotal.ReadOnly = true;
             this.txt_HA_FTotal.Size = new System.Drawing.Size(140, 16);

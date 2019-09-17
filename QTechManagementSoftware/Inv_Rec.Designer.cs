@@ -106,7 +106,7 @@
             // 
             // dtp_LIR_To
             // 
-            this.dtp_LIR_To.BackColor = System.Drawing.Color.Silver;
+            this.dtp_LIR_To.BackColor = System.Drawing.Color.LightGray;
             this.dtp_LIR_To.BorderRadius = 0;
             this.dtp_LIR_To.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
             this.dtp_LIR_To.Format = System.Windows.Forms.DateTimePickerFormat.Short;
@@ -119,7 +119,7 @@
             // 
             // dtp_LIR_From
             // 
-            this.dtp_LIR_From.BackColor = System.Drawing.Color.Silver;
+            this.dtp_LIR_From.BackColor = System.Drawing.Color.LightGray;
             this.dtp_LIR_From.BorderRadius = 0;
             this.dtp_LIR_From.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
             this.dtp_LIR_From.Format = System.Windows.Forms.DateTimePickerFormat.Short;
@@ -198,7 +198,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Silver;
+            this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(963, 618);
             this.Controls.Add(this.bunifuCustomLabel2);
             this.Controls.Add(this.bunifuCustomLabel1);

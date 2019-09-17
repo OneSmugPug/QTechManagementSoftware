@@ -98,6 +98,7 @@
             this.btn_ISED_Close.Size = new System.Drawing.Size(31, 29);
             this.btn_ISED_Close.TabIndex = 11;
             this.btn_ISED_Close.UseVisualStyleBackColor = true;
+            this.btn_ISED_Close.Click += new System.EventHandler(this.Btn_ISED_Close_Click);
             // 
             // btn_ISED_Done
             // 
@@ -220,7 +221,7 @@
             this.txt_ISED_INInst.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_ISED_INInst.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_ISED_INInst.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.txt_ISED_INInst.Location = new System.Drawing.Point(2, 4);
+            this.txt_ISED_INInst.Location = new System.Drawing.Point(2, 3);
             this.txt_ISED_INInst.Name = "txt_ISED_INInst";
             this.txt_ISED_INInst.Size = new System.Drawing.Size(35, 16);
             this.txt_ISED_INInst.TabIndex = 0;
@@ -363,7 +364,7 @@
             this.txt_ISED_VAT.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_ISED_VAT.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_ISED_VAT.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.txt_ISED_VAT.Location = new System.Drawing.Point(2, 5);
+            this.txt_ISED_VAT.Location = new System.Drawing.Point(2, 3);
             this.txt_ISED_VAT.Name = "txt_ISED_VAT";
             this.txt_ISED_VAT.Size = new System.Drawing.Size(182, 16);
             this.txt_ISED_VAT.TabIndex = 0;
@@ -404,7 +405,7 @@
             this.txt_ISED_InvNum.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_ISED_InvNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_ISED_InvNum.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.txt_ISED_InvNum.Location = new System.Drawing.Point(2, 4);
+            this.txt_ISED_InvNum.Location = new System.Drawing.Point(2, 3);
             this.txt_ISED_InvNum.Name = "txt_ISED_InvNum";
             this.txt_ISED_InvNum.Size = new System.Drawing.Size(124, 16);
             this.txt_ISED_InvNum.TabIndex = 0;
@@ -444,7 +445,7 @@
             this.txt_ISED_Amt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_ISED_Amt.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_ISED_Amt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.txt_ISED_Amt.Location = new System.Drawing.Point(2, 5);
+            this.txt_ISED_Amt.Location = new System.Drawing.Point(2, 3);
             this.txt_ISED_Amt.Name = "txt_ISED_Amt";
             this.txt_ISED_Amt.Size = new System.Drawing.Size(197, 16);
             this.txt_ISED_Amt.TabIndex = 0;
@@ -485,7 +486,7 @@
             this.txt_ISED_Desc.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_ISED_Desc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_ISED_Desc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.txt_ISED_Desc.Location = new System.Drawing.Point(2, 5);
+            this.txt_ISED_Desc.Location = new System.Drawing.Point(2, 3);
             this.txt_ISED_Desc.Name = "txt_ISED_Desc";
             this.txt_ISED_Desc.Size = new System.Drawing.Size(531, 16);
             this.txt_ISED_Desc.TabIndex = 0;

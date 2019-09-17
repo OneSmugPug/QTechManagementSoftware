@@ -65,6 +65,7 @@ namespace QTechManagementSoftware
         //================================================================================================================================================//
         private void FillTextFields()
         {
+            
             if (conDT.Rows.Count > 0)
             {
                 if (!btn_C_Edit.Enabled && !dgv_Contractors.Enabled && !btn_C_SelCon.Enabled && !btn_C_NewWW.Enabled)
@@ -97,12 +98,21 @@ namespace QTechManagementSoftware
         //================================================================================================================================================//
         private void LoadCon()
         {
+            conDT = new DataTable();
             using (SqlConnection conn = DBUtils.GetDBConnection())
             {
                 conn.Open();
-
-                SqlDataAdapter conDA = new SqlDataAdapter("SELECT * FROM Contractors", conn);
-                conDA.Fill(conDT);
+                try
+                {
+                    SqlDataAdapter conDA = new SqlDataAdapter("SELECT * FROM Contractors", conn);
+                    
+                    conDA.Fill(conDT);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                    throw;
+                }
             }
 
             NUM_OF_CON = conDT.Rows.Count - 1;

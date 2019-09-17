@@ -208,7 +208,7 @@
             this.ln_PA_ProjCode.LineThickness = 1;
             this.ln_PA_ProjCode.Location = new System.Drawing.Point(-1, 18);
             this.ln_PA_ProjCode.Name = "ln_PA_ProjCode";
-            this.ln_PA_ProjCode.Size = new System.Drawing.Size(258, 10);
+            this.ln_PA_ProjCode.Size = new System.Drawing.Size(211, 10);
             this.ln_PA_ProjCode.TabIndex = 1;
             this.ln_PA_ProjCode.TabStop = false;
             this.ln_PA_ProjCode.Transparency = 255;
@@ -222,9 +222,9 @@
             this.txt_PA_ProjCode.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_PA_ProjCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_PA_ProjCode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.txt_PA_ProjCode.Location = new System.Drawing.Point(2, 6);
+            this.txt_PA_ProjCode.Location = new System.Drawing.Point(2, 3);
             this.txt_PA_ProjCode.Name = "txt_PA_ProjCode";
-            this.txt_PA_ProjCode.Size = new System.Drawing.Size(254, 16);
+            this.txt_PA_ProjCode.Size = new System.Drawing.Size(210, 16);
             this.txt_PA_ProjCode.TabIndex = 0;
             this.txt_PA_ProjCode.Leave += new System.EventHandler(this.Txt_PA_ProjCode_Leave);
             this.txt_PA_ProjCode.MouseEnter += new System.EventHandler(this.Txt_PA_ProjCode_MouseEnter);
@@ -262,7 +262,7 @@
             this.txt_PA_Desc.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_PA_Desc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_PA_Desc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.txt_PA_Desc.Location = new System.Drawing.Point(2, 7);
+            this.txt_PA_Desc.Location = new System.Drawing.Point(2, 3);
             this.txt_PA_Desc.Name = "txt_PA_Desc";
             this.txt_PA_Desc.Size = new System.Drawing.Size(547, 16);
             this.txt_PA_Desc.TabIndex = 0;
@@ -289,7 +289,7 @@
             this.ln_PA_QNum.Location = new System.Drawing.Point(-1, 18);
             this.ln_PA_QNum.Name = "ln_PA_QNum";
             this.ln_PA_QNum.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.ln_PA_QNum.Size = new System.Drawing.Size(154, 10);
+            this.ln_PA_QNum.Size = new System.Drawing.Size(157, 10);
             this.ln_PA_QNum.TabIndex = 1;
             this.ln_PA_QNum.TabStop = false;
             this.ln_PA_QNum.Transparency = 255;
@@ -303,10 +303,10 @@
             this.txt_PA_QNum.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_PA_QNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_PA_QNum.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.txt_PA_QNum.Location = new System.Drawing.Point(2, 6);
+            this.txt_PA_QNum.Location = new System.Drawing.Point(2, 3);
             this.txt_PA_QNum.Name = "txt_PA_QNum";
             this.txt_PA_QNum.ReadOnly = true;
-            this.txt_PA_QNum.Size = new System.Drawing.Size(153, 16);
+            this.txt_PA_QNum.Size = new System.Drawing.Size(154, 16);
             this.txt_PA_QNum.TabIndex = 0;
             this.txt_PA_QNum.Leave += new System.EventHandler(this.Txt_PA_QNum_Leave);
             this.txt_PA_QNum.MouseEnter += new System.EventHandler(this.Txt_PA_QNum_MouseEnter);

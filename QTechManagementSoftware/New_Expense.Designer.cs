@@ -84,7 +84,7 @@
             this.txt_NE_User.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_NE_User.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_NE_User.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.txt_NE_User.Location = new System.Drawing.Point(2, 6);
+            this.txt_NE_User.Location = new System.Drawing.Point(2, 3);
             this.txt_NE_User.Name = "txt_NE_User";
             this.txt_NE_User.Size = new System.Drawing.Size(154, 16);
             this.txt_NE_User.TabIndex = 0;
@@ -124,7 +124,7 @@
             this.txt_NE_Val.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_NE_Val.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_NE_Val.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.txt_NE_Val.Location = new System.Drawing.Point(2, 6);
+            this.txt_NE_Val.Location = new System.Drawing.Point(2, 3);
             this.txt_NE_Val.Name = "txt_NE_Val";
             this.txt_NE_Val.Size = new System.Drawing.Size(154, 16);
             this.txt_NE_Val.TabIndex = 0;
@@ -164,7 +164,7 @@
             this.txt_NE_Desc.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_NE_Desc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_NE_Desc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.txt_NE_Desc.Location = new System.Drawing.Point(2, 6);
+            this.txt_NE_Desc.Location = new System.Drawing.Point(2, 3);
             this.txt_NE_Desc.Name = "txt_NE_Desc";
             this.txt_NE_Desc.Size = new System.Drawing.Size(269, 16);
             this.txt_NE_Desc.TabIndex = 0;

@@ -167,7 +167,7 @@
             this.txt_ISA_INInst.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_ISA_INInst.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_ISA_INInst.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.txt_ISA_INInst.Location = new System.Drawing.Point(2, 4);
+            this.txt_ISA_INInst.Location = new System.Drawing.Point(2, 3);
             this.txt_ISA_INInst.Name = "txt_ISA_INInst";
             this.txt_ISA_INInst.Size = new System.Drawing.Size(35, 16);
             this.txt_ISA_INInst.TabIndex = 0;
@@ -310,7 +310,7 @@
             this.txt_ISA_VAT.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_ISA_VAT.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_ISA_VAT.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.txt_ISA_VAT.Location = new System.Drawing.Point(2, 5);
+            this.txt_ISA_VAT.Location = new System.Drawing.Point(2, 3);
             this.txt_ISA_VAT.Name = "txt_ISA_VAT";
             this.txt_ISA_VAT.Size = new System.Drawing.Size(182, 16);
             this.txt_ISA_VAT.TabIndex = 0;
@@ -351,7 +351,7 @@
             this.txt_ISA_InvNum.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_ISA_InvNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_ISA_InvNum.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.txt_ISA_InvNum.Location = new System.Drawing.Point(2, 4);
+            this.txt_ISA_InvNum.Location = new System.Drawing.Point(2, 3);
             this.txt_ISA_InvNum.Name = "txt_ISA_InvNum";
             this.txt_ISA_InvNum.Size = new System.Drawing.Size(124, 16);
             this.txt_ISA_InvNum.TabIndex = 0;
@@ -391,7 +391,7 @@
             this.txt_ISA_Amt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_ISA_Amt.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_ISA_Amt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.txt_ISA_Amt.Location = new System.Drawing.Point(2, 5);
+            this.txt_ISA_Amt.Location = new System.Drawing.Point(2, 3);
             this.txt_ISA_Amt.Name = "txt_ISA_Amt";
             this.txt_ISA_Amt.Size = new System.Drawing.Size(197, 16);
             this.txt_ISA_Amt.TabIndex = 0;
@@ -432,7 +432,7 @@
             this.txt_ISA_Desc.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_ISA_Desc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_ISA_Desc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.txt_ISA_Desc.Location = new System.Drawing.Point(2, 5);
+            this.txt_ISA_Desc.Location = new System.Drawing.Point(2, 3);
             this.txt_ISA_Desc.Name = "txt_ISA_Desc";
             this.txt_ISA_Desc.Size = new System.Drawing.Size(531, 16);
             this.txt_ISA_Desc.TabIndex = 0;

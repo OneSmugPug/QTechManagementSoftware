@@ -220,7 +220,7 @@
             this.ln_PED_ProjCode.LineThickness = 1;
             this.ln_PED_ProjCode.Location = new System.Drawing.Point(-1, 18);
             this.ln_PED_ProjCode.Name = "ln_PED_ProjCode";
-            this.ln_PED_ProjCode.Size = new System.Drawing.Size(222, 10);
+            this.ln_PED_ProjCode.Size = new System.Drawing.Size(211, 10);
             this.ln_PED_ProjCode.TabIndex = 1;
             this.ln_PED_ProjCode.TabStop = false;
             this.ln_PED_ProjCode.Transparency = 255;
@@ -234,10 +234,10 @@
             this.txt_PED_ProjCode.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_PED_ProjCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_PED_ProjCode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.txt_PED_ProjCode.Location = new System.Drawing.Point(2, 6);
+            this.txt_PED_ProjCode.Location = new System.Drawing.Point(2, 3);
             this.txt_PED_ProjCode.Name = "txt_PED_ProjCode";
             this.txt_PED_ProjCode.ReadOnly = true;
-            this.txt_PED_ProjCode.Size = new System.Drawing.Size(218, 16);
+            this.txt_PED_ProjCode.Size = new System.Drawing.Size(210, 16);
             this.txt_PED_ProjCode.TabIndex = 0;
             this.txt_PED_ProjCode.TabStop = false;
             this.txt_PED_ProjCode.Leave += new System.EventHandler(this.Txt_PED_ProjCode_Leave);
@@ -276,7 +276,7 @@
             this.txt_PED_Desc.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_PED_Desc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_PED_Desc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.txt_PED_Desc.Location = new System.Drawing.Point(2, 7);
+            this.txt_PED_Desc.Location = new System.Drawing.Point(2, 3);
             this.txt_PED_Desc.Name = "txt_PED_Desc";
             this.txt_PED_Desc.Size = new System.Drawing.Size(547, 16);
             this.txt_PED_Desc.TabIndex = 0;
@@ -316,7 +316,7 @@
             this.txt_PED_QNum.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_PED_QNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_PED_QNum.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.txt_PED_QNum.Location = new System.Drawing.Point(2, 6);
+            this.txt_PED_QNum.Location = new System.Drawing.Point(2, 3);
             this.txt_PED_QNum.Name = "txt_PED_QNum";
             this.txt_PED_QNum.ReadOnly = true;
             this.txt_PED_QNum.Size = new System.Drawing.Size(153, 16);

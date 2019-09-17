@@ -146,7 +146,7 @@
             this.bunifuSeparator1.LineThickness = 1;
             this.bunifuSeparator1.Location = new System.Drawing.Point(18, 206);
             this.bunifuSeparator1.Name = "bunifuSeparator1";
-            this.bunifuSeparator1.Size = new System.Drawing.Size(934, 35);
+            this.bunifuSeparator1.Size = new System.Drawing.Size(934, 25);
             this.bunifuSeparator1.TabIndex = 25;
             this.bunifuSeparator1.Transparency = 255;
             this.bunifuSeparator1.Vertical = false;

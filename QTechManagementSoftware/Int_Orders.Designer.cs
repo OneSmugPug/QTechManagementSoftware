@@ -72,7 +72,7 @@
             // 
             // dtp_IO_From
             // 
-            this.dtp_IO_From.BackColor = System.Drawing.Color.Silver;
+            this.dtp_IO_From.BackColor = System.Drawing.Color.LightGray;
             this.dtp_IO_From.BorderRadius = 0;
             this.dtp_IO_From.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
             this.dtp_IO_From.Format = System.Windows.Forms.DateTimePickerFormat.Short;
@@ -170,7 +170,7 @@
             // 
             // dtp_IO_To
             // 
-            this.dtp_IO_To.BackColor = System.Drawing.Color.Silver;
+            this.dtp_IO_To.BackColor = System.Drawing.Color.LightGray;
             this.dtp_IO_To.BorderRadius = 0;
             this.dtp_IO_To.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
             this.dtp_IO_To.Format = System.Windows.Forms.DateTimePickerFormat.Short;
@@ -233,7 +233,7 @@
             this.bunifuSeparator1.LineThickness = 1;
             this.bunifuSeparator1.Location = new System.Drawing.Point(16, 205);
             this.bunifuSeparator1.Name = "bunifuSeparator1";
-            this.bunifuSeparator1.Size = new System.Drawing.Size(929, 35);
+            this.bunifuSeparator1.Size = new System.Drawing.Size(929, 25);
             this.bunifuSeparator1.TabIndex = 9;
             this.bunifuSeparator1.Transparency = 255;
             this.bunifuSeparator1.Vertical = false;
@@ -343,7 +343,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Silver;
+            this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(963, 618);
             this.Controls.Add(this.btn_IO_Prev);
             this.Controls.Add(this.bunifuCustomLabel4);

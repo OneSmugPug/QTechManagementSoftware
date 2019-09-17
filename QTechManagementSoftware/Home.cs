@@ -618,7 +618,7 @@ namespace QTechManagementSoftware
                     }
                 case "pnl_Contractors":
                     {
-                        pnl_Con.Visible = false;
+                        pnl_Contractors.Visible = false;
                         break;
                     }
                 case "pnl_Home":
@@ -979,7 +979,7 @@ namespace QTechManagementSoftware
         private void Btn_Int_Click(object sender, EventArgs e)
         {
             ResetButtons(selected);
-            GetSelectedButton(sender);
+            GetSelectedButton(btn_I_Clients);
             HidePanel();
 
             if (isLocalOpen && !isLInvOpen)
@@ -1188,7 +1188,7 @@ namespace QTechManagementSoftware
         private void Btn_Contractors_Click(object sender, EventArgs e)
         {
             ResetButtons(selected);
-            GetSelectedButton(sender);
+            GetSelectedButton(btn_C_Timesheets);
             HidePanel();
             if (isLocalOpen && !isLInvOpen)
                 tmr_Local.Start();
@@ -1205,7 +1205,7 @@ namespace QTechManagementSoftware
             btn_Contractors.Image = Resources.contr_white;
             tmr_Con.Start();
 
-            pnl_Con.Visible = true;
+            pnl_Contractors.Visible = true;
             CurrentPanel("pnl_Contractors");
 
             btn_C_Timesheets.BackColor = Color.FromArgb(13, 77, 119);
@@ -1215,7 +1215,7 @@ namespace QTechManagementSoftware
             curForm = frmContr;
             frmContr.TopLevel = false;
             frmContr.TopMost = true;
-            pnl_Con.Controls.Add(frmContr);
+            pnl_Contractors.Controls.Add(frmContr);
             frmContr.Show();
         }
 
@@ -1249,7 +1249,7 @@ namespace QTechManagementSoftware
             GetSelectedButton(sender);
             HidePanel();
 
-            pnl_Con.Visible = true;
+            pnl_Contractors.Visible = true;
             CurrentPanel("pnl_Contractors");
 
             btn_C_Timesheets.BackColor = Color.FromArgb(13, 77, 119);
@@ -1258,7 +1258,7 @@ namespace QTechManagementSoftware
             curForm = frmContr;
             frmContr.TopLevel = false;
             frmContr.TopMost = true;
-            pnl_Con.Controls.Add(frmContr);
+            pnl_Contractors.Controls.Add(frmContr);
             frmContr.Show();
         }
 

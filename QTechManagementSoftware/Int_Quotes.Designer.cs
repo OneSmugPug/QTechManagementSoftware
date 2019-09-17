@@ -47,6 +47,7 @@
             this.bunifuCustomLabel4 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.txt_IQ_CName = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.txt_IQ_CCode = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_IQuotes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -167,7 +168,7 @@
             // 
             // dtp_IQ_To
             // 
-            this.dtp_IQ_To.BackColor = System.Drawing.Color.Silver;
+            this.dtp_IQ_To.BackColor = System.Drawing.Color.LightGray;
             this.dtp_IQ_To.BorderRadius = 0;
             this.dtp_IQ_To.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
             this.dtp_IQ_To.Format = System.Windows.Forms.DateTimePickerFormat.Long;
@@ -180,7 +181,7 @@
             // 
             // dtp_IQ_From
             // 
-            this.dtp_IQ_From.BackColor = System.Drawing.Color.Silver;
+            this.dtp_IQ_From.BackColor = System.Drawing.Color.LightGray;
             this.dtp_IQ_From.BorderRadius = 0;
             this.dtp_IQ_From.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
             this.dtp_IQ_From.Format = System.Windows.Forms.DateTimePickerFormat.Short;
@@ -318,12 +319,27 @@
             this.txt_IQ_CCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txt_IQ_CCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Txt_IQ_CCode_KeyDown);
             // 
+            // bunifuSeparator1
+            // 
+            this.bunifuSeparator1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.bunifuSeparator1.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuSeparator1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
+            this.bunifuSeparator1.LineThickness = 1;
+            this.bunifuSeparator1.Location = new System.Drawing.Point(17, 207);
+            this.bunifuSeparator1.Name = "bunifuSeparator1";
+            this.bunifuSeparator1.Size = new System.Drawing.Size(934, 25);
+            this.bunifuSeparator1.TabIndex = 15;
+            this.bunifuSeparator1.Transparency = 255;
+            this.bunifuSeparator1.Vertical = false;
+            // 
             // Int_Quotes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Silver;
+            this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(963, 618);
+            this.Controls.Add(this.bunifuSeparator1);
             this.Controls.Add(this.txt_IQ_CCode);
             this.Controls.Add(this.txt_IQ_CName);
             this.Controls.Add(this.bunifuCustomLabel4);
@@ -369,5 +385,6 @@
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel4;
         private Bunifu.Framework.UI.BunifuMaterialTextbox txt_IQ_CName;
         private Bunifu.Framework.UI.BunifuMaterialTextbox txt_IQ_CCode;
+        private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator1;
     }
 }

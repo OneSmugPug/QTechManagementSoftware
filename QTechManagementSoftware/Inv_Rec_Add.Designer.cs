@@ -81,6 +81,9 @@
             this.btn_IRA_Cancel.TabIndex = 0;
             this.btn_IRA_Cancel.Text = "Cancel";
             this.btn_IRA_Cancel.UseVisualStyleBackColor = true;
+            this.btn_IRA_Cancel.Click += new System.EventHandler(this.Btn_IRA_Cancel_Click);
+            this.btn_IRA_Cancel.MouseEnter += new System.EventHandler(this.Btn_IRA_Cancel_MouseEnter);
+            this.btn_IRA_Cancel.MouseLeave += new System.EventHandler(this.Btn_IRA_Cancel_MouseLeave);
             // 
             // btn_IRA_Done
             // 
@@ -277,7 +280,7 @@
             this.txt_IRA_VAT.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_IRA_VAT.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_IRA_VAT.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.txt_IRA_VAT.Location = new System.Drawing.Point(2, 5);
+            this.txt_IRA_VAT.Location = new System.Drawing.Point(2, 3);
             this.txt_IRA_VAT.Name = "txt_IRA_VAT";
             this.txt_IRA_VAT.Size = new System.Drawing.Size(182, 16);
             this.txt_IRA_VAT.TabIndex = 0;
@@ -318,7 +321,7 @@
             this.txt_IRA_InvNum.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_IRA_InvNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_IRA_InvNum.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.txt_IRA_InvNum.Location = new System.Drawing.Point(2, 4);
+            this.txt_IRA_InvNum.Location = new System.Drawing.Point(2, 3);
             this.txt_IRA_InvNum.Name = "txt_IRA_InvNum";
             this.txt_IRA_InvNum.Size = new System.Drawing.Size(182, 16);
             this.txt_IRA_InvNum.TabIndex = 0;
@@ -358,7 +361,7 @@
             this.txt_IRA_Amt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_IRA_Amt.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_IRA_Amt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.txt_IRA_Amt.Location = new System.Drawing.Point(2, 5);
+            this.txt_IRA_Amt.Location = new System.Drawing.Point(2, 3);
             this.txt_IRA_Amt.Name = "txt_IRA_Amt";
             this.txt_IRA_Amt.Size = new System.Drawing.Size(197, 16);
             this.txt_IRA_Amt.TabIndex = 0;
@@ -399,7 +402,7 @@
             this.txt_IRA_Desc.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_IRA_Desc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_IRA_Desc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.txt_IRA_Desc.Location = new System.Drawing.Point(2, 5);
+            this.txt_IRA_Desc.Location = new System.Drawing.Point(2, 3);
             this.txt_IRA_Desc.Name = "txt_IRA_Desc";
             this.txt_IRA_Desc.Size = new System.Drawing.Size(496, 16);
             this.txt_IRA_Desc.TabIndex = 0;
@@ -439,7 +442,7 @@
             this.txt_IRA_SuppName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_IRA_SuppName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_IRA_SuppName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.txt_IRA_SuppName.Location = new System.Drawing.Point(2, 5);
+            this.txt_IRA_SuppName.Location = new System.Drawing.Point(2, 3);
             this.txt_IRA_SuppName.Name = "txt_IRA_SuppName";
             this.txt_IRA_SuppName.Size = new System.Drawing.Size(262, 16);
             this.txt_IRA_SuppName.TabIndex = 0;

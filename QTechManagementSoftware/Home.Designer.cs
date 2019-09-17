@@ -443,7 +443,7 @@
             this.btn_Contractors.Location = new System.Drawing.Point(0, 0);
             this.btn_Contractors.Name = "btn_Contractors";
             this.btn_Contractors.Padding = new System.Windows.Forms.Padding(0, 0, 22, 0);
-            this.btn_Contractors.Size = new System.Drawing.Size(230, 48);
+            this.btn_Contractors.Size = new System.Drawing.Size(230, 51);
             this.btn_Contractors.TabIndex = 14;
             this.btn_Contractors.Text = "Contractors";
             this.btn_Contractors.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;

@@ -284,7 +284,7 @@
             this.txt_OED_CONum.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_OED_CONum.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_OED_CONum.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.txt_OED_CONum.Location = new System.Drawing.Point(2, 6);
+            this.txt_OED_CONum.Location = new System.Drawing.Point(2, 3);
             this.txt_OED_CONum.Name = "txt_OED_CONum";
             this.txt_OED_CONum.Size = new System.Drawing.Size(208, 16);
             this.txt_OED_CONum.TabIndex = 0;
@@ -321,7 +321,7 @@
             this.txt_OED_Desc.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_OED_Desc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_OED_Desc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.txt_OED_Desc.Location = new System.Drawing.Point(2, 6);
+            this.txt_OED_Desc.Location = new System.Drawing.Point(2, 3);
             this.txt_OED_Desc.Name = "txt_OED_Desc";
             this.txt_OED_Desc.Size = new System.Drawing.Size(544, 16);
             this.txt_OED_Desc.TabIndex = 0;
@@ -358,7 +358,7 @@
             this.txt_OED_Amt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_OED_Amt.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_OED_Amt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.txt_OED_Amt.Location = new System.Drawing.Point(2, 6);
+            this.txt_OED_Amt.Location = new System.Drawing.Point(2, 3);
             this.txt_OED_Amt.Name = "txt_OED_Amt";
             this.txt_OED_Amt.Size = new System.Drawing.Size(115, 16);
             this.txt_OED_Amt.TabIndex = 0;
@@ -395,7 +395,7 @@
             this.txt_OED_PercInv.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_OED_PercInv.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_OED_PercInv.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.txt_OED_PercInv.Location = new System.Drawing.Point(2, 6);
+            this.txt_OED_PercInv.Location = new System.Drawing.Point(2, 3);
             this.txt_OED_PercInv.Name = "txt_OED_PercInv";
             this.txt_OED_PercInv.Size = new System.Drawing.Size(58, 16);
             this.txt_OED_PercInv.TabIndex = 0;
@@ -433,7 +433,7 @@
             this.txt_OED_PercRec.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_OED_PercRec.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_OED_PercRec.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.txt_OED_PercRec.Location = new System.Drawing.Point(2, 6);
+            this.txt_OED_PercRec.Location = new System.Drawing.Point(2, 3);
             this.txt_OED_PercRec.Name = "txt_OED_PercRec";
             this.txt_OED_PercRec.Size = new System.Drawing.Size(58, 16);
             this.txt_OED_PercRec.TabIndex = 0;
@@ -472,7 +472,7 @@
             this.txt_OED_QNum.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_OED_QNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_OED_QNum.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.txt_OED_QNum.Location = new System.Drawing.Point(2, 6);
+            this.txt_OED_QNum.Location = new System.Drawing.Point(2, 3);
             this.txt_OED_QNum.Name = "txt_OED_QNum";
             this.txt_OED_QNum.Size = new System.Drawing.Size(153, 16);
             this.txt_OED_QNum.TabIndex = 0;

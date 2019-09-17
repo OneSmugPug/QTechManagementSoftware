@@ -254,7 +254,7 @@
             this.txt_QA_QNum.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_QA_QNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_QA_QNum.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.txt_QA_QNum.Location = new System.Drawing.Point(2, 4);
+            this.txt_QA_QNum.Location = new System.Drawing.Point(2, 3);
             this.txt_QA_QNum.Name = "txt_QA_QNum";
             this.txt_QA_QNum.ReadOnly = true;
             this.txt_QA_QNum.Size = new System.Drawing.Size(175, 16);
@@ -281,7 +281,7 @@
             this.ln_QA_Desc.LineThickness = 1;
             this.ln_QA_Desc.Location = new System.Drawing.Point(-1, 18);
             this.ln_QA_Desc.Name = "ln_QA_Desc";
-            this.ln_QA_Desc.Size = new System.Drawing.Size(974, 10);
+            this.ln_QA_Desc.Size = new System.Drawing.Size(586, 10);
             this.ln_QA_Desc.TabIndex = 1;
             this.ln_QA_Desc.TabStop = false;
             this.ln_QA_Desc.Transparency = 255;
@@ -295,9 +295,9 @@
             this.txt_QA_Desc.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_QA_Desc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_QA_Desc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.txt_QA_Desc.Location = new System.Drawing.Point(2, 5);
+            this.txt_QA_Desc.Location = new System.Drawing.Point(2, 3);
             this.txt_QA_Desc.Name = "txt_QA_Desc";
-            this.txt_QA_Desc.Size = new System.Drawing.Size(969, 16);
+            this.txt_QA_Desc.Size = new System.Drawing.Size(586, 16);
             this.txt_QA_Desc.TabIndex = 0;
             this.txt_QA_Desc.Leave += new System.EventHandler(this.Txt_QA_Desc_Leave);
             this.txt_QA_Desc.MouseEnter += new System.EventHandler(this.Txt_QA_Desc_MouseEnter);
