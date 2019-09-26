@@ -2516,5 +2516,28 @@ namespace QTechManagementSoftware
         {
             iClientsBS.Sort = dgv_IClients.SortString;
         }
+
+        private void Home_MouseDown(object sender, MouseEventArgs e)
+        {
+            mouseDown = true;
+            lastLocation = e.Location;
+        }
+
+        private void Home_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (mouseDown)
+            {
+                //Moves the form to a new location as long as user has mouse click down
+                this.Location = new Point((this.Location.X - lastLocation.X) + e.X, (this.Location.Y - lastLocation.Y) + e.Y);
+
+                //Updates the main form with the new position
+                this.Update();
+            }
+        }
+
+        private void Home_MouseUp(object sender, MouseEventArgs e)
+        {
+            mouseDown = false;
+        }
     }
 }

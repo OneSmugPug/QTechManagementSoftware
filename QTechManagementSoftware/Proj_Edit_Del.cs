@@ -6,6 +6,7 @@ using QTechManagementSoftware.Properties;
 using System;
 using System.IO;
 using System.Linq;
+using System.Net;
 
 namespace QTechManagementSoftware
 {
@@ -244,12 +245,20 @@ namespace QTechManagementSoftware
         private void Btn_PED_CreateProjFolder_Click(object sender, EventArgs e)
         {
             bool matchFound = false;
+            //string Dpath = @"c:\Projects";
             string Dpath = @"\\192.168.8.121\Projects";
 
-            if (Directory.Exists(Dpath))
-{
+            //---------------------------------------------------------------------------------------------------
+            NetworkCredential theNetworkCredential = new NetworkCredential("administrator", "P@$$w0rd", "WORKGROUP");
+            CredentialCache theNetcache = new CredentialCache();
+            theNetcache.Add(new Uri(@"\\192.168.8.121\Projects"), "Basic", theNetworkCredential);
+
+            if (!Directory.Exists(Dpath))
+            {
+                Directory.CreateDirectory(Dpath);
                 Console.WriteLine("Successfully found the directory");
             }
+            //---------------------------------------------------------------------------------------------------
 
             // Populates a data table with folder names and checks if a folder with the current project code exists and updates matchedFound
             DirectoryInfo di = new DirectoryInfo(Dpath);
@@ -283,6 +292,15 @@ namespace QTechManagementSoftware
                 System.IO.Directory.CreateDirectory(Dpath);
             }
             
+        }
+        private void Btn_PED_CreateProjFolder_MouseEnter(object sender, EventArgs e)
+        {
+            btn_PED_Done.ForeColor = Color.White;
+        }
+
+        private void Btn_PED_CreateProjFolder_MouseLeave(object sender, EventArgs e)
+        {
+            btn_PED_Done.ForeColor = Color.FromArgb(64, 64, 64);
         }
     }
 }

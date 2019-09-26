@@ -422,6 +422,8 @@
             this.btn_PED_CreateProjFolder.Text = "Create Project Folders";
             this.btn_PED_CreateProjFolder.UseVisualStyleBackColor = true;
             this.btn_PED_CreateProjFolder.Click += new System.EventHandler(this.Btn_PED_CreateProjFolder_Click);
+            this.btn_PED_CreateProjFolder.MouseEnter += new System.EventHandler(this.Btn_PED_CreateProjFolder_MouseEnter);
+            this.btn_PED_CreateProjFolder.MouseLeave += new System.EventHandler(this.Btn_PED_CreateProjFolder_MouseLeave);
             // 
             // Proj_Edit_Del
             // 

@@ -460,7 +460,7 @@
             this.pnl_Int.Controls.Add(this.btn_I_Orders);
             this.pnl_Int.Controls.Add(this.btn_I_Clients);
             this.pnl_Int.Controls.Add(this.btn_Int);
-            this.pnl_Int.Location = new System.Drawing.Point(0, 96);
+            this.pnl_Int.Location = new System.Drawing.Point(0, 97);
             this.pnl_Int.Name = "pnl_Int";
             this.pnl_Int.Size = new System.Drawing.Size(230, 48);
             this.pnl_Int.TabIndex = 4;
@@ -541,7 +541,7 @@
             this.btn_I_Clients.Text = "Clients";
             this.btn_I_Clients.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_I_Clients.UseVisualStyleBackColor = false;
-            this.btn_I_Clients.Click += new System.EventHandler(this.Btn_L_Clients_Click);
+            this.btn_I_Clients.Click += new System.EventHandler(this.Btn_I_Clients_Click);
             this.btn_I_Clients.MouseEnter += new System.EventHandler(this.Btn_I_Clients_MouseEnter);
             this.btn_I_Clients.MouseLeave += new System.EventHandler(this.Btn_I_Clients_MouseLeave);
             // 
@@ -1518,6 +1518,9 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Home";
             this.Load += new System.EventHandler(this.Home_Load);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Home_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Home_MouseMove);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Home_MouseUp);
             this.pnl_Menu.ResumeLayout(false);
             this.pnl_Local.ResumeLayout(false);
             this.pnl_L_Inv.ResumeLayout(false);

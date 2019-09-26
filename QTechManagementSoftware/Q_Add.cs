@@ -291,17 +291,20 @@ namespace QTechManagementSoftware
                             string projCode;
                             foreach (DataRow row in projDT.Rows)
                             {
-                                string[] strArray = row["Project_ID"].ToString().Trim().Split('_');
+                                string[] strArray1 = row["Project_ID"].ToString().Trim().Split('_');
 
                                 int x = 0;
 
-                                if (strArray[1].Equals(txt_QA_CCode.Text))
-                                    x = Convert.ToInt32(strArray[0].Remove(0, 1));
+                                if (strArray1[1].Equals(txt_QA_CCode.Text))
+                                {
+                                    x = Convert.ToInt32(strArray1[0].Remove(0, 1));
+                                }
 
                                 if (x > CCode)
                                     CCode = x;
                             }
-                            projCode = "P" + (CCode + 1).ToString("000") + "_" + txt_QA_CCode.Text;
+                            string[] strArray2 = txt_QA_QNum.Text.Trim().Split('_');
+                            projCode = "P" + txt_QA_CCode.Text.Remove(0,3) + "_" + strArray2[1];
 
                             // Inserts the new project
                             using (SqlCommand cmd = new SqlCommand("INSERT INTO Projects VALUES (@ProjID, @Date, @ClientCode, @ClientName, @Desc, @QNum)", conn))

@@ -5,6 +5,8 @@ using System.Text;
 using System.Windows.Forms;
 using QTechManagementSoftware.Properties;
 using System;
+using System.Net;
+using System.IO;
 
 namespace QTechManagementSoftware
 {
@@ -314,6 +316,70 @@ namespace QTechManagementSoftware
         private void Proj_Add_MouseUp(object sender, MouseEventArgs e)
         {
             mouseDown = false;
+        }
+
+        //================================================================================================================================================//
+        // CREATE PROJECT FOLDERS BUTTON                                                                                                                  //
+        //================================================================================================================================================//
+        private void Btn_PA_CreateProjFolder_Click(object sender, EventArgs e)
+        {
+            bool matchFound = false;
+            //string Dpath = @"c:\Projects";
+            string Dpath = @"\\192.168.8.121\Projects";
+
+            //---------------------------------------------------------------------------------------------------
+            NetworkCredential theNetworkCredential = new NetworkCredential("administrator", "P@$$w0rd", "WORKGROUP");
+            CredentialCache theNetcache = new CredentialCache();
+            theNetcache.Add(new Uri(@"\\192.168.8.121\Projects"), "Basic", theNetworkCredential);
+
+            if (!Directory.Exists(Dpath))
+            {
+                Directory.CreateDirectory(Dpath);
+                Console.WriteLine("Successfully found the directory");
+            }
+            //---------------------------------------------------------------------------------------------------
+
+            // Populates a data table with folder names and checks if a folder with the current project code exists and updates matchedFound
+            DirectoryInfo di = new DirectoryInfo(Dpath);
+            DirectoryInfo[] diArr = di.GetDirectories();
+            foreach (DirectoryInfo dri in diArr)
+            {
+                if (dri.Name.Equals(txt_PA_ProjCode.Text)) // Check for exstra conditions **NB
+                {
+                    matchFound = true;
+                }
+            }
+
+
+            // If a match is not found, create a new folder with a new file name of the form [4-digit code]_[project code]_[project desc]
+            if (!matchFound)
+            {
+                // Obtains the last entry to generate a new 4-digit code prefix folder name
+                int FCode = 0;
+                foreach (DirectoryInfo dri in diArr)
+                {
+                    string[] strArray = dri.Name.Trim().Split('_');
+
+                    int x = Convert.ToInt32(strArray[0]);
+
+                    if (x > FCode)
+                        FCode = x;
+                }
+
+                // Creates the new directory
+                Dpath = Path.Combine(Dpath, (FCode + 1).ToString("0000") + "_" + txt_PA_ProjCode.Text + "_" + txt_PA_Desc.Text);
+                System.IO.Directory.CreateDirectory(Dpath);
+            }
+
+        }
+        private void Btn_PA_CreateProjFolder_MouseEnter(object sender, EventArgs e)
+        {
+            btn_PA_Done.ForeColor = Color.White;
+        }
+
+        private void Btn_PA_CreateProjFolder_MouseLeave(object sender, EventArgs e)
+        {
+            btn_PA_Done.ForeColor = Color.FromArgb(64, 64, 64);
         }
     }
 }

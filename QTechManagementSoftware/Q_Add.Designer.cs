@@ -147,6 +147,7 @@
             this.txt_QA_CCode.TabStop = false;
             this.txt_QA_CCode.Text = "bunifuMaterialTextbox2";
             this.txt_QA_CCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txt_QA_CCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Txt_QA_CCode_KeyDown);
             // 
             // txt_QA_CName
             // 
@@ -168,6 +169,7 @@
             this.txt_QA_CName.TabStop = false;
             this.txt_QA_CName.Text = "bunifuMaterialTextbox1";
             this.txt_QA_CName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txt_QA_CName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Txt_QA_CName_KeyDown);
             // 
             // bunifuCustomLabel2
             // 

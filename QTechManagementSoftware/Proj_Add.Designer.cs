@@ -53,6 +53,7 @@
             this.txt_PA_CName = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.ddb_PA_CCode = new Bunifu.Framework.UI.BunifuDropdown();
             this.bunifuCustomLabel7 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.btn_PED_CreateProjFolder = new System.Windows.Forms.Button();
             this.gb_OA_ODetails.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -399,12 +400,31 @@
             this.bunifuCustomLabel7.TabIndex = 5;
             this.bunifuCustomLabel7.Text = "Add Project";
             // 
+            // btn_PED_CreateProjFolder
+            // 
+            this.btn_PED_CreateProjFolder.FlatAppearance.BorderSize = 0;
+            this.btn_PED_CreateProjFolder.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
+            this.btn_PED_CreateProjFolder.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
+            this.btn_PED_CreateProjFolder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_PED_CreateProjFolder.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_PED_CreateProjFolder.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btn_PED_CreateProjFolder.Location = new System.Drawing.Point(16, 255);
+            this.btn_PED_CreateProjFolder.Name = "btn_PED_CreateProjFolder";
+            this.btn_PED_CreateProjFolder.Size = new System.Drawing.Size(200, 40);
+            this.btn_PED_CreateProjFolder.TabIndex = 7;
+            this.btn_PED_CreateProjFolder.Text = "Create Project Folders";
+            this.btn_PED_CreateProjFolder.UseVisualStyleBackColor = true;
+            this.btn_PED_CreateProjFolder.Click += new System.EventHandler(this.Btn_PA_CreateProjFolder_Click);
+            this.btn_PED_CreateProjFolder.MouseEnter += new System.EventHandler(this.Btn_PA_CreateProjFolder_MouseEnter);
+            this.btn_PED_CreateProjFolder.MouseLeave += new System.EventHandler(this.Btn_PA_CreateProjFolder_MouseLeave);
+            // 
             // Proj_Add
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(720, 306);
+            this.Controls.Add(this.btn_PED_CreateProjFolder);
             this.Controls.Add(this.bunifuCustomLabel7);
             this.Controls.Add(this.gb_OA_CDetails);
             this.Controls.Add(this.gb_OA_ODetails);
@@ -461,5 +481,6 @@
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel5;
         private Bunifu.Framework.UI.BunifuMaterialTextbox txt_PA_CName;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel7;
+        private System.Windows.Forms.Button btn_PED_CreateProjFolder;
     }
 }
