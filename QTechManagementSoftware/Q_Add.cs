@@ -29,7 +29,7 @@ namespace QTechManagementSoftware
         {
             Home frmHome = (Home)this.Owner;
 
-            if (frmHome.GetCurPanel() == "pnl_L_Quotes")
+            if (frmHome.GetCurForm().GetType() == typeof(Quotes))
             {
                 Quotes curForm = (Quotes)frmHome.GetCurForm();
                 txt_QA_CCode.Text = curForm.GetCCode();

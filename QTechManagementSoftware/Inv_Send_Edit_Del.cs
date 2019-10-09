@@ -28,7 +28,7 @@ namespace QTechManagementSoftware
         {
             Home frmHome = (Home)this.Owner;
 
-            if (frmHome.GetCurPanel() == "pnl_L_InvSent")
+            if (frmHome.GetCurForm().GetType() == typeof(Invoices_Send))
             {
                 Invoices_Send curForm = (Invoices_Send)frmHome.GetCurForm();
 

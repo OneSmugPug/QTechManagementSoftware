@@ -34,9 +34,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Orders));
             this.btn_LO_ClearFilter = new System.Windows.Forms.Button();
             this.btn_LO_Filter = new System.Windows.Forms.Button();
-            this.btn_LO_SelCli = new System.Windows.Forms.Button();
-            this.btn_LO_Next = new System.Windows.Forms.Button();
-            this.btn_LO_Prev = new System.Windows.Forms.Button();
             this.btn_LO_NewOrder = new System.Windows.Forms.Button();
             this.dtp_LO_From = new Bunifu.Framework.UI.BunifuDatepicker();
             this.dtp_LO_To = new Bunifu.Framework.UI.BunifuDatepicker();
@@ -90,63 +87,6 @@
             this.btn_LO_Filter.Click += new System.EventHandler(this.Btn_O_FilterD_Click);
             this.btn_LO_Filter.MouseEnter += new System.EventHandler(this.Btn_LO_Filter_MouseEnter);
             this.btn_LO_Filter.MouseLeave += new System.EventHandler(this.Btn_LO_Filter_MouseLeave);
-            // 
-            // btn_LO_SelCli
-            // 
-            this.btn_LO_SelCli.FlatAppearance.BorderSize = 0;
-            this.btn_LO_SelCli.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.btn_LO_SelCli.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
-            this.btn_LO_SelCli.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_LO_SelCli.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_LO_SelCli.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btn_LO_SelCli.Image = global::QTechManagementSoftware.Properties.Resources.user_list;
-            this.btn_LO_SelCli.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_LO_SelCli.Location = new System.Drawing.Point(518, 161);
-            this.btn_LO_SelCli.Name = "btn_LO_SelCli";
-            this.btn_LO_SelCli.Size = new System.Drawing.Size(114, 40);
-            this.btn_LO_SelCli.TabIndex = 3;
-            this.btn_LO_SelCli.Text = "Client List";
-            this.btn_LO_SelCli.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btn_LO_SelCli.UseVisualStyleBackColor = true;
-            this.btn_LO_SelCli.Click += new System.EventHandler(this.Btn_Order_CBrowse_Click);
-            this.btn_LO_SelCli.MouseEnter += new System.EventHandler(this.Btn_LO_SelCli_MouseEnter);
-            this.btn_LO_SelCli.MouseLeave += new System.EventHandler(this.Btn_LO_SelCli_MouseLeave);
-            // 
-            // btn_LO_Next
-            // 
-            this.btn_LO_Next.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_LO_Next.FlatAppearance.BorderSize = 0;
-            this.btn_LO_Next.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.btn_LO_Next.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
-            this.btn_LO_Next.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_LO_Next.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_LO_Next.Image = global::QTechManagementSoftware.Properties.Resources.forawrd_black;
-            this.btn_LO_Next.Location = new System.Drawing.Point(897, 21);
-            this.btn_LO_Next.Name = "btn_LO_Next";
-            this.btn_LO_Next.Size = new System.Drawing.Size(49, 149);
-            this.btn_LO_Next.TabIndex = 4;
-            this.btn_LO_Next.UseVisualStyleBackColor = true;
-            this.btn_LO_Next.Click += new System.EventHandler(this.Btn_Order_CNext_Click);
-            this.btn_LO_Next.MouseEnter += new System.EventHandler(this.Btn_LO_Next_MouseEnter);
-            this.btn_LO_Next.MouseLeave += new System.EventHandler(this.Btn_LO_Next_MouseLeave);
-            // 
-            // btn_LO_Prev
-            // 
-            this.btn_LO_Prev.Enabled = false;
-            this.btn_LO_Prev.FlatAppearance.BorderSize = 0;
-            this.btn_LO_Prev.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.btn_LO_Prev.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
-            this.btn_LO_Prev.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_LO_Prev.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_LO_Prev.Image = global::QTechManagementSoftware.Properties.Resources.back_black;
-            this.btn_LO_Prev.Location = new System.Drawing.Point(17, 21);
-            this.btn_LO_Prev.Name = "btn_LO_Prev";
-            this.btn_LO_Prev.Size = new System.Drawing.Size(49, 149);
-            this.btn_LO_Prev.TabIndex = 5;
-            this.btn_LO_Prev.UseVisualStyleBackColor = true;
-            this.btn_LO_Prev.Click += new System.EventHandler(this.Btn_Order_CPrev_Click);
-            this.btn_LO_Prev.MouseEnter += new System.EventHandler(this.Btn_LO_Prev_MouseEnter);
-            this.btn_LO_Prev.MouseLeave += new System.EventHandler(this.Btn_LO_Prev_MouseLeave);
             // 
             // btn_LO_NewOrder
             // 
@@ -231,7 +171,7 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
             this.dgv_LOrders.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgv_LOrders.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_LOrders.Size = new System.Drawing.Size(963, 342);
+            this.dgv_LOrders.Size = new System.Drawing.Size(963, 341);
             this.dgv_LOrders.TabIndex = 8;
             this.dgv_LOrders.TimeFilter = false;
             this.dgv_LOrders.SortStringChanged += new System.EventHandler(this.Dgv_Order_SortStringChanged);
@@ -353,9 +293,6 @@
             this.Controls.Add(this.dgv_LOrders);
             this.Controls.Add(this.dtp_LO_To);
             this.Controls.Add(this.dtp_LO_From);
-            this.Controls.Add(this.btn_LO_Prev);
-            this.Controls.Add(this.btn_LO_Next);
-            this.Controls.Add(this.btn_LO_SelCli);
             this.Controls.Add(this.btn_LO_Filter);
             this.Controls.Add(this.btn_LO_NewOrder);
             this.Controls.Add(this.btn_LO_ClearFilter);
@@ -378,9 +315,6 @@
         private System.Windows.Forms.Button btn_LO_ClearFilter;
         private System.Windows.Forms.Button btn_LO_NewOrder;
         private System.Windows.Forms.Button btn_LO_Filter;
-        private System.Windows.Forms.Button btn_LO_SelCli;
-        private System.Windows.Forms.Button btn_LO_Next;
-        private System.Windows.Forms.Button btn_LO_Prev;
         private Bunifu.Framework.UI.BunifuDatepicker dtp_LO_From;
         private Bunifu.Framework.UI.BunifuDatepicker dtp_LO_To;
         private ADGV.AdvancedDataGridView dgv_LOrders;

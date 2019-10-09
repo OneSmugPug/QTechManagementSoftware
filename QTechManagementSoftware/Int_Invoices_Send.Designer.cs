@@ -34,9 +34,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Int_Invoices_Send));
             this.btn_IIS_ClearFilter = new System.Windows.Forms.Button();
             this.btn_IIS_Filter = new System.Windows.Forms.Button();
-            this.btn_IIS_SelCli = new System.Windows.Forms.Button();
-            this.btn_IIS_Next = new System.Windows.Forms.Button();
-            this.btn_IIS_Prev = new System.Windows.Forms.Button();
             this.btn_IIS_NewIS = new System.Windows.Forms.Button();
             this.dgv_IInvSent = new ADGV.AdvancedDataGridView();
             this.dtp_IIS_From = new Bunifu.Framework.UI.BunifuDatepicker();
@@ -80,7 +77,7 @@
             this.btn_IIS_Filter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btn_IIS_Filter.Image = global::QTechManagementSoftware.Properties.Resources.filter_grey;
             this.btn_IIS_Filter.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_IIS_Filter.Location = new System.Drawing.Point(553, 232);
+            this.btn_IIS_Filter.Location = new System.Drawing.Point(556, 232);
             this.btn_IIS_Filter.Name = "btn_IIS_Filter";
             this.btn_IIS_Filter.Size = new System.Drawing.Size(114, 40);
             this.btn_IIS_Filter.TabIndex = 2;
@@ -90,63 +87,6 @@
             this.btn_IIS_Filter.Click += new System.EventHandler(this.Btn_IIS_Filter_Click);
             this.btn_IIS_Filter.MouseEnter += new System.EventHandler(this.Btn_IIS_Filter_MouseEnter);
             this.btn_IIS_Filter.MouseLeave += new System.EventHandler(this.Btn_IIS_Filter_MouseLeave);
-            // 
-            // btn_IIS_SelCli
-            // 
-            this.btn_IIS_SelCli.FlatAppearance.BorderSize = 0;
-            this.btn_IIS_SelCli.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.btn_IIS_SelCli.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
-            this.btn_IIS_SelCli.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_IIS_SelCli.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_IIS_SelCli.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btn_IIS_SelCli.Image = global::QTechManagementSoftware.Properties.Resources.user_list;
-            this.btn_IIS_SelCli.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_IIS_SelCli.Location = new System.Drawing.Point(518, 161);
-            this.btn_IIS_SelCli.Name = "btn_IIS_SelCli";
-            this.btn_IIS_SelCli.Size = new System.Drawing.Size(114, 40);
-            this.btn_IIS_SelCli.TabIndex = 3;
-            this.btn_IIS_SelCli.Text = "Client List";
-            this.btn_IIS_SelCli.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btn_IIS_SelCli.UseVisualStyleBackColor = true;
-            this.btn_IIS_SelCli.Click += new System.EventHandler(this.Btn_IIS_SelCli_Click);
-            this.btn_IIS_SelCli.MouseEnter += new System.EventHandler(this.Btn_IIS_SelCli_MouseEnter);
-            this.btn_IIS_SelCli.MouseLeave += new System.EventHandler(this.Btn_IIS_NewIS_MouseLeave);
-            // 
-            // btn_IIS_Next
-            // 
-            this.btn_IIS_Next.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_IIS_Next.FlatAppearance.BorderSize = 0;
-            this.btn_IIS_Next.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.btn_IIS_Next.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
-            this.btn_IIS_Next.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_IIS_Next.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_IIS_Next.Image = global::QTechManagementSoftware.Properties.Resources.forawrd_black;
-            this.btn_IIS_Next.Location = new System.Drawing.Point(897, 21);
-            this.btn_IIS_Next.Name = "btn_IIS_Next";
-            this.btn_IIS_Next.Size = new System.Drawing.Size(49, 149);
-            this.btn_IIS_Next.TabIndex = 4;
-            this.btn_IIS_Next.UseVisualStyleBackColor = true;
-            this.btn_IIS_Next.Click += new System.EventHandler(this.Btn_IIS_Next_Click);
-            this.btn_IIS_Next.MouseEnter += new System.EventHandler(this.Btn_IIS_Next_MouseEnter);
-            this.btn_IIS_Next.MouseLeave += new System.EventHandler(this.Btn_IIS_Next_MouseLeave);
-            // 
-            // btn_IIS_Prev
-            // 
-            this.btn_IIS_Prev.Enabled = false;
-            this.btn_IIS_Prev.FlatAppearance.BorderSize = 0;
-            this.btn_IIS_Prev.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.btn_IIS_Prev.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
-            this.btn_IIS_Prev.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_IIS_Prev.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_IIS_Prev.Image = global::QTechManagementSoftware.Properties.Resources.back_black;
-            this.btn_IIS_Prev.Location = new System.Drawing.Point(17, 21);
-            this.btn_IIS_Prev.Name = "btn_IIS_Prev";
-            this.btn_IIS_Prev.Size = new System.Drawing.Size(49, 149);
-            this.btn_IIS_Prev.TabIndex = 5;
-            this.btn_IIS_Prev.UseVisualStyleBackColor = true;
-            this.btn_IIS_Prev.Click += new System.EventHandler(this.Btn_IIS_Prev_Click);
-            this.btn_IIS_Prev.MouseEnter += new System.EventHandler(this.Btn_IIS_Prev_MouseEnter);
-            this.btn_IIS_Prev.MouseLeave += new System.EventHandler(this.Btn_IIS_Prev_MouseLeave);
             // 
             // btn_IIS_NewIS
             // 
@@ -159,7 +99,7 @@
             this.btn_IIS_NewIS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btn_IIS_NewIS.Image = global::QTechManagementSoftware.Properties.Resources.add_grey;
             this.btn_IIS_NewIS.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_IIS_NewIS.Location = new System.Drawing.Point(825, 232);
+            this.btn_IIS_NewIS.Location = new System.Drawing.Point(832, 232);
             this.btn_IIS_NewIS.Name = "btn_IIS_NewIS";
             this.btn_IIS_NewIS.Size = new System.Drawing.Size(122, 40);
             this.btn_IIS_NewIS.TabIndex = 1;
@@ -197,7 +137,7 @@
             this.dgv_IInvSent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgv_IInvSent.DateWithTime = false;
             this.dgv_IInvSent.EnableHeadersVisualStyles = false;
-            this.dgv_IInvSent.Location = new System.Drawing.Point(0, 279);
+            this.dgv_IInvSent.Location = new System.Drawing.Point(1, 278);
             this.dgv_IInvSent.Name = "dgv_IInvSent";
             this.dgv_IInvSent.ReadOnly = true;
             this.dgv_IInvSent.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -205,7 +145,7 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
             this.dgv_IInvSent.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgv_IInvSent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_IInvSent.Size = new System.Drawing.Size(963, 340);
+            this.dgv_IInvSent.Size = new System.Drawing.Size(963, 341);
             this.dgv_IInvSent.TabIndex = 6;
             this.dgv_IInvSent.TimeFilter = false;
             this.dgv_IInvSent.SortStringChanged += new System.EventHandler(this.Dgv_IInvSent_SortStringChanged);
@@ -291,7 +231,7 @@
             this.bunifuSeparator1.LineThickness = 1;
             this.bunifuSeparator1.Location = new System.Drawing.Point(17, 207);
             this.bunifuSeparator1.Name = "bunifuSeparator1";
-            this.bunifuSeparator1.Size = new System.Drawing.Size(934, 25);
+            this.bunifuSeparator1.Size = new System.Drawing.Size(929, 25);
             this.bunifuSeparator1.TabIndex = 13;
             this.bunifuSeparator1.Transparency = 255;
             this.bunifuSeparator1.Vertical = false;
@@ -332,7 +272,7 @@
             this.txt_IIS_CCode.Location = new System.Drawing.Point(253, 53);
             this.txt_IIS_CCode.Margin = new System.Windows.Forms.Padding(4);
             this.txt_IIS_CCode.Name = "txt_IIS_CCode";
-            this.txt_IIS_CCode.Size = new System.Drawing.Size(379, 31);
+            this.txt_IIS_CCode.Size = new System.Drawing.Size(379, 33);
             this.txt_IIS_CCode.TabIndex = 15;
             this.txt_IIS_CCode.Text = "bunifuMaterialTextbox1";
             this.txt_IIS_CCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -354,9 +294,6 @@
             this.Controls.Add(this.dtp_IIS_To);
             this.Controls.Add(this.dtp_IIS_From);
             this.Controls.Add(this.dgv_IInvSent);
-            this.Controls.Add(this.btn_IIS_Prev);
-            this.Controls.Add(this.btn_IIS_Next);
-            this.Controls.Add(this.btn_IIS_SelCli);
             this.Controls.Add(this.btn_IIS_Filter);
             this.Controls.Add(this.btn_IIS_NewIS);
             this.Controls.Add(this.btn_IIS_ClearFilter);
@@ -378,9 +315,6 @@
         private System.Windows.Forms.Button btn_IIS_ClearFilter;
         private System.Windows.Forms.Button btn_IIS_NewIS;
         private System.Windows.Forms.Button btn_IIS_Filter;
-        private System.Windows.Forms.Button btn_IIS_SelCli;
-        private System.Windows.Forms.Button btn_IIS_Next;
-        private System.Windows.Forms.Button btn_IIS_Prev;
         private ADGV.AdvancedDataGridView dgv_IInvSent;
         private Bunifu.Framework.UI.BunifuDatepicker dtp_IIS_From;
         private Bunifu.Framework.UI.BunifuDatepicker dtp_IIS_To;

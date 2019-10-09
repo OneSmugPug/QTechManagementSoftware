@@ -58,8 +58,6 @@ namespace QTechManagementSoftware
 
             if (clientsDT.Rows.Count > 0)
             {
-                if (!btn_LIS_SelCli.Enabled)
-                    btn_LIS_SelCli.Enabled = true;
 
                 if (!dgv_LInvSent.Enabled)
                     dgv_LInvSent.Enabled = true;
@@ -77,7 +75,6 @@ namespace QTechManagementSoftware
             }
             else
             {
-                btn_LIS_SelCli.Enabled = false;
                 dgv_LInvSent.Enabled = false;
                 btn_LIS_NewIS.Enabled = false;
                 btn_LIS_Filter.Enabled = false;
@@ -101,75 +98,6 @@ namespace QTechManagementSoftware
             bs.DataSource = dt;
         }
 
-
-        //================================================================================================================================================//
-        // NEXT CLICKED                                                                                                                                   //
-        //================================================================================================================================================//
-        private void btn_LIS_Next_Click(object sender, EventArgs e)
-        {
-            if (CUR_CLIENT + 1 < NUM_OF_CLIENTS)
-            {
-                CUR_CLIENT++;
-                txt_LIS_CCode.Text = clientsDT.Rows[CUR_CLIENT]["Code"].ToString().Trim();
-                CNAME = clientsDT.Rows[CUR_CLIENT]["Name"].ToString().Trim();
-                txt_LIS_CName.Text = CNAME;
-
-                LoadInvSend();
-            }
-            else if (CUR_CLIENT + 1 == NUM_OF_CLIENTS)
-            {
-                btn_LIS_Next.Enabled = false;
-                CUR_CLIENT++;
-                txt_LIS_CCode.Text = clientsDT.Rows[CUR_CLIENT]["Code"].ToString();
-                CNAME = clientsDT.Rows[CUR_CLIENT]["Name"].ToString();
-                txt_LIS_CName.Text = CNAME;
-
-                LoadInvSend();
-            }
-            if (CUR_CLIENT != 0 && !btn_LIS_Prev.Enabled)
-                btn_LIS_Prev.Enabled = true;
-        }
-
-
-        //================================================================================================================================================//
-        // PREVIOUS CLICKED                                                                                                                               //
-        //================================================================================================================================================//
-        private void btn_LIS_Prev_Click(object sender, EventArgs e)
-        {
-            if (CUR_CLIENT - 1 > 0)
-            {
-                CUR_CLIENT--;
-                txt_LIS_CCode.Text = clientsDT.Rows[CUR_CLIENT]["Code"].ToString().Trim();
-                CNAME = clientsDT.Rows[CUR_CLIENT]["Name"].ToString().Trim();
-                txt_LIS_CName.Text = CNAME;
-
-                LoadInvSend();
-            }
-            else if (CUR_CLIENT - 1 == 0)
-            {
-                btn_LIS_Prev.Enabled = false;
-                CUR_CLIENT--;
-                txt_LIS_CCode.Text = clientsDT.Rows[CUR_CLIENT]["Code"].ToString();
-                CNAME = clientsDT.Rows[CUR_CLIENT]["Name"].ToString();
-                txt_LIS_CName.Text = CNAME;
-
-                LoadInvSend();
-            }
-            if (CUR_CLIENT != NUM_OF_CLIENTS && !btn_LIS_Next.Enabled)
-                btn_LIS_Next.Enabled = true;
-        }
-
-
-        //================================================================================================================================================//
-        // SELECT CLIENT CLICKED                                                                                                                          //
-        //================================================================================================================================================//
-        private void btn_LIS_SelCli_Click(object sender, EventArgs e)
-        {
-            using (ClientList frmCList = new ClientList())
-                frmCList.ShowDialog(this);
-        }
-
-
         //================================================================================================================================================//
         // SET NEW CLIENT DETAILS                                                                                                                         //
         //================================================================================================================================================//
@@ -179,18 +107,6 @@ namespace QTechManagementSoftware
 
             LoadClients();
             LoadInvSend();
-
-            if (CUR_CLIENT != 0 && !btn_LIS_Prev.Enabled)
-                btn_LIS_Prev.Enabled = true;
-
-            if (CUR_CLIENT == 0 && btn_LIS_Prev.Enabled)
-                btn_LIS_Prev.Enabled = false;
-
-            if (CUR_CLIENT != NUM_OF_CLIENTS && !btn_LIS_Next.Enabled)
-                btn_LIS_Next.Enabled = true;
-
-            if (CUR_CLIENT == NUM_OF_CLIENTS && btn_LIS_Next.Enabled)
-                btn_LIS_Next.Enabled = false;
         }
 
 
@@ -304,51 +220,6 @@ namespace QTechManagementSoftware
             btn_LIS_Filter.Visible = true;
             btn_LIS_ClearFilter.Visible = false;
         }
-
-
-        //================================================================================================================================================//
-        // PREVIOUS BUTTON                                                                                                                                //
-        //================================================================================================================================================//
-        private void btn_LIS_Prev_MouseEnter(object sender, EventArgs e)
-        {
-            btn_LIS_Prev.Image = Resources.back_white;
-        }
-
-        private void btn_LIS_Prev_MouseLeave(object sender, EventArgs e)
-        {
-            btn_LIS_Prev.Image = Resources.back_black;
-        }
-
-
-        //================================================================================================================================================//
-        // NEXT BUTTON                                                                                                                                    //
-        //================================================================================================================================================//
-        private void btn_LIS_Next_MouseEnter(object sender, EventArgs e)
-        {
-            btn_LIS_Next.Image = Resources.forward_white;
-        }
-
-        private void btn_LIS_Next_MouseLeave(object sender, EventArgs e)
-        {
-            btn_LIS_Next.Image = Resources.forawrd_black;
-        }
-
-
-        //================================================================================================================================================//
-        // SELECT CLIENT BUTTON                                                                                                                           //
-        //================================================================================================================================================//
-        private void btn_LIS_SelCli_MouseEnter(object sender, EventArgs e)
-        {
-            btn_LIS_SelCli.Image = Resources.client_list_white;
-            btn_LIS_SelCli.ForeColor = Color.White;
-        }
-
-        private void btn_LIS_SelCli_MouseLeave(object sender, EventArgs e)
-        {
-            btn_LIS_SelCli.Image = Resources.user_list;
-            btn_LIS_SelCli.ForeColor = Color.FromArgb(64, 64, 64);
-        }
-
 
         //================================================================================================================================================//
         // NEW INVOICE SENT BUTTON                                                                                                                        //

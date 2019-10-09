@@ -29,7 +29,7 @@ namespace QTechManagementSoftware
 
         private Point lastLocation;
         private string curVisible;
-        private object curForm;
+        private static object curForm = null;
 
         private DataTable lClientDT;
         private int NUM_OF_LCLIENTS;
@@ -48,6 +48,11 @@ namespace QTechManagementSoftware
         private PettyCash frmPetty;
         private Projects frmProj;
 
+        Panel ordersPnl = new Panel();
+        Panel quotesPnl = new Panel();
+        Panel invSentPnl = new Panel();
+        Panel invRecPnl = new Panel();
+
         public Home()
         {
             InitializeComponent();
@@ -61,6 +66,13 @@ namespace QTechManagementSoftware
             selected = "Home";
             pnl_Home.Visible = true;
             CurrentPanel("pnl_Home");
+
+            // Populate Tab Control
+            
+            ordersPnl.Dock = DockStyle.Fill;
+            quotesPnl.Dock = DockStyle.Fill;
+            invSentPnl.Dock = DockStyle.Fill;
+            invRecPnl.Dock = DockStyle.Fill;
         }
 
         private void LoadLocalClients()
@@ -142,6 +154,7 @@ namespace QTechManagementSoftware
             btn_Home_Max.Visible = false;
             btn_Home_Nor.Visible = true;
             lblComing.Location = new Point((pnl_Home.Width / 2) - (lblComing.Width / 2), (pnl_Home.Height / 2) - (lblComing.Height / 2));
+            tabControlX1.RefreshPanels();
         }
 
 
@@ -164,6 +177,7 @@ namespace QTechManagementSoftware
             btn_Home_Nor.Visible = false;
             btn_Home_Max.Visible = true;
             lblComing.Location = new Point(416, 297);
+            tabControlX1.RefreshPanels();
         }
 
 
@@ -199,19 +213,6 @@ namespace QTechManagementSoftware
 
             pnl_Home.Visible = true;
             CurrentPanel("pnl_Home");
-
-            if (isLocalOpen && !isLInvOpen)
-                tmr_Local.Start();
-            else if (isLocalOpen && isLInvOpen)
-            {
-                tmr_L_Inv.Start();
-                tmr_Local.Start();
-            }
-
-            if (isIntOpen)
-                tmr_Int.Start();
-            if (isConOpen)
-                tmr_Con.Start();
 
             btn_Home.BackColor = Color.FromArgb(19, 118, 188);
             btn_Home.ForeColor = Color.White;
@@ -354,40 +355,10 @@ namespace QTechManagementSoftware
         {
             switch (name)
             {
-                case "lInvRec":
-                    {
-                        btn_L_InvRec.BackColor = Color.FromArgb(35, 35, 35);
-                        btn_L_InvRec.ForeColor = Color.White;
-                        break;
-                    }
-                case "lQuotes":
-                    {
-                        btn_L_Quotes.BackColor = Color.FromArgb(50, 50, 50);
-                        btn_L_Quotes.ForeColor = Color.White;
-                        break;
-                    }
                 case "Local":
                     {
                         btn_Local.BackColor = Color.FromArgb(64, 64, 64);
                         btn_Local.ForeColor = Color.White;
-                        break;
-                    }
-                case "iOrders":
-                    {
-                        btn_I_Orders.BackColor = Color.FromArgb(50, 50, 50);
-                        btn_I_Orders.ForeColor = Color.White;
-                        break;
-                    }
-                case "iInvSent":
-                    {
-                        btn_I_InvSent.BackColor = Color.FromArgb(50, 50, 50);
-                        btn_I_InvSent.ForeColor = Color.White;
-                        break;
-                    }
-                case "lClients":
-                    {
-                        btn_L_Clients.BackColor = Color.FromArgb(50, 50, 50);
-                        btn_L_Clients.ForeColor = Color.White;
                         break;
                     }
                 case "Home":
@@ -395,12 +366,6 @@ namespace QTechManagementSoftware
                         btn_Home.BackColor = Color.FromArgb(64, 64, 64);
                         btn_Home.ForeColor = Color.White;
                         lblComing.Visible = false;
-                        break;
-                    }
-                case "iClients":
-                    {
-                        btn_I_Clients.BackColor = Color.FromArgb(50, 50, 50);
-                        btn_I_Clients.ForeColor = Color.White;
                         break;
                     }
                 case "Projects":
@@ -415,18 +380,6 @@ namespace QTechManagementSoftware
                         btn_Contractors.ForeColor = Color.White;
                         break;
                     }
-                case "iQuotes":
-                    {
-                        btn_I_Quotes.BackColor = Color.FromArgb(50, 50, 50);
-                        btn_I_Quotes.ForeColor = Color.White;
-                        break;
-                    }
-                case "lInvSent":
-                    {
-                        btn_L_InvSent.BackColor = Color.FromArgb(35, 35, 35);
-                        btn_L_InvSent.ForeColor = Color.White;
-                        break;
-                    }
                 case "cNoRem":
                     {
                         btn_C_NoRem.BackColor = Color.FromArgb(50, 50, 50);
@@ -437,18 +390,6 @@ namespace QTechManagementSoftware
                     {
                         btn_L_PettyCash.BackColor = Color.FromArgb(50, 50, 50);
                         btn_L_PettyCash.ForeColor = Color.White;
-                        break;
-                    }
-                case "lOrders":
-                    {
-                        btn_L_Orders.BackColor = Color.FromArgb(50, 50, 50);
-                        btn_L_Orders.ForeColor = Color.White;
-                        break;
-                    }
-                case "lInvoices":
-                    {
-                        btn_L_Invoices.BackColor = Color.FromArgb(50, 50, 50);
-                        btn_L_Invoices.ForeColor = Color.White;
                         break;
                     }
                 case "cTimesheets":
@@ -566,39 +507,14 @@ namespace QTechManagementSoftware
         {
             switch (curVisible)
             {
-                case "pnl_L_Quotes":
+                case "tabControlX1":
                     {
-                        pnl_L_Quotes.Visible = false;
-                        break;
-                    }
-                case "pnl_L_InvSent":
-                    {
-                        pnl_L_InvSent.Visible = false;
-                        break;
-                    }
-                case "pnl_I_Orders":
-                    {
-                        pnl_I_Orders.Visible = false;
+                        tabControlX1.Visible = false;
                         break;
                     }
                 case "pnl_L_PettyCash":
                     {
                         pnl_L_PettyCash.Visible = false;
-                        break;
-                    }
-                case "pnl_L_InvRec":
-                    {
-                        pnl_L_InvRec.Visible = false;
-                        break;
-                    }
-                case "pnl_I_Quotes":
-                    {
-                        pnl_I_Quotes.Visible = false;
-                        break;
-                    }
-                case "pnl_I_InvSent":
-                    {
-                        pnl_I_InvSent.Visible = false;
                         break;
                     }
                 case "pnl_Projects":
@@ -636,17 +552,42 @@ namespace QTechManagementSoftware
                         pnl_C_NoInv.Visible = false;
                         break;
                     }
-                case "pnl_L_Orders":
-                    {
-                        pnl_L_Orders.Visible = false;
-                        break;
-                    }
             }
         }
 
         public string GetCurPanel() { return curVisible; }
 
         public object GetCurForm() { return curForm; }
+
+        public void SetCurForm(string frmName)
+        {
+            switch (frmName)
+            {
+                case "International Orders":
+                    curForm = frmIntOrders;
+                    break;
+                case "International Quotes":
+                    curForm = frmIntQuotes;
+                    break;
+                case "International Invoices Sent":
+                    curForm = frmIntInvSent;
+                    break;
+                case "Orders":
+                    curForm = frmOrder;
+                    break;
+                case "Quotes":
+                    curForm = frmQuote;
+                    break;
+                case "Invoices Sent":
+                    curForm = frmInvSent;
+                    break;
+                case "Invoices Received":
+                    curForm = frmInvRec;
+                    break;
+                default:
+                    break;
+            }
+        }
 
 
         //================================================================================================================================================//
@@ -675,261 +616,16 @@ namespace QTechManagementSoftware
         private void Btn_Local_Click(object sender, EventArgs e)
         {
             ResetButtons(selected);
-            GetSelectedButton(btn_L_Clients);
+            GetSelectedButton(sender);
             HidePanel();
-
-            if (isIntOpen)
-                tmr_Int.Start();
-            if (isConOpen)
-                tmr_Con.Start();
 
             btn_Local.BackColor = Color.FromArgb(19, 118, 188);
             btn_Local.ForeColor = Color.White;
             btn_Local.Image = Resources.local_white;
-
-            if (isLInvOpen && isLocalOpen)
-                tmr_L_Inv.Start();
-
-            btn_L_Clients.BackColor = Color.FromArgb(15, 91, 142);
-            btn_L_Clients.ForeColor = Color.White;
-            pnl_L_CDet.Visible = true;
-            tmr_Local.Start();
-        }
-
-
-        //================================================================================================================================================//
-        // LOCAL CLIENTS BUTTON                                                                                                                           //
-        //================================================================================================================================================//
-        private void Btn_L_Clients_Click(object sender, EventArgs e)
-        {
-            ResetButtons(selected);
-            GetSelectedButton(sender);
-            HidePanel();
-
-            btn_L_Clients.BackColor = Color.FromArgb(15, 91, 142);
-            btn_L_Clients.ForeColor = Color.White;
+            
+            
             pnl_L_CDet.Visible = true;
         }
-
-        private void Btn_L_Clients_MouseEnter(object sender, EventArgs e)
-        {
-            if (selected != "lClients")
-            {
-                btn_L_Clients.BackColor = Color.FromArgb(73, 73, 73);
-                btn_L_Clients.ForeColor = Color.FromArgb(19, 118, 188);
-            }
-        }
-
-        private void Btn_L_Clients_MouseLeave(object sender, EventArgs e)
-        {
-            if (selected != "lClients")
-            {
-                btn_L_Clients.BackColor = Color.FromArgb(50, 50, 50);
-                btn_L_Clients.ForeColor = Color.White;
-            }
-        }
-
-        private void Btn_L_Orders_MouseEnter(object sender, EventArgs e)
-        {
-            if (selected != "lOrders")
-            {
-                btn_L_Orders.BackColor = Color.FromArgb(73, 73, 73);
-                btn_L_Orders.ForeColor = Color.FromArgb(19, 118, 188);
-            }
-        }
-
-
-        //================================================================================================================================================//
-        // LOCAL ORDERS BUTTON                                                                                                                            //
-        //================================================================================================================================================//
-        private void Btn_L_Orders_MouseLeave(object sender, EventArgs e)
-        {
-            if (selected != "lOrders")
-            {
-                btn_L_Orders.BackColor = Color.FromArgb(50, 50, 50);
-                btn_L_Orders.ForeColor = Color.White;
-            }
-        }
-
-        private void Btn_L_Orders_Click(object sender, EventArgs e)
-        {
-            ResetButtons(selected);
-            GetSelectedButton(sender);
-            HidePanel();
-
-            pnl_L_Orders.Visible = true;
-            CurrentPanel("pnl_L_Orders");
-
-            btn_L_Orders.BackColor = Color.FromArgb(15, 91, 142);
-            btn_L_Orders.ForeColor = Color.White;
-
-            frmOrder = new Orders();
-            curForm = frmOrder;
-            frmOrder.TopLevel = false;
-            frmOrder.TopMost = true;
-            pnl_L_Orders.Controls.Add(frmOrder);
-            frmOrder.Show();
-        }
-
-
-        //================================================================================================================================================//
-        // LOCAL QUOTES BUTTON                                                                                                                            //
-        //================================================================================================================================================//
-        private void Btn_L_Quotes_MouseEnter(object sender, EventArgs e)
-        {
-            if (selected != "lQuotes")
-            {
-                btn_L_Quotes.BackColor = Color.FromArgb(73, 73, 73);
-                btn_L_Quotes.ForeColor = Color.FromArgb(19, 118, 188);
-            }
-        }
-
-        private void Btn_L_Quotes_MouseLeave(object sender, EventArgs e)
-        {
-            if (selected != "lQuotes")
-            {
-                btn_L_Quotes.BackColor = Color.FromArgb(50, 50, 50);
-                btn_L_Quotes.ForeColor = Color.White;
-            }
-        }
-
-        private void Btn_L_Quotes_Click(object sender, EventArgs e)
-        {
-            ResetButtons(selected);
-            GetSelectedButton(sender);
-            HidePanel();
-
-            pnl_L_Quotes.Visible = true;
-            CurrentPanel("pnl_L_Quotes");
-
-            btn_L_Quotes.BackColor = Color.FromArgb(15, 91, 142);
-            btn_L_Quotes.ForeColor = Color.White;
-
-            frmQuote = new Quotes();
-            curForm = frmQuote;
-            frmQuote.TopLevel = false;
-            frmQuote.TopMost = true;
-            pnl_L_Quotes.Controls.Add(frmQuote);
-            frmQuote.Show();
-        }
-
-
-        //================================================================================================================================================//
-        // LOCAL INVOICES BUTTON                                                                                                                          //
-        //================================================================================================================================================//
-        private void Btn_L_Invoices_MouseEnter(object sender, EventArgs e)
-        {
-            if (selected != "lInvoices")
-            {
-                btn_L_Invoices.BackColor = Color.FromArgb(73, 73, 73);
-                btn_L_Invoices.ForeColor = Color.FromArgb(19, 118, 188);
-            }
-        }
-
-        private void Btn_L_Invoices_MouseLeave(object sender, EventArgs e)
-        {
-            if (selected != "lInvoices")
-            {
-                btn_L_Invoices.BackColor = Color.FromArgb(50, 50, 50);
-                btn_L_Invoices.ForeColor = Color.White;
-            }
-        }
-
-        private void Btn_L_Invoices_Click(object sender, EventArgs e)
-        {
-            ResetButtons(selected);
-            GetSelectedButton(sender);
-
-            btn_L_Invoices.BackColor = Color.FromArgb(15, 91, 142);
-            btn_L_Invoices.ForeColor = Color.White;
-
-            tmr_L_Inv.Start();
-        }
-
-
-        //================================================================================================================================================//
-        // LOCAL INVOICES SENT BUTTON                                                                                                                     //
-        //================================================================================================================================================//
-        private void Btn_L_InvSent_Click(object sender, EventArgs e)
-        {
-            ResetButtons(selected);
-            GetSelectedButton(sender);
-            HidePanel();
-
-            pnl_L_InvSent.Visible = true;
-            CurrentPanel("pnl_L_InvSent");
-
-            btn_L_InvSent.BackColor = Color.FromArgb(13, 77, 119);
-            btn_L_InvSent.ForeColor = Color.White;
-
-            frmInvSent = new Invoices_Send();
-            curForm = frmInvSent;
-            frmInvSent.TopLevel = false;
-            frmInvSent.TopMost = true;
-            pnl_L_InvSent.Controls.Add(frmInvSent);
-            frmInvSent.Show();
-        }
-
-        private void Btn_L_InvSent_MouseEnter(object sender, EventArgs e)
-        {
-            if (selected != "lInvSent")
-            {
-                btn_L_InvSent.BackColor = Color.FromArgb(73, 73, 73);
-                btn_L_InvSent.ForeColor = Color.FromArgb(19, 118, 188);
-            }
-        }
-
-        private void Btn_L_InvSent_MouseLeave(object sender, EventArgs e)
-        {
-            if (selected != "lInvSent")
-            {
-                btn_L_InvSent.BackColor = Color.FromArgb(35, 35, 35);
-                btn_L_InvSent.ForeColor = Color.White;
-            }
-        }
-
-
-        //================================================================================================================================================//
-        // LOCAL INVOICES RECEIVED BUTTON                                                                                                                 //
-        //================================================================================================================================================//
-        private void Btn_L_InvRec_Click(object sender, EventArgs e)
-        {
-            ResetButtons(selected);
-            GetSelectedButton(sender);
-            HidePanel();
-
-            pnl_L_InvRec.Visible = true;
-            CurrentPanel("pnl_L_InvRec");
-
-            btn_L_InvRec.BackColor = Color.FromArgb(13, 77, 119);
-            btn_L_InvRec.ForeColor = Color.White;
-
-            frmInvRec = new Inv_Rec();
-            curForm = frmInvRec;
-            frmInvRec.TopLevel = false;
-            frmInvRec.TopMost = true;
-            pnl_L_InvRec.Controls.Add(frmInvRec);
-            frmInvRec.Show();
-        }
-
-        private void Btn_L_InvRec_MouseEnter(object sender, EventArgs e)
-        {
-            if (selected != "lInvRec")
-            {
-                btn_L_InvRec.BackColor = Color.FromArgb(73, 73, 73);
-                btn_L_InvRec.ForeColor = Color.FromArgb(19, 118, 188);
-            }
-        }
-
-        private void Btn_L_InvRec_MouseLeave(object sender, EventArgs e)
-        {
-            if (selected != "lInvRec")
-            {
-                btn_L_InvRec.BackColor = Color.FromArgb(35, 35, 35);
-                btn_L_InvRec.ForeColor = Color.White;
-            }
-        }
-
 
         //================================================================================================================================================//
         // PETTY CASH BUTTON                                                                                                                              //
@@ -967,7 +663,7 @@ namespace QTechManagementSoftware
         {
             if (selected != "lPettyCash")
             {
-                btn_L_PettyCash.BackColor = Color.FromArgb(50, 50, 50);
+                btn_L_PettyCash.BackColor = Color.FromArgb(64,64,64);
                 btn_L_PettyCash.ForeColor = Color.White;
             }
         }
@@ -979,27 +675,13 @@ namespace QTechManagementSoftware
         private void Btn_Int_Click(object sender, EventArgs e)
         {
             ResetButtons(selected);
-            GetSelectedButton(btn_I_Clients);
+            GetSelectedButton(sender);
             HidePanel();
-
-            if (isLocalOpen && !isLInvOpen)
-                tmr_Local.Start();
-            else if (isLocalOpen && isLInvOpen)
-            {
-                tmr_L_Inv.Start();
-                tmr_Local.Start();
-            }
-
-            if (isConOpen)
-                tmr_Con.Start();
 
             btn_Int.BackColor = Color.FromArgb(19, 118, 188);
             btn_Int.ForeColor = Color.White;
             btn_Int.Image = Resources.globe_white;
-            btn_I_Clients.BackColor = Color.FromArgb(15, 91, 142);
-            btn_I_Clients.ForeColor = Color.White;
             pnl_I_Clients.Visible = true;
-            tmr_Int.Start();
         }
 
         private void Btn_Int_MouseEnter(object sender, EventArgs e)
@@ -1022,166 +704,6 @@ namespace QTechManagementSoftware
             }
         }
 
-
-        //================================================================================================================================================//
-        // INTERNATIONAL CLIENTS BUTTON                                                                                                                   //
-        //================================================================================================================================================//
-        private void Btn_I_Clients_Click(object sender, EventArgs e)
-        {
-            ResetButtons(selected);
-            GetSelectedButton(sender);
-            HidePanel();
-
-            btn_I_Clients.BackColor = Color.FromArgb(15, 91, 142);
-            btn_I_Clients.ForeColor = Color.White;
-            pnl_I_Clients.Visible = true;
-        }
-
-        private void Btn_I_Clients_MouseEnter(object sender, EventArgs e)
-        {
-            if (selected != "iClients")
-            {
-                btn_I_Clients.BackColor = Color.FromArgb(56, 56, 56);
-                btn_I_Clients.ForeColor = Color.FromArgb(15, 91, 142);
-            }
-        }
-
-        private void Btn_I_Clients_MouseLeave(object sender, EventArgs e)
-        {
-            if (selected != "iClients")
-            {
-                btn_I_Clients.BackColor = Color.FromArgb(50, 50, 50);
-                btn_I_Clients.ForeColor = Color.White;
-            }
-        }
-
-
-        //================================================================================================================================================//
-        // INTERNATIONAL ORDERS BUTTON                                                                                                                    //
-        //================================================================================================================================================//
-        private void Btn_I_Orders_Click(object sender, EventArgs e)
-        {
-            ResetButtons(selected);
-            GetSelectedButton(sender);
-            HidePanel();
-
-            pnl_I_Orders.Visible = true;
-            CurrentPanel("pnl_I_Orders");
-
-            btn_I_Orders.BackColor = Color.FromArgb(15, 91, 142);
-            btn_I_Orders.ForeColor = Color.White;
-
-            frmIntOrders = new Int_Orders();
-            curForm = frmIntOrders;
-            frmIntOrders.TopLevel = false;
-            frmIntOrders.TopMost = true;
-            pnl_I_Orders.Controls.Add(frmIntOrders);
-            frmIntOrders.Show();
-        }
-
-        private void Btn_I_Orders_MouseEnter(object sender, EventArgs e)
-        {
-            if (selected != "iOrders")
-            {
-                btn_I_Orders.BackColor = Color.FromArgb(56, 56, 56);
-                btn_I_Orders.ForeColor = Color.FromArgb(15, 91, 142);
-            }
-        }
-
-        private void Btn_I_Orders_MouseLeave(object sender, EventArgs e)
-        {
-            if (selected != "iOrders")
-            {
-                btn_I_Orders.BackColor = Color.FromArgb(50, 50, 50);
-                btn_I_Orders.ForeColor = Color.White;
-            }
-        }
-
-
-        //================================================================================================================================================//
-        // INTERNATIONAL QUOTES BUTTON                                                                                                                    //
-        //================================================================================================================================================//
-        private void Btn_I_Quotes_Click(object sender, EventArgs e)
-        {
-            ResetButtons(selected);
-            GetSelectedButton(sender);
-            HidePanel();
-
-            pnl_I_Quotes.Visible = true;
-            CurrentPanel("pnl_I_Quotes");
-
-            btn_I_Quotes.BackColor = Color.FromArgb(15, 91, 142);
-            btn_I_Quotes.ForeColor = Color.White;
-
-            frmIntQuotes = new Int_Quotes();
-            curForm = frmIntQuotes;
-            frmIntQuotes.TopLevel = false;
-            frmIntQuotes.TopMost = true;
-            pnl_I_Quotes.Controls.Add(frmIntQuotes);
-            frmIntQuotes.Show();
-        }
-
-        private void Btn_I_Quotes_MouseEnter(object sender, EventArgs e)
-        {
-            if (selected != "iQuotes")
-            {
-                btn_I_Quotes.BackColor = Color.FromArgb(56, 56, 56);
-                btn_I_Quotes.ForeColor = Color.FromArgb(15, 91, 142);
-            }
-        }
-
-        private void Btn_I_Quotes_MouseLeave(object sender, EventArgs e)
-        {
-            if (selected != "iQuotes")
-            {
-                btn_I_Quotes.BackColor = Color.FromArgb(50, 50, 50);
-                btn_I_Quotes.ForeColor = Color.White;
-            }
-        }
-
-
-        //================================================================================================================================================//
-        // INTERNATIONAL INVOICES SENT BUTTON                                                                                                             //
-        //================================================================================================================================================//
-        private void Btn_I_InvSent_Click(object sender, EventArgs e)
-        {
-            ResetButtons(selected);
-            GetSelectedButton(sender);
-            HidePanel();
-
-            pnl_I_InvSent.Visible = true;
-            CurrentPanel("pnl_I_InvSent");
-
-            btn_I_InvSent.BackColor = Color.FromArgb(13, 77, 119);
-            btn_I_InvSent.ForeColor = Color.White;
-
-            frmIntInvSent = new Int_Invoices_Send();
-            curForm = frmIntInvSent;
-            frmIntInvSent.TopLevel = false;
-            frmIntInvSent.TopMost = true;
-            pnl_I_InvSent.Controls.Add(frmIntInvSent);
-            frmIntInvSent.Show();
-        }
-
-        private void Btn_I_InvSent_MouseEnter(object sender, EventArgs e)
-        {
-            if (selected != "iInvSent")
-            {
-                btn_I_InvSent.BackColor = Color.FromArgb(56, 56, 56);
-                btn_I_InvSent.ForeColor = Color.FromArgb(15, 91, 142);
-            }
-        }
-
-        private void Btn_I_InvSent_MouseLeave(object sender, EventArgs e)
-        {
-            if (selected != "iInvSent")
-            {
-                btn_I_InvSent.BackColor = Color.FromArgb(50, 50, 50);
-                btn_I_InvSent.ForeColor = Color.White;
-            }
-        }
-
-
         //================================================================================================================================================//
         // CONTRACTORS BUTTON                                                                                                                             //
         //================================================================================================================================================//
@@ -1190,20 +712,10 @@ namespace QTechManagementSoftware
             ResetButtons(selected);
             GetSelectedButton(btn_C_Timesheets);
             HidePanel();
-            if (isLocalOpen && !isLInvOpen)
-                tmr_Local.Start();
-            else if (isLocalOpen && isLInvOpen)
-            {
-                tmr_L_Inv.Start();
-                tmr_Local.Start();
-            }
-            if (isIntOpen)
-                tmr_Int.Start();
 
             btn_Contractors.BackColor = Color.FromArgb(19, 118, 188);
             btn_Contractors.ForeColor = Color.White;
             btn_Contractors.Image = Resources.contr_white;
-            tmr_Con.Start();
 
             pnl_Contractors.Visible = true;
             CurrentPanel("pnl_Contractors");
@@ -1275,7 +787,7 @@ namespace QTechManagementSoftware
         {
             if (selected != "cTimesheets")
             {
-                btn_C_Timesheets.BackColor = Color.FromArgb(50, 50, 50);
+                btn_C_Timesheets.BackColor = Color.FromArgb(64,64,64);
                 btn_C_Timesheets.ForeColor = Color.White;
             }
         }
@@ -1348,7 +860,7 @@ namespace QTechManagementSoftware
         {
             if (selected != "cNoRem")
             {
-                btn_C_NoRem.BackColor = Color.FromArgb(50, 50, 50);
+                btn_C_NoRem.BackColor = Color.FromArgb(64,64,64);
                 btn_C_NoRem.ForeColor = Color.White;
             }
         }
@@ -1422,7 +934,7 @@ namespace QTechManagementSoftware
         {
             if (selected != "cNoInv")
             {
-                btn_C_NoInv.BackColor = Color.FromArgb(50, 50, 50);
+                btn_C_NoInv.BackColor = Color.FromArgb(64,64,64);
                 btn_C_NoInv.ForeColor = Color.White;
             }
         }
@@ -1439,20 +951,6 @@ namespace QTechManagementSoftware
 
             pnl_Projects.Visible = true;
             CurrentPanel("pnl_Projects");
-
-            if (isLocalOpen && !isLInvOpen)
-                tmr_Local.Start();
-            else if (isLocalOpen && isLInvOpen)
-            {
-                tmr_L_Inv.Start();
-                tmr_Local.Start();
-            }
-
-            if (isIntOpen)
-                tmr_Int.Start();
-
-            if (isConOpen)
-                tmr_Con.Start();
 
             btn_Projects.BackColor = Color.FromArgb(19, 118, 188);
             btn_Projects.ForeColor = Color.White;
@@ -1495,195 +993,45 @@ namespace QTechManagementSoftware
             frmAE.Show();
         }
 
-
-        //================================================================================================================================================//
-        // OPENS/CLOSES LOCAL TAB                                                                                                                         //
-        //================================================================================================================================================//
-        private void Timer1_Tick(object sender, EventArgs e)
-        {
-            if (isLocalOpen)
-            {
-                if (pnl_Local.Height <= 48)
-                {
-                    tmr_Local.Stop();
-                    isLocalOpen = false;
-                }
-                else
-                {
-                    pnl_Local.Height -= 15;
-
-                    pnl_Int.Location = new Point(pnl_Int.Location.X, pnl_Int.Location.Y - 15);
-                    pnl_Con.Location = new Point(pnl_Con.Location.X, pnl_Con.Location.Y - 15);
-                    btn_Projects.Location = new Point(btn_Projects.Location.X, btn_Projects.Location.Y - 15);
-                }
-            }
-            else if (pnl_Local.Height >= 288)
-            {
-                tmr_Local.Stop();
-                isLocalOpen = true;
-            }
-            else
-            {
-                pnl_Local.Height += 15;
-
-                pnl_Int.Location = new Point(pnl_Int.Location.X, pnl_Int.Location.Y + 15);
-                pnl_Con.Location = new Point(pnl_Con.Location.X, pnl_Con.Location.Y + 15);
-                btn_Projects.Location = new Point(btn_Projects.Location.X, btn_Projects.Location.Y + 15);
-            }
-        }
-
-
-        //================================================================================================================================================//
-        // OPENS/CLOSES INTERNATIONAL TAB                                                                                                                 //
-        //================================================================================================================================================//
-        private void Timer2_Tick(object sender, EventArgs e)
-        {
-            if (isIntOpen)
-            {
-                if (pnl_Int.Height <= 48)
-                {
-                    tmr_Int.Stop();
-                    isIntOpen = false;
-                }
-                else if (pnl_Int.Height == 60)
-                {
-                    pnl_Int.Height -= 12;
-
-                    pnl_Con.Location = new Point(pnl_Con.Location.X, pnl_Con.Location.Y - 12);
-                    btn_Projects.Location = new Point(btn_Projects.Location.X, btn_Projects.Location.Y - 12);
-                }
-                else
-                {
-                    pnl_Int.Height -= 15;
-
-                    pnl_Con.Location = new Point(pnl_Con.Location.X, pnl_Con.Location.Y - 15);
-                    btn_Projects.Location = new Point(btn_Projects.Location.X, btn_Projects.Location.Y - 15);
-                }
-            }
-            else if (pnl_Int.Height >= 240)
-            {
-                tmr_Int.Stop();
-                isIntOpen = true;
-            }
-            else if (pnl_Int.Height == 228)
-            {
-                pnl_Int.Height += 12;
-
-                pnl_Con.Location = new Point(pnl_Con.Location.X, pnl_Con.Location.Y + 12);
-                btn_Projects.Location = new Point(btn_Projects.Location.X, btn_Projects.Location.Y + 12);
-            }
-            else
-            {
-                pnl_Int.Height += 15;
-
-                pnl_Con.Location = new Point(pnl_Con.Location.X, pnl_Con.Location.Y + 15);
-                btn_Projects.Location = new Point(btn_Projects.Location.X, btn_Projects.Location.Y + 15);
-            }
-        }
-
-
         //================================================================================================================================================//
         // OPENS/CLOSES CONTRACTOR TAB                                                                                                                    //
         //================================================================================================================================================//
-        private void Tmr_Con_Tick(object sender, EventArgs e)
-        {
-            if (isConOpen)
-            {
-                if (pnl_Con.Height <= 48)
-                {
-                    tmr_Con.Stop();
-                    isConOpen = false;
-                }
-                else if (pnl_Con.Height == 57)
-                {
-                    pnl_Con.Height -= 9;
-                    btn_Projects.Location = new Point(btn_Projects.Location.X, btn_Projects.Location.Y - 9);
-                }
-                else
-                {
-                    pnl_Con.Height -= 15;
-                    btn_Projects.Location = new Point(btn_Projects.Location.X, btn_Projects.Location.Y - 15);
-                }
-            }
-            else if (pnl_Con.Height >= 192)
-            {
-                tmr_Con.Stop();
-                isConOpen = true;
-            }
-            else if (pnl_Con.Height == 183)
-            {
-                pnl_Con.Height += 9;
-                btn_Projects.Location = new Point(btn_Projects.Location.X, btn_Projects.Location.Y + 9);
-            }
-            else
-            {
-                pnl_Con.Height += 15;
-                btn_Projects.Location = new Point(btn_Projects.Location.X, btn_Projects.Location.Y + 15);
-            }
-        }
-
-
-        //================================================================================================================================================//
-        // OPENS/CLOSES LOCAL INVOICES TAB                                                                                                                //
-        //================================================================================================================================================//
-        private void Tmr_L_Inv_Tick(object sender, EventArgs e)
-        {
-            if (isLInvOpen)
-            {
-                if (pnl_L_Inv.Height <= 48)
-                {
-                    tmr_L_Inv.Stop();
-                    isLInvOpen = false;
-                }
-                else if (pnl_L_Inv.Height == 54)
-                {
-                    pnl_Local.Height -= 6;
-                    pnl_L_Inv.Height -= 6;
-
-                    pnl_Int.Location = new Point(pnl_Int.Location.X, pnl_Int.Location.Y - 6);
-                    pnl_Con.Location = new Point(pnl_Con.Location.X, pnl_Con.Location.Y - 6);
-                    btn_Projects.Location = new Point(btn_Projects.Location.X, btn_Projects.Location.Y - 6);
-                    btn_L_PettyCash.Location = new Point(btn_L_PettyCash.Location.X, btn_L_PettyCash.Location.Y - 6);
-                }
-                else
-                {
-                    pnl_Local.Height -= 15;
-                    pnl_L_Inv.Height -= 15;
-
-                    pnl_Int.Location = new Point(pnl_Int.Location.X, pnl_Int.Location.Y - 15);
-                    pnl_Con.Location = new Point(pnl_Con.Location.X, pnl_Con.Location.Y - 15);
-                    btn_Projects.Location = new Point(btn_Projects.Location.X, btn_Projects.Location.Y - 15);
-                    btn_L_PettyCash.Location = new Point(btn_L_PettyCash.Location.X, btn_L_PettyCash.Location.Y - 15);
-                }
-            }
-            else if (pnl_L_Inv.Height >= 144)
-            {
-                tmr_L_Inv.Stop();
-                isLInvOpen = true;
-            }
-            else if (pnl_L_Inv.Height == 138)
-            {
-                pnl_Local.Height += 6;
-                pnl_L_Inv.Height += 6;
-
-                pnl_Int.Location = new Point(pnl_Int.Location.X, pnl_Int.Location.Y + 6);
-                pnl_Con.Location = new Point(pnl_Con.Location.X, pnl_Con.Location.Y + 6);
-                btn_Projects.Location = new Point(btn_Projects.Location.X, btn_Projects.Location.Y + 6);
-                btn_L_PettyCash.Location = new Point(btn_L_PettyCash.Location.X, btn_L_PettyCash.Location.Y + 6);
-
-            }
-            else
-            {
-                pnl_Local.Height += 15;
-                pnl_L_Inv.Height += 15;
-
-                pnl_Int.Location = new Point(pnl_Int.Location.X, pnl_Int.Location.Y + 15);
-                pnl_Con.Location = new Point(pnl_Con.Location.X, pnl_Con.Location.Y + 15);
-                btn_Projects.Location = new Point(btn_Projects.Location.X, btn_Projects.Location.Y + 15);
-                btn_L_PettyCash.Location = new Point(btn_L_PettyCash.Location.X, btn_L_PettyCash.Location.Y + 15);
-            }
-        }
-
+        //private void Tmr_Con_Tick(object sender, EventArgs e)
+        //{
+        //    if (isConOpen)
+        //    {
+        //        if (pnl_Con.Height <= 48)
+        //        {
+        //            tmr_Con.Stop();
+        //            isConOpen = false;
+        //        }
+        //        else if (pnl_Con.Height == 57)
+        //        {
+        //            pnl_Con.Height -= 9;
+        //            btn_Projects.Location = new Point(btn_Projects.Location.X, btn_Projects.Location.Y - 9);
+        //        }
+        //        else
+        //        {
+        //            pnl_Con.Height -= 15;
+        //            btn_Projects.Location = new Point(btn_Projects.Location.X, btn_Projects.Location.Y - 15);
+        //        }
+        //    }
+        //    else if (pnl_Con.Height >= 192)
+        //    {
+        //        tmr_Con.Stop();
+        //        isConOpen = true;
+        //    }
+        //    else if (pnl_Con.Height == 183)
+        //    {
+        //        pnl_Con.Height += 9;
+        //        btn_Projects.Location = new Point(btn_Projects.Location.X, btn_Projects.Location.Y + 9);
+        //    }
+        //    else
+        //    {
+        //        pnl_Con.Height += 15;
+        //        btn_Projects.Location = new Point(btn_Projects.Location.X, btn_Projects.Location.Y + 15);
+        //    }
+        //}
 
         //================================================================================================================================================//
         // LOCAL CLIENTS PREVIOUS BUTTON                                                                                                                  //
@@ -2503,6 +1851,7 @@ namespace QTechManagementSoftware
                 e.SuppressKeyPress = true;
         }
 
+        
 
         //================================================================================================================================================//
         // DATAGRIDVIEW FILTER AND SORT                                                                                                                   //
@@ -2512,18 +1861,92 @@ namespace QTechManagementSoftware
             iClientsBS.Filter = dgv_IClients.FilterString;
         }
 
+        
+
+        private void Dgv_LClients_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            SetCurForm("Orders");
+            pnl_L_CDet.Visible = false;
+            tabControlX1.ClearTabs();
+            tabControlX1.Visible = true;
+            ordersPnl.Controls.Clear();
+            quotesPnl.Controls.Clear();
+            invSentPnl.Controls.Clear();
+            invRecPnl.Controls.Clear();
+            ResetButtons(selected);
+            curVisible = "tabControlX1";
+            frmOrder = new Orders();
+            frmOrder.TopLevel = false;
+            //frmOrder.Dock = DockStyle.Fill;
+            frmOrder.Anchor = (AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right | AnchorStyles.Left);
+            frmQuote = new Quotes();
+            frmQuote.TopLevel = false;
+            //frmQuote.Dock = DockStyle.Fill;
+            frmQuote.Anchor = (AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right | AnchorStyles.Left);
+            frmInvSent = new Invoices_Send();
+            frmInvSent.TopLevel = false;
+            //frmInvSent.Dock = DockStyle.Fill;
+            frmInvSent.Anchor = (AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right | AnchorStyles.Left);
+            frmInvRec = new Inv_Rec();
+            frmInvRec.TopLevel = false;
+            //frmInvRec.Dock = DockStyle.Fill;
+            frmInvRec.Anchor = (AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right | AnchorStyles.Left);
+            ordersPnl.Controls.Add(frmOrder);
+            quotesPnl.Controls.Add(frmQuote);
+            invSentPnl.Controls.Add(frmInvSent);
+            invRecPnl.Controls.Add(frmInvRec);
+            tabControlX1.AddTab("Orders", ordersPnl);
+            tabControlX1.AddTab("Quotes", quotesPnl);
+            tabControlX1.AddTab("Invoices Sent", invSentPnl);
+            tabControlX1.AddTab("Invoices Received", invRecPnl);
+            frmOrder.SetNewClient(e.RowIndex);
+            frmQuote.SetNewClient(e.RowIndex);
+            frmInvSent.SetNewClient(e.RowIndex);
+            frmOrder.Show();
+            frmQuote.Show();
+            frmInvSent.Show();
+            frmInvRec.Show();
+            tabControlX1.Invalidate();
+        }
+
+        private void Dgv_IClients_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            SetCurForm("International Orders");
+            pnl_I_Clients.Visible = false;
+            tabControlX1.ClearTabs();
+            tabControlX1.Visible = true;
+            ordersPnl.Controls.Clear();
+            quotesPnl.Controls.Clear();
+            invSentPnl.Controls.Clear();
+            ResetButtons(selected);
+            curVisible = "tabControlX1";
+            frmIntOrders = new Int_Orders();
+            frmIntOrders.TopLevel = false;
+            frmIntQuotes = new Int_Quotes();
+            frmIntQuotes.TopLevel = false;
+            frmIntInvSent = new Int_Invoices_Send();
+            frmIntInvSent.TopLevel = false;
+            ordersPnl.Controls.Add(frmIntOrders);
+            quotesPnl.Controls.Add(frmIntQuotes);
+            invSentPnl.Controls.Add(frmIntInvSent);
+            tabControlX1.AddTab("International Orders", ordersPnl);
+            tabControlX1.AddTab("International Quotes", quotesPnl);
+            tabControlX1.AddTab("International Invoices Sent", invSentPnl);
+            frmIntOrders.SetNewClient(e.RowIndex);
+            frmIntQuotes.SetNewClient(e.RowIndex);
+            frmIntInvSent.SetNewClient(e.RowIndex);
+            frmIntOrders.Show();
+            frmIntQuotes.Show();
+            frmIntInvSent.Show();
+            tabControlX1.Invalidate();
+        }
+
         private void DGV_IClients_SortStringChanged(object sender, EventArgs e)
         {
             iClientsBS.Sort = dgv_IClients.SortString;
         }
 
-        private void Home_MouseDown(object sender, MouseEventArgs e)
-        {
-            mouseDown = true;
-            lastLocation = e.Location;
-        }
-
-        private void Home_MouseMove(object sender, MouseEventArgs e)
+        private void windowBar_MouseMove(object sender, MouseEventArgs e)
         {
             if (mouseDown)
             {
@@ -2535,9 +1958,15 @@ namespace QTechManagementSoftware
             }
         }
 
-        private void Home_MouseUp(object sender, MouseEventArgs e)
+        private void windowBar_MouseUp(object sender, MouseEventArgs e)
         {
             mouseDown = false;
+        }
+
+        private void windowBar_MouseDown(object sender, MouseEventArgs e)
+        {
+            mouseDown = true;
+            lastLocation = e.Location;
         }
     }
 }

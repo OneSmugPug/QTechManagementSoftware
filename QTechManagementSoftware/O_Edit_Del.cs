@@ -32,7 +32,7 @@ namespace QTechManagementSoftware
         {
             Home frmHome = (Home)this.Owner;
 
-            if (frmHome.GetCurPanel() == "pnl_L_Orders")
+            if (frmHome.GetCurForm().GetType() == typeof(Orders))
             {
                 Orders parent = (Orders)frmHome.GetCurForm();
 

@@ -84,7 +84,7 @@ namespace QTechManagementSoftware
             txt_OA_PercInv.Text = "0%";
             txt_OA_PercRec.Text = "0%";
 
-            if (frmHome.GetCurPanel() == "pnl_L_Orders")
+            if (frmHome.GetCurForm().GetType() == typeof(Orders))
             {
                 Orders curForm = (Orders)frmHome.GetCurForm();
 

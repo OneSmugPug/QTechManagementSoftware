@@ -62,9 +62,6 @@ namespace QTechManagementSoftware
 
             if (clientsDT.Rows.Count > 0)
             {
-                if (!btn_IIS_SelCli.Enabled)
-                    btn_IIS_SelCli.Enabled = true;
-
                 if (!dgv_IInvSent.Enabled)
                     dgv_IInvSent.Enabled = true;
 
@@ -78,9 +75,6 @@ namespace QTechManagementSoftware
             }
             else
             {
-                btn_IIS_SelCli.Enabled = false;
-                btn_IIS_Next.Enabled = false;
-                btn_IIS_Prev.Enabled = false;
                 dgv_IInvSent.Enabled = false;
                 btn_IIS_NewIS.Enabled = false;
             }
@@ -103,70 +97,7 @@ namespace QTechManagementSoftware
         }
 
 
-        //================================================================================================================================================//
-        // NEXT CLICKED                                                                                                                                   //
-        //================================================================================================================================================//
-        private void Btn_IIS_Next_Click(object sender, EventArgs e)
-        {
-            if (CUR_CLIENT + 1 < NUM_OF_CLIENTS)
-            {
-                CUR_CLIENT++;
-                txt_IIS_CCode.Text = clientsDT.Rows[CUR_CLIENT]["Code"].ToString().Trim();
-                CNAME = clientsDT.Rows[CUR_CLIENT]["Name"].ToString().Trim();
-                txt_IIS_CName.Text = CNAME;
-                LoadInvSend();
-            }
-            else if (CUR_CLIENT + 1 == NUM_OF_CLIENTS)
-            {
-                btn_IIS_Next.Enabled = false;
-                CUR_CLIENT++;
-                txt_IIS_CCode.Text = clientsDT.Rows[CUR_CLIENT]["Code"].ToString();
-                CNAME = clientsDT.Rows[CUR_CLIENT]["Name"].ToString();
-                txt_IIS_CName.Text = CNAME;
-                LoadInvSend();
-            }
-            if (CUR_CLIENT != 0 && !btn_IIS_Prev.Enabled)
-                btn_IIS_Prev.Enabled = true;
-        }
-
-
-        //================================================================================================================================================//
-        // PREVIOUS CLICKED                                                                                                                               //
-        //================================================================================================================================================//
-        private void Btn_IIS_Prev_Click(object sender, EventArgs e)
-        {
-            if (CUR_CLIENT - 1 > 0)
-            {
-                CUR_CLIENT--;
-                txt_IIS_CCode.Text = clientsDT.Rows[CUR_CLIENT]["Code"].ToString().Trim();
-                CNAME = clientsDT.Rows[CUR_CLIENT]["Name"].ToString().Trim();
-                txt_IIS_CName.Text = CNAME;
-                LoadInvSend();
-            }
-            else if (CUR_CLIENT - 1 == 0)
-            {
-                btn_IIS_Prev.Enabled = false;
-                CUR_CLIENT--;
-                txt_IIS_CCode.Text = clientsDT.Rows[CUR_CLIENT]["Code"].ToString();
-                CNAME = clientsDT.Rows[CUR_CLIENT]["Name"].ToString();
-                txt_IIS_CName.Text = CNAME;
-                LoadInvSend();
-            }
-            if (CUR_CLIENT != NUM_OF_CLIENTS && !btn_IIS_Next.Enabled)
-                btn_IIS_Next.Enabled = true;
-        }
-
-
-        //================================================================================================================================================//
-        // SELECT CLIENT CLIENT                                                                                                                           //
-        //================================================================================================================================================//
-        private void Btn_IIS_SelCli_Click(object sender, EventArgs e)
-        {
-            using (ClientList frmCList = new ClientList())
-                frmCList.ShowDialog(this);
-        }
-
-
+        
         //================================================================================================================================================//
         // SET NEW CLIENT                                                                                                                                 //
         //================================================================================================================================================//
@@ -175,18 +106,6 @@ namespace QTechManagementSoftware
             CUR_CLIENT = rowIdx;
             LoadClients();
             LoadInvSend();
-
-            if (CUR_CLIENT != 0 && !btn_IIS_Prev.Enabled)
-                btn_IIS_Prev.Enabled = true;
-
-            if (CUR_CLIENT == 0 && btn_IIS_Prev.Enabled)
-                btn_IIS_Prev.Enabled = false;
-
-            if (CUR_CLIENT != NUM_OF_CLIENTS && !btn_IIS_Next.Enabled)
-                btn_IIS_Next.Enabled = true;
-
-            if (CUR_CLIENT == NUM_OF_CLIENTS && btn_IIS_Next.Enabled)
-                btn_IIS_Next.Enabled = false;
         }
 
 
@@ -321,51 +240,6 @@ namespace QTechManagementSoftware
             btn_IIS_Filter.Visible = true;
             btn_IIS_ClearFilter.Visible = false;
         }
-
-
-        //================================================================================================================================================//
-        // PREVIOUS BUTTON                                                                                                                                //
-        //================================================================================================================================================//
-        private void Btn_IIS_Prev_MouseEnter(object sender, EventArgs e)
-        {
-            btn_IIS_Prev.Image = Resources.back_white;
-        }
-
-        private void Btn_IIS_Prev_MouseLeave(object sender, EventArgs e)
-        {
-            btn_IIS_Prev.Image = Resources.back_black;
-        }
-
-
-        //================================================================================================================================================//
-        // NEXT BUTTON                                                                                                                                    //
-        //================================================================================================================================================//
-        private void Btn_IIS_Next_MouseEnter(object sender, EventArgs e)
-        {
-            btn_IIS_Next.Image = Resources.forward_white;
-        }
-
-        private void Btn_IIS_Next_MouseLeave(object sender, EventArgs e)
-        {
-            btn_IIS_Next.Image = Resources.forawrd_black;
-        }
-
-
-        //================================================================================================================================================//
-        // SELECT CLIENT BUTTON                                                                                                                           //
-        //================================================================================================================================================//
-        private void Btn_IIS_SelCli_MouseEnter(object sender, EventArgs e)
-        {
-            btn_IIS_SelCli.Image = Resources.client_list_white;
-            btn_IIS_SelCli.ForeColor = Color.White;
-        }
-
-        private void Btn_IIS_SelCli_MouseLeave(object sender, EventArgs e)
-        {
-            btn_IIS_SelCli.Image = Resources.user_list;
-            btn_IIS_SelCli.ForeColor = Color.FromArgb(64, 64, 64);
-        }
-
 
         //================================================================================================================================================//
         // NEW INVOICE SEND BUTTON                                                                                                                        //

@@ -51,9 +51,6 @@ namespace QTechManagementSoftware
             }
             if (clientsDT.Rows.Count > 0)
             {
-                if (!btn_IQ_SelCli.Enabled)
-                    btn_IQ_SelCli.Enabled = true;
-
                 if (!dgv_IQuotes.Enabled)
                     dgv_IQuotes.Enabled = true;
 
@@ -69,7 +66,6 @@ namespace QTechManagementSoftware
             }
             else
             {
-                btn_IQ_SelCli.Enabled = false;
                 dgv_IQuotes.Enabled = false;
                 btn_IQ_NewQuote.Enabled = false;
             }
@@ -92,102 +88,12 @@ namespace QTechManagementSoftware
             bs.DataSource = dt;
         }
 
-
-        //================================================================================================================================================//
-        // NEXT CLIENT                                                                                                                                    //
-        //================================================================================================================================================//
-        private void Btn_IQ_Next_Click(object sender, EventArgs e)
-        {
-            if (CUR_CLIENT + 1 < NUM_OF_CLIENTS)
-            {
-                CUR_CLIENT++;
-
-                txt_IQ_CCode.Text = clientsDT.Rows[CUR_CLIENT]["Code"].ToString().Trim();
-                CNAME = clientsDT.Rows[CUR_CLIENT]["Name"].ToString().Trim();
-
-                txt_IQ_CName.Text = CNAME;
-
-                LoadQuotes();
-            }
-            else if (CUR_CLIENT + 1 == NUM_OF_CLIENTS)
-            {
-                btn_IQ_Next.Enabled = false;
-
-                CUR_CLIENT++;
-
-                txt_IQ_CCode.Text = clientsDT.Rows[CUR_CLIENT]["Code"].ToString();
-                CNAME = clientsDT.Rows[CUR_CLIENT]["Name"].ToString();
-
-                txt_IQ_CName.Text = CNAME;
-
-                LoadQuotes();
-            }
-            if (CUR_CLIENT != 0 && !btn_IQ_Prev.Enabled)
-                btn_IQ_Prev.Enabled = true;
-        }
-
-
-        //================================================================================================================================================//
-        // PREVIOUS CLIENT                                                                                                                                //
-        //================================================================================================================================================//
-        private void Btn_IQ_Prev_Click(object sender, EventArgs e)
-        {
-            if (CUR_CLIENT - 1 > 0)
-            {
-                CUR_CLIENT--;
-
-                txt_IQ_CCode.Text = clientsDT.Rows[CUR_CLIENT]["Code"].ToString().Trim();
-                CNAME = clientsDT.Rows[CUR_CLIENT]["Name"].ToString().Trim();
-
-                txt_IQ_CName.Text = CNAME;
-
-                LoadQuotes();
-            }
-            else if (CUR_CLIENT - 1 == 0)
-            {
-                btn_IQ_Prev.Enabled = false;
-
-                CUR_CLIENT--;
-
-                txt_IQ_CCode.Text = clientsDT.Rows[CUR_CLIENT]["Code"].ToString();
-                CNAME = clientsDT.Rows[CUR_CLIENT]["Name"].ToString();
-
-                txt_IQ_CName.Text = CNAME;
-
-                LoadQuotes();
-            }
-            if (CUR_CLIENT != NUM_OF_CLIENTS && !btn_IQ_Next.Enabled)
-                btn_IQ_Next.Enabled = true;
-        }
-
-
-        //================================================================================================================================================//
-        // LOOKUP CLIENT CLICK                                                                                                                            //
-        //================================================================================================================================================//
-        private void Btn_IQ_SelCli_Click(object sender, EventArgs e)
-        {
-            using (ClientList frmCList = new ClientList())
-                frmCList.ShowDialog(this);
-        }
-
         public void SetNewClient(int rowIdx)
         {
             CUR_CLIENT = rowIdx;
 
             LoadClients();
             LoadQuotes();
-
-            if (CUR_CLIENT != 0 && !btn_IQ_Prev.Enabled)
-                btn_IQ_Prev.Enabled = true;
-
-            if (CUR_CLIENT == 0 && btn_IQ_Prev.Enabled)
-                btn_IQ_Prev.Enabled = false;
-
-            if (CUR_CLIENT != NUM_OF_CLIENTS && !btn_IQ_Next.Enabled)
-                btn_IQ_Next.Enabled = true;
-
-            if (CUR_CLIENT == NUM_OF_CLIENTS && !btn_IQ_Next.Enabled)
-                btn_IQ_Next.Enabled = false;
         }
 
 
@@ -291,51 +197,6 @@ namespace QTechManagementSoftware
 
             LoadQuotes();
         }
-
-
-        //================================================================================================================================================//
-        // PREVIOUS BUTTON                                                                                                                             //
-        //================================================================================================================================================//
-        private void Btn_IQ_Prev_MouseEnter(object sender, EventArgs e)
-        {
-            btn_IQ_Prev.Image = Resources.back_white;
-        }
-
-        private void Btn_IQ_Prev_MouseLeave(object sender, EventArgs e)
-        {
-            btn_IQ_Prev.Image = Resources.back_black;
-        }
-
-
-        //================================================================================================================================================//
-        // NEXT BUTTON                                                                                                                             //
-        //================================================================================================================================================//
-        private void Btn_IQ_Next_MouseEnter(object sender, EventArgs e)
-        {
-            btn_IQ_Next.Image = Resources.forward_white;
-        }
-
-        private void Btn_IQ_Next_MouseLeave(object sender, EventArgs e)
-        {
-            btn_IQ_Next.Image = Resources.forawrd_black;
-        }
-
-
-        //================================================================================================================================================//
-        // SELECT CLIENT BUTTON                                                                                                                              //
-        //================================================================================================================================================//
-        private void Btn_IQ_SelCli_MouseEnter(object sender, EventArgs e)
-        {
-            btn_IQ_SelCli.Image = Resources.client_list_white;
-            btn_IQ_SelCli.ForeColor = Color.White;
-        }
-
-        private void Btn_IQ_SelCli_MouseLeave(object sender, EventArgs e)
-        {
-            btn_IQ_SelCli.Image = Resources.user_list;
-            btn_IQ_SelCli.ForeColor = Color.FromArgb(64, 64, 64);
-        }
-
 
         //================================================================================================================================================//
         // NEW QUOTE BUTTON                                                                                                                              //

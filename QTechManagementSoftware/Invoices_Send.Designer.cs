@@ -42,9 +42,6 @@
             this.dgv_LInvSent = new ADGV.AdvancedDataGridView();
             this.dtp_LIS_To = new Bunifu.Framework.UI.BunifuDatepicker();
             this.dtp_LIS_From = new Bunifu.Framework.UI.BunifuDatepicker();
-            this.btn_LIS_Prev = new System.Windows.Forms.Button();
-            this.btn_LIS_Next = new System.Windows.Forms.Button();
-            this.btn_LIS_SelCli = new System.Windows.Forms.Button();
             this.btn_LIS_Filter = new System.Windows.Forms.Button();
             this.btn_LIS_NewIS = new System.Windows.Forms.Button();
             this.btn_LIS_ClearFilter = new System.Windows.Forms.Button();
@@ -63,7 +60,7 @@
             this.txt_LIS_CCode.LineIdleColor = System.Drawing.Color.Gray;
             this.txt_LIS_CCode.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
             this.txt_LIS_CCode.LineThickness = 1;
-            this.txt_LIS_CCode.Location = new System.Drawing.Point(254, 49);
+            this.txt_LIS_CCode.Location = new System.Drawing.Point(253, 53);
             this.txt_LIS_CCode.Margin = new System.Windows.Forms.Padding(4);
             this.txt_LIS_CCode.Name = "txt_LIS_CCode";
             this.txt_LIS_CCode.Size = new System.Drawing.Size(379, 33);
@@ -84,7 +81,7 @@
             this.txt_LIS_CName.LineIdleColor = System.Drawing.Color.Gray;
             this.txt_LIS_CName.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
             this.txt_LIS_CName.LineThickness = 1;
-            this.txt_LIS_CName.Location = new System.Drawing.Point(255, 114);
+            this.txt_LIS_CName.Location = new System.Drawing.Point(254, 115);
             this.txt_LIS_CName.Margin = new System.Windows.Forms.Padding(4);
             this.txt_LIS_CName.Name = "txt_LIS_CName";
             this.txt_LIS_CName.Size = new System.Drawing.Size(379, 33);
@@ -98,7 +95,7 @@
             this.bunifuCustomLabel4.AutoSize = true;
             this.bunifuCustomLabel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuCustomLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bunifuCustomLabel4.Location = new System.Drawing.Point(133, 55);
+            this.bunifuCustomLabel4.Location = new System.Drawing.Point(132, 56);
             this.bunifuCustomLabel4.Name = "bunifuCustomLabel4";
             this.bunifuCustomLabel4.Size = new System.Drawing.Size(113, 24);
             this.bunifuCustomLabel4.TabIndex = 29;
@@ -109,7 +106,7 @@
             this.bunifuCustomLabel3.AutoSize = true;
             this.bunifuCustomLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuCustomLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bunifuCustomLabel3.Location = new System.Drawing.Point(128, 116);
+            this.bunifuCustomLabel3.Location = new System.Drawing.Point(127, 117);
             this.bunifuCustomLabel3.Name = "bunifuCustomLabel3";
             this.bunifuCustomLabel3.Size = new System.Drawing.Size(118, 24);
             this.bunifuCustomLabel3.TabIndex = 28;
@@ -144,9 +141,9 @@
             this.bunifuSeparator1.BackColor = System.Drawing.Color.Transparent;
             this.bunifuSeparator1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
             this.bunifuSeparator1.LineThickness = 1;
-            this.bunifuSeparator1.Location = new System.Drawing.Point(18, 206);
+            this.bunifuSeparator1.Location = new System.Drawing.Point(17, 207);
             this.bunifuSeparator1.Name = "bunifuSeparator1";
-            this.bunifuSeparator1.Size = new System.Drawing.Size(934, 25);
+            this.bunifuSeparator1.Size = new System.Drawing.Size(929, 25);
             this.bunifuSeparator1.TabIndex = 25;
             this.bunifuSeparator1.Transparency = 255;
             this.bunifuSeparator1.Vertical = false;
@@ -178,7 +175,7 @@
             this.dgv_LInvSent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgv_LInvSent.DateWithTime = false;
             this.dgv_LInvSent.EnableHeadersVisualStyles = false;
-            this.dgv_LInvSent.Location = new System.Drawing.Point(0, 277);
+            this.dgv_LInvSent.Location = new System.Drawing.Point(1, 278);
             this.dgv_LInvSent.Name = "dgv_LInvSent";
             this.dgv_LInvSent.ReadOnly = true;
             this.dgv_LInvSent.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -186,7 +183,7 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
             this.dgv_LInvSent.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgv_LInvSent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_LInvSent.Size = new System.Drawing.Size(963, 340);
+            this.dgv_LInvSent.Size = new System.Drawing.Size(963, 341);
             this.dgv_LInvSent.TabIndex = 24;
             this.dgv_LInvSent.TimeFilter = false;
             this.dgv_LInvSent.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_LInvSent_CellDoubleClick);
@@ -217,63 +214,6 @@
             this.dtp_LIS_From.TabIndex = 22;
             this.dtp_LIS_From.Value = new System.DateTime(2019, 9, 13, 13, 43, 50, 212);
             // 
-            // btn_LIS_Prev
-            // 
-            this.btn_LIS_Prev.Enabled = false;
-            this.btn_LIS_Prev.FlatAppearance.BorderSize = 0;
-            this.btn_LIS_Prev.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.btn_LIS_Prev.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
-            this.btn_LIS_Prev.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_LIS_Prev.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_LIS_Prev.Image = global::QTechManagementSoftware.Properties.Resources.back_black;
-            this.btn_LIS_Prev.Location = new System.Drawing.Point(18, 20);
-            this.btn_LIS_Prev.Name = "btn_LIS_Prev";
-            this.btn_LIS_Prev.Size = new System.Drawing.Size(49, 149);
-            this.btn_LIS_Prev.TabIndex = 21;
-            this.btn_LIS_Prev.UseVisualStyleBackColor = true;
-            this.btn_LIS_Prev.Click += new System.EventHandler(this.btn_LIS_Prev_Click);
-            this.btn_LIS_Prev.MouseEnter += new System.EventHandler(this.btn_LIS_Prev_MouseEnter);
-            this.btn_LIS_Prev.MouseLeave += new System.EventHandler(this.btn_LIS_Prev_MouseLeave);
-            // 
-            // btn_LIS_Next
-            // 
-            this.btn_LIS_Next.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_LIS_Next.FlatAppearance.BorderSize = 0;
-            this.btn_LIS_Next.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.btn_LIS_Next.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
-            this.btn_LIS_Next.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_LIS_Next.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_LIS_Next.Image = global::QTechManagementSoftware.Properties.Resources.forawrd_black;
-            this.btn_LIS_Next.Location = new System.Drawing.Point(898, 20);
-            this.btn_LIS_Next.Name = "btn_LIS_Next";
-            this.btn_LIS_Next.Size = new System.Drawing.Size(49, 149);
-            this.btn_LIS_Next.TabIndex = 20;
-            this.btn_LIS_Next.UseVisualStyleBackColor = true;
-            this.btn_LIS_Next.Click += new System.EventHandler(this.btn_LIS_Next_Click);
-            this.btn_LIS_Next.MouseEnter += new System.EventHandler(this.btn_LIS_Next_MouseEnter);
-            this.btn_LIS_Next.MouseLeave += new System.EventHandler(this.btn_LIS_Next_MouseLeave);
-            // 
-            // btn_LIS_SelCli
-            // 
-            this.btn_LIS_SelCli.FlatAppearance.BorderSize = 0;
-            this.btn_LIS_SelCli.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.btn_LIS_SelCli.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
-            this.btn_LIS_SelCli.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_LIS_SelCli.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_LIS_SelCli.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btn_LIS_SelCli.Image = global::QTechManagementSoftware.Properties.Resources.user_list;
-            this.btn_LIS_SelCli.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_LIS_SelCli.Location = new System.Drawing.Point(519, 160);
-            this.btn_LIS_SelCli.Name = "btn_LIS_SelCli";
-            this.btn_LIS_SelCli.Size = new System.Drawing.Size(114, 40);
-            this.btn_LIS_SelCli.TabIndex = 19;
-            this.btn_LIS_SelCli.Text = "Client List";
-            this.btn_LIS_SelCli.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btn_LIS_SelCli.UseVisualStyleBackColor = true;
-            this.btn_LIS_SelCli.Click += new System.EventHandler(this.btn_LIS_SelCli_Click);
-            this.btn_LIS_SelCli.MouseEnter += new System.EventHandler(this.btn_LIS_SelCli_MouseEnter);
-            this.btn_LIS_SelCli.MouseLeave += new System.EventHandler(this.btn_LIS_SelCli_MouseLeave);
-            // 
             // btn_LIS_Filter
             // 
             this.btn_LIS_Filter.FlatAppearance.BorderSize = 0;
@@ -284,7 +224,7 @@
             this.btn_LIS_Filter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btn_LIS_Filter.Image = global::QTechManagementSoftware.Properties.Resources.filter_grey;
             this.btn_LIS_Filter.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_LIS_Filter.Location = new System.Drawing.Point(554, 231);
+            this.btn_LIS_Filter.Location = new System.Drawing.Point(556, 232);
             this.btn_LIS_Filter.Name = "btn_LIS_Filter";
             this.btn_LIS_Filter.Size = new System.Drawing.Size(114, 40);
             this.btn_LIS_Filter.TabIndex = 18;
@@ -306,9 +246,9 @@
             this.btn_LIS_NewIS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btn_LIS_NewIS.Image = global::QTechManagementSoftware.Properties.Resources.add_grey;
             this.btn_LIS_NewIS.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_LIS_NewIS.Location = new System.Drawing.Point(822, 231);
+            this.btn_LIS_NewIS.Location = new System.Drawing.Point(832, 232);
             this.btn_LIS_NewIS.Name = "btn_LIS_NewIS";
-            this.btn_LIS_NewIS.Size = new System.Drawing.Size(127, 40);
+            this.btn_LIS_NewIS.Size = new System.Drawing.Size(122, 40);
             this.btn_LIS_NewIS.TabIndex = 17;
             this.btn_LIS_NewIS.Text = "New Invoice";
             this.btn_LIS_NewIS.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -351,16 +291,13 @@
             this.Controls.Add(this.dgv_LInvSent);
             this.Controls.Add(this.dtp_LIS_To);
             this.Controls.Add(this.dtp_LIS_From);
-            this.Controls.Add(this.btn_LIS_Prev);
-            this.Controls.Add(this.btn_LIS_Next);
-            this.Controls.Add(this.btn_LIS_SelCli);
             this.Controls.Add(this.btn_LIS_Filter);
             this.Controls.Add(this.btn_LIS_NewIS);
             this.Controls.Add(this.btn_LIS_ClearFilter);
             this.Controls.Add(this.bunifuSeparator1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(850, 510);
+            this.MinimumSize = new System.Drawing.Size(963, 618);
             this.Name = "Invoices_Send";
             this.Text = "Invoices_Send";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -383,9 +320,6 @@
         private ADGV.AdvancedDataGridView dgv_LInvSent;
         private Bunifu.Framework.UI.BunifuDatepicker dtp_LIS_To;
         private Bunifu.Framework.UI.BunifuDatepicker dtp_LIS_From;
-        private System.Windows.Forms.Button btn_LIS_Prev;
-        private System.Windows.Forms.Button btn_LIS_Next;
-        private System.Windows.Forms.Button btn_LIS_SelCli;
         private System.Windows.Forms.Button btn_LIS_Filter;
         private System.Windows.Forms.Button btn_LIS_NewIS;
         private System.Windows.Forms.Button btn_LIS_ClearFilter;

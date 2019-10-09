@@ -68,8 +68,6 @@ namespace QTechManagementSoftware
 
             if (clientsDT.Rows.Count > 0)
             {
-                if (!btn_LO_SelCli.Enabled)
-                    btn_LO_SelCli.Enabled = true;
 
                 if (!dgv_LOrders.Enabled)
                     dgv_LOrders.Enabled = true;
@@ -84,7 +82,6 @@ namespace QTechManagementSoftware
             }
             else
             {
-                btn_LO_SelCli.Enabled = false;
                 dgv_LOrders.Enabled = false;
                 btn_LO_NewOrder.Enabled = false;
             }
@@ -106,71 +103,6 @@ namespace QTechManagementSoftware
             bs.DataSource = dt;
         }
 
-
-        //================================================================================================================================================//
-        //NEXT CLICKED                                                                                                                                    //
-        //================================================================================================================================================//
-        private void Btn_Order_CNext_Click(object sender, EventArgs e)
-        {
-            if (CUR_CLIENT + 1 < NUM_OF_CLIENTS)
-            {
-                CUR_CLIENT++;
-                txt_LO_CCode.Text = clientsDT.Rows[CUR_CLIENT]["Code"].ToString().Trim();
-                CNAME = clientsDT.Rows[CUR_CLIENT]["Name"].ToString().Trim();
-                txt_LO_CName.Text = CNAME;
-                LoadOrders();
-            }
-            else if (CUR_CLIENT + 1 == NUM_OF_CLIENTS)
-            {
-                btn_LO_Next.Enabled = false;
-                CUR_CLIENT++;
-                txt_LO_CCode.Text = clientsDT.Rows[CUR_CLIENT]["Code"].ToString();
-                CNAME = clientsDT.Rows[CUR_CLIENT]["Name"].ToString();
-                txt_LO_CName.Text = CNAME;
-                LoadOrders();
-            }
-            if (CUR_CLIENT != 0 && !btn_LO_Prev.Enabled)
-                btn_LO_Prev.Enabled = true;
-        }
-
-
-        //================================================================================================================================================//
-        // PREVIOUS CLICKED                                                                                                                               //
-        //================================================================================================================================================//
-        private void Btn_Order_CPrev_Click(object sender, EventArgs e)
-        {
-            if (CUR_CLIENT - 1 > 0)
-            {
-                CUR_CLIENT--;
-                txt_LO_CCode.Text = clientsDT.Rows[CUR_CLIENT]["Code"].ToString().Trim();
-                CNAME = clientsDT.Rows[CUR_CLIENT]["Name"].ToString().Trim();
-                txt_LO_CName.Text = CNAME;
-                LoadOrders();
-            }
-            else if (CUR_CLIENT - 1 == 0)
-            {
-                btn_LO_Prev.Enabled = false;
-                CUR_CLIENT--;
-                txt_LO_CCode.Text = clientsDT.Rows[CUR_CLIENT]["Code"].ToString();
-                CNAME = clientsDT.Rows[CUR_CLIENT]["Name"].ToString();
-                txt_LO_CName.Text = CNAME;
-                LoadOrders();
-            }
-            if (CUR_CLIENT != NUM_OF_CLIENTS && !btn_LO_Next.Enabled)
-                btn_LO_Next.Enabled = true;
-        }
-
-
-        //================================================================================================================================================//
-        // CLIENT SELECT CLICKED                                                                                                                          //
-        //================================================================================================================================================//
-        private void Btn_Order_CBrowse_Click(object sender, EventArgs e)
-        {
-            using (ClientList frmCList = new ClientList())
-                frmCList.ShowDialog(this);
-        }
-
-
         //================================================================================================================================================//
         // SET NEW CLIENT                                                                                                                                 //
         //================================================================================================================================================//
@@ -179,18 +111,6 @@ namespace QTechManagementSoftware
             CUR_CLIENT = rowIdx;
             LoadClients();
             LoadOrders();
-
-            if (CUR_CLIENT != 0 && !btn_LO_Prev.Enabled)
-                btn_LO_Prev.Enabled = true;
-
-            if (CUR_CLIENT == 0 && btn_LO_Prev.Enabled)
-                btn_LO_Prev.Enabled = false;
-
-            if (CUR_CLIENT != NUM_OF_CLIENTS && !btn_LO_Next.Enabled)
-                btn_LO_Next.Enabled = true;
-
-            if (CUR_CLIENT == NUM_OF_CLIENTS && btn_LO_Next.Enabled)
-                btn_LO_Next.Enabled = false;
         }
 
         //================================================================================================================================================//
@@ -288,51 +208,6 @@ namespace QTechManagementSoftware
 
             LoadOrders();
         }
-
-
-        //================================================================================================================================================//
-        //  PREVIOUS BUTTON                                                                                                                               //
-        //================================================================================================================================================//
-        private void Btn_LO_Prev_MouseEnter(object sender, EventArgs e)
-        {
-            btn_LO_Prev.Image = Resources.back_white;
-        }
-
-        private void Btn_LO_Prev_MouseLeave(object sender, EventArgs e)
-        {
-            btn_LO_Prev.Image = Resources.back_black;
-        }
-
-
-        //================================================================================================================================================//
-        // NEXT BUTTON                                                                                                                                    //
-        //================================================================================================================================================//
-        private void Btn_LO_Next_MouseEnter(object sender, EventArgs e)
-        {
-            btn_LO_Next.Image = Resources.forward_white;
-        }
-
-        private void Btn_LO_Next_MouseLeave(object sender, EventArgs e)
-        {
-            btn_LO_Next.Image = Resources.forawrd_black;
-        }
-
-
-        //================================================================================================================================================//
-        // SELECT CLIENT BUTTON                                                                                                                           //
-        //================================================================================================================================================//
-        private void Btn_LO_SelCli_MouseEnter(object sender, EventArgs e)
-        {
-            btn_LO_SelCli.Image = Resources.client_list_white;
-            btn_LO_SelCli.ForeColor = Color.White;
-        }
-
-        private void Btn_LO_SelCli_MouseLeave(object sender, EventArgs e)
-        {
-            btn_LO_SelCli.Image = Resources.user_list;
-            btn_LO_SelCli.ForeColor = Color.FromArgb(64, 64, 64);
-        }
-
 
         //================================================================================================================================================//
         // NEW ORDER ADD BUTTON                                                                                                                           //

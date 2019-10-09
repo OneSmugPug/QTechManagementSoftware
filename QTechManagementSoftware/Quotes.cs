@@ -48,8 +48,6 @@ namespace QTechManagementSoftware
 
             if (clientsDT.Rows.Count > 0)
             {
-                if (!btn_LQ_SelCli.Enabled)
-                    btn_LQ_SelCli.Enabled = true;
 
                 if (!dgv_Contractors.Enabled)
                     dgv_Contractors.Enabled = true;
@@ -67,7 +65,6 @@ namespace QTechManagementSoftware
             }
             else
             {
-                btn_LQ_SelCli.Enabled = false;
                 dgv_Contractors.Enabled = false;
                 btn_C_NewWW.Enabled = false;
                 btn_LQ_Filter.Enabled = false;
@@ -91,67 +88,6 @@ namespace QTechManagementSoftware
             bs.DataSource = dt;
         }
 
-
-        //================================================================================================================================================//
-        // NEXT CLICK                                                                                                                                     //
-        //================================================================================================================================================//
-        private void Btn_LQ_Next_Click(object sender, EventArgs e)
-        {
-            if (CUR_CLIENT + 1 < NUM_OF_CLIENTS)
-            {
-                CUR_CLIENT++;
-                txt_LQ_CCode.Text = clientsDT.Rows[CUR_CLIENT]["Code"].ToString().Trim();
-                CNAME = clientsDT.Rows[CUR_CLIENT]["Name"].ToString().Trim();
-                txt_LQ_CName.Text = CNAME;
-                LoadQuotes();
-            }
-            else if (CUR_CLIENT + 1 == NUM_OF_CLIENTS)
-            {
-                btn_LQ_Next.Enabled = false;
-                CUR_CLIENT++;
-                txt_LQ_CCode.Text = clientsDT.Rows[CUR_CLIENT]["Code"].ToString();
-                CNAME = clientsDT.Rows[CUR_CLIENT]["Name"].ToString();
-                txt_LQ_CName.Text = CNAME;
-                LoadQuotes();
-            }
-            if (CUR_CLIENT != 0 && !btn_LQ_Prev.Enabled)
-                btn_LQ_Prev.Enabled = true;
-        }
-
-        private void Btn_LQ_Prev_Click(object sender, EventArgs e)
-        {
-            if (CUR_CLIENT - 1 > 0)
-            {
-                CUR_CLIENT--;
-                txt_LQ_CCode.Text = clientsDT.Rows[CUR_CLIENT]["Code"].ToString().Trim();
-                CNAME = clientsDT.Rows[CUR_CLIENT]["Name"].ToString().Trim();
-                txt_LQ_CName.Text = CNAME;
-                LoadQuotes();
-            }
-            else if (CUR_CLIENT - 1 == 0)
-            {
-                btn_LQ_Prev.Enabled = false;
-                CUR_CLIENT--;
-                txt_LQ_CCode.Text = clientsDT.Rows[CUR_CLIENT]["Code"].ToString();
-                CNAME = clientsDT.Rows[CUR_CLIENT]["Name"].ToString();
-                txt_LQ_CName.Text = CNAME;
-                LoadQuotes();
-            }
-            if (CUR_CLIENT != NUM_OF_CLIENTS && !btn_LQ_Next.Enabled)
-                btn_LQ_Next.Enabled = true;
-        }
-
-
-        //================================================================================================================================================//
-        // SELECT CLIENT CLICKED                                                                                                                          //
-        //================================================================================================================================================//
-        private void Btn_LQ_SelCli_Click(object sender, EventArgs e)
-        {
-            using (ClientList frmCList = new ClientList())
-                frmCList.ShowDialog(this);
-        }
-
-
         //================================================================================================================================================//
         // SET NEW CLIENT                                                                                                                                 //
         //================================================================================================================================================//
@@ -160,18 +96,6 @@ namespace QTechManagementSoftware
             CUR_CLIENT = rowIdx;
             LoadClients();
             LoadQuotes();
-
-            if (CUR_CLIENT != 0 && !btn_LQ_Prev.Enabled)
-                btn_LQ_Prev.Enabled = true;
-
-            if (CUR_CLIENT == 0 && btn_LQ_Prev.Enabled)
-                btn_LQ_Prev.Enabled = false;
-
-            if (CUR_CLIENT != NUM_OF_CLIENTS && !btn_LQ_Next.Enabled)
-                btn_LQ_Next.Enabled = true;
-
-            if (CUR_CLIENT == NUM_OF_CLIENTS && btn_LQ_Next.Enabled)
-                btn_LQ_Next.Enabled = false;
         }
 
 
@@ -274,51 +198,6 @@ namespace QTechManagementSoftware
 
             LoadQuotes();
         }
-
-
-        //================================================================================================================================================//
-        // PREVIOUS BUTTON                                                                                                                                //
-        //================================================================================================================================================//
-        private void Btn_LQ_Prev_MouseEnter(object sender, EventArgs e)
-        {
-            btn_LQ_Prev.Image = Resources.back_white;
-        }
-
-        private void Btn_LQ_Prev_MouseLeave(object sender, EventArgs e)
-        {
-            btn_LQ_Prev.Image = Resources.back_black;
-        }
-
-
-        //================================================================================================================================================//
-        // NEXT BUTTON                                                                                                                                    //
-        //================================================================================================================================================//
-        private void Btn_LQ_Next_MouseEnter(object sender, EventArgs e)
-        {
-            btn_LQ_Next.Image = Resources.forward_white;
-        }
-
-        private void Btn_LQ_Next_MouseLeave(object sender, EventArgs e)
-        {
-            btn_LQ_Next.Image = Resources.forawrd_black;
-        }
-
-
-        //================================================================================================================================================//
-        // SELECT CLIENT BUTTON                                                                                                                           //
-        //================================================================================================================================================//
-        private void Btn_LQ_SelCli_MouseEnter(object sender, EventArgs e)
-        {
-            btn_LQ_SelCli.Image = Resources.client_list_white;
-            btn_LQ_SelCli.ForeColor = Color.White;
-        }
-
-        private void Btn_LQ_SelCli_MouseLeave(object sender, EventArgs e)
-        {
-            btn_LQ_SelCli.Image = Resources.user_list;
-            btn_LQ_SelCli.ForeColor = Color.FromArgb(64, 64, 64);
-        }
-
 
         //================================================================================================================================================//
         // NEW QUOTE BUTTON                                                                                                                               //

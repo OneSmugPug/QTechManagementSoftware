@@ -35,9 +35,6 @@
             this.btn_LQ_ClearFilter = new System.Windows.Forms.Button();
             this.btn_C_NewWW = new System.Windows.Forms.Button();
             this.btn_LQ_Filter = new System.Windows.Forms.Button();
-            this.btn_LQ_SelCli = new System.Windows.Forms.Button();
-            this.btn_LQ_Next = new System.Windows.Forms.Button();
-            this.btn_LQ_Prev = new System.Windows.Forms.Button();
             this.dtp_LQ_From = new Bunifu.Framework.UI.BunifuDatepicker();
             this.dtp_LQ_To = new Bunifu.Framework.UI.BunifuDatepicker();
             this.dgv_Contractors = new ADGV.AdvancedDataGridView();
@@ -81,7 +78,7 @@
             this.btn_C_NewWW.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btn_C_NewWW.Image = global::QTechManagementSoftware.Properties.Resources.add_grey;
             this.btn_C_NewWW.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_C_NewWW.Location = new System.Drawing.Point(826, 232);
+            this.btn_C_NewWW.Location = new System.Drawing.Point(832, 232);
             this.btn_C_NewWW.Name = "btn_C_NewWW";
             this.btn_C_NewWW.Size = new System.Drawing.Size(122, 40);
             this.btn_C_NewWW.TabIndex = 1;
@@ -102,7 +99,7 @@
             this.btn_LQ_Filter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btn_LQ_Filter.Image = global::QTechManagementSoftware.Properties.Resources.filter_grey;
             this.btn_LQ_Filter.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_LQ_Filter.Location = new System.Drawing.Point(553, 232);
+            this.btn_LQ_Filter.Location = new System.Drawing.Point(556, 232);
             this.btn_LQ_Filter.Name = "btn_LQ_Filter";
             this.btn_LQ_Filter.Size = new System.Drawing.Size(114, 40);
             this.btn_LQ_Filter.TabIndex = 2;
@@ -112,63 +109,6 @@
             this.btn_LQ_Filter.Click += new System.EventHandler(this.Btn_LQ_Filter_Click);
             this.btn_LQ_Filter.MouseEnter += new System.EventHandler(this.Btn_LQ_Filter_MouseEnter);
             this.btn_LQ_Filter.MouseLeave += new System.EventHandler(this.Btn_LQ_Filter_MouseLeave);
-            // 
-            // btn_LQ_SelCli
-            // 
-            this.btn_LQ_SelCli.FlatAppearance.BorderSize = 0;
-            this.btn_LQ_SelCli.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.btn_LQ_SelCli.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
-            this.btn_LQ_SelCli.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_LQ_SelCli.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_LQ_SelCli.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btn_LQ_SelCli.Image = global::QTechManagementSoftware.Properties.Resources.user_list;
-            this.btn_LQ_SelCli.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_LQ_SelCli.Location = new System.Drawing.Point(518, 161);
-            this.btn_LQ_SelCli.Name = "btn_LQ_SelCli";
-            this.btn_LQ_SelCli.Size = new System.Drawing.Size(114, 40);
-            this.btn_LQ_SelCli.TabIndex = 3;
-            this.btn_LQ_SelCli.Text = "Client List";
-            this.btn_LQ_SelCli.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btn_LQ_SelCli.UseVisualStyleBackColor = true;
-            this.btn_LQ_SelCli.Click += new System.EventHandler(this.Btn_LQ_SelCli_Click);
-            this.btn_LQ_SelCli.MouseEnter += new System.EventHandler(this.Btn_LQ_SelCli_MouseEnter);
-            this.btn_LQ_SelCli.MouseLeave += new System.EventHandler(this.Btn_LQ_SelCli_MouseLeave);
-            // 
-            // btn_LQ_Next
-            // 
-            this.btn_LQ_Next.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_LQ_Next.FlatAppearance.BorderSize = 0;
-            this.btn_LQ_Next.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.btn_LQ_Next.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
-            this.btn_LQ_Next.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_LQ_Next.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_LQ_Next.Image = global::QTechManagementSoftware.Properties.Resources.forawrd_black;
-            this.btn_LQ_Next.Location = new System.Drawing.Point(897, 21);
-            this.btn_LQ_Next.Name = "btn_LQ_Next";
-            this.btn_LQ_Next.Size = new System.Drawing.Size(49, 149);
-            this.btn_LQ_Next.TabIndex = 4;
-            this.btn_LQ_Next.UseVisualStyleBackColor = true;
-            this.btn_LQ_Next.Click += new System.EventHandler(this.Btn_LQ_Next_Click);
-            this.btn_LQ_Next.MouseEnter += new System.EventHandler(this.Btn_LQ_Next_MouseEnter);
-            this.btn_LQ_Next.MouseLeave += new System.EventHandler(this.Btn_LQ_Next_MouseLeave);
-            // 
-            // btn_LQ_Prev
-            // 
-            this.btn_LQ_Prev.Enabled = false;
-            this.btn_LQ_Prev.FlatAppearance.BorderSize = 0;
-            this.btn_LQ_Prev.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.btn_LQ_Prev.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
-            this.btn_LQ_Prev.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_LQ_Prev.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_LQ_Prev.Image = global::QTechManagementSoftware.Properties.Resources.back_black;
-            this.btn_LQ_Prev.Location = new System.Drawing.Point(17, 21);
-            this.btn_LQ_Prev.Name = "btn_LQ_Prev";
-            this.btn_LQ_Prev.Size = new System.Drawing.Size(49, 149);
-            this.btn_LQ_Prev.TabIndex = 5;
-            this.btn_LQ_Prev.UseVisualStyleBackColor = true;
-            this.btn_LQ_Prev.Click += new System.EventHandler(this.Btn_LQ_Prev_Click);
-            this.btn_LQ_Prev.MouseEnter += new System.EventHandler(this.Btn_LQ_Prev_MouseEnter);
-            this.btn_LQ_Prev.MouseLeave += new System.EventHandler(this.Btn_LQ_Prev_MouseLeave);
             // 
             // dtp_LQ_From
             // 
@@ -223,7 +163,7 @@
             this.dgv_Contractors.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgv_Contractors.DateWithTime = false;
             this.dgv_Contractors.EnableHeadersVisualStyles = false;
-            this.dgv_Contractors.Location = new System.Drawing.Point(-1, 278);
+            this.dgv_Contractors.Location = new System.Drawing.Point(1, 278);
             this.dgv_Contractors.Name = "dgv_Contractors";
             this.dgv_Contractors.ReadOnly = true;
             this.dgv_Contractors.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -231,7 +171,7 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
             this.dgv_Contractors.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgv_Contractors.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_Contractors.Size = new System.Drawing.Size(963, 340);
+            this.dgv_Contractors.Size = new System.Drawing.Size(963, 341);
             this.dgv_Contractors.TabIndex = 8;
             this.dgv_Contractors.TimeFilter = false;
             this.dgv_Contractors.SortStringChanged += new System.EventHandler(this.Dgv_LQuotes_SortStringChanged);
@@ -247,7 +187,7 @@
             this.bunifuSeparator1.LineThickness = 1;
             this.bunifuSeparator1.Location = new System.Drawing.Point(17, 207);
             this.bunifuSeparator1.Name = "bunifuSeparator1";
-            this.bunifuSeparator1.Size = new System.Drawing.Size(934, 25);
+            this.bunifuSeparator1.Size = new System.Drawing.Size(929, 25);
             this.bunifuSeparator1.TabIndex = 9;
             this.bunifuSeparator1.Transparency = 255;
             this.bunifuSeparator1.Vertical = false;
@@ -329,7 +269,7 @@
             this.txt_LQ_CCode.LineIdleColor = System.Drawing.Color.Gray;
             this.txt_LQ_CCode.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
             this.txt_LQ_CCode.LineThickness = 1;
-            this.txt_LQ_CCode.Location = new System.Drawing.Point(253, 50);
+            this.txt_LQ_CCode.Location = new System.Drawing.Point(253, 53);
             this.txt_LQ_CCode.Margin = new System.Windows.Forms.Padding(4);
             this.txt_LQ_CCode.Name = "txt_LQ_CCode";
             this.txt_LQ_CCode.Size = new System.Drawing.Size(379, 33);
@@ -353,16 +293,13 @@
             this.Controls.Add(this.dgv_Contractors);
             this.Controls.Add(this.dtp_LQ_To);
             this.Controls.Add(this.dtp_LQ_From);
-            this.Controls.Add(this.btn_LQ_Prev);
-            this.Controls.Add(this.btn_LQ_Next);
-            this.Controls.Add(this.btn_LQ_SelCli);
             this.Controls.Add(this.btn_LQ_Filter);
             this.Controls.Add(this.btn_C_NewWW);
             this.Controls.Add(this.btn_LQ_ClearFilter);
             this.Controls.Add(this.bunifuSeparator1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(640, 510);
+            this.MinimumSize = new System.Drawing.Size(963, 618);
             this.Name = "Quotes";
             this.Text = "Quotes";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -378,9 +315,6 @@
         private System.Windows.Forms.Button btn_LQ_ClearFilter;
         private System.Windows.Forms.Button btn_C_NewWW;
         private System.Windows.Forms.Button btn_LQ_Filter;
-        private System.Windows.Forms.Button btn_LQ_SelCli;
-        private System.Windows.Forms.Button btn_LQ_Next;
-        private System.Windows.Forms.Button btn_LQ_Prev;
         private Bunifu.Framework.UI.BunifuDatepicker dtp_LQ_From;
         private Bunifu.Framework.UI.BunifuDatepicker dtp_LQ_To;
         private ADGV.AdvancedDataGridView dgv_Contractors;

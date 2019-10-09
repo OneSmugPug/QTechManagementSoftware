@@ -40,14 +40,11 @@
             this.dtp_IO_To = new Bunifu.Framework.UI.BunifuDatepicker();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.btn_IO_SelCli = new System.Windows.Forms.Button();
             this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
             this.txt_IO_CName = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.txt_IO_CCode = new Bunifu.Framework.UI.BunifuMaterialTextbox();
-            this.btn_IO_Next = new System.Windows.Forms.Button();
             this.bunifuCustomLabel3 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel4 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.btn_IO_Prev = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_IOrders)).BeginInit();
             this.SuspendLayout();
             // 
@@ -77,7 +74,7 @@
             this.dtp_IO_From.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
             this.dtp_IO_From.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtp_IO_From.FormatCustom = "null";
-            this.dtp_IO_From.Location = new System.Drawing.Point(69, 233);
+            this.dtp_IO_From.Location = new System.Drawing.Point(70, 235);
             this.dtp_IO_From.Name = "dtp_IO_From";
             this.dtp_IO_From.Size = new System.Drawing.Size(208, 36);
             this.dtp_IO_From.TabIndex = 1;
@@ -110,7 +107,7 @@
             this.dgv_IOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgv_IOrders.DateWithTime = false;
             this.dgv_IOrders.EnableHeadersVisualStyles = false;
-            this.dgv_IOrders.Location = new System.Drawing.Point(0, 276);
+            this.dgv_IOrders.Location = new System.Drawing.Point(1, 278);
             this.dgv_IOrders.Name = "dgv_IOrders";
             this.dgv_IOrders.ReadOnly = true;
             this.dgv_IOrders.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -118,7 +115,7 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
             this.dgv_IOrders.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgv_IOrders.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_IOrders.Size = new System.Drawing.Size(963, 342);
+            this.dgv_IOrders.Size = new System.Drawing.Size(963, 341);
             this.dgv_IOrders.TabIndex = 2;
             this.dgv_IOrders.TimeFilter = false;
             this.dgv_IOrders.SortStringChanged += new System.EventHandler(this.Dgv_IOrders_SortStringChanged);
@@ -136,7 +133,7 @@
             this.btn_IO_NewOrder.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btn_IO_NewOrder.Image = global::QTechManagementSoftware.Properties.Resources.add_grey;
             this.btn_IO_NewOrder.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_IO_NewOrder.Location = new System.Drawing.Point(831, 230);
+            this.btn_IO_NewOrder.Location = new System.Drawing.Point(832, 232);
             this.btn_IO_NewOrder.Name = "btn_IO_NewOrder";
             this.btn_IO_NewOrder.Size = new System.Drawing.Size(114, 40);
             this.btn_IO_NewOrder.TabIndex = 3;
@@ -157,7 +154,7 @@
             this.btn_IO_Filter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btn_IO_Filter.Image = global::QTechManagementSoftware.Properties.Resources.filter_grey;
             this.btn_IO_Filter.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_IO_Filter.Location = new System.Drawing.Point(555, 230);
+            this.btn_IO_Filter.Location = new System.Drawing.Point(556, 232);
             this.btn_IO_Filter.Name = "btn_IO_Filter";
             this.btn_IO_Filter.Size = new System.Drawing.Size(114, 40);
             this.btn_IO_Filter.TabIndex = 4;
@@ -175,7 +172,7 @@
             this.dtp_IO_To.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
             this.dtp_IO_To.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtp_IO_To.FormatCustom = "null";
-            this.dtp_IO_To.Location = new System.Drawing.Point(323, 233);
+            this.dtp_IO_To.Location = new System.Drawing.Point(324, 235);
             this.dtp_IO_To.Name = "dtp_IO_To";
             this.dtp_IO_To.Size = new System.Drawing.Size(208, 36);
             this.dtp_IO_To.TabIndex = 5;
@@ -186,7 +183,7 @@
             this.bunifuCustomLabel1.AutoSize = true;
             this.bunifuCustomLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuCustomLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bunifuCustomLabel1.Location = new System.Drawing.Point(283, 240);
+            this.bunifuCustomLabel1.Location = new System.Drawing.Point(284, 242);
             this.bunifuCustomLabel1.Name = "bunifuCustomLabel1";
             this.bunifuCustomLabel1.Size = new System.Drawing.Size(31, 20);
             this.bunifuCustomLabel1.TabIndex = 6;
@@ -197,32 +194,11 @@
             this.bunifuCustomLabel2.AutoSize = true;
             this.bunifuCustomLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuCustomLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bunifuCustomLabel2.Location = new System.Drawing.Point(11, 240);
+            this.bunifuCustomLabel2.Location = new System.Drawing.Point(12, 242);
             this.bunifuCustomLabel2.Name = "bunifuCustomLabel2";
             this.bunifuCustomLabel2.Size = new System.Drawing.Size(50, 20);
             this.bunifuCustomLabel2.TabIndex = 7;
             this.bunifuCustomLabel2.Text = "From:";
-            // 
-            // btn_IO_SelCli
-            // 
-            this.btn_IO_SelCli.FlatAppearance.BorderSize = 0;
-            this.btn_IO_SelCli.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.btn_IO_SelCli.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
-            this.btn_IO_SelCli.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_IO_SelCli.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_IO_SelCli.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btn_IO_SelCli.Image = global::QTechManagementSoftware.Properties.Resources.user_list;
-            this.btn_IO_SelCli.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_IO_SelCli.Location = new System.Drawing.Point(517, 159);
-            this.btn_IO_SelCli.Name = "btn_IO_SelCli";
-            this.btn_IO_SelCli.Size = new System.Drawing.Size(114, 40);
-            this.btn_IO_SelCli.TabIndex = 8;
-            this.btn_IO_SelCli.Text = "Client List";
-            this.btn_IO_SelCli.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btn_IO_SelCli.UseVisualStyleBackColor = true;
-            this.btn_IO_SelCli.Click += new System.EventHandler(this.Btn_IO_SelCli_Click);
-            this.btn_IO_SelCli.MouseEnter += new System.EventHandler(this.Btn_IO_SelCli_MouseEnter);
-            this.btn_IO_SelCli.MouseLeave += new System.EventHandler(this.Btn_IO_SelCli_MouseLeave);
             // 
             // bunifuSeparator1
             // 
@@ -231,7 +207,7 @@
             this.bunifuSeparator1.BackColor = System.Drawing.Color.Transparent;
             this.bunifuSeparator1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.bunifuSeparator1.LineThickness = 1;
-            this.bunifuSeparator1.Location = new System.Drawing.Point(16, 205);
+            this.bunifuSeparator1.Location = new System.Drawing.Point(17, 207);
             this.bunifuSeparator1.Name = "bunifuSeparator1";
             this.bunifuSeparator1.Size = new System.Drawing.Size(929, 25);
             this.bunifuSeparator1.TabIndex = 9;
@@ -250,7 +226,7 @@
             this.txt_IO_CName.LineIdleColor = System.Drawing.Color.Gray;
             this.txt_IO_CName.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
             this.txt_IO_CName.LineThickness = 1;
-            this.txt_IO_CName.Location = new System.Drawing.Point(253, 113);
+            this.txt_IO_CName.Location = new System.Drawing.Point(254, 115);
             this.txt_IO_CName.Margin = new System.Windows.Forms.Padding(4);
             this.txt_IO_CName.Name = "txt_IO_CName";
             this.txt_IO_CName.Size = new System.Drawing.Size(379, 33);
@@ -271,7 +247,7 @@
             this.txt_IO_CCode.LineIdleColor = System.Drawing.Color.Gray;
             this.txt_IO_CCode.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
             this.txt_IO_CCode.LineThickness = 1;
-            this.txt_IO_CCode.Location = new System.Drawing.Point(252, 51);
+            this.txt_IO_CCode.Location = new System.Drawing.Point(253, 53);
             this.txt_IO_CCode.Margin = new System.Windows.Forms.Padding(4);
             this.txt_IO_CCode.Name = "txt_IO_CCode";
             this.txt_IO_CCode.Size = new System.Drawing.Size(379, 33);
@@ -280,31 +256,12 @@
             this.txt_IO_CCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txt_IO_CCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Txt_IO_CCode_KeyDown);
             // 
-            // btn_IO_Next
-            // 
-            this.btn_IO_Next.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_IO_Next.FlatAppearance.BorderSize = 0;
-            this.btn_IO_Next.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.btn_IO_Next.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
-            this.btn_IO_Next.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_IO_Next.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_IO_Next.ForeColor = System.Drawing.Color.White;
-            this.btn_IO_Next.Image = global::QTechManagementSoftware.Properties.Resources.forawrd_black;
-            this.btn_IO_Next.Location = new System.Drawing.Point(896, 19);
-            this.btn_IO_Next.Name = "btn_IO_Next";
-            this.btn_IO_Next.Size = new System.Drawing.Size(49, 149);
-            this.btn_IO_Next.TabIndex = 12;
-            this.btn_IO_Next.UseVisualStyleBackColor = true;
-            this.btn_IO_Next.Click += new System.EventHandler(this.Btn_IO_Next_Click);
-            this.btn_IO_Next.MouseEnter += new System.EventHandler(this.Btn_IO_Next_MouseEnter);
-            this.btn_IO_Next.MouseLeave += new System.EventHandler(this.Btn_IO_Next_MouseLeave);
-            // 
             // bunifuCustomLabel3
             // 
             this.bunifuCustomLabel3.AutoSize = true;
             this.bunifuCustomLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuCustomLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bunifuCustomLabel3.Location = new System.Drawing.Point(126, 115);
+            this.bunifuCustomLabel3.Location = new System.Drawing.Point(127, 117);
             this.bunifuCustomLabel3.Name = "bunifuCustomLabel3";
             this.bunifuCustomLabel3.Size = new System.Drawing.Size(118, 24);
             this.bunifuCustomLabel3.TabIndex = 13;
@@ -315,29 +272,11 @@
             this.bunifuCustomLabel4.AutoSize = true;
             this.bunifuCustomLabel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuCustomLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bunifuCustomLabel4.Location = new System.Drawing.Point(131, 54);
+            this.bunifuCustomLabel4.Location = new System.Drawing.Point(132, 56);
             this.bunifuCustomLabel4.Name = "bunifuCustomLabel4";
             this.bunifuCustomLabel4.Size = new System.Drawing.Size(113, 24);
             this.bunifuCustomLabel4.TabIndex = 14;
             this.bunifuCustomLabel4.Text = "Client Code:";
-            // 
-            // btn_IO_Prev
-            // 
-            this.btn_IO_Prev.Enabled = false;
-            this.btn_IO_Prev.FlatAppearance.BorderSize = 0;
-            this.btn_IO_Prev.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.btn_IO_Prev.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
-            this.btn_IO_Prev.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_IO_Prev.ForeColor = System.Drawing.Color.White;
-            this.btn_IO_Prev.Image = global::QTechManagementSoftware.Properties.Resources.back_black;
-            this.btn_IO_Prev.Location = new System.Drawing.Point(16, 19);
-            this.btn_IO_Prev.Name = "btn_IO_Prev";
-            this.btn_IO_Prev.Size = new System.Drawing.Size(49, 149);
-            this.btn_IO_Prev.TabIndex = 15;
-            this.btn_IO_Prev.UseVisualStyleBackColor = true;
-            this.btn_IO_Prev.Click += new System.EventHandler(this.Btn_IO_Prev_Click);
-            this.btn_IO_Prev.MouseEnter += new System.EventHandler(this.Btn_IO_Prev_MouseEnter);
-            this.btn_IO_Prev.MouseLeave += new System.EventHandler(this.Btn_IO_Prev_MouseLeave);
             // 
             // Int_Orders
             // 
@@ -345,14 +284,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(963, 618);
-            this.Controls.Add(this.btn_IO_Prev);
             this.Controls.Add(this.bunifuCustomLabel4);
             this.Controls.Add(this.bunifuCustomLabel3);
-            this.Controls.Add(this.btn_IO_Next);
             this.Controls.Add(this.txt_IO_CCode);
             this.Controls.Add(this.txt_IO_CName);
             this.Controls.Add(this.bunifuSeparator1);
-            this.Controls.Add(this.btn_IO_SelCli);
             this.Controls.Add(this.bunifuCustomLabel2);
             this.Controls.Add(this.bunifuCustomLabel1);
             this.Controls.Add(this.dtp_IO_To);
@@ -363,7 +299,7 @@
             this.Controls.Add(this.btn_IO_ClearFilter);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(625, 510);
+            this.MinimumSize = new System.Drawing.Size(963, 618);
             this.Name = "Int_Orders";
             this.Text = "International Orders";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -384,13 +320,10 @@
         private Bunifu.Framework.UI.BunifuDatepicker dtp_IO_To;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel1;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel2;
-        private System.Windows.Forms.Button btn_IO_SelCli;
         private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator1;
         private Bunifu.Framework.UI.BunifuMaterialTextbox txt_IO_CName;
         private Bunifu.Framework.UI.BunifuMaterialTextbox txt_IO_CCode;
-        private System.Windows.Forms.Button btn_IO_Next;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel3;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel4;
-        private System.Windows.Forms.Button btn_IO_Prev;
     }
 }
