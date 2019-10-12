@@ -262,22 +262,26 @@ namespace QTechManagementSoftware
                     {
                         // Generates string array with QNum values from Projects
                         SqlDataAdapter da = new SqlDataAdapter("SELECT Quote_Number FROM Projects", conn);
-                        DataSet ds = new DataSet();
-                        da.Fill(ds);
-                        List<string> keyValues = new List<string>();
-                        foreach (DataRow row in ds.Tables[0].Rows)
+                        DataTable dt = new DataTable ();
+                        da.Fill(dt);
+
+                        //List<string> keyValues = new List<string>();
+
+                        foreach (DataRow row in dt.Rows)
                         {
-                            keyValues.Add(row["Quote_Number"].ToString());
+                            //keyValues.Add(row["Quote_Number"].ToString());
+                            if (txt_QA_QNum.Text.Equals(row["Quote_Number"].ToString().Trim()))
+                                matchFound = true;
                         }
 
                         // Checks if there exists a project with the same QNum as on the Q_Add form
-                        foreach (string key in keyValues)
+                        /*foreach (string key in keyValues)
                         {
                             if (txt_QA_QNum.Text.Equals(key))
                             {
                                 matchFound = true;
                             }
-                        }
+                        }*/
 
                         // If there is no match found then create a blank project in Projects table
                         if (!matchFound)
@@ -306,8 +310,10 @@ namespace QTechManagementSoftware
                             string[] strArray2 = txt_QA_QNum.Text.Trim().Split('_');
                             projCode = "P" + txt_QA_CCode.Text.Remove(0,3) + "_" + strArray2[1];
 
+                            string timeKeep = projCode + "_" + txt_QA_CName.Text.Trim() + "" + txt_QA_Desc.Text.Trim();
+
                             // Inserts the new project
-                            using (SqlCommand cmd = new SqlCommand("INSERT INTO Projects VALUES (@ProjID, @Date, @ClientCode, @ClientName, @Desc, @QNum)", conn))
+                            using (SqlCommand cmd = new SqlCommand("INSERT INTO Projects VALUES (@ProjID, @Date, @ClientCode, @ClientName, @Desc, @QNum, @Timekeep)", conn))
                             {
                                 cmd.Parameters.AddWithValue("@ProjID", projCode.Trim());
                                 cmd.Parameters.AddWithValue("@Date", DBNull.Value);
@@ -315,6 +321,7 @@ namespace QTechManagementSoftware
                                 cmd.Parameters.AddWithValue("@ClientName", txt_QA_CName.Text.Trim());
                                 cmd.Parameters.AddWithValue("@Desc", DBNull.Value);
                                 cmd.Parameters.AddWithValue("@QNum", txt_QA_QNum.Text.Trim());
+                                cmd.Parameters.AddWithValue("@Timekeep", timeKeep.Trim());
                                 cmd.ExecuteNonQuery();
                             }
                         }

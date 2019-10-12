@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -42,10 +43,11 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
             this.pnl_Menu = new System.Windows.Forms.Panel();
+            this.pnl_Con = new System.Windows.Forms.Panel();
             this.btn_Contractors = new System.Windows.Forms.Button();
+            this.btn_C_NoInv = new System.Windows.Forms.Button();
             this.btn_C_Timesheets = new System.Windows.Forms.Button();
             this.btn_C_NoRem = new System.Windows.Forms.Button();
-            this.btn_C_NoInv = new System.Windows.Forms.Button();
             this.btn_Int = new System.Windows.Forms.Button();
             this.btn_Local = new System.Windows.Forms.Button();
             this.btn_L_PettyCash = new System.Windows.Forms.Button();
@@ -94,8 +96,10 @@
             this.btn_Home_Min = new System.Windows.Forms.Button();
             this.QTLogo = new System.Windows.Forms.PictureBox();
             this.windowBar = new System.Windows.Forms.Panel();
+            this.tmr_Con = new System.Windows.Forms.Timer(this.components);
             this.tabControlX1 = new QTechManagementSoftware.TabControlX();
             this.pnl_Menu.SuspendLayout();
+            this.pnl_Con.SuspendLayout();
             this.pnl_L_CDet.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_LClients)).BeginInit();
             this.pnl_I_Clients.SuspendLayout();
@@ -114,10 +118,7 @@
             this.pnl_Menu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.pnl_Menu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.pnl_Menu.Controls.Add(this.btn_Contractors);
-            this.pnl_Menu.Controls.Add(this.btn_C_Timesheets);
-            this.pnl_Menu.Controls.Add(this.btn_C_NoRem);
-            this.pnl_Menu.Controls.Add(this.btn_C_NoInv);
+            this.pnl_Menu.Controls.Add(this.pnl_Con);
             this.pnl_Menu.Controls.Add(this.btn_Int);
             this.pnl_Menu.Controls.Add(this.btn_Local);
             this.pnl_Menu.Controls.Add(this.btn_L_PettyCash);
@@ -127,6 +128,17 @@
             this.pnl_Menu.Name = "pnl_Menu";
             this.pnl_Menu.Size = new System.Drawing.Size(230, 556);
             this.pnl_Menu.TabIndex = 0;
+            // 
+            // pnl_Con
+            // 
+            this.pnl_Con.Controls.Add(this.btn_Contractors);
+            this.pnl_Con.Controls.Add(this.btn_C_NoInv);
+            this.pnl_Con.Controls.Add(this.btn_C_Timesheets);
+            this.pnl_Con.Controls.Add(this.btn_C_NoRem);
+            this.pnl_Con.Location = new System.Drawing.Point(0, 144);
+            this.pnl_Con.Name = "pnl_Con";
+            this.pnl_Con.Size = new System.Drawing.Size(230, 48);
+            this.pnl_Con.TabIndex = 16;
             // 
             // btn_Contractors
             // 
@@ -138,7 +150,7 @@
             this.btn_Contractors.ForeColor = System.Drawing.Color.White;
             this.btn_Contractors.Image = global::QTechManagementSoftware.Properties.Resources.contr_white;
             this.btn_Contractors.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_Contractors.Location = new System.Drawing.Point(0, 153);
+            this.btn_Contractors.Location = new System.Drawing.Point(0, 0);
             this.btn_Contractors.Name = "btn_Contractors";
             this.btn_Contractors.Padding = new System.Windows.Forms.Padding(0, 0, 22, 0);
             this.btn_Contractors.Size = new System.Drawing.Size(230, 48);
@@ -151,16 +163,36 @@
             this.btn_Contractors.MouseEnter += new System.EventHandler(this.Btn_Contractors_MouseEnter);
             this.btn_Contractors.MouseLeave += new System.EventHandler(this.Btn_Contractors_MouseLeave);
             // 
+            // btn_C_NoInv
+            // 
+            this.btn_C_NoInv.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_C_NoInv.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.btn_C_NoInv.FlatAppearance.BorderSize = 0;
+            this.btn_C_NoInv.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_C_NoInv.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_C_NoInv.ForeColor = System.Drawing.Color.White;
+            this.btn_C_NoInv.Location = new System.Drawing.Point(0, 144);
+            this.btn_C_NoInv.Name = "btn_C_NoInv";
+            this.btn_C_NoInv.Size = new System.Drawing.Size(230, 48);
+            this.btn_C_NoInv.TabIndex = 13;
+            this.btn_C_NoInv.Text = "No Invoices";
+            this.btn_C_NoInv.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_C_NoInv.UseVisualStyleBackColor = false;
+            this.btn_C_NoInv.Click += new System.EventHandler(this.btn_C_NoInv_Click);
+            this.btn_C_NoInv.MouseEnter += new System.EventHandler(this.Btn_C_NoInv_MouseEnter);
+            this.btn_C_NoInv.MouseLeave += new System.EventHandler(this.Btn_C_NoInv_MouseLeave);
+            // 
             // btn_C_Timesheets
             // 
             this.btn_C_Timesheets.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_C_Timesheets.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btn_C_Timesheets.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.btn_C_Timesheets.FlatAppearance.BorderSize = 0;
             this.btn_C_Timesheets.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_C_Timesheets.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_C_Timesheets.ForeColor = System.Drawing.Color.White;
-            this.btn_C_Timesheets.Location = new System.Drawing.Point(0, 207);
+            this.btn_C_Timesheets.Location = new System.Drawing.Point(0, 48);
             this.btn_C_Timesheets.Name = "btn_C_Timesheets";
             this.btn_C_Timesheets.Size = new System.Drawing.Size(230, 48);
             this.btn_C_Timesheets.TabIndex = 13;
@@ -175,12 +207,12 @@
             // 
             this.btn_C_NoRem.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_C_NoRem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btn_C_NoRem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.btn_C_NoRem.FlatAppearance.BorderSize = 0;
             this.btn_C_NoRem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_C_NoRem.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_C_NoRem.ForeColor = System.Drawing.Color.White;
-            this.btn_C_NoRem.Location = new System.Drawing.Point(0, 261);
+            this.btn_C_NoRem.Location = new System.Drawing.Point(0, 96);
             this.btn_C_NoRem.Name = "btn_C_NoRem";
             this.btn_C_NoRem.Size = new System.Drawing.Size(230, 48);
             this.btn_C_NoRem.TabIndex = 13;
@@ -190,26 +222,6 @@
             this.btn_C_NoRem.Click += new System.EventHandler(this.Btn_C_NoRem_Click);
             this.btn_C_NoRem.MouseEnter += new System.EventHandler(this.Btn_C_NoRem_MouseEnter);
             this.btn_C_NoRem.MouseLeave += new System.EventHandler(this.Btn_C_NoRem_MouseLeave);
-            // 
-            // btn_C_NoInv
-            // 
-            this.btn_C_NoInv.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_C_NoInv.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btn_C_NoInv.FlatAppearance.BorderSize = 0;
-            this.btn_C_NoInv.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_C_NoInv.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_C_NoInv.ForeColor = System.Drawing.Color.White;
-            this.btn_C_NoInv.Location = new System.Drawing.Point(0, 315);
-            this.btn_C_NoInv.Name = "btn_C_NoInv";
-            this.btn_C_NoInv.Size = new System.Drawing.Size(230, 48);
-            this.btn_C_NoInv.TabIndex = 13;
-            this.btn_C_NoInv.Text = "No Invoices";
-            this.btn_C_NoInv.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btn_C_NoInv.UseVisualStyleBackColor = false;
-            this.btn_C_NoInv.Click += new System.EventHandler(this.btn_C_NoInv_Click);
-            this.btn_C_NoInv.MouseEnter += new System.EventHandler(this.Btn_C_NoInv_MouseEnter);
-            this.btn_C_NoInv.MouseLeave += new System.EventHandler(this.Btn_C_NoInv_MouseLeave);
             // 
             // btn_Int
             // 
@@ -221,7 +233,7 @@
             this.btn_Int.ForeColor = System.Drawing.Color.White;
             this.btn_Int.Image = global::QTechManagementSoftware.Properties.Resources.globe_white;
             this.btn_Int.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_Int.Location = new System.Drawing.Point(0, 99);
+            this.btn_Int.Location = new System.Drawing.Point(0, 96);
             this.btn_Int.Name = "btn_Int";
             this.btn_Int.Padding = new System.Windows.Forms.Padding(0, 0, 15, 0);
             this.btn_Int.Size = new System.Drawing.Size(230, 48);
@@ -243,7 +255,7 @@
             this.btn_Local.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Local.ForeColor = System.Drawing.Color.White;
             this.btn_Local.Image = global::QTechManagementSoftware.Properties.Resources.local_white;
-            this.btn_Local.Location = new System.Drawing.Point(0, 49);
+            this.btn_Local.Location = new System.Drawing.Point(0, 48);
             this.btn_Local.Name = "btn_Local";
             this.btn_Local.Padding = new System.Windows.Forms.Padding(1, 0, 0, 0);
             this.btn_Local.Size = new System.Drawing.Size(230, 48);
@@ -265,7 +277,7 @@
             this.btn_L_PettyCash.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_L_PettyCash.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_L_PettyCash.ForeColor = System.Drawing.Color.White;
-            this.btn_L_PettyCash.Location = new System.Drawing.Point(0, 423);
+            this.btn_L_PettyCash.Location = new System.Drawing.Point(0, 240);
             this.btn_L_PettyCash.Name = "btn_L_PettyCash";
             this.btn_L_PettyCash.Size = new System.Drawing.Size(230, 48);
             this.btn_L_PettyCash.TabIndex = 12;
@@ -286,7 +298,7 @@
             this.btn_Projects.ForeColor = System.Drawing.Color.White;
             this.btn_Projects.Image = global::QTechManagementSoftware.Properties.Resources.project_white;
             this.btn_Projects.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_Projects.Location = new System.Drawing.Point(0, 369);
+            this.btn_Projects.Location = new System.Drawing.Point(0, 192);
             this.btn_Projects.Name = "btn_Projects";
             this.btn_Projects.Padding = new System.Windows.Forms.Padding(0, 0, 48, 0);
             this.btn_Projects.Size = new System.Drawing.Size(230, 48);
@@ -1133,6 +1145,11 @@
             this.windowBar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.windowBar_MouseMove);
             this.windowBar.MouseUp += new System.Windows.Forms.MouseEventHandler(this.windowBar_MouseUp);
             // 
+            // tmr_Con
+            // 
+            this.tmr_Con.Interval = 1;
+            this.tmr_Con.Tick += new System.EventHandler(this.Tmr_Con_Tick);
+            // 
             // tabControlX1
             // 
             this.tabControlX1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -1175,6 +1192,7 @@
             this.Text = "Home";
             this.Load += new System.EventHandler(this.Home_Load);
             this.pnl_Menu.ResumeLayout(false);
+            this.pnl_Con.ResumeLayout(false);
             this.pnl_L_CDet.ResumeLayout(false);
             this.pnl_L_CDet.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_LClients)).EndInit();
@@ -1249,5 +1267,7 @@
         private ADGV.AdvancedDataGridView dgv_NoInv;
         private TabControlX tabControlX1;
         private System.Windows.Forms.Panel windowBar;
+        private System.Windows.Forms.Panel pnl_Con;
+        private System.Windows.Forms.Timer tmr_Con;
     }
 }

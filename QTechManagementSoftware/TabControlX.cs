@@ -219,6 +219,7 @@ namespace QTechManagementSoftware
 
         public void RefreshPanels()
         {
+            TabPanel.Update();
             TabPanel.Refresh();
         }
     }

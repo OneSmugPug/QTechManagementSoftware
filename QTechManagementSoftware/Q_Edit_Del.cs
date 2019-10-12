@@ -258,21 +258,18 @@ namespace QTechManagementSoftware
                     {
                         // Generates string array with QNum values from Projects
                         SqlDataAdapter da = new SqlDataAdapter("SELECT Quote_Number FROM Projects", conn);
-                        DataSet ds = new DataSet();
-                        da.Fill(ds);
-                        List<string> keyValues = new List<string>();
-                        foreach (DataRow row in ds.Tables[0].Rows)
-                        {
-                            keyValues.Add(row["Quote_Number"].ToString());
-                        }
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
 
-                        // Checks if there exists a project with the same QNum as on the Q_Add form
-                        foreach (string key in keyValues)
+                        List<string> keyValues = new List<string>();
+
+                        // Checks if there exists a project with the same Quote Number
+                        foreach (DataRow row in dt.Rows)
                         {
-                            if (txt_QED_QNum.Text.Equals(key))
-                            {
+                            //keyValues.Add(row["Quote_Number"].ToString());
+
+                            if (txt_QED_QNum.Text.Equals(row["Quote_Number"].ToString().Trim()))
                                 matchFound = true;
-                            }
                         }
 
                         // If there is no match found then create a blank project in Projects table
@@ -285,6 +282,7 @@ namespace QTechManagementSoftware
 
                             int CCode = 0;
                             string projCode;
+
                             foreach (DataRow row in projDT.Rows)
                             {
                                 string[] strArray1 = row["Project_ID"].ToString().Trim().Split('_');
@@ -302,8 +300,10 @@ namespace QTechManagementSoftware
                             string[] strArray2 = txt_QED_QNum.Text.Trim().Split('_');
                             projCode = "P" + txt_QED_CCode.Text.Remove(0, 3) + "_" + strArray2[1];
 
+                            string timeKeep = projCode + "_" + txt_QED_CName.Text.Trim() + "" + txt_QED_Desc.Text.Trim();
+
                             // Inserts the new project
-                            using (SqlCommand cmd = new SqlCommand("INSERT INTO Projects VALUES (@ProjID, @Date, @ClientCode, @ClientName, @Desc, @QNum)", conn))
+                            using (SqlCommand cmd = new SqlCommand("INSERT INTO Projects VALUES (@ProjID, @Date, @ClientCode, @ClientName, @Desc, @QNum, @Timekeep)", conn))
                             {
                                 cmd.Parameters.AddWithValue("@ProjID", projCode.Trim());
                                 cmd.Parameters.AddWithValue("@Date", DBNull.Value);
@@ -311,6 +311,7 @@ namespace QTechManagementSoftware
                                 cmd.Parameters.AddWithValue("@ClientName", txt_QED_CName.Text.Trim());
                                 cmd.Parameters.AddWithValue("@Desc", DBNull.Value);
                                 cmd.Parameters.AddWithValue("@QNum", txt_QED_QNum.Text.Trim());
+                                cmd.Parameters.AddWithValue("@Timekeep", timeKeep.Trim());
                                 cmd.ExecuteNonQuery();
                             }
                         }

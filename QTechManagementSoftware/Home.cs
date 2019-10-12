@@ -12,7 +12,7 @@ namespace QTechManagementSoftware
     public partial class Home : Form
     {
         private bool mouseDown;
-        private bool isLocalOpen = false, isIntOpen = false, isLInvOpen = false, isConOpen = false,
+        private bool isConSelected = false, isConOpen = false,
             wasMax = false;
         private string selected = string.Empty;
 
@@ -66,8 +66,6 @@ namespace QTechManagementSoftware
             selected = "Home";
             pnl_Home.Visible = true;
             CurrentPanel("pnl_Home");
-
-            // Populate Tab Control
             
             ordersPnl.Dock = DockStyle.Fill;
             quotesPnl.Dock = DockStyle.Fill;
@@ -378,6 +376,7 @@ namespace QTechManagementSoftware
                     {
                         btn_Contractors.BackColor = Color.FromArgb(64, 64, 64);
                         btn_Contractors.ForeColor = Color.White;
+                        isConSelected = false;
                         break;
                     }
                 case "cNoRem":
@@ -396,6 +395,7 @@ namespace QTechManagementSoftware
                     {
                         btn_C_Timesheets.BackColor = Color.FromArgb(50, 50, 50);
                         btn_C_Timesheets.ForeColor = Color.White;
+                        isConSelected = false;
                         break;
                     }
                 case "cNoInv":
@@ -625,6 +625,13 @@ namespace QTechManagementSoftware
             
             
             pnl_L_CDet.Visible = true;
+
+            btn_LC_DoneAdd.Visible = false;
+            btn_LC_Cancel.Visible = false;
+            btn_LC_Add.Visible = true;
+            btn_LC_Edit.Visible = true;
+
+            isLCReadOnly = true;
         }
 
         //================================================================================================================================================//
@@ -682,6 +689,13 @@ namespace QTechManagementSoftware
             btn_Int.ForeColor = Color.White;
             btn_Int.Image = Resources.globe_white;
             pnl_I_Clients.Visible = true;
+
+            btn_IC_DoneAdd.Visible = false;
+            btn_IC_Cancel.Visible = false;
+            btn_IC_Add.Visible = true;
+            btn_IC_Edit.Visible = true;
+
+            isICReadOnly = true;
         }
 
         private void Btn_Int_MouseEnter(object sender, EventArgs e)
@@ -709,26 +723,37 @@ namespace QTechManagementSoftware
         //================================================================================================================================================//
         private void Btn_Contractors_Click(object sender, EventArgs e)
         {
-            ResetButtons(selected);
-            GetSelectedButton(btn_C_Timesheets);
-            HidePanel();
+            if (isConSelected)
+            {
+                tmr_Con.Start();
+            }
+            else
+            {
+                tmr_Con.Start();
 
-            btn_Contractors.BackColor = Color.FromArgb(19, 118, 188);
-            btn_Contractors.ForeColor = Color.White;
-            btn_Contractors.Image = Resources.contr_white;
+                ResetButtons(selected);
+                GetSelectedButton(btn_Contractors);
+                HidePanel();
 
-            pnl_Contractors.Visible = true;
-            CurrentPanel("pnl_Contractors");
+                btn_Contractors.BackColor = Color.FromArgb(19, 118, 188);
+                btn_Contractors.ForeColor = Color.White;
+                btn_Contractors.Image = Resources.contr_white;
 
-            btn_C_Timesheets.BackColor = Color.FromArgb(13, 77, 119);
-            btn_C_Timesheets.ForeColor = Color.White;
+                pnl_Contractors.Visible = true;
+                CurrentPanel("pnl_Contractors");
 
-            frmContr = new Contractors();
-            curForm = frmContr;
-            frmContr.TopLevel = false;
-            frmContr.TopMost = true;
-            pnl_Contractors.Controls.Add(frmContr);
-            frmContr.Show();
+                btn_C_Timesheets.BackColor = Color.FromArgb(13, 77, 119);
+                btn_C_Timesheets.ForeColor = Color.White;
+
+                frmContr = new Contractors();
+                curForm = frmContr;
+                frmContr.TopLevel = false;
+                frmContr.TopMost = true;
+                pnl_Contractors.Controls.Add(frmContr);
+                frmContr.Show();
+
+                isConSelected = true;
+            }
         }
 
         private void Btn_Contractors_MouseEnter(object sender, EventArgs e)
@@ -787,7 +812,7 @@ namespace QTechManagementSoftware
         {
             if (selected != "cTimesheets")
             {
-                btn_C_Timesheets.BackColor = Color.FromArgb(64,64,64);
+                btn_C_Timesheets.BackColor = Color.FromArgb(50, 50, 50);
                 btn_C_Timesheets.ForeColor = Color.White;
             }
         }
@@ -860,7 +885,7 @@ namespace QTechManagementSoftware
         {
             if (selected != "cNoRem")
             {
-                btn_C_NoRem.BackColor = Color.FromArgb(64,64,64);
+                btn_C_NoRem.BackColor = Color.FromArgb(50, 50, 50);
                 btn_C_NoRem.ForeColor = Color.White;
             }
         }
@@ -934,7 +959,7 @@ namespace QTechManagementSoftware
         {
             if (selected != "cNoInv")
             {
-                btn_C_NoInv.BackColor = Color.FromArgb(64,64,64);
+                btn_C_NoInv.BackColor = Color.FromArgb(50, 50, 50);
                 btn_C_NoInv.ForeColor = Color.White;
             }
         }
@@ -996,47 +1021,51 @@ namespace QTechManagementSoftware
         //================================================================================================================================================//
         // OPENS/CLOSES CONTRACTOR TAB                                                                                                                    //
         //================================================================================================================================================//
-        //private void Tmr_Con_Tick(object sender, EventArgs e)
-        //{
-        //    if (isConOpen)
-        //    {
-        //        if (pnl_Con.Height <= 48)
-        //        {
-        //            tmr_Con.Stop();
-        //            isConOpen = false;
-        //        }
-        //        else if (pnl_Con.Height == 57)
-        //        {
-        //            pnl_Con.Height -= 9;
-        //            btn_Projects.Location = new Point(btn_Projects.Location.X, btn_Projects.Location.Y - 9);
-        //        }
-        //        else
-        //        {
-        //            pnl_Con.Height -= 15;
-        //            btn_Projects.Location = new Point(btn_Projects.Location.X, btn_Projects.Location.Y - 15);
-        //        }
-        //    }
-        //    else if (pnl_Con.Height >= 192)
-        //    {
-        //        tmr_Con.Stop();
-        //        isConOpen = true;
-        //    }
-        //    else if (pnl_Con.Height == 183)
-        //    {
-        //        pnl_Con.Height += 9;
-        //        btn_Projects.Location = new Point(btn_Projects.Location.X, btn_Projects.Location.Y + 9);
-        //    }
-        //    else
-        //    {
-        //        pnl_Con.Height += 15;
-        //        btn_Projects.Location = new Point(btn_Projects.Location.X, btn_Projects.Location.Y + 15);
-        //    }
-        //}
+        private void Tmr_Con_Tick(object sender, EventArgs e)
+        {
+            if (isConOpen)
+            {
+                if (pnl_Con.Height <= 48)
+                {
+                    tmr_Con.Stop();
+                    isConOpen = false;
+                }
+                else if (pnl_Con.Height == 57)
+                {
+                    pnl_Con.Height -= 9;
+                    btn_Projects.Location = new Point(btn_Projects.Location.X, btn_Projects.Location.Y - 9);
+                    btn_L_PettyCash.Location = new Point(btn_L_PettyCash.Location.X, btn_L_PettyCash.Location.Y - 9);
+                }
+                else
+                {
+                    pnl_Con.Height -= 15;
+                    btn_Projects.Location = new Point(btn_Projects.Location.X, btn_Projects.Location.Y - 15);
+                    btn_L_PettyCash.Location = new Point(btn_L_PettyCash.Location.X, btn_L_PettyCash.Location.Y - 15);
+                }
+            }
+            else if (pnl_Con.Height >= 192)
+            {
+                tmr_Con.Stop();
+                isConOpen = true;
+            }
+            else if (pnl_Con.Height == 183)
+            {
+                pnl_Con.Height += 9;
+                btn_Projects.Location = new Point(btn_Projects.Location.X, btn_Projects.Location.Y + 9);
+                btn_L_PettyCash.Location = new Point(btn_L_PettyCash.Location.X, btn_L_PettyCash.Location.Y + 9);
+            }
+            else
+            {
+                pnl_Con.Height += 15;
+                btn_Projects.Location = new Point(btn_Projects.Location.X, btn_Projects.Location.Y + 15);
+                btn_L_PettyCash.Location = new Point(btn_L_PettyCash.Location.X, btn_L_PettyCash.Location.Y + 15);
+            }
+        }
 
         //================================================================================================================================================//
         // LOCAL CLIENTS PREVIOUS BUTTON                                                                                                                  //
         //================================================================================================================================================//
-        private void Btn_LC_Prev_MouseEnter(object sender, EventArgs e)
+            private void Btn_LC_Prev_MouseEnter(object sender, EventArgs e)
         {
             btn_LC_Prev.Image = Resources.back_white;
         }
@@ -1276,7 +1305,8 @@ namespace QTechManagementSoftware
                         newCode = x;
                 }
             }
-            txt_LC_CCode.Text = "QTL" + (newCode++).ToString("000");
+            newCode++;
+            txt_LC_CCode.Text = "QTL" + newCode.ToString("000");
         }
 
 
@@ -1692,7 +1722,8 @@ namespace QTechManagementSoftware
                 }
             }
 
-            txt_IC_CCode.Text = "QTI" + (newCCode++).ToString("000");
+            newCCode++;
+            txt_IC_CCode.Text = "QTI" + newCCode.ToString("000");
         }
 
 
@@ -1830,11 +1861,6 @@ namespace QTechManagementSoftware
             }
         }
 
-        private void Home_Load_1(object sender, EventArgs e)
-        {
-
-        }
-
 
         //================================================================================================================================================//
         // ENFORCE READONLY ON TEXTBOXES                                                                                                                  //
@@ -1866,46 +1892,63 @@ namespace QTechManagementSoftware
         private void Dgv_LClients_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             SetCurForm("Orders");
+
             pnl_L_CDet.Visible = false;
+
             tabControlX1.ClearTabs();
             tabControlX1.Visible = true;
+
             ordersPnl.Controls.Clear();
             quotesPnl.Controls.Clear();
             invSentPnl.Controls.Clear();
             invRecPnl.Controls.Clear();
+
             ResetButtons(selected);
+
             curVisible = "tabControlX1";
+
             frmOrder = new Orders();
             frmOrder.TopLevel = false;
             //frmOrder.Dock = DockStyle.Fill;
-            frmOrder.Anchor = (AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right | AnchorStyles.Left);
+
+
             frmQuote = new Quotes();
             frmQuote.TopLevel = false;
             //frmQuote.Dock = DockStyle.Fill;
-            frmQuote.Anchor = (AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right | AnchorStyles.Left);
+
+
             frmInvSent = new Invoices_Send();
             frmInvSent.TopLevel = false;
             //frmInvSent.Dock = DockStyle.Fill;
-            frmInvSent.Anchor = (AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right | AnchorStyles.Left);
+
             frmInvRec = new Inv_Rec();
             frmInvRec.TopLevel = false;
             //frmInvRec.Dock = DockStyle.Fill;
-            frmInvRec.Anchor = (AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right | AnchorStyles.Left);
+
             ordersPnl.Controls.Add(frmOrder);
             quotesPnl.Controls.Add(frmQuote);
             invSentPnl.Controls.Add(frmInvSent);
             invRecPnl.Controls.Add(frmInvRec);
+
+            frmOrder.Anchor = (AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right | AnchorStyles.Left);
+            frmQuote.Anchor = (AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right | AnchorStyles.Left);
+            frmInvSent.Anchor = (AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right | AnchorStyles.Left);
+            frmInvRec.Anchor = (AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right | AnchorStyles.Left);
+
             tabControlX1.AddTab("Orders", ordersPnl);
             tabControlX1.AddTab("Quotes", quotesPnl);
             tabControlX1.AddTab("Invoices Sent", invSentPnl);
             tabControlX1.AddTab("Invoices Received", invRecPnl);
+
             frmOrder.SetNewClient(e.RowIndex);
             frmQuote.SetNewClient(e.RowIndex);
             frmInvSent.SetNewClient(e.RowIndex);
+
             frmOrder.Show();
             frmQuote.Show();
             frmInvSent.Show();
             frmInvRec.Show();
+
             tabControlX1.Invalidate();
         }
 
