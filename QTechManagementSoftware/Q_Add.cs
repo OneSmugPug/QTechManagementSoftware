@@ -289,6 +289,7 @@ namespace QTechManagementSoftware
 
                             int CCode = 0;
                             string projCode;
+                            string timeKeep;
                             foreach (DataRow row in projDT.Rows)
                             {
                                 string[] strArray1 = row["Project_ID"].ToString().Trim().Split('_');
@@ -305,16 +306,17 @@ namespace QTechManagementSoftware
                             }
                             string[] strArray2 = txt_QA_QNum.Text.Trim().Split('_');
                             projCode = "P" + txt_QA_CCode.Text.Remove(0,3) + "_" + strArray2[1];
-
+                            timeKeep = projCode + "_" + txt_QA_CName.Text.Trim() + "_" + txt_QA_Desc.Text.Trim();
                             // Inserts the new project
-                            using (SqlCommand cmd = new SqlCommand("INSERT INTO Projects VALUES (@ProjID, @Date, @ClientCode, @ClientName, @Desc, @QNum)", conn))
+                            using (SqlCommand cmd = new SqlCommand("INSERT INTO Projects VALUES (@ProjID, @Date, @ClientCode, @ClientName, @Desc, @QNum, @Timekeep)", conn))
                             {
                                 cmd.Parameters.AddWithValue("@ProjID", projCode.Trim());
                                 cmd.Parameters.AddWithValue("@Date", DBNull.Value);
                                 cmd.Parameters.AddWithValue("@ClientCode", txt_QA_CCode.Text.Trim());
                                 cmd.Parameters.AddWithValue("@ClientName", txt_QA_CName.Text.Trim());
-                                cmd.Parameters.AddWithValue("@Desc", DBNull.Value);
+                                cmd.Parameters.AddWithValue("@Desc", txt_QA_Desc.Text.Trim());
                                 cmd.Parameters.AddWithValue("@QNum", txt_QA_QNum.Text.Trim());
+                                cmd.Parameters.AddWithValue("Timekeep", timeKeep.Trim());
                                 cmd.ExecuteNonQuery();
                             }
                         }
