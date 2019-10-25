@@ -26,30 +26,28 @@ namespace QTechManagementSoftware
 
         private void Inv_Send_Edit_Del_Load(object sender, EventArgs e)
         {
-            Home frmHome = (Home)this.Owner;
-
-            if (frmHome.GetCurForm().GetType() == typeof(Invoices_Send))
+            if (this.Owner.GetType() == typeof(Invoices_Send))
             {
-                Invoices_Send curForm = (Invoices_Send)frmHome.GetCurForm();
+                Invoices_Send owner = (Invoices_Send)this.Owner;
 
-                dt = curForm.GetInvoices();
+                dt = owner.GetInvoices();
 
-                txt_ISED_CCode.Text = curForm.GetCCode();
-                txt_ISED_CName.Text = curForm.GetCName();
+                txt_ISED_CCode.Text = owner.GetClientCode();
+                txt_ISED_CName.Text = owner.GetClientName();
 
-                SELECTED_INVOICE = curForm.GetSelectedInvSend();
+                SELECTED_INVOICE = owner.GetSelectedInvSend();
             }
             else
             {
                 isInter = true;
-                Int_Invoices_Send curForm = (Int_Invoices_Send)frmHome.GetCurForm();
+                Int_Invoices_Send owner = (Int_Invoices_Send)this.Owner;
 
-                dt = curForm.GetInvoices();
+                dt = owner.GetInvoices();
 
-                txt_ISED_CCode.Text = curForm.GetCCode();
-                txt_ISED_CName.Text = curForm.GetCName();
+                txt_ISED_CCode.Text = owner.GetClientCode();
+                txt_ISED_CName.Text = owner.GetClientName();
 
-                SELECTED_INVOICE = curForm.GetSelectedInvSend();
+                SELECTED_INVOICE = owner.GetSelectedInvSend();
             }
 
             LoadInvSend();

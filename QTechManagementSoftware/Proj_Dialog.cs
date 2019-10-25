@@ -41,9 +41,13 @@ namespace QTechManagementSoftware
         //================================================================================================================================================//
         private void Btn_PD_AddExp_Click(object sender, EventArgs e)
         {
-            Home frmHome = (Home)this.Owner;
-            Proj_AddExp frmMP = new Proj_AddExp();
-            frmHome.SetProjExpForm(frmMP, frmHome);
+            Projects owner = (Projects)this.Owner;
+            Home frmHome = (Home)owner.Owner;
+
+            Proj_AddExp frmAE = new Proj_AddExp();
+            frmAE.Owner = owner;
+            frmAE.SetHome(frmHome);
+            frmHome.SetProjExpForm(frmAE);
             this.Close();
         }
 

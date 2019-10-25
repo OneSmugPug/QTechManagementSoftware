@@ -27,23 +27,23 @@ namespace QTechManagementSoftware
         //================================================================================================================================================//
         private void Q_Edit_Del_Load(object sender, EventArgs e)
         {
-            Home frmHome = (Home)this.Owner;
-
-            if (frmHome.GetCurForm().GetType() == typeof(Quotes))
+            if (this.Owner.GetType() == typeof(Quotes))
             {
-                Quotes curForm = (Quotes)frmHome.GetCurForm();
-                dt = curForm.GetQuotes();
-                SELECTED_QUOTE = curForm.GetSelectedQuote();
-                txt_QED_CCode.Text = curForm.GetCCode();
-                txt_QED_CName.Text = curForm.GetCName();
+                Quotes owner = (Quotes)this.Owner;
+
+                dt = owner.GetQuotes();
+                SELECTED_QUOTE = owner.GetSelectedQuote();
+                txt_QED_CCode.Text = owner.GetClientCode();
+                txt_QED_CName.Text = owner.GetClientName();
             }
             else
             {
-                Int_Quotes curForm = (Int_Quotes)frmHome.GetCurForm();
-                dt = curForm.GetQuotes();
-                SELECTED_QUOTE = curForm.GetSelectedQuote();
-                txt_QED_CCode.Text = curForm.GetCCode();
-                txt_QED_CName.Text = curForm.GetCName();
+                Int_Quotes owner = (Int_Quotes)this.Owner;
+
+                dt = owner.GetQuotes();
+                SELECTED_QUOTE = owner.GetSelectedQuote();
+                txt_QED_CCode.Text = owner.GetClientCode();
+                txt_QED_CName.Text = owner.GetClientName();
             }
             LoadQuote();
         }

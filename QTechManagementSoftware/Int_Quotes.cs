@@ -9,13 +9,10 @@ namespace QTechManagementSoftware
 {
     public partial class Int_Quotes : Form
     {
-        private int CUR_CLIENT = 0;
         private BindingSource bs = new BindingSource();
         private bool isFiltered = false;
-        private int NUM_OF_CLIENTS;
         private int SELECTED_QUOTE;
-        private string CNAME;
-        private DataTable clientsDT;
+        private string clientName, clientCode;
         private DataTable dt;
 
         public Int_Quotes()
@@ -29,46 +26,15 @@ namespace QTechManagementSoftware
         //================================================================================================================================================//
         private void Quotes_Load(object sender, EventArgs e)
         {
-            clientsDT = new DataTable();
+            dtp_IQ_From.Value = DateTime.Now;
+            dtp_IQ_To.Value = DateTime.Now;
+
             dgv_IQuotes.DataSource = bs;
 
-            LoadClients();
             LoadQuotes();
-        }
 
-
-        //================================================================================================================================================//
-        // LOAD CLIENT DETAILS                                                                                                                            //
-        //================================================================================================================================================//
-        private void LoadClients()
-        {
-            using (SqlConnection conn = DBUtils.GetDBConnection())
-            {
-                conn.Open();
-                SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM Int_Clients", conn);
-                clientsDT = new DataTable();
-                da.Fill(clientsDT);
-            }
-            if (clientsDT.Rows.Count > 0)
-            {
-                if (!dgv_IQuotes.Enabled)
-                    dgv_IQuotes.Enabled = true;
-
-                if (!btn_IQ_NewQuote.Enabled)
-                    btn_IQ_NewQuote.Enabled = true;
-
-                NUM_OF_CLIENTS = clientsDT.Rows.Count - 1;
-
-                txt_IQ_CCode.Text = clientsDT.Rows[CUR_CLIENT]["Code"].ToString().Trim();
-                CNAME = clientsDT.Rows[CUR_CLIENT]["Name"].ToString().Trim();
-
-                txt_IQ_CName.Text = CNAME;
-            }
-            else
-            {
-                dgv_IQuotes.Enabled = false;
-                btn_IQ_NewQuote.Enabled = false;
-            }
+            txt_IQ_CCode.Text = clientCode;
+            txt_IQ_CName.Text = clientName;
         }
 
 
@@ -80,7 +46,7 @@ namespace QTechManagementSoftware
             using (SqlConnection conn = DBUtils.GetDBConnection())
             {
                 conn.Open();
-                SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM Quotes_Send WHERE Client = '" + CNAME + "'", conn);
+                SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM Quotes_Send WHERE Client = '" + clientName + "'", conn);
                 dt = new DataTable();
                 da.Fill(dt);
             }
@@ -88,12 +54,10 @@ namespace QTechManagementSoftware
             bs.DataSource = dt;
         }
 
-        public void SetNewClient(int rowIdx)
+        public void SetClient(string selectedClientCode, string selectedClientName)
         {
-            CUR_CLIENT = rowIdx;
-
-            LoadClients();
-            LoadQuotes();
+            clientCode = selectedClientCode;
+            clientName = selectedClientName;
         }
 
 
@@ -106,7 +70,10 @@ namespace QTechManagementSoftware
                 RemoveFilter();
 
             using (Q_Add frmQAdd = new Q_Add())
-                frmQAdd.ShowDialog(this);
+            {
+                frmQAdd.Owner = this;
+                frmQAdd.ShowDialog();
+            }
 
             LoadQuotes();
         }
@@ -115,14 +82,14 @@ namespace QTechManagementSoftware
         //================================================================================================================================================//
         // GETTERS                                                                                                                                        //
         //================================================================================================================================================//
-        public string GetCCode()
+        public string GetClientCode()
         {
-            return txt_IQ_CCode.Text;
+            return clientCode;
         }
 
-        public string GetCName()
+        public string GetClientName()
         {
-            return CNAME;
+            return clientName;
         }
 
         public int GetSelectedQuote()
@@ -159,7 +126,7 @@ namespace QTechManagementSoftware
             using (SqlConnection conn = DBUtils.GetDBConnection())
             {
                 conn.Open();
-                SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM Quotes_Send WHERE Client = '" + CNAME + "' AND Date_Send BETWEEN '" + dtp_IQ_From.Value + "' AND '" + dtp_IQ_To.Value + "'", conn);
+                SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM Quotes_Send WHERE Client = '" + clientName + "' AND Date_Send BETWEEN '" + dtp_IQ_From.Value + "' AND '" + dtp_IQ_To.Value + "'", conn);
                 dt = new DataTable();
                 da.Fill(dt);
             }
@@ -193,7 +160,10 @@ namespace QTechManagementSoftware
             SELECTED_QUOTE = e.RowIndex;
 
             using (Q_Edit_Del frmQED = new Q_Edit_Del())
-                frmQED.ShowDialog(this);
+            {
+                frmQED.Owner = this;
+                frmQED.ShowDialog();
+            }                
 
             LoadQuotes();
         }

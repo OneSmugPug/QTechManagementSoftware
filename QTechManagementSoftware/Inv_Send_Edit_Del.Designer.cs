@@ -99,6 +99,8 @@
             this.btn_ISED_Close.TabIndex = 11;
             this.btn_ISED_Close.UseVisualStyleBackColor = true;
             this.btn_ISED_Close.Click += new System.EventHandler(this.Btn_ISED_Close_Click);
+            this.btn_ISED_Close.MouseEnter += new System.EventHandler(this.Btn_ISED_Close_MouseEnter);
+            this.btn_ISED_Close.MouseLeave += new System.EventHandler(this.Btn_ISED_Close_MouseLeave);
             // 
             // btn_ISED_Done
             // 

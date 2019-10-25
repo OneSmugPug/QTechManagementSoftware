@@ -103,6 +103,26 @@ namespace QTechManagementSoftware.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap cash_blue {
+            get {
+                object obj = ResourceManager.GetObject("cash_blue", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap cash_White {
+            get {
+                object obj = ResourceManager.GetObject("cash_White", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap client_list_white {
             get {
                 object obj = ResourceManager.GetObject("client_list_white", resourceCulture);
@@ -236,6 +256,16 @@ namespace QTechManagementSoftware.Properties {
         internal static System.Drawing.Bitmap forawrd_black {
             get {
                 object obj = ResourceManager.GetObject("forawrd_black", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap forawrd_black1 {
+            get {
+                object obj = ResourceManager.GetObject("forawrd_black1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

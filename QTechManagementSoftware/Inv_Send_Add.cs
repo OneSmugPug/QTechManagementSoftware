@@ -28,14 +28,12 @@ namespace QTechManagementSoftware
         //================================================================================================================================================//
         private void Inv_Send_Add_Load(object sender, EventArgs e)
         {
-            Home frmHome = (Home)this.Owner;
-
-            if (frmHome.GetCurForm().GetType() == typeof(Invoices_Send))
+            if (this.Owner.GetType() == typeof(Invoices_Send))
             {
-                parent = (Invoices_Send)frmHome.GetCurForm();
+                parent = (Invoices_Send)this.Owner;
 
-                txt_ISA_CCode.Text = parent.GetCCode();
-                txt_ISA_CName.Text = parent.GetCName();
+                txt_ISA_CCode.Text = parent.GetClientCode();
+                txt_ISA_CName.Text = parent.GetClientName();
 
                 txt_ISA_Amt.Text = "R0.00";
                 txt_ISA_Amt.SelectionStart = txt_ISA_Amt.Text.Length;
@@ -48,10 +46,10 @@ namespace QTechManagementSoftware
             else
             {
                 isInter = true;
-                intParent = (Int_Invoices_Send)frmHome.GetCurForm();
+                intParent = (Int_Invoices_Send)this.Owner;
 
-                txt_ISA_CCode.Text = intParent.GetCCode();
-                txt_ISA_CName.Text = intParent.GetCName();
+                txt_ISA_CCode.Text = intParent.GetClientCode();
+                txt_ISA_CName.Text = intParent.GetClientName();
 
                 txt_ISA_Amt.Text = "$0.00";
                 txt_ISA_Amt.SelectionStart = txt_ISA_Amt.Text.Length;

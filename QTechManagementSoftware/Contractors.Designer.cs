@@ -48,13 +48,10 @@
             this.btn_C_Cancel = new System.Windows.Forms.Button();
             this.btn_C_DoneAdd = new System.Windows.Forms.Button();
             this.btn_C_DoneEdit = new System.Windows.Forms.Button();
-            this.btn_C_Add = new System.Windows.Forms.Button();
             this.btn_C_Edit = new System.Windows.Forms.Button();
             this.btn_C_Prev = new System.Windows.Forms.Button();
-            this.btn_C_Next = new System.Windows.Forms.Button();
             this.btn_C_SelCon = new System.Windows.Forms.Button();
             this.btn_C_Filter = new System.Windows.Forms.Button();
-            this.btn_C_NewWW = new System.Windows.Forms.Button();
             this.txt_C_EName = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.bunifuCustomLabel5 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.txt_C_EVN = new Bunifu.Framework.UI.BunifuMaterialTextbox();
@@ -63,6 +60,9 @@
             this.txt_C_CCode = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.bunifuCustomLabel7 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.dtp_C_From = new Bunifu.Framework.UI.BunifuDatepicker();
+            this.btn_C_Add = new System.Windows.Forms.Button();
+            this.btn_C_Next = new System.Windows.Forms.Button();
+            this.btn_C_NewWW = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Contractors)).BeginInit();
             this.SuspendLayout();
             // 
@@ -302,27 +302,6 @@
             this.btn_C_DoneEdit.MouseEnter += new System.EventHandler(this.Btn_C_DoneEdit_MouseEnter);
             this.btn_C_DoneEdit.MouseLeave += new System.EventHandler(this.Btn_C_DoneEdit_MouseLeave);
             // 
-            // btn_C_Add
-            // 
-            this.btn_C_Add.FlatAppearance.BorderSize = 0;
-            this.btn_C_Add.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.btn_C_Add.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
-            this.btn_C_Add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_C_Add.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_C_Add.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btn_C_Add.Image = global::QTechManagementSoftware.Properties.Resources.add_grey;
-            this.btn_C_Add.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_C_Add.Location = new System.Drawing.Point(94, 161);
-            this.btn_C_Add.Name = "btn_C_Add";
-            this.btn_C_Add.Size = new System.Drawing.Size(161, 40);
-            this.btn_C_Add.TabIndex = 87;
-            this.btn_C_Add.Text = "Add Contractor";
-            this.btn_C_Add.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btn_C_Add.UseVisualStyleBackColor = true;
-            this.btn_C_Add.Click += new System.EventHandler(this.Btn_C_Add_Click);
-            this.btn_C_Add.MouseEnter += new System.EventHandler(this.Btn_C_Add_MouseEnter);
-            this.btn_C_Add.MouseLeave += new System.EventHandler(this.Btn_C_Add_MouseLeave);
-            // 
             // btn_C_Edit
             // 
             this.btn_C_Edit.FlatAppearance.BorderSize = 0;
@@ -352,6 +331,7 @@
             this.btn_C_Prev.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_C_Prev.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_C_Prev.ForeColor = System.Drawing.Color.White;
+            this.btn_C_Prev.Image = global::QTechManagementSoftware.Properties.Resources.back_black;
             this.btn_C_Prev.Location = new System.Drawing.Point(18, 21);
             this.btn_C_Prev.Name = "btn_C_Prev";
             this.btn_C_Prev.Size = new System.Drawing.Size(49, 149);
@@ -360,24 +340,6 @@
             this.btn_C_Prev.Click += new System.EventHandler(this.Btn_C_Prev_Click);
             this.btn_C_Prev.MouseEnter += new System.EventHandler(this.Btn_C_Prev_MouseEnter);
             this.btn_C_Prev.MouseLeave += new System.EventHandler(this.Btn_C_Prev_MouseLeave);
-            // 
-            // btn_C_Next
-            // 
-            this.btn_C_Next.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_C_Next.FlatAppearance.BorderSize = 0;
-            this.btn_C_Next.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.btn_C_Next.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
-            this.btn_C_Next.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_C_Next.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_C_Next.ForeColor = System.Drawing.Color.White;
-            this.btn_C_Next.Location = new System.Drawing.Point(898, 21);
-            this.btn_C_Next.Name = "btn_C_Next";
-            this.btn_C_Next.Size = new System.Drawing.Size(49, 149);
-            this.btn_C_Next.TabIndex = 75;
-            this.btn_C_Next.UseVisualStyleBackColor = true;
-            this.btn_C_Next.Click += new System.EventHandler(this.Btn_C_Next_Click);
-            this.btn_C_Next.MouseEnter += new System.EventHandler(this.Btn_C_Next_MouseEnter);
-            this.btn_C_Next.MouseLeave += new System.EventHandler(this.Btn_C_Next_MouseLeave);
             // 
             // btn_C_SelCon
             // 
@@ -418,28 +380,6 @@
             this.btn_C_Filter.Click += new System.EventHandler(this.Btn_C_Filter_Click);
             this.btn_C_Filter.MouseEnter += new System.EventHandler(this.Btn_C_Filter_MouseEnter);
             this.btn_C_Filter.MouseLeave += new System.EventHandler(this.Btn_C_Filter_MouseLeave);
-            // 
-            // btn_C_NewWW
-            // 
-            this.btn_C_NewWW.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_C_NewWW.FlatAppearance.BorderSize = 0;
-            this.btn_C_NewWW.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.btn_C_NewWW.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
-            this.btn_C_NewWW.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_C_NewWW.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_C_NewWW.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btn_C_NewWW.Image = global::QTechManagementSoftware.Properties.Resources.add_grey;
-            this.btn_C_NewWW.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_C_NewWW.Location = new System.Drawing.Point(790, 232);
-            this.btn_C_NewWW.Name = "btn_C_NewWW";
-            this.btn_C_NewWW.Size = new System.Drawing.Size(159, 40);
-            this.btn_C_NewWW.TabIndex = 84;
-            this.btn_C_NewWW.Text = "New Work Week";
-            this.btn_C_NewWW.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btn_C_NewWW.UseVisualStyleBackColor = true;
-            this.btn_C_NewWW.Click += new System.EventHandler(this.Btn_C_NewWW_Click);
-            this.btn_C_NewWW.MouseEnter += new System.EventHandler(this.Btn_C_NewWW_MouseEnter);
-            this.btn_C_NewWW.MouseLeave += new System.EventHandler(this.Btn_C_NewWW_MouseLeave);
             // 
             // txt_C_EName
             // 
@@ -524,7 +464,7 @@
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(77)))), ((int)(((byte)(119)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgv_Contractors.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
@@ -591,6 +531,68 @@
             this.dtp_C_From.Size = new System.Drawing.Size(208, 36);
             this.dtp_C_From.TabIndex = 100;
             this.dtp_C_From.Value = new System.DateTime(2019, 9, 11, 15, 4, 3, 235);
+            // 
+            // btn_C_Add
+            // 
+            this.btn_C_Add.FlatAppearance.BorderSize = 0;
+            this.btn_C_Add.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
+            this.btn_C_Add.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
+            this.btn_C_Add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_C_Add.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_C_Add.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btn_C_Add.Image = global::QTechManagementSoftware.Properties.Resources.add_grey;
+            this.btn_C_Add.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_C_Add.Location = new System.Drawing.Point(94, 161);
+            this.btn_C_Add.Name = "btn_C_Add";
+            this.btn_C_Add.Size = new System.Drawing.Size(161, 40);
+            this.btn_C_Add.TabIndex = 87;
+            this.btn_C_Add.Text = "Add Contractor";
+            this.btn_C_Add.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_C_Add.UseVisualStyleBackColor = true;
+            this.btn_C_Add.Click += new System.EventHandler(this.Btn_C_Add_Click);
+            this.btn_C_Add.MouseEnter += new System.EventHandler(this.Btn_C_Add_MouseEnter);
+            this.btn_C_Add.MouseLeave += new System.EventHandler(this.Btn_C_Add_MouseLeave);
+            // 
+            // btn_C_Next
+            // 
+            this.btn_C_Next.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_C_Next.FlatAppearance.BorderSize = 0;
+            this.btn_C_Next.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
+            this.btn_C_Next.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
+            this.btn_C_Next.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_C_Next.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_C_Next.ForeColor = System.Drawing.Color.White;
+            this.btn_C_Next.Image = global::QTechManagementSoftware.Properties.Resources.forawrd_black;
+            this.btn_C_Next.Location = new System.Drawing.Point(898, 21);
+            this.btn_C_Next.Name = "btn_C_Next";
+            this.btn_C_Next.Size = new System.Drawing.Size(49, 149);
+            this.btn_C_Next.TabIndex = 75;
+            this.btn_C_Next.UseVisualStyleBackColor = true;
+            this.btn_C_Next.Click += new System.EventHandler(this.Btn_C_Next_Click);
+            this.btn_C_Next.MouseEnter += new System.EventHandler(this.Btn_C_Next_MouseEnter);
+            this.btn_C_Next.MouseLeave += new System.EventHandler(this.Btn_C_Next_MouseLeave);
+            // 
+            // btn_C_NewWW
+            // 
+            this.btn_C_NewWW.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_C_NewWW.FlatAppearance.BorderSize = 0;
+            this.btn_C_NewWW.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
+            this.btn_C_NewWW.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
+            this.btn_C_NewWW.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_C_NewWW.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_C_NewWW.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btn_C_NewWW.Image = global::QTechManagementSoftware.Properties.Resources.add_grey;
+            this.btn_C_NewWW.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_C_NewWW.Location = new System.Drawing.Point(790, 232);
+            this.btn_C_NewWW.Name = "btn_C_NewWW";
+            this.btn_C_NewWW.Size = new System.Drawing.Size(159, 40);
+            this.btn_C_NewWW.TabIndex = 84;
+            this.btn_C_NewWW.Text = "New Work Week";
+            this.btn_C_NewWW.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_C_NewWW.UseVisualStyleBackColor = true;
+            this.btn_C_NewWW.Click += new System.EventHandler(this.Btn_C_NewWW_Click);
+            this.btn_C_NewWW.MouseEnter += new System.EventHandler(this.Btn_C_NewWW_MouseEnter);
+            this.btn_C_NewWW.MouseLeave += new System.EventHandler(this.Btn_C_NewWW_MouseLeave);
             // 
             // Contractors
             // 

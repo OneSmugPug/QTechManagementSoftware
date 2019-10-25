@@ -52,7 +52,10 @@ namespace QTechManagementSoftware
                 RemoveFilter();
 
             using (Proj_Add frmPAdd = new Proj_Add())
-                frmPAdd.ShowDialog(this);
+            {
+                frmPAdd.Owner = this;
+                frmPAdd.ShowDialog();
+            }
 
             LoadProjects();
         }
@@ -88,7 +91,10 @@ namespace QTechManagementSoftware
             SELECTED_PROJECT = e.RowIndex;
 
             using (Proj_Dialog frmPD = new Proj_Dialog())
-                frmPD.ShowDialog(this);
+            {
+                frmPD.Owner = this;
+                frmPD.ShowDialog();
+            }                
 
             LoadProjects();
         }

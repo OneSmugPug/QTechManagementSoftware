@@ -16,7 +16,7 @@ namespace QTechManagementSoftware
         private object send = null;
         private int NUM_OF_CLIENTS;
         private int SELECTED_INVSEND;
-        private string CNAME;
+        private string clientName, clientCode;
         private string NEW_INVOICE;
         private DataTable clientsDT;
         private DataTable dt;
@@ -32,9 +32,11 @@ namespace QTechManagementSoftware
         //================================================================================================================================================//
         private void Invoices_Send_Load(object sender, EventArgs e)
         {
+            dtp_IIS_From.Value = DateTime.Now;
+            dtp_IIS_To.Value = DateTime.Now;
+
             dgv_IInvSent.DataSource = bs;
 
-            LoadClients();
             LoadInvSend();
 
             dgv_IInvSent.Columns[4].DefaultCellStyle.Format = "c";
@@ -44,40 +46,9 @@ namespace QTechManagementSoftware
             dgv_IInvSent.Columns[5].DefaultCellStyle.Format = "c";
             dgv_IInvSent.Columns[5].DefaultCellStyle.FormatProvider = CultureInfo.GetCultureInfo("en-US");
             dgv_IInvSent.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-        }
 
-
-        //================================================================================================================================================//
-        // LOAD CLIENT DETAILS                                                                                                                            //
-        //================================================================================================================================================//
-        private void LoadClients()
-        {
-            using (SqlConnection conn = DBUtils.GetDBConnection())
-            {
-                conn.Open();
-                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("SELECT * FROM Int_Clients", conn);
-                clientsDT = new DataTable();
-                sqlDataAdapter.Fill(clientsDT);
-            }
-
-            if (clientsDT.Rows.Count > 0)
-            {
-                if (!dgv_IInvSent.Enabled)
-                    dgv_IInvSent.Enabled = true;
-
-                if (!btn_IIS_NewIS.Enabled)
-                    btn_IIS_NewIS.Enabled = true;
-
-                NUM_OF_CLIENTS = clientsDT.Rows.Count - 1;
-                txt_IIS_CCode.Text = clientsDT.Rows[CUR_CLIENT]["Code"].ToString().Trim();
-                CNAME = clientsDT.Rows[CUR_CLIENT]["Name"].ToString().Trim();
-                txt_IIS_CName.Text = CNAME;
-            }
-            else
-            {
-                dgv_IInvSent.Enabled = false;
-                btn_IIS_NewIS.Enabled = false;
-            }
+            txt_IIS_CCode.Text = clientCode;
+            txt_IIS_CName.Text = clientName;
         }
 
 
@@ -89,7 +60,7 @@ namespace QTechManagementSoftware
             using (SqlConnection conn = DBUtils.GetDBConnection())
             {
                 conn.Open();
-                SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM Invoices_Send WHERE Client LIKE '" + CNAME + "%'", conn);
+                SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM Invoices_Send WHERE Client LIKE '" + clientName + "%'", conn);
                 dt = new DataTable();
                 da.Fill(dt);
             }
@@ -101,11 +72,10 @@ namespace QTechManagementSoftware
         //================================================================================================================================================//
         // SET NEW CLIENT                                                                                                                                 //
         //================================================================================================================================================//
-        public void SetNewClient(int rowIdx)
+        public void SetClient(string selectedClientCode, string selectedClientName)
         {
-            CUR_CLIENT = rowIdx;
-            LoadClients();
-            LoadInvSend();
+            clientCode = selectedClientCode;
+            clientName = selectedClientName;
         }
 
 
@@ -118,41 +88,46 @@ namespace QTechManagementSoftware
                 RemoveFilter();
 
             using (Inv_Send_Add frmISA = new Inv_Send_Add())
-                frmISA.ShowDialog(this);
+            {
+                frmISA.Owner = this;
+                frmISA.ShowDialog();
+            }
+                
 
             LoadInvSend();
 
-            if (send == null)
-            {
-                foreach (DataGridViewRow row in dgv_IInvSent.Rows)
-                {
-                    if (row.Cells[1].Value.ToString().Equals(NEW_INVOICE))
-                    {
-                        SELECTED_INVSEND = row.Index;
-                        break;
-                    }
-                }
-                using (Inv_Send_Edit_Del frmISED = new Inv_Send_Edit_Del())
-                {
-                    frmISED.ShowDialog(this);
-                }
-                LoadInvSend();
-            }
-            else send = null;
+            //if (send == null)
+            //{
+            //    foreach (DataGridViewRow row in dgv_IInvSent.Rows)
+            //    {
+            //        if (row.Cells[1].Value.ToString().Equals(NEW_INVOICE))
+            //        {
+            //            SELECTED_INVSEND = row.Index;
+            //            break;
+            //        }
+            //    }
+            //    using (Inv_Send_Edit_Del frmISED = new Inv_Send_Edit_Del())
+            //    {
+
+            //        frmISED.ShowDialog(this);
+            //    }
+            //    LoadInvSend();
+            //}
+            //else send = null;
         }
 
 
         //================================================================================================================================================//
         // GETTERS                                                                                                                                        //
         //================================================================================================================================================//
-        public string GetCCode()
+        public string GetClientCode()
         {
-            return txt_IIS_CCode.Text;
+            return clientCode;
         }
 
-        public string GetCName()
+        public string GetClientName()
         {
-            return CNAME;
+            return clientName;
         }
 
         public int GetSelectedInvSend()
@@ -191,7 +166,11 @@ namespace QTechManagementSoftware
             SELECTED_INVSEND = e.RowIndex;
 
             using (Inv_Send_Edit_Del frmISED = new Inv_Send_Edit_Del())
-                frmISED.ShowDialog(this);
+            {
+                frmISED.Owner = this;
+                frmISED.ShowDialog();
+            }
+                
 
             LoadInvSend();
         }
@@ -219,7 +198,7 @@ namespace QTechManagementSoftware
             using (SqlConnection conn = DBUtils.GetDBConnection())
             {
                 conn.Open();
-                SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM Invoices_Send WHERE Client LIKE '" + CNAME + "%' AND Date BETWEEN '" + dtp_IIS_From.Value + "' AND '" + dtp_IIS_To.Value + "'", conn);
+                SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM Invoices_Send WHERE Client LIKE '" + clientName + "%' AND Date BETWEEN '" + dtp_IIS_From.Value + "' AND '" + dtp_IIS_To.Value + "'", conn);
                 dt = new DataTable();
                 da.Fill(dt);
             }

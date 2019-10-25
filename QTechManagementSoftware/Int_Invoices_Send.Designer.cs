@@ -56,7 +56,7 @@
             this.btn_IIS_ClearFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_IIS_ClearFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_IIS_ClearFilter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btn_IIS_ClearFilter.Location = new System.Drawing.Point(553, 232);
+            this.btn_IIS_ClearFilter.Location = new System.Drawing.Point(553, 84);
             this.btn_IIS_ClearFilter.Name = "btn_IIS_ClearFilter";
             this.btn_IIS_ClearFilter.Size = new System.Drawing.Size(114, 40);
             this.btn_IIS_ClearFilter.TabIndex = 0;
@@ -77,7 +77,7 @@
             this.btn_IIS_Filter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btn_IIS_Filter.Image = global::QTechManagementSoftware.Properties.Resources.filter_grey;
             this.btn_IIS_Filter.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_IIS_Filter.Location = new System.Drawing.Point(556, 232);
+            this.btn_IIS_Filter.Location = new System.Drawing.Point(553, 84);
             this.btn_IIS_Filter.Name = "btn_IIS_Filter";
             this.btn_IIS_Filter.Size = new System.Drawing.Size(114, 40);
             this.btn_IIS_Filter.TabIndex = 2;
@@ -99,7 +99,7 @@
             this.btn_IIS_NewIS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btn_IIS_NewIS.Image = global::QTechManagementSoftware.Properties.Resources.add_grey;
             this.btn_IIS_NewIS.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_IIS_NewIS.Location = new System.Drawing.Point(832, 232);
+            this.btn_IIS_NewIS.Location = new System.Drawing.Point(829, 84);
             this.btn_IIS_NewIS.Name = "btn_IIS_NewIS";
             this.btn_IIS_NewIS.Size = new System.Drawing.Size(122, 40);
             this.btn_IIS_NewIS.TabIndex = 1;
@@ -129,7 +129,7 @@
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(77)))), ((int)(((byte)(119)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgv_IInvSent.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
@@ -137,7 +137,7 @@
             this.dgv_IInvSent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgv_IInvSent.DateWithTime = false;
             this.dgv_IInvSent.EnableHeadersVisualStyles = false;
-            this.dgv_IInvSent.Location = new System.Drawing.Point(1, 278);
+            this.dgv_IInvSent.Location = new System.Drawing.Point(1, 130);
             this.dgv_IInvSent.Name = "dgv_IInvSent";
             this.dgv_IInvSent.ReadOnly = true;
             this.dgv_IInvSent.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -145,7 +145,7 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
             this.dgv_IInvSent.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgv_IInvSent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_IInvSent.Size = new System.Drawing.Size(963, 341);
+            this.dgv_IInvSent.Size = new System.Drawing.Size(963, 489);
             this.dgv_IInvSent.TabIndex = 6;
             this.dgv_IInvSent.TimeFilter = false;
             this.dgv_IInvSent.SortStringChanged += new System.EventHandler(this.Dgv_IInvSent_SortStringChanged);
@@ -159,7 +159,7 @@
             this.dtp_IIS_From.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
             this.dtp_IIS_From.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtp_IIS_From.FormatCustom = null;
-            this.dtp_IIS_From.Location = new System.Drawing.Point(70, 235);
+            this.dtp_IIS_From.Location = new System.Drawing.Point(68, 84);
             this.dtp_IIS_From.Name = "dtp_IIS_From";
             this.dtp_IIS_From.Size = new System.Drawing.Size(208, 36);
             this.dtp_IIS_From.TabIndex = 7;
@@ -172,7 +172,7 @@
             this.dtp_IIS_To.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
             this.dtp_IIS_To.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtp_IIS_To.FormatCustom = null;
-            this.dtp_IIS_To.Location = new System.Drawing.Point(324, 235);
+            this.dtp_IIS_To.Location = new System.Drawing.Point(319, 84);
             this.dtp_IIS_To.Name = "dtp_IIS_To";
             this.dtp_IIS_To.Size = new System.Drawing.Size(208, 36);
             this.dtp_IIS_To.TabIndex = 8;
@@ -183,7 +183,7 @@
             this.bunifuCustomLabel1.AutoSize = true;
             this.bunifuCustomLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuCustomLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bunifuCustomLabel1.Location = new System.Drawing.Point(284, 242);
+            this.bunifuCustomLabel1.Location = new System.Drawing.Point(282, 94);
             this.bunifuCustomLabel1.Name = "bunifuCustomLabel1";
             this.bunifuCustomLabel1.Size = new System.Drawing.Size(31, 20);
             this.bunifuCustomLabel1.TabIndex = 9;
@@ -194,7 +194,7 @@
             this.bunifuCustomLabel2.AutoSize = true;
             this.bunifuCustomLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuCustomLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bunifuCustomLabel2.Location = new System.Drawing.Point(12, 242);
+            this.bunifuCustomLabel2.Location = new System.Drawing.Point(12, 94);
             this.bunifuCustomLabel2.Name = "bunifuCustomLabel2";
             this.bunifuCustomLabel2.Size = new System.Drawing.Size(50, 20);
             this.bunifuCustomLabel2.TabIndex = 10;
@@ -205,7 +205,7 @@
             this.bunifuCustomLabel3.AutoSize = true;
             this.bunifuCustomLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuCustomLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bunifuCustomLabel3.Location = new System.Drawing.Point(127, 117);
+            this.bunifuCustomLabel3.Location = new System.Drawing.Point(446, 18);
             this.bunifuCustomLabel3.Name = "bunifuCustomLabel3";
             this.bunifuCustomLabel3.Size = new System.Drawing.Size(118, 24);
             this.bunifuCustomLabel3.TabIndex = 11;
@@ -216,7 +216,7 @@
             this.bunifuCustomLabel4.AutoSize = true;
             this.bunifuCustomLabel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuCustomLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bunifuCustomLabel4.Location = new System.Drawing.Point(132, 56);
+            this.bunifuCustomLabel4.Location = new System.Drawing.Point(57, 18);
             this.bunifuCustomLabel4.Name = "bunifuCustomLabel4";
             this.bunifuCustomLabel4.Size = new System.Drawing.Size(113, 24);
             this.bunifuCustomLabel4.TabIndex = 12;
@@ -229,9 +229,9 @@
             this.bunifuSeparator1.BackColor = System.Drawing.Color.Transparent;
             this.bunifuSeparator1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
             this.bunifuSeparator1.LineThickness = 1;
-            this.bunifuSeparator1.Location = new System.Drawing.Point(17, 207);
+            this.bunifuSeparator1.Location = new System.Drawing.Point(12, 53);
             this.bunifuSeparator1.Name = "bunifuSeparator1";
-            this.bunifuSeparator1.Size = new System.Drawing.Size(929, 25);
+            this.bunifuSeparator1.Size = new System.Drawing.Size(939, 25);
             this.bunifuSeparator1.TabIndex = 13;
             this.bunifuSeparator1.Transparency = 255;
             this.bunifuSeparator1.Vertical = false;
@@ -248,10 +248,10 @@
             this.txt_IIS_CName.LineIdleColor = System.Drawing.Color.Gray;
             this.txt_IIS_CName.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
             this.txt_IIS_CName.LineThickness = 1;
-            this.txt_IIS_CName.Location = new System.Drawing.Point(254, 115);
+            this.txt_IIS_CName.Location = new System.Drawing.Point(571, 13);
             this.txt_IIS_CName.Margin = new System.Windows.Forms.Padding(4);
             this.txt_IIS_CName.Name = "txt_IIS_CName";
-            this.txt_IIS_CName.Size = new System.Drawing.Size(379, 33);
+            this.txt_IIS_CName.Size = new System.Drawing.Size(313, 33);
             this.txt_IIS_CName.TabIndex = 14;
             this.txt_IIS_CName.Text = "bunifuMaterialTextbox1";
             this.txt_IIS_CName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -269,10 +269,10 @@
             this.txt_IIS_CCode.LineIdleColor = System.Drawing.Color.Gray;
             this.txt_IIS_CCode.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
             this.txt_IIS_CCode.LineThickness = 1;
-            this.txt_IIS_CCode.Location = new System.Drawing.Point(253, 53);
+            this.txt_IIS_CCode.Location = new System.Drawing.Point(177, 13);
             this.txt_IIS_CCode.Margin = new System.Windows.Forms.Padding(4);
             this.txt_IIS_CCode.Name = "txt_IIS_CCode";
-            this.txt_IIS_CCode.Size = new System.Drawing.Size(379, 33);
+            this.txt_IIS_CCode.Size = new System.Drawing.Size(176, 33);
             this.txt_IIS_CCode.TabIndex = 15;
             this.txt_IIS_CCode.Text = "bunifuMaterialTextbox1";
             this.txt_IIS_CCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;

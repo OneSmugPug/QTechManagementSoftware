@@ -70,7 +70,8 @@ namespace QTechManagementSoftware
             }
 
             // Obtains project IDs to obtain the last known entry for Projects
-            projDT = ((Projects)((Home)this.Owner).GetCurForm()).GetProjects();
+            Projects owner = (Projects)this.Owner;
+            projDT = owner.GetProjects();
 
             int CCode = 0;
             foreach (DataRow row in projDT.Rows)
@@ -374,12 +375,12 @@ namespace QTechManagementSoftware
         }
         private void Btn_PA_CreateProjFolder_MouseEnter(object sender, EventArgs e)
         {
-            btn_PA_Done.ForeColor = Color.White;
+            btn_PA_CreateProjFolder.ForeColor = Color.White;
         }
 
         private void Btn_PA_CreateProjFolder_MouseLeave(object sender, EventArgs e)
         {
-            btn_PA_Done.ForeColor = Color.FromArgb(64, 64, 64);
+            btn_PA_CreateProjFolder.ForeColor = Color.FromArgb(64, 64, 64);
         }
     }
 }

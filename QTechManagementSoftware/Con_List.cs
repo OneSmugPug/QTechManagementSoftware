@@ -43,8 +43,8 @@ namespace QTechManagementSoftware
 
         private void Dgv_SelCon_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            ((Contractors)((Home)this.Owner).GetCurForm()).SetNewCon(e.RowIndex);
-            this.Close();
+            //((Contractors)((Home)this.Owner).GetCurForm()).SetNewCon(e.RowIndex);
+            //this.Close();
         }
 
         private void Btn_SelCon_Close_Click(object sender, EventArgs e)

@@ -27,21 +27,19 @@ namespace QTechManagementSoftware
         //================================================================================================================================================//
         private void Q_Add_Load(object sender, EventArgs e)
         {
-            Home frmHome = (Home)this.Owner;
-
-            if (frmHome.GetCurForm().GetType() == typeof(Quotes))
+            if (this.Owner.GetType() == typeof(Quotes))
             {
-                Quotes curForm = (Quotes)frmHome.GetCurForm();
-                txt_QA_CCode.Text = curForm.GetCCode();
-                txt_QA_CName.Text = curForm.GetCName();
-                dt = curForm.GetQuotes();
+                Quotes owner = (Quotes)this.Owner;
+                txt_QA_CCode.Text = owner.GetClientCode();
+                txt_QA_CName.Text = owner.GetClientName();
+                dt = owner.GetQuotes();
             }
             else
             {
-                Int_Quotes curForm = (Int_Quotes)frmHome.GetCurForm();
-                txt_QA_CCode.Text = curForm.GetCCode();
-                txt_QA_CName.Text = curForm.GetCName();
-                dt = curForm.GetQuotes();
+                Int_Quotes owner = (Int_Quotes)this.Owner;
+                txt_QA_CCode.Text = owner.GetClientCode();
+                txt_QA_CName.Text = owner.GetClientName();
+                dt = owner.GetQuotes();
             }
 
             int qNum = 0;
@@ -332,8 +330,6 @@ namespace QTechManagementSoftware
                     }
                 }
             }
-
-
         }
     }
 }
