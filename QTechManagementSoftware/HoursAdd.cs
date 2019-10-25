@@ -38,7 +38,7 @@ namespace QTechManagementSoftware
         //================================================================================================================================================//
         private void HoursAdd_Load(object sender, EventArgs e)
         {
-            Contractors curForm = (Contractors)((Home)this.Owner).GetCurForm();
+            Contractors curForm = (Contractors)this.Owner;
             txt_HA_CCode.Text = curForm.GetCCode();
             txt_HA_Name.Text = curForm.GetCName();
             txt_HA_Surname.Text = curForm.GetCSurname();

@@ -30,29 +30,27 @@ namespace QTechManagementSoftware
         //================================================================================================================================================//
         private void O_Edit_Del_Load(object sender, EventArgs e)
         {
-            Home frmHome = (Home)this.Owner;
-
-            if (frmHome.GetCurForm().GetType() == typeof(Orders))
+            if (this.Owner.GetType() == typeof(Orders))
             {
-                Orders parent = (Orders)frmHome.GetCurForm();
+                Orders owner = (Orders)this.Owner;
 
-                dt = parent.GetOrders();
-                SELECTED_ORDER = parent.GetSelectedOrder();
+                dt = owner.GetOrders();
+                SELECTED_ORDER = owner.GetSelectedOrder();
 
-                txt_OED_CCode.Text = parent.GetCCode();
-                txt_OED_CName.Text = parent.GetCName();
+                txt_OED_CCode.Text = owner.GetClientCode();
+                txt_OED_CName.Text = owner.GetClientName();
             }
             else
             {
                 isInter = true;
 
-                Int_Orders parent = (Int_Orders)frmHome.GetCurForm();
+                Int_Orders parent = (Int_Orders)this.Owner;
 
-                dt = parent.GetOrders();
-                SELECTED_ORDER = parent.GetSelectedOrder();
+                //dt = parent.GetOrders();
+                //SELECTED_ORDER = parent.GetSelectedOrder();
 
-                txt_OED_CCode.Text = parent.GetCCode();
-                txt_OED_CName.Text = parent.GetCName();
+                //txt_OED_CCode.Text = parent.GetCCode();
+                //txt_OED_CName.Text = parent.GetCName();
             }
 
             LoadOrder();

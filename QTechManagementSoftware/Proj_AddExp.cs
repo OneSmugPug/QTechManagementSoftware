@@ -32,7 +32,7 @@ namespace QTechManagementSoftware
             dtp_PAE_To.Value = DateTime.Now;
 
             dgv_ProjAddExp.DataSource = bs;
-            Proj_ID = ((Projects)frmHome.GetCurForm()).GetProjID();
+            Proj_ID = ((Projects)this.Owner).GetProjID();
             LoadExpenses();
         }
 
@@ -154,6 +154,7 @@ namespace QTechManagementSoftware
         //================================================================================================================================================//
         private void Btn_PAE_Close_Click(object sender, EventArgs e)
         {
+            frmHome.AddExpFormClose();
             this.Close();
         }
 

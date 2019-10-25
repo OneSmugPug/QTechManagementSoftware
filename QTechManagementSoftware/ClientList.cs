@@ -17,7 +17,7 @@ namespace QTechManagementSoftware
         private SqlDataAdapter da;
         private DataTable dt;
         private Point lastLocation;
-        private string curVisible;
+        private string selectedButton;
         private Home frmHome;
 
         public ClientList()
@@ -28,9 +28,9 @@ namespace QTechManagementSoftware
         private void ClientList_Load(object sender, EventArgs e)
         {
             frmHome = (Home)this.Owner;
-            curVisible = frmHome.GetCurPanel();
+            selectedButton = frmHome.GetSelectedButton();
 
-            if (curVisible == "pnl_I_Orders" || curVisible == "pnl_I_Quotes" || curVisible == "pnl_I_InvSent")
+            if (selectedButton == "Int")
                 isInter = true;
 
             dgv_CL.DataSource = bs;
@@ -52,25 +52,25 @@ namespace QTechManagementSoftware
 
         private void DGV_CL_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (curVisible == "pnl_L_Orders")
-                ((Orders)frmHome.GetCurForm()).SetNewClient(e.RowIndex);
+            //if (curVisible == "pnl_L_Orders")
+            //    ((Orders)frmHome.GetCurForm()).SetNewClient(e.RowIndex);
 
-            if (curVisible == "pnl_L_Quotes")
-                ((Quotes)frmHome.GetCurForm()).SetNewClient(e.RowIndex);
+            //if (curVisible == "pnl_L_Quotes")
+            //    ((Quotes)frmHome.GetCurForm()).SetNewClient(e.RowIndex);
 
-            if (curVisible == "pnl_L_InvSent")
-                ((Invoices_Send)frmHome.GetCurForm()).SetNewClient(e.RowIndex);
+            //if (curVisible == "pnl_L_InvSent")
+            //    ((Invoices_Send)frmHome.GetCurForm()).SetNewClient(e.RowIndex);
 
-            if (curVisible == "pnl_I_InvSent")
-                ((Int_Invoices_Send)frmHome.GetCurForm()).SetNewClient(e.RowIndex);
+            //if (curVisible == "pnl_I_InvSent")
+            //    ((Int_Invoices_Send)frmHome.GetCurForm()).SetNewClient(e.RowIndex);
 
-            if (curVisible == "pnl_I_Orders")
-                ((Int_Orders)frmHome.GetCurForm()).SetNewClient(e.RowIndex);
+            //if (curVisible == "pnl_I_Orders")
+            //    ((Int_Orders)frmHome.GetCurForm()).SetNewClient(e.RowIndex);
 
-            if (curVisible == "pnl_I_Quotes")
-                ((Int_Quotes)frmHome.GetCurForm()).SetNewClient(e.RowIndex);
+            //if (curVisible == "pnl_I_Quotes")
+            //    ((Int_Quotes)frmHome.GetCurForm()).SetNewClient(e.RowIndex);
 
-            this.Close();
+            //this.Close();
         }
 
         private void Btn_CL_Close_Click(object sender, EventArgs e)

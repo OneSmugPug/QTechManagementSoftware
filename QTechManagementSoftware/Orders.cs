@@ -9,13 +9,10 @@ namespace QTechManagementSoftware
 {
     public partial class Orders : Form
     {
-        private int CUR_CLIENT = 0;
         private BindingSource bs = new BindingSource();
         private bool isFiltered = false;
-        private int NUM_OF_CLIENTS;
         private int SELECTED_ORDER;
-        private string CNAME;
-        private DataTable clientsDT;
+        private string clientName, clientCode;
         private DataTable dt;
 
         public Orders()
@@ -29,16 +26,11 @@ namespace QTechManagementSoftware
         //================================================================================================================================================//
         private void Orders_Load(object sender, EventArgs e)
         {
-            clientsDT = new DataTable();
-            dt = new DataTable();
-
-            dt.Columns.Add(string.Empty);
-            dt.Rows.Add();
-
-            bs.DataSource = dt;
+            dtp_LO_From.Value = DateTime.Now;
+            dtp_LO_To.Value = DateTime.Now;
+            
             dgv_LOrders.DataSource = bs;
 
-            LoadClients();
             LoadOrders();
 
             dgv_LOrders.Columns[4].DefaultCellStyle.Format = "c";
@@ -49,42 +41,9 @@ namespace QTechManagementSoftware
 
             dgv_LOrders.Columns[6].DefaultCellStyle.Format = "p0";
             dgv_LOrders.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-        }
 
-
-        //================================================================================================================================================//
-        // LOAD CLIENT DETAILS                                                                                                                            //
-        //================================================================================================================================================//
-        private void LoadClients()
-        {
-            using (SqlConnection conn = DBUtils.GetDBConnection())
-            {
-                conn.Open();
-
-                SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM Clients", conn);
-                clientsDT = new DataTable();
-                da.Fill(clientsDT);
-            }
-
-            if (clientsDT.Rows.Count > 0)
-            {
-
-                if (!dgv_LOrders.Enabled)
-                    dgv_LOrders.Enabled = true;
-
-                if (!btn_LO_NewOrder.Enabled)
-                    btn_LO_NewOrder.Enabled = true;
-
-                NUM_OF_CLIENTS = clientsDT.Rows.Count - 1;
-                txt_LO_CCode.Text = clientsDT.Rows[CUR_CLIENT]["Code"].ToString().Trim();
-                CNAME = clientsDT.Rows[CUR_CLIENT]["Name"].ToString().Trim();
-                txt_LO_CName.Text = CNAME;
-            }
-            else
-            {
-                dgv_LOrders.Enabled = false;
-                btn_LO_NewOrder.Enabled = false;
-            }
+            txt_LO_CCode.Text = clientCode;
+            txt_LO_CName.Text = clientName;
         }
 
 
@@ -96,21 +55,21 @@ namespace QTechManagementSoftware
             using (SqlConnection conn = DBUtils.GetDBConnection())
             {
                 conn.Open();
-                SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM Orders_Received WHERE Client = '" + CNAME + "'", conn);
+                SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM Orders_Received WHERE Client = '" + clientName + "'", conn);
                 dt = new DataTable();
                 da.Fill(dt);
             }
+
             bs.DataSource = dt;
         }
 
         //================================================================================================================================================//
         // SET NEW CLIENT                                                                                                                                 //
         //================================================================================================================================================//
-        public void SetNewClient(int rowIdx)
+        public void SetClient(string selectedClientCode, string selectedClientName)
         {
-            CUR_CLIENT = rowIdx;
-            LoadClients();
-            LoadOrders();
+            clientCode = selectedClientCode;
+            clientName = selectedClientName;
         }
 
         //================================================================================================================================================//
@@ -122,7 +81,10 @@ namespace QTechManagementSoftware
                 RemoveFilter();
 
             using (O_Add frmOA = new O_Add())
-                frmOA.ShowDialog(this);
+            {
+                frmOA.Owner = this;
+                frmOA.ShowDialog();
+            }
 
             LoadOrders();
         }
@@ -131,16 +93,6 @@ namespace QTechManagementSoftware
         //================================================================================================================================================//
         // GETTERS                                                                                                                                        //
         //================================================================================================================================================//
-        public string GetCCode()
-        {
-            return txt_LO_CCode.Text;
-        }
-
-        public string GetCName()
-        {
-            return CNAME;
-        }
-
         public int GetSelectedOrder()
         {
             return SELECTED_ORDER;
@@ -150,6 +102,10 @@ namespace QTechManagementSoftware
         {
             return dt;
         }
+
+        public string GetClientCode() { return clientCode; }
+
+        public string GetClientName() { return clientName; }
 
 
         //================================================================================================================================================//
@@ -174,7 +130,8 @@ namespace QTechManagementSoftware
             using (SqlConnection conn = DBUtils.GetDBConnection())
             {
                 conn.Open();
-                SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM Orders_Received WHERE Client = '" + CNAME + "' AND Date BETWEEN '" + dtp_LO_From.Value + "' AND '" + dtp_LO_To.Value + "'", conn);
+                SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM Orders_Received WHERE Client = '" + clientName + "' AND Date BETWEEN '" 
+                    + dtp_LO_From.Value + "' AND '" + dtp_LO_To.Value + "'", conn);
                 dt = new DataTable();
                 da.Fill(dt);
             }
@@ -204,7 +161,10 @@ namespace QTechManagementSoftware
             SELECTED_ORDER = e.RowIndex;
 
             using (O_Edit_Del frmOED = new O_Edit_Del())
-                frmOED.ShowDialog(this);
+            {
+                frmOED.Owner = this;
+                frmOED.ShowDialog();
+            }
 
             LoadOrders();
         }

@@ -27,21 +27,19 @@ namespace QTechManagementSoftware
         //================================================================================================================================================//
         private void Q_Add_Load(object sender, EventArgs e)
         {
-            Home frmHome = (Home)this.Owner;
-
-            if (frmHome.GetCurForm().GetType() == typeof(Quotes))
+            if (this.Owner.GetType() == typeof(Quotes))
             {
-                Quotes curForm = (Quotes)frmHome.GetCurForm();
-                txt_QA_CCode.Text = curForm.GetCCode();
-                txt_QA_CName.Text = curForm.GetCName();
-                dt = curForm.GetQuotes();
+                Quotes owner = (Quotes)this.Owner;
+                txt_QA_CCode.Text = owner.GetClientCode();
+                txt_QA_CName.Text = owner.GetClientName();
+                dt = owner.GetQuotes();
             }
             else
             {
-                Int_Quotes curForm = (Int_Quotes)frmHome.GetCurForm();
-                txt_QA_CCode.Text = curForm.GetCCode();
-                txt_QA_CName.Text = curForm.GetCName();
-                dt = curForm.GetQuotes();
+                Int_Quotes owner = (Int_Quotes)this.Owner;
+                txt_QA_CCode.Text = owner.GetClientCode();
+                txt_QA_CName.Text = owner.GetClientName();
+                dt = owner.GetQuotes();
             }
 
             int qNum = 0;
@@ -262,22 +260,26 @@ namespace QTechManagementSoftware
                     {
                         // Generates string array with QNum values from Projects
                         SqlDataAdapter da = new SqlDataAdapter("SELECT Quote_Number FROM Projects", conn);
-                        DataSet ds = new DataSet();
-                        da.Fill(ds);
-                        List<string> keyValues = new List<string>();
-                        foreach (DataRow row in ds.Tables[0].Rows)
+                        DataTable dt = new DataTable ();
+                        da.Fill(dt);
+
+                        //List<string> keyValues = new List<string>();
+
+                        foreach (DataRow row in dt.Rows)
                         {
-                            keyValues.Add(row["Quote_Number"].ToString());
+                            //keyValues.Add(row["Quote_Number"].ToString());
+                            if (txt_QA_QNum.Text.Equals(row["Quote_Number"].ToString().Trim()))
+                                matchFound = true;
                         }
 
                         // Checks if there exists a project with the same QNum as on the Q_Add form
-                        foreach (string key in keyValues)
+                        /*foreach (string key in keyValues)
                         {
                             if (txt_QA_QNum.Text.Equals(key))
                             {
                                 matchFound = true;
                             }
-                        }
+                        }*/
 
                         // If there is no match found then create a blank project in Projects table
                         if (!matchFound)
@@ -289,7 +291,6 @@ namespace QTechManagementSoftware
 
                             int CCode = 0;
                             string projCode;
-                            string timeKeep;
                             foreach (DataRow row in projDT.Rows)
                             {
                                 string[] strArray1 = row["Project_ID"].ToString().Trim().Split('_');
@@ -306,7 +307,9 @@ namespace QTechManagementSoftware
                             }
                             string[] strArray2 = txt_QA_QNum.Text.Trim().Split('_');
                             projCode = "P" + txt_QA_CCode.Text.Remove(0,3) + "_" + strArray2[1];
-                            timeKeep = projCode + "_" + txt_QA_CName.Text.Trim() + "_" + txt_QA_Desc.Text.Trim();
+
+                            string timeKeep = projCode + "_" + txt_QA_CName.Text.Trim() + "" + txt_QA_Desc.Text.Trim();
+
                             // Inserts the new project
                             using (SqlCommand cmd = new SqlCommand("INSERT INTO Projects VALUES (@ProjID, @Date, @ClientCode, @ClientName, @Desc, @QNum, @Timekeep)", conn))
                             {
@@ -314,9 +317,9 @@ namespace QTechManagementSoftware
                                 cmd.Parameters.AddWithValue("@Date", DBNull.Value);
                                 cmd.Parameters.AddWithValue("@ClientCode", txt_QA_CCode.Text.Trim());
                                 cmd.Parameters.AddWithValue("@ClientName", txt_QA_CName.Text.Trim());
-                                cmd.Parameters.AddWithValue("@Desc", txt_QA_Desc.Text.Trim());
+                                cmd.Parameters.AddWithValue("@Desc", DBNull.Value);
                                 cmd.Parameters.AddWithValue("@QNum", txt_QA_QNum.Text.Trim());
-                                cmd.Parameters.AddWithValue("Timekeep", timeKeep.Trim());
+                                cmd.Parameters.AddWithValue("@Timekeep", timeKeep.Trim());
                                 cmd.ExecuteNonQuery();
                             }
                         }
@@ -327,8 +330,6 @@ namespace QTechManagementSoftware
                     }
                 }
             }
-
-
         }
     }
 }

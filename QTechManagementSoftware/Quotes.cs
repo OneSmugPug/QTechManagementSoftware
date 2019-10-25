@@ -14,7 +14,7 @@ namespace QTechManagementSoftware
         private bool isFiltered = false;
         private int NUM_OF_CLIENTS;
         private int SELECTED_QUOTE;
-        private string CNAME;
+        private string clientName, clientCode;
         private DataTable clientsDT;
         private DataTable dt;
 
@@ -25,50 +25,15 @@ namespace QTechManagementSoftware
 
         private void Quotes_Load(object sender, EventArgs e)
         {
-            clientsDT = new DataTable();
+            dtp_LQ_From.Value = DateTime.Now;
+            dtp_LQ_To.Value = DateTime.Now;
+
             dgv_Contractors.DataSource = bs;
-            LoadClients();
+
+            txt_LQ_CCode.Text = clientCode;
+            txt_LQ_CName.Text = clientName;
+
             LoadQuotes();
-        }
-
-
-        //================================================================================================================================================//
-        // LOAD CLIENT DETAILS                                                                                                                            //
-        //================================================================================================================================================//
-        private void LoadClients()
-        {
-            using (SqlConnection conn = DBUtils.GetDBConnection())
-            {
-                conn.Open();
-
-                SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM Clients", conn);
-                clientsDT = new DataTable();
-                da.Fill(clientsDT);
-            }
-
-            if (clientsDT.Rows.Count > 0)
-            {
-
-                if (!dgv_Contractors.Enabled)
-                    dgv_Contractors.Enabled = true;
-
-                if (!btn_C_NewWW.Enabled)
-                    btn_C_NewWW.Enabled = true;
-
-                if (!btn_LQ_Filter.Enabled)
-                    btn_LQ_Filter.Enabled = true;
-
-                NUM_OF_CLIENTS = clientsDT.Rows.Count - 1;
-                txt_LQ_CCode.Text = clientsDT.Rows[CUR_CLIENT]["Code"].ToString().Trim();
-                CNAME = clientsDT.Rows[CUR_CLIENT]["Name"].ToString().Trim();
-                txt_LQ_CName.Text = CNAME;
-            }
-            else
-            {
-                dgv_Contractors.Enabled = false;
-                btn_C_NewWW.Enabled = false;
-                btn_LQ_Filter.Enabled = false;
-            }
         }
 
 
@@ -81,7 +46,7 @@ namespace QTechManagementSoftware
             {
                 conn.Open();
 
-                SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM Quotes_Send WHERE Client = '" + CNAME + "'", conn);
+                SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM Quotes_Send WHERE Client = '" + clientName + "'", conn);
                 dt = new DataTable();
                 da.Fill(dt);
             }
@@ -91,11 +56,10 @@ namespace QTechManagementSoftware
         //================================================================================================================================================//
         // SET NEW CLIENT                                                                                                                                 //
         //================================================================================================================================================//
-        public void SetNewClient(int rowIdx)
+        public void SetClient(string selectedClientCode, string selectedClientName)
         {
-            CUR_CLIENT = rowIdx;
-            LoadClients();
-            LoadQuotes();
+            clientCode = selectedClientCode;
+            clientName = selectedClientName;
         }
 
 
@@ -108,7 +72,10 @@ namespace QTechManagementSoftware
                 RemoveFilter();
 
             using (Q_Add frmQA = new Q_Add())
-                frmQA.ShowDialog(this);
+            {
+                frmQA.Owner = this;
+                frmQA.ShowDialog();
+            }
 
             LoadQuotes();
         }
@@ -117,14 +84,14 @@ namespace QTechManagementSoftware
         //================================================================================================================================================//
         // GETTERS                                                                                                                                        //
         //================================================================================================================================================//
-        public string GetCCode()
+        public string GetClientCode()
         {
-            return txt_LQ_CCode.Text;
+            return clientCode;
         }
 
-        public string GetCName()
+        public string GetClientName()
         {
-            return CNAME;
+            return clientName;
         }
 
         public int GetSelectedQuote()
@@ -163,7 +130,7 @@ namespace QTechManagementSoftware
             {
                 conn.Open();
 
-                SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM Quotes_Send WHERE Client = '" + CNAME + "' AND Date_Send BETWEEN '" + dtp_LQ_From.Value + "' AND '" + dtp_LQ_To.Value + "'", conn);
+                SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM Quotes_Send WHERE Client = '" + clientName + "' AND Date_Send BETWEEN '" + dtp_LQ_From.Value + "' AND '" + dtp_LQ_To.Value + "'", conn);
                 dt = new DataTable();
                 da.Fill(dt);
             }
@@ -194,7 +161,10 @@ namespace QTechManagementSoftware
             SELECTED_QUOTE = e.RowIndex;
 
             using (Q_Edit_Del frmQED = new Q_Edit_Del())
-                frmQED.ShowDialog(this);
+            {
+                frmQED.Owner = this;
+                frmQED.ShowDialog();
+            }
 
             LoadQuotes();
         }

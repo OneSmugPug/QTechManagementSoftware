@@ -24,10 +24,10 @@ namespace QTechManagementSoftware
 
         private void Proj_Edit_Del_Load(object sender, EventArgs e)
         {
-            Projects curForm = (Projects)((Home)Owner).GetCurForm();
-            dt = curForm.GetProjects();
-            SELECTED_PROJECT = curForm.GetSelectedProj();
-            LoadProject();
+            //Projects curForm = (Projects)((Home)Owner).GetCurForm();
+            //dt = curForm.GetProjects();
+            //SELECTED_PROJECT = curForm.GetSelectedProj();
+            //LoadProject();
         }
 
 

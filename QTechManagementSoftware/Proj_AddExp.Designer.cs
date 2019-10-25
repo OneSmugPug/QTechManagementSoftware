@@ -60,9 +60,9 @@
             this.btn_PAE_RemoveLine.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_PAE_RemoveLine.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_PAE_RemoveLine.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btn_PAE_RemoveLine.Location = new System.Drawing.Point(12, 580);
+            this.btn_PAE_RemoveLine.Location = new System.Drawing.Point(12, 566);
             this.btn_PAE_RemoveLine.Name = "btn_PAE_RemoveLine";
-            this.btn_PAE_RemoveLine.Size = new System.Drawing.Size(114, 34);
+            this.btn_PAE_RemoveLine.Size = new System.Drawing.Size(114, 40);
             this.btn_PAE_RemoveLine.TabIndex = 0;
             this.btn_PAE_RemoveLine.Text = "Remove Line";
             this.btn_PAE_RemoveLine.UseVisualStyleBackColor = true;
@@ -76,7 +76,7 @@
             this.lblTotDol.AutoSize = true;
             this.lblTotDol.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotDol.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblTotDol.Location = new System.Drawing.Point(525, 587);
+            this.lblTotDol.Location = new System.Drawing.Point(527, 579);
             this.lblTotDol.Name = "lblTotDol";
             this.lblTotDol.Size = new System.Drawing.Size(86, 17);
             this.lblTotDol.TabIndex = 1;
@@ -85,7 +85,7 @@
             // txt_PAE_TotDol
             // 
             this.txt_PAE_TotDol.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_PAE_TotDol.Location = new System.Drawing.Point(619, 586);
+            this.txt_PAE_TotDol.Location = new System.Drawing.Point(619, 579);
             this.txt_PAE_TotDol.Name = "txt_PAE_TotDol";
             this.txt_PAE_TotDol.ReadOnly = true;
             this.txt_PAE_TotDol.Size = new System.Drawing.Size(105, 20);
@@ -131,7 +131,7 @@
             this.dgv_ProjAddExp.ColumnHeadersHeight = 25;
             this.dgv_ProjAddExp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgv_ProjAddExp.DateWithTime = false;
-            this.dgv_ProjAddExp.Location = new System.Drawing.Point(0, 56);
+            this.dgv_ProjAddExp.Location = new System.Drawing.Point(0, 58);
             this.dgv_ProjAddExp.Name = "dgv_ProjAddExp";
             this.dgv_ProjAddExp.ReadOnly = true;
             this.dgv_ProjAddExp.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -139,7 +139,7 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
             this.dgv_ProjAddExp.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgv_ProjAddExp.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_ProjAddExp.Size = new System.Drawing.Size(963, 518);
+            this.dgv_ProjAddExp.Size = new System.Drawing.Size(963, 502);
             this.dgv_ProjAddExp.TabIndex = 9;
             this.dgv_ProjAddExp.TimeFilter = false;
             this.dgv_ProjAddExp.SortStringChanged += new System.EventHandler(this.dgv_ProjAddExp_SortStringChanged);
@@ -153,7 +153,7 @@
             this.btn_PAE_Close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_PAE_Close.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_PAE_Close.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btn_PAE_Close.Location = new System.Drawing.Point(12, 9);
+            this.btn_PAE_Close.Location = new System.Drawing.Point(12, 12);
             this.btn_PAE_Close.Name = "btn_PAE_Close";
             this.btn_PAE_Close.Size = new System.Drawing.Size(122, 40);
             this.btn_PAE_Close.TabIndex = 14;
@@ -169,7 +169,7 @@
             this.lblTotHours.AutoSize = true;
             this.lblTotHours.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotHours.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblTotHours.Location = new System.Drawing.Point(299, 587);
+            this.lblTotHours.Location = new System.Drawing.Point(299, 579);
             this.lblTotHours.Name = "lblTotHours";
             this.lblTotHours.Size = new System.Drawing.Size(86, 17);
             this.lblTotHours.TabIndex = 15;
@@ -178,7 +178,7 @@
             // txt_PAE_TotHours
             // 
             this.txt_PAE_TotHours.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_PAE_TotHours.Location = new System.Drawing.Point(391, 586);
+            this.txt_PAE_TotHours.Location = new System.Drawing.Point(391, 579);
             this.txt_PAE_TotHours.Name = "txt_PAE_TotHours";
             this.txt_PAE_TotHours.ReadOnly = true;
             this.txt_PAE_TotHours.Size = new System.Drawing.Size(106, 20);
@@ -191,7 +191,7 @@
             this.lblTotRand.AutoSize = true;
             this.lblTotRand.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotRand.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblTotRand.Location = new System.Drawing.Point(752, 587);
+            this.lblTotRand.Location = new System.Drawing.Point(752, 579);
             this.lblTotRand.Name = "lblTotRand";
             this.lblTotRand.Size = new System.Drawing.Size(88, 17);
             this.lblTotRand.TabIndex = 17;
@@ -200,7 +200,7 @@
             // txt_PAE_TotRand
             // 
             this.txt_PAE_TotRand.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_PAE_TotRand.Location = new System.Drawing.Point(846, 586);
+            this.txt_PAE_TotRand.Location = new System.Drawing.Point(846, 579);
             this.txt_PAE_TotRand.Name = "txt_PAE_TotRand";
             this.txt_PAE_TotRand.ReadOnly = true;
             this.txt_PAE_TotRand.Size = new System.Drawing.Size(105, 20);
@@ -218,7 +218,7 @@
             this.btn_PAE_AddExp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btn_PAE_AddExp.Image = global::QTechManagementSoftware.Properties.Resources.add_grey;
             this.btn_PAE_AddExp.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_PAE_AddExp.Location = new System.Drawing.Point(815, 9);
+            this.btn_PAE_AddExp.Location = new System.Drawing.Point(815, 12);
             this.btn_PAE_AddExp.Name = "btn_PAE_AddExp";
             this.btn_PAE_AddExp.Size = new System.Drawing.Size(136, 40);
             this.btn_PAE_AddExp.TabIndex = 19;
@@ -238,7 +238,7 @@
             this.btn_PAE_ClearFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_PAE_ClearFilter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btn_PAE_ClearFilter.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_PAE_ClearFilter.Location = new System.Drawing.Point(663, 9);
+            this.btn_PAE_ClearFilter.Location = new System.Drawing.Point(663, 12);
             this.btn_PAE_ClearFilter.Name = "btn_PAE_ClearFilter";
             this.btn_PAE_ClearFilter.Size = new System.Drawing.Size(114, 40);
             this.btn_PAE_ClearFilter.TabIndex = 20;
@@ -259,7 +259,7 @@
             this.btn_PAE_Filter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btn_PAE_Filter.Image = global::QTechManagementSoftware.Properties.Resources.filter_grey;
             this.btn_PAE_Filter.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_PAE_Filter.Location = new System.Drawing.Point(663, 10);
+            this.btn_PAE_Filter.Location = new System.Drawing.Point(663, 12);
             this.btn_PAE_Filter.Name = "btn_PAE_Filter";
             this.btn_PAE_Filter.Size = new System.Drawing.Size(114, 40);
             this.btn_PAE_Filter.TabIndex = 21;
@@ -277,7 +277,7 @@
             this.dtp_PAE_To.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
             this.dtp_PAE_To.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtp_PAE_To.FormatCustom = null;
-            this.dtp_PAE_To.Location = new System.Drawing.Point(459, 12);
+            this.dtp_PAE_To.Location = new System.Drawing.Point(456, 12);
             this.dtp_PAE_To.Name = "dtp_PAE_To";
             this.dtp_PAE_To.Size = new System.Drawing.Size(187, 36);
             this.dtp_PAE_To.TabIndex = 22;
@@ -285,11 +285,10 @@
             // 
             // lblTo
             // 
-            this.lblTo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTo.AutoSize = true;
             this.lblTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblTo.Location = new System.Drawing.Point(419, 19);
+            this.lblTo.Location = new System.Drawing.Point(419, 22);
             this.lblTo.Name = "lblTo";
             this.lblTo.Size = new System.Drawing.Size(31, 20);
             this.lblTo.TabIndex = 23;
@@ -300,7 +299,7 @@
             this.lblFrom.AutoSize = true;
             this.lblFrom.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFrom.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblFrom.Location = new System.Drawing.Point(168, 19);
+            this.lblFrom.Location = new System.Drawing.Point(170, 22);
             this.lblFrom.Name = "lblFrom";
             this.lblFrom.Size = new System.Drawing.Size(50, 20);
             this.lblFrom.TabIndex = 24;

@@ -78,28 +78,26 @@ namespace QTechManagementSoftware
         // ORDERS ADD FORM LOAD                                                                                                                         //
         //================================================================================================================================================//
         private void O_Add_Load(object sender, EventArgs e)
-        {
-            Home frmHome = (Home)this.Owner;
-
+        { 
             txt_OA_PercInv.Text = "0%";
             txt_OA_PercRec.Text = "0%";
 
-            if (frmHome.GetCurForm().GetType() == typeof(Orders))
+            if (this.Owner.GetType() == typeof(Orders))
             {
-                Orders curForm = (Orders)frmHome.GetCurForm();
+                Orders owner = (Orders)this.Owner;
 
-                txt_OA_CCode.Text = curForm.GetCCode();
-                txt_OA_CName.Text = curForm.GetCName();
+                txt_OA_CCode.Text = owner.GetClientCode();
+                txt_OA_CName.Text = owner.GetClientName();
 
                 txt_OA_Amt.Text = "R0.00";
             }
             else
             {
                 isInter = true;
-                Int_Orders curForm = (Int_Orders)frmHome.GetCurForm();
+                Int_Orders owner = (Int_Orders)this.Owner;
 
-                txt_OA_CCode.Text = curForm.GetCCode();
-                txt_OA_CName.Text = curForm.GetCName();
+                txt_OA_CCode.Text = owner.GetClientCode();
+                txt_OA_CName.Text = owner.GetClientName();
 
                 txt_OA_Amt.Text = "$0.00";
             }
@@ -108,7 +106,7 @@ namespace QTechManagementSoftware
 
 
         //================================================================================================================================================//
-        // FORMAT PERCENTAGE INVOICED TEXTBOX                                                                                                                         //
+        // FORMAT PERCENTAGE INVOICED TEXTBOX                                                                                                             //
         //================================================================================================================================================//
         private void Txt_OA_Perc_Inv_Validating(object sender, CancelEventArgs e)
         {

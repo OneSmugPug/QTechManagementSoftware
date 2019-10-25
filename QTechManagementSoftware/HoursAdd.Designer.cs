@@ -485,6 +485,7 @@
             this.txt_HA_DolPH.BackColor = System.Drawing.Color.Silver;
             this.txt_HA_DolPH.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_HA_DolPH.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_HA_DolPH.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
             this.txt_HA_DolPH.Location = new System.Drawing.Point(2, 3);
             this.txt_HA_DolPH.Name = "txt_HA_DolPH";
             this.txt_HA_DolPH.Size = new System.Drawing.Size(140, 16);

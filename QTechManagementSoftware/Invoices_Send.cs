@@ -12,7 +12,7 @@ namespace QTechManagementSoftware
         private int CUR_CLIENT = 0, NUM_OF_CLIENTS, SELECTED_INVSEND;
         private BindingSource bs = new BindingSource();
         private bool isFiltered = false;
-        private string CNAME, NEW_INVOICE;
+        private string clientName, clientCode, NEW_INVOICE;
         private DataTable clientsDT, dt;
 
         public Invoices_Send()
@@ -29,10 +29,8 @@ namespace QTechManagementSoftware
             dtp_LIS_From.Value = DateTime.Now;
             dtp_LIS_To.Value = DateTime.Now;
 
-            clientsDT = new DataTable();
             dgv_LInvSent.DataSource = bs;
 
-            LoadClients();
             LoadInvSend();
 
             dgv_LInvSent.Columns[4].DefaultCellStyle.Format = "c";
@@ -40,45 +38,9 @@ namespace QTechManagementSoftware
 
             dgv_LInvSent.Columns[5].DefaultCellStyle.Format = "c";
             dgv_LInvSent.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-        }
 
-
-        //================================================================================================================================================//
-        // LOAD CLIENT DETAILS                                                                                                                            //
-        //================================================================================================================================================//
-        private void LoadClients()
-        {
-            using (SqlConnection conn = DBUtils.GetDBConnection())
-            {
-                conn.Open();
-                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("SELECT * FROM Clients", conn);
-                clientsDT = new DataTable();
-                sqlDataAdapter.Fill(clientsDT);
-            }
-
-            if (clientsDT.Rows.Count > 0)
-            {
-
-                if (!dgv_LInvSent.Enabled)
-                    dgv_LInvSent.Enabled = true;
-
-                if (!btn_LIS_NewIS.Enabled)
-                    btn_LIS_NewIS.Enabled = true;
-
-                if (!btn_LIS_Filter.Enabled)
-                    btn_LIS_Filter.Enabled = true;
-
-                NUM_OF_CLIENTS = clientsDT.Rows.Count - 1;
-                txt_LIS_CCode.Text = clientsDT.Rows[CUR_CLIENT]["Code"].ToString().Trim();
-                CNAME = clientsDT.Rows[CUR_CLIENT]["Name"].ToString().Trim();
-                txt_LIS_CName.Text = CNAME;
-            }
-            else
-            {
-                dgv_LInvSent.Enabled = false;
-                btn_LIS_NewIS.Enabled = false;
-                btn_LIS_Filter.Enabled = false;
-            }
+            txt_LIS_CCode.Text = clientCode;
+            txt_LIS_CName.Text = clientName;
         }
 
 
@@ -90,7 +52,7 @@ namespace QTechManagementSoftware
             using (SqlConnection conn = DBUtils.GetDBConnection())
             {
                 conn.Open();
-                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("SELECT * FROM Invoices_Send WHERE Client LIKE '" + CNAME + "%'", conn);
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("SELECT * FROM Invoices_Send WHERE Client LIKE '" + clientName + "%'", conn);
                 dt = new DataTable();
                 sqlDataAdapter.Fill(dt);
             }
@@ -101,12 +63,10 @@ namespace QTechManagementSoftware
         //================================================================================================================================================//
         // SET NEW CLIENT DETAILS                                                                                                                         //
         //================================================================================================================================================//
-        public void SetNewClient(int rowIdx)
+        public void SetClient(string selectedClientCode, string selectedClientName)
         {
-            CUR_CLIENT = rowIdx;
-
-            LoadClients();
-            LoadInvSend();
+            clientCode = selectedClientCode;
+            clientName = selectedClientName;
         }
 
 
@@ -120,7 +80,8 @@ namespace QTechManagementSoftware
 
             using (Inv_Send_Add frmISA = new Inv_Send_Add())
             {
-                frmISA.ShowDialog(this);
+                frmISA.Owner = this;
+                frmISA.ShowDialog();
             }
 
             LoadInvSend();
@@ -130,14 +91,14 @@ namespace QTechManagementSoftware
         //================================================================================================================================================//
         // GETTERS                                                                                                                                        //
         //================================================================================================================================================//
-        public string GetCCode()
+        public string GetClientCode()
         {
-            return txt_LIS_CCode.Text;
+            return clientCode;
         }
 
-        public string GetCName()
+        public string GetClientName()
         {
-            return CNAME;
+            return clientName;
         }
 
         public int GetSelectedInvSend()
@@ -171,7 +132,10 @@ namespace QTechManagementSoftware
             SELECTED_INVSEND = e.RowIndex;
 
             using (Inv_Send_Edit_Del frmISED = new Inv_Send_Edit_Del())
-                frmISED.ShowDialog(this);
+            {
+                frmISED.Owner = this;
+                frmISED.ShowDialog();
+            }
 
             LoadInvSend();
         }
@@ -199,7 +163,7 @@ namespace QTechManagementSoftware
             using (SqlConnection conn = DBUtils.GetDBConnection())
             {
                 conn.Open();
-                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("SELECT * FROM Invoices_Send WHERE Client LIKE '" + CNAME + "%' AND Date BETWEEN '" + dtp_LIS_From.Value + "' AND '" + dtp_LIS_To.Value + "' OR Client LIKE '" + CNAME + "%' AND Date_Paid BETWEEN '" + dtp_LIS_From.Value + "' AND '" + dtp_LIS_To.Value + "'", conn);
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("SELECT * FROM Invoices_Send WHERE Client LIKE '" + clientName + "%' AND Date BETWEEN '" + dtp_LIS_From.Value + "' AND '" + dtp_LIS_To.Value + "'", conn);
                 dt = new DataTable();
                 sqlDataAdapter.Fill(dt);
             }

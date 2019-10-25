@@ -220,7 +220,10 @@ namespace QTechManagementSoftware
         private void Btn_C_SelCon_Click(object sender, EventArgs e)
         {
             using (Con_List frmConList = new Con_List())
-                frmConList.ShowDialog(this);
+            {
+                frmConList.Owner = this;
+                frmConList.ShowDialog();
+            }               
         }
 
 
@@ -398,7 +401,10 @@ namespace QTechManagementSoftware
             send = sender;
 
             using (HoursAdd frmHA = new HoursAdd())
-                frmHA.ShowDialog(this);
+            {
+                frmHA.Owner = this;
+                frmHA.ShowDialog();
+            }
 
             LoadHours();
         }
@@ -416,7 +422,10 @@ namespace QTechManagementSoftware
             SELECTED_HOUR = e.RowIndex;
 
             using (HoursAdd frmHA = new HoursAdd())
-                frmHA.ShowDialog(this);
+            {
+                frmHA.Owner = this;
+                frmHA.ShowDialog();
+            }
 
             LoadHours();
         }
