@@ -279,6 +279,8 @@ namespace QTechManagementSoftware
                             cmd.Parameters.AddWithValue("@INum", txt_ISED_InvNum.Text.Trim());
                         else cmd.Parameters.AddWithValue("@INum", txt_ISED_InvNum.Text.Trim() + "." + txt_ISED_INInst.Text.Trim());
 
+                        cmd.Parameters.AddWithValue("@oldINum", oldINum.Trim());
+
                         cmd.ExecuteNonQuery();
 
                         MessageBox.Show("Invoice successfully updated.", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
