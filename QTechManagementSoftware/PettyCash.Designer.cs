@@ -33,14 +33,15 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PettyCash));
             this.dgv_PettyCash = new ADGV.AdvancedDataGridView();
+            this.txt_PC_Tot = new System.Windows.Forms.TextBox();
+            this.lblSubtotal = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.btn_PC_Export = new System.Windows.Forms.Button();
             this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PersonName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Credit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Debit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txt_PC_Tot = new System.Windows.Forms.TextBox();
-            this.lblSubtotal = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.btn_PC_Export = new System.Windows.Forms.Button();
+            this.Run_Tot = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_PettyCash)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,7 +73,8 @@
             this.PersonName,
             this.Desc,
             this.Credit,
-            this.Debit});
+            this.Debit,
+            this.Run_Tot});
             this.dgv_PettyCash.DateWithTime = false;
             this.dgv_PettyCash.EnableHeadersVisualStyles = false;
             this.dgv_PettyCash.Location = new System.Drawing.Point(0, 62);
@@ -85,43 +87,8 @@
             this.dgv_PettyCash.Size = new System.Drawing.Size(963, 513);
             this.dgv_PettyCash.TabIndex = 0;
             this.dgv_PettyCash.TimeFilter = false;
-            this.dgv_PettyCash.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dgv_PettyCash_CellValueChanged);
+            this.dgv_PettyCash.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_PettyCash_CellEndEdit);
             this.dgv_PettyCash.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dgv_PettyCash_RowEnter);
-            // 
-            // Date
-            // 
-            this.Date.HeaderText = "Date";
-            this.Date.MinimumWidth = 22;
-            this.Date.Name = "Date";
-            this.Date.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            // 
-            // PersonName
-            // 
-            this.PersonName.HeaderText = "Person Name";
-            this.PersonName.MinimumWidth = 22;
-            this.PersonName.Name = "PersonName";
-            this.PersonName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            // 
-            // Desc
-            // 
-            this.Desc.HeaderText = "Description";
-            this.Desc.MinimumWidth = 22;
-            this.Desc.Name = "Desc";
-            this.Desc.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            // 
-            // Credit
-            // 
-            this.Credit.HeaderText = "Credit";
-            this.Credit.MinimumWidth = 22;
-            this.Credit.Name = "Credit";
-            this.Credit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            // 
-            // Debit
-            // 
-            this.Debit.HeaderText = "Debit";
-            this.Debit.MinimumWidth = 22;
-            this.Debit.Name = "Debit";
-            this.Debit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // txt_PC_Tot
             // 
@@ -168,6 +135,49 @@
             this.btn_PC_Export.MouseEnter += new System.EventHandler(this.Btn_PC_Export_MouseEnter);
             this.btn_PC_Export.MouseLeave += new System.EventHandler(this.Btn_PC_Export_MouseLeave);
             // 
+            // Date
+            // 
+            this.Date.HeaderText = "Date";
+            this.Date.MinimumWidth = 22;
+            this.Date.Name = "Date";
+            this.Date.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // PersonName
+            // 
+            this.PersonName.HeaderText = "Person Name";
+            this.PersonName.MinimumWidth = 22;
+            this.PersonName.Name = "PersonName";
+            this.PersonName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // Desc
+            // 
+            this.Desc.HeaderText = "Description";
+            this.Desc.MinimumWidth = 22;
+            this.Desc.Name = "Desc";
+            this.Desc.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // Credit
+            // 
+            this.Credit.HeaderText = "Credit";
+            this.Credit.MinimumWidth = 22;
+            this.Credit.Name = "Credit";
+            this.Credit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // Debit
+            // 
+            this.Debit.HeaderText = "Debit";
+            this.Debit.MinimumWidth = 22;
+            this.Debit.Name = "Debit";
+            this.Debit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // Run_Tot
+            // 
+            this.Run_Tot.HeaderText = "Running Total";
+            this.Run_Tot.MinimumWidth = 22;
+            this.Run_Tot.Name = "Run_Tot";
+            this.Run_Tot.ReadOnly = true;
+            this.Run_Tot.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
             // PettyCash
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -201,5 +211,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Desc;
         private System.Windows.Forms.DataGridViewTextBoxColumn Credit;
         private System.Windows.Forms.DataGridViewTextBoxColumn Debit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Run_Tot;
     }
 }

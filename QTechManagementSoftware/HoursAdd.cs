@@ -16,26 +16,24 @@ namespace QTechManagementSoftware
 {
     public partial class HoursAdd : Form
     {
+        #region [Variables]
         private System.Data.DataTable dt = new System.Data.DataTable();
         private Microsoft.Office.Interop.Word.Application app = null;
-        private object missing = null;
-        private string error = "";
-        private bool isError = false;
-        private bool mouseDown = false;
-        private object send;
-        private int SELECTED_WW;
+        private object missing = null, send;
+        private string error = "", SELECTED_WW;
+        private bool isError = false, mouseDown = false;
         private Document doc;
         private System.Drawing.Point lastLocation;
+        #endregion
 
+        #region [Initialize Form]
         public HoursAdd()
         {
             InitializeComponent();
         }
+        #endregion
 
-
-        //================================================================================================================================================//
-        // LOAD FORM                                                                                                                                      //
-        //================================================================================================================================================//
+        #region [Load Form]
         private void HoursAdd_Load(object sender, EventArgs e)
         {
             Contractors curForm = (Contractors)this.Owner;
@@ -95,75 +93,79 @@ namespace QTechManagementSoftware
                     }
                 }
 
-                txt_HA_Code.Text = txt_HA_CCode.Text.Split('_')[1] + "_" + (newCode++).ToString("0000");
+                newCode++;
+                txt_HA_Code.Text = txt_HA_CCode.Text.Split('_')[1] + "_" + newCode.ToString("0000");
             }
             else
             {
                 Text = "Edit Work Week";
                 SELECTED_WW = curForm.GetSelectedHour();
                 LoadHours();
-                btn_HA_CreateRem.Visible = true;
             }
         }
 
-
-        //================================================================================================================================================//
-        // LOAD WORK WEEK DETAILS                                                                                                                                    //
-        //================================================================================================================================================//
         private void LoadHours()
         {
-            txt_HA_Code.Text = dt.Rows[SELECTED_WW]["Code"].ToString().Trim();
+            int rowIdx = 0;
 
-            dtp_HA_From.Value = (dt.Rows[SELECTED_WW]["Date_Start"].ToString() == string.Empty) ? DateTime.Now : Convert.ToDateTime(dt.Rows[SELECTED_WW]["Date_Start"].ToString());
-            dtp_HA_To.Value = (dt.Rows[SELECTED_WW]["Date_End"].ToString() == string.Empty) ? dtp_HA_From.Value.AddDays(6.0) : Convert.ToDateTime(dt.Rows[SELECTED_WW]["Date_End"].ToString());
+            foreach (DataRow dr in dt.Rows)
+            {
+                if (dr["Code"].ToString().Equals(SELECTED_WW))
+                    rowIdx = dt.Rows.IndexOf(dr);
+            }
 
-            txt_HA_HW.Text = dt.Rows[SELECTED_WW]["Hours"].ToString().Trim();
+            txt_HA_Code.Text = dt.Rows[rowIdx]["Code"].ToString().Trim();
 
-            if (dt.Rows[SELECTED_WW]["Rate_Per_Hour"].ToString() != string.Empty)
-                txt_HA_DolPH.Text = Convert.ToDecimal(dt.Rows[SELECTED_WW]["Rate_Per_Hour"].ToString().Trim()).ToString("c", CultureInfo.GetCultureInfo("en-US"));
+            dtp_HA_From.Value = (dt.Rows[rowIdx]["Date_Start"].ToString() == string.Empty) ? DateTime.Now : Convert.ToDateTime(dt.Rows[rowIdx]["Date_Start"].ToString());
+            dtp_HA_To.Value = (dt.Rows[rowIdx]["Date_End"].ToString() == string.Empty) ? dtp_HA_From.Value.AddDays(6.0) : Convert.ToDateTime(dt.Rows[rowIdx]["Date_End"].ToString());
+
+            txt_HA_HW.Text = dt.Rows[rowIdx]["Hours"].ToString().Trim();
+
+            if (dt.Rows[rowIdx]["Rate_Per_Hour"].ToString() != string.Empty)
+                txt_HA_DolPH.Text = Convert.ToDecimal(dt.Rows[rowIdx]["Rate_Per_Hour"].ToString().Trim()).ToString("c", CultureInfo.GetCultureInfo("en-US"));
             else
                 txt_HA_DolPH.Text = "$0.00";
 
-            if (dt.Rows[SELECTED_WW]["Total_$"].ToString() != string.Empty)
-                txt_HA_TotBE.Text = Convert.ToDecimal(dt.Rows[SELECTED_WW]["Total_$"].ToString().Trim()).ToString("c", CultureInfo.GetCultureInfo("en-US"));
+            if (dt.Rows[rowIdx]["Total_$"].ToString() != string.Empty)
+                txt_HA_TotBE.Text = Convert.ToDecimal(dt.Rows[rowIdx]["Total_$"].ToString().Trim()).ToString("c", CultureInfo.GetCultureInfo("en-US"));
             else
                 txt_HA_TotBE.Text = "$0.00";
 
-            if (dt.Rows[SELECTED_WW]["Exchange_Rate"].ToString() != string.Empty)
-                txt_HA_ExcRate.Text = Convert.ToDecimal(dt.Rows[SELECTED_WW]["Exchange_Rate"].ToString().Trim()).ToString();
+            if (dt.Rows[rowIdx]["Exchange_Rate"].ToString() != string.Empty)
+                txt_HA_ExcRate.Text = Convert.ToDecimal(dt.Rows[rowIdx]["Exchange_Rate"].ToString().Trim()).ToString();
             else
                 txt_HA_ExcRate.Text = "0.00000";
 
-            if (dt.Rows[SELECTED_WW]["Total_R"].ToString() != string.Empty)
-                txt_HA_TotAE.Text = Convert.ToDecimal(dt.Rows[SELECTED_WW]["Total_R"].ToString().Trim()).ToString("c");
+            if (dt.Rows[rowIdx]["Total_R"].ToString() != string.Empty)
+                txt_HA_TotAE.Text = Convert.ToDecimal(dt.Rows[rowIdx]["Total_R"].ToString().Trim()).ToString("c");
             else
                 txt_HA_TotAE.Text = "R0.00";
 
-            if (dt.Rows[SELECTED_WW]["QTech_Cut"].ToString() != string.Empty)
-                txt_HA_QTCut.Text = Convert.ToDecimal(dt.Rows[SELECTED_WW]["QTech_Cut"].ToString().Trim()).ToString("c");
+            if (dt.Rows[rowIdx]["QTech_Cut"].ToString() != string.Empty)
+                txt_HA_QTCut.Text = Convert.ToDecimal(dt.Rows[rowIdx]["QTech_Cut"].ToString().Trim()).ToString("c");
             else
                 txt_HA_QTCut.Text = "R0.00";
 
-            if (dt.Rows[SELECTED_WW]["Final_Total"].ToString() != string.Empty)
-                txt_HA_FTotal.Text = Convert.ToDecimal(dt.Rows[SELECTED_WW]["Final_Total"].ToString().Trim()).ToString("c");
+            if (dt.Rows[rowIdx]["Final_Total"].ToString() != string.Empty)
+                txt_HA_FTotal.Text = Convert.ToDecimal(dt.Rows[rowIdx]["Final_Total"].ToString().Trim()).ToString("c");
             else
                 txt_HA_FTotal.Text = "R0.00";
 
-            if (dt.Rows[SELECTED_WW]["Remittance"].ToString() == "Yes")
-                btn_HA_CreateRem.Enabled = false;
+            if (dt.Rows[rowIdx]["Remittance"].ToString() == "Yes")
+                btn_HA_CreateRem.Visible = false;
+            else btn_HA_CreateRem.Visible = true;
 
-            if (dt.Rows[SELECTED_WW]["Paid"].ToString() == "Yes")
+            if (dt.Rows[rowIdx]["Paid"].ToString() == "Yes")
             {
                 cb_HA_Paid.Checked = true;
                 dtp_HA_DatePaid.Enabled = true;
-                dtp_HA_DatePaid.Value = !(dt.Rows[SELECTED_WW]["Date_Paid"].ToString() != string.Empty) ? DateTime.Now : Convert.ToDateTime(dt.Rows[SELECTED_WW]["Date_Paid"].ToString());
+                dtp_HA_DatePaid.Value = !(dt.Rows[rowIdx]["Date_Paid"].ToString() != string.Empty) ? DateTime.Now : Convert.ToDateTime(dt.Rows[rowIdx]["Date_Paid"].ToString());
             }
         }
+        #endregion
 
 
-        //================================================================================================================================================//
-        // BUTTON DONE CLICKED                                                                                                                                   //
-        //================================================================================================================================================//
+        #region [Button Done Clicked]
         private void Btn_HA_Done_Click(object sender, EventArgs e)
         {
             string code = txt_HA_Code.Text;
@@ -273,7 +275,23 @@ namespace QTechManagementSoftware
                     DoUpdate();
             }
         }
+        #endregion
 
+        #region [Cancel Clicked]
+        private void Btn_HA_Cancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        #endregion
+
+        #region [Close Clicked]
+        private void Btn_HA_Close_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        #endregion
+
+        #region [Update Database]
         private void DoUpdate()
         {
             using (SqlConnection conn = DBUtils.GetDBConnection())
@@ -364,12 +382,10 @@ namespace QTechManagementSoftware
                 }
             }
         }
+        #endregion
 
-        private void Btn_HA_Cancel_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
 
+        #region [Money Textboxes Values Changed]
         private void Txt_HA_PerHour_TextChanged(object sender, EventArgs e)
         {
             if (Decimal.TryParse(txt_HA_DolPH.Text.Replace(",", string.Empty).Replace("$", string.Empty).Replace(".", string.Empty).TrimStart('0'), out decimal result))
@@ -467,11 +483,10 @@ namespace QTechManagementSoftware
         {
             return new Regex("[^0-9]").IsMatch(text);
         }
+        #endregion
 
 
-        //================================================================================================================================================//
-        // CALCULATE TOTALS                                                                                                                               //
-        //================================================================================================================================================//
+        #region [Calculate Totals]
         private void Txt_HA_HW_Leave(object sender, EventArgs e)
         {
             ln_HA_HW.LineColor = Color.Gray;
@@ -556,11 +571,10 @@ namespace QTechManagementSoftware
 
             txt_HA_FTotal.Text = tot.ToString("c");
         }
+        #endregion
 
 
-        //================================================================================================================================================//
-        // PAID CHECKBOX CHANGE                                                                                                                           //
-        //================================================================================================================================================//
+        #region [Checkbox Checked/Unchecked]
         private void Cb_HA_Paid_CheckedChanged(object sender, EventArgs e)
         {
             if (cb_HA_Paid.Checked)
@@ -568,11 +582,10 @@ namespace QTechManagementSoftware
             else
                 dtp_HA_DatePaid.Enabled = false;
         }
+        #endregion
 
 
-        //================================================================================================================================================//
-        // GENERATE REMITTANCE DOCUMENT                                                                                                                   //
-        //================================================================================================================================================//
+        #region [Generate Remittance Document]
         private void Btn_HA_CRem_Click(object sender, EventArgs e)
         {
             if (!backgroundWorker1.IsBusy)
@@ -689,7 +702,10 @@ namespace QTechManagementSoftware
 
             DoUpdate();
         }
+        #endregion
 
+
+        #region [Controls Effects]
         private void Txt_HA_Code_MouseEnter(object sender, EventArgs e)
         {
             ln_HA_Code.LineColor = Color.FromArgb(19, 118, 188);
@@ -798,11 +814,6 @@ namespace QTechManagementSoftware
                 ln_HA_FTotal.LineColor = Color.Gray;
         }
 
-        private void Btn_HA_Close_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void Btn_HA_Close_MouseEnter(object sender, EventArgs e)
         {
             btn_HA_Close.Image = Resources.close_white;
@@ -842,7 +853,10 @@ namespace QTechManagementSoftware
         {
             btn_HA_CreateRem.ForeColor = Color.FromArgb(64, 64, 64);
         }
+        #endregion
 
+
+        #region [Form Movement]
         private void O_Add_MouseDown(object sender, MouseEventArgs e)
         {
             mouseDown = true;
@@ -862,5 +876,6 @@ namespace QTechManagementSoftware
         {
             mouseDown = false;
         }
+        #endregion
     }
 }

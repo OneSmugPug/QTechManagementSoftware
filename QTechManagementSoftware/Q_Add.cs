@@ -11,20 +11,21 @@ namespace QTechManagementSoftware
 {
     public partial class Q_Add : Form
     {
+        #region Variables
         private DataTable dt = (DataTable)null;
         private DataTable projDT;
         private bool mouseDown = false;
         private Point lastLocation;
+        #endregion
 
+        #region Initialize
         public Q_Add()
         {
             InitializeComponent();
         }
+        #endregion
 
-
-        //================================================================================================================================================//
-        // QUOTE ADD LOAD FORM                                                                                                                            //
-        //================================================================================================================================================//
+        #region Load Form
         private void Q_Add_Load(object sender, EventArgs e)
         {
             if (this.Owner.GetType() == typeof(Quotes))
@@ -66,11 +67,9 @@ namespace QTechManagementSoftware
             txt_QA_QNum.Text = txt_QA_CCode.Text + "_Q" + (qNum + 1).ToString("000");
             txt_QA_Desc.Focus();
         }
+        #endregion
 
-
-        //================================================================================================================================================//
-        // DONE CLICKED                                                                                                                                   //
-        //================================================================================================================================================//
+        #region Done Clicked
         private void Btn_QA_Done_Click(object sender, EventArgs e)
         {
             StringBuilder sb = new StringBuilder().Append("Are you sure you want to add quote with Quote Number: ").Append(txt_QA_QNum.Text).Append("?");
@@ -106,17 +105,23 @@ namespace QTechManagementSoftware
                 }
             }
         }
+        #endregion
 
-
-        //================================================================================================================================================//
-        // CANCEL CLICKED                                                                                                                                 //
-        //================================================================================================================================================//
+        #region Cancel Clicked
         private void Btn_QA_Cancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+        #endregion
 
+        #region Close Clicked
+        private void Btn_QA_Close_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        #endregion
 
+        #region Controls Effects
         //================================================================================================================================================//
         // ORDER NUMBER                                                                                                                                   //
         //================================================================================================================================================//
@@ -154,15 +159,6 @@ namespace QTechManagementSoftware
         {
             if (!txt_QA_Desc.Focused)
                 ln_QA_Desc.LineColor = Color.Gray;
-        }
-
-
-        //================================================================================================================================================//
-        // CLOSE CLICKED                                                                                                                                  //
-        //================================================================================================================================================//
-        private void Btn_QA_Close_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
 
 
@@ -206,11 +202,9 @@ namespace QTechManagementSoftware
         {
             btn_QA_Cancel.ForeColor = Color.FromArgb(64, 64, 64);
         }
+        #endregion
 
-
-        //================================================================================================================================================//
-        // ENFORCE READONLY                                                                                                                               //
-        //================================================================================================================================================//
+        #region ReadOnly Controls
         private void Txt_QA_CCode_KeyDown(object sender, KeyEventArgs e)
         {
             e.SuppressKeyPress = true;
@@ -220,11 +214,9 @@ namespace QTechManagementSoftware
         {
             e.SuppressKeyPress = true;
         }
+        #endregion
 
-
-        //================================================================================================================================================//
-        // QUOTE ADD                                                                                                                                      //
-        //================================================================================================================================================//
+        #region Form Movement
         private void Q_Add_MouseDown(object sender, MouseEventArgs e)
         {
             mouseDown = true;
@@ -244,10 +236,9 @@ namespace QTechManagementSoftware
         {
             mouseDown = false;
         }
+        #endregion
 
-        //================================================================================================================================================//
-        // ORDER PLACED CHECKBOX                                                                                                                          //
-        //================================================================================================================================================//
+        #region Project Creation
         private void Cb_QA_OrderPlaced_OnChange(object sender, EventArgs e)
         {
             bool matchFound = false;
@@ -263,23 +254,11 @@ namespace QTechManagementSoftware
                         DataTable dt = new DataTable ();
                         da.Fill(dt);
 
-                        //List<string> keyValues = new List<string>();
-
                         foreach (DataRow row in dt.Rows)
                         {
-                            //keyValues.Add(row["Quote_Number"].ToString());
                             if (txt_QA_QNum.Text.Equals(row["Quote_Number"].ToString().Trim()))
                                 matchFound = true;
                         }
-
-                        // Checks if there exists a project with the same QNum as on the Q_Add form
-                        /*foreach (string key in keyValues)
-                        {
-                            if (txt_QA_QNum.Text.Equals(key))
-                            {
-                                matchFound = true;
-                            }
-                        }*/
 
                         // If there is no match found then create a blank project in Projects table
                         if (!matchFound)
@@ -331,5 +310,6 @@ namespace QTechManagementSoftware
                 }
             }
         }
+        #endregion
     }
 }

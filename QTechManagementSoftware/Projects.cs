@@ -12,7 +12,8 @@ namespace QTechManagementSoftware
         private BindingSource bs = new BindingSource();
         private bool isFiltered = false;
         private DataTable dt;
-        private int SELECTED_PROJECT;
+        private string selectedProjectCode, SELECTED_PROJECT;
+        private Home frmHome;
 
         public Projects()
         {
@@ -25,12 +26,14 @@ namespace QTechManagementSoftware
             LoadProjects();
         }
 
-
+        #region Load Project Details
         //================================================================================================================================================//
         // PROJECT DETAILS LOAD                                                                                                                           //
         //================================================================================================================================================//
         private void LoadProjects()
         {
+            frmHome = (Home)this.Parent.Parent;
+
             using (SqlConnection conn = DBUtils.GetDBConnection())
             {
                 conn.Open();
@@ -41,13 +44,15 @@ namespace QTechManagementSoftware
             }
             bs.DataSource = dt;
         }
+        #endregion
 
-
+        #region New Project Click
         //================================================================================================================================================//
         // NEW PROJECT CLICKED                                                                                                                            //
         //================================================================================================================================================//
         private void Btn_P_NewProject_Click(object sender, EventArgs e)
         {
+
             if (isFiltered)
                 RemoveFilter();
 
@@ -59,12 +64,30 @@ namespace QTechManagementSoftware
 
             LoadProjects();
         }
+        #endregion
+
+        //================================================================================================================================================//
+        // EDIT PROJECT CLICKED                                                                                                                           //
+        //================================================================================================================================================//
+        private void Btn_P_EditProject_Click(object sender, EventArgs e)
+        {
+            int rowIdx = dgv_Projects.SelectedRows[0].Index;
+            SELECTED_PROJECT = dgv_Projects[0, rowIdx].Value.ToString();
+
+            using (Proj_Edit_Del frmPED = new Proj_Edit_Del())
+            {
+                frmPED.Owner = this;
+                frmPED.ShowDialog();
+            }
+
+            LoadProjects();
+        }
 
 
         //================================================================================================================================================//
         // GETTERS                                                                                                                                        //
         //================================================================================================================================================//
-        public int GetSelectedProj()
+        public string GetSelectedProj()
         {
             return SELECTED_PROJECT;
         }
@@ -74,29 +97,15 @@ namespace QTechManagementSoftware
             return dt;
         }
 
-        public string GetProjID()
-        {
-            return dgv_Projects[0, SELECTED_PROJECT].Value.ToString();
-        }
-
 
         //================================================================================================================================================//
         // DATAGRIDVIEW CELL DOUBLECLICK                                                                                                                  //
         //================================================================================================================================================//
         private void Dgv_Projects_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (isFiltered)
-                RemoveFilter();
+            selectedProjectCode = dgv_Projects[0, e.RowIndex].Value.ToString().Trim();
 
-            SELECTED_PROJECT = e.RowIndex;
-
-            using (Proj_Dialog frmPD = new Proj_Dialog())
-            {
-                frmPD.Owner = this;
-                frmPD.ShowDialog();
-            }                
-
-            LoadProjects();
+            frmHome.ProjectsDoubleClick(selectedProjectCode);
         }
 
 
@@ -160,6 +169,22 @@ namespace QTechManagementSoftware
         {
             btn_P_NewProject.Image = Resources.add_grey;
             btn_P_NewProject.ForeColor = Color.FromArgb(64, 64, 64);
+        }
+
+
+        //================================================================================================================================================//
+        // EDIT PROJECT BUTTON                                                                                                                            //
+        //================================================================================================================================================//
+        private void Btn_P_EditProject_MouseEnter(object sender, EventArgs e)
+        {
+            btn_P_EditProject.Image = Resources.edit_white;
+            btn_P_EditProject.ForeColor = Color.White;
+        }
+
+        private void Btn_P_EditProject_MouseLeave(object sender, EventArgs e)
+        {
+            btn_P_EditProject.Image = Resources.edit_grey;
+            btn_P_EditProject.ForeColor = Color.FromArgb(64, 64, 64);
         }
 
 

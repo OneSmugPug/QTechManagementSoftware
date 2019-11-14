@@ -11,21 +11,25 @@ namespace QTechManagementSoftware
 {
     public partial class Inv_Send_Add : Form
     {
+        #region Variables
         private DataTable dt = new DataTable();
-        private bool isInter = false, mouseDown = false;
+        private bool mouseDown = false;
         private Invoices_Send parent = null;
         private Int_Invoices_Send intParent = null;
         private Point lastLocation;
+        private NumberFormatInfo nfi = (NumberFormatInfo)CultureInfo.InvariantCulture.NumberFormat.Clone();
+        #endregion
 
+        #region Initialize Form
         public Inv_Send_Add()
         {
             InitializeComponent();
+
+            nfi.NumberGroupSeparator = " ";
         }
+        #endregion
 
-
-        //================================================================================================================================================//
-        // INVOICES SENT ADD FORM LOAD                                                                                                                    //
-        //================================================================================================================================================//
+        #region Load Form
         private void Inv_Send_Add_Load(object sender, EventArgs e)
         {
             if (this.Owner.GetType() == typeof(Invoices_Send))
@@ -35,27 +39,14 @@ namespace QTechManagementSoftware
                 txt_ISA_CCode.Text = parent.GetClientCode();
                 txt_ISA_CName.Text = parent.GetClientName();
 
-                txt_ISA_Amt.Text = "R0.00";
-                txt_ISA_Amt.SelectionStart = txt_ISA_Amt.Text.Length;
-
-                txt_ISA_VAT.Text = "R0.00";
-                txt_ISA_VAT.SelectionStart = txt_ISA_VAT.Text.Length;
-
                 dt = parent.GetInvoices();
             }
             else
             {
-                isInter = true;
                 intParent = (Int_Invoices_Send)this.Owner;
 
                 txt_ISA_CCode.Text = intParent.GetClientCode();
                 txt_ISA_CName.Text = intParent.GetClientName();
-
-                txt_ISA_Amt.Text = "$0.00";
-                txt_ISA_Amt.SelectionStart = txt_ISA_Amt.Text.Length;
-
-                txt_ISA_VAT.Text = "$0.00";
-                txt_ISA_VAT.SelectionStart = txt_ISA_VAT.Text.Length;
 
                 dt = intParent.GetInvoices();
             }
@@ -111,147 +102,52 @@ namespace QTechManagementSoftware
 
             txt_ISA_InvNum.Text = txt_ISA_CCode.Text + "_I" + (newInvNum + 1).ToString("000");
 
+
+            txt_ISA_Amt.Text = "0.00";
+            txt_ISA_Amt.SelectionStart = txt_ISA_Amt.Text.Length;
+
+            txt_ISA_VAT.Text = ddb_InvSendCur.selectedValue + " " + "0.00";
+            txt_ISA_VAT.SelectionStart = txt_ISA_VAT.Text.Length;
+
             dtp_ISA_Date.Value = DateTime.Now;
             dtp_ISA_DatePaid.Value = DateTime.Now;
         }
+        #endregion
 
-
-        //================================================================================================================================================//
-        // AMOUNT TEXT CHANGED                                                                                                                            //
-        //================================================================================================================================================//
+        #region Amount Value Change
         private void Txt_ISA_Amt_TextChanged(object sender, EventArgs e)
         {
-            if (!isInter)
+            if (Decimal.TryParse(txt_ISA_Amt.Text.Replace(",", string.Empty).Replace(".", string.Empty).TrimStart('0'), out decimal ul))
             {
-                if (Decimal.TryParse(txt_ISA_Amt.Text.Replace(",", string.Empty).Replace("R", string.Empty).Replace(".", string.Empty).TrimStart('0'), out decimal ul))
+                ul /= 100;
+
+                txt_ISA_Amt.TextChanged -= Txt_ISA_Amt_TextChanged;
+
+                txt_ISA_Amt.Text = ul.ToString("N2", nfi);
+                txt_ISA_Amt.TextChanged += Txt_ISA_Amt_TextChanged;
+                txt_ISA_Amt.Select(txt_ISA_Amt.Text.Length, 0);
+
+                if (ddb_InvSendCur.selectedValue.Equals("R"))
                 {
-                    ul /= 100;
-
-                    txt_ISA_Amt.TextChanged -= Txt_ISA_Amt_TextChanged;
-
-                    txt_ISA_Amt.Text = string.Format(CultureInfo.CreateSpecificCulture("en-ZA"), "{0:C2}", ul);
-                    txt_ISA_Amt.TextChanged += Txt_ISA_Amt_TextChanged;
-                    txt_ISA_Amt.Select(txt_ISA_Amt.Text.Length, 0);
+                    decimal temp = decimal.Round(0.15m * ul, 2);
+                    txt_ISA_VAT.Text = ddb_InvSendCur.selectedValue + " " + temp.ToString("N2", nfi);
                 }
-
-                if (!TextisValid(txt_ISA_Amt.Text))
+                else
                 {
-                    txt_ISA_Amt.Text = "R0.00";
-                    txt_ISA_Amt.Select(txt_ISA_Amt.Text.Length, 0);
-                }
-            }
-            else
-            {
-                if (Decimal.TryParse(txt_ISA_Amt.Text.Replace(",", string.Empty).Replace("$", string.Empty).Replace(".", string.Empty).TrimStart('0'), out decimal ul))
-                {
-                    ul /= 100;
-
-                    txt_ISA_Amt.TextChanged -= Txt_ISA_Amt_TextChanged;
-
-                    txt_ISA_Amt.Text = string.Format(CultureInfo.CreateSpecificCulture("en-US"), "{0:C2}", ul);
-                    txt_ISA_Amt.TextChanged += Txt_ISA_Amt_TextChanged;
-                    txt_ISA_Amt.Select(txt_ISA_Amt.Text.Length, 0);
-                }
-
-                if (!TextisValid(txt_ISA_Amt.Text))
-                {
-                    txt_ISA_Amt.Text = "$0.00";
-                    txt_ISA_Amt.Select(txt_ISA_Amt.Text.Length, 0);
+                    if (!txt_ISA_VAT.Text.Remove(0, 1).Trim().Equals("0.00"))
+                        txt_ISA_VAT.Text = ddb_InvSendCur.selectedValue + " " + 0.00m;
                 }
             }
         }
 
-
-        //================================================================================================================================================//
-        // IS TEXT VALID                                                                                                                                  //
-        //================================================================================================================================================//
-        private bool TextisValid(string text)
+        private void txt_ISA_Amt_KeyDown(object sender, KeyEventArgs e)
         {
-            return new Regex("[^0-9]").IsMatch(text);
+            if (!(e.KeyCode >= Keys.D0 && e.KeyCode <= Keys.D9) && !(e.KeyCode >= Keys.NumPad0 && e.KeyCode <= Keys.NumPad9) && !(e.KeyCode == Keys.Back))
+                e.SuppressKeyPress = true;
         }
+        #endregion
 
-
-        //================================================================================================================================================//
-        // VAT TEXT CHANGED                                                                                                                               //
-        //================================================================================================================================================//
-        private void Txt_ISA_VAT_TextChanged(object sender, EventArgs e)
-        {
-            if (!isInter)
-            {
-                if (Decimal.TryParse(txt_ISA_VAT.Text.Replace(",", string.Empty).Replace("R", string.Empty).Replace(".", string.Empty).TrimStart('0'), out decimal ul))
-                {
-                    ul /= 100;
-
-                    txt_ISA_VAT.TextChanged -= Txt_ISA_VAT_TextChanged;
-
-                    txt_ISA_VAT.Text = string.Format(CultureInfo.CreateSpecificCulture("en-ZA"), "{0:C2}", ul);
-                    txt_ISA_VAT.TextChanged += Txt_ISA_VAT_TextChanged;
-                    txt_ISA_VAT.Select(txt_ISA_VAT.Text.Length, 0);
-                }
-
-                if (!TextisValid(txt_ISA_VAT.Text))
-                {
-                    txt_ISA_VAT.Text = "R0.00";
-                    txt_ISA_VAT.Select(txt_ISA_VAT.Text.Length, 0);
-                }
-            }
-            else
-            {
-                if (Decimal.TryParse(txt_ISA_VAT.Text.Replace(",", string.Empty).Replace("$", string.Empty).Replace(".", string.Empty).TrimStart('0'), out decimal ul))
-                {
-                    ul /= 100;
-
-                    txt_ISA_VAT.TextChanged -= Txt_ISA_VAT_TextChanged;
-
-                    txt_ISA_VAT.Text = string.Format(CultureInfo.CreateSpecificCulture("en-US"), "{0:C2}", ul);
-                    txt_ISA_VAT.TextChanged += Txt_ISA_VAT_TextChanged;
-                    txt_ISA_VAT.Select(txt_ISA_VAT.Text.Length, 0);
-                }
-                if (!TextisValid(txt_ISA_VAT.Text))
-                {
-                    txt_ISA_VAT.Text = "$0.00";
-                    txt_ISA_VAT.Select(txt_ISA_VAT.Text.Length, 0);
-                }
-            }
-        }
-
-
-        //================================================================================================================================================//
-        // AMOUNT TEXTBOX LEAVE                                                                                                                           //
-        //================================================================================================================================================//
-        private void Txt_ISA_Amt_Leave(object sender, EventArgs e)
-        {
-            ln_ISA_Amt.LineColor = Color.Gray;
-
-            if (!isInter)
-            {
-                string value = txt_ISA_Amt.Text.Replace("R", string.Empty);
-
-                decimal ul;
-
-                if (decimal.TryParse(value, out ul))
-                {
-                    ul *= 0.15m;
-
-                    txt_ISA_VAT.Text = string.Format(CultureInfo.CreateSpecificCulture("en-ZA"), "{0:C2}", ul);
-                }
-            }
-            else
-            {
-                string value = txt_ISA_Amt.Text.Replace("$", string.Empty);
-
-                decimal ul = decimal.Parse(value, CultureInfo.GetCultureInfo("en-US"));
-
-                ul *= 0.15m;
-
-                txt_ISA_VAT.Text = string.Format(CultureInfo.CreateSpecificCulture("en-US"), "{0:C2}", ul);
-            }
-        }
-
-
-        //================================================================================================================================================//
-        // DONE CLICKED                                                                                                                                   //
-        //================================================================================================================================================//
+        #region Done Clicked
         private void Btn_ISA_Done_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Are you sure you want to add invoice with Invoice Number: " + txt_ISA_InvNum.Text + "?", "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
@@ -264,62 +160,12 @@ namespace QTechManagementSoftware
                     {
                         using (SqlCommand cmd = new SqlCommand("INSERT INTO Invoices_Send VALUES (@Date, @InvNum, @Client, @Desc, @Amt, @VAT, @Paid, @DatePaid)", conn))
                         {
-                            decimal amt;
-                            decimal VAT;
-
-                            if (!isInter)
-                            {
-                                if (txt_ISA_Amt.Text.Contains("R"))
-                                {
-                                    if (txt_ISA_Amt.Text.Replace("R", string.Empty) == "0.00")
-                                    {
-                                        amt = 0.00m;
-                                    }
-                                    else amt = Decimal.Parse(txt_ISA_Amt.Text.Replace("R", string.Empty), CultureInfo.GetCultureInfo("en-ZA"));
-                                }
-                                else amt = 0.00m;
-
-
-                                if (txt_ISA_VAT.Text.Contains("R"))
-                                {
-                                    if (txt_ISA_VAT.Text.Replace("R", string.Empty) == "0.00")
-                                    {
-                                        VAT = 0.00m;
-                                    }
-                                    else VAT = Decimal.Parse(txt_ISA_VAT.Text.Replace("R", string.Empty), CultureInfo.GetCultureInfo("en-ZA"));
-                                }
-                                else VAT = 0.00m;
-                            }
-                            else
-                            {
-                                if (txt_ISA_Amt.Text.Contains("$"))
-                                {
-                                    if (txt_ISA_Amt.Text.Replace("$", string.Empty) == "0.00")
-                                    {
-                                        amt = 0.00m;
-                                    }
-                                    else amt = Decimal.Parse(txt_ISA_Amt.Text.Replace("$", string.Empty), CultureInfo.GetCultureInfo("en-US"));
-                                }
-                                else amt = 0.00m;
-
-
-                                if (txt_ISA_VAT.Text.Contains("$"))
-                                {
-                                    if (txt_ISA_VAT.Text.Replace("$", string.Empty) == "0.00")
-                                    {
-                                        VAT = 0.00m;
-                                    }
-                                    else VAT = Decimal.Parse(txt_ISA_VAT.Text.Replace("$", string.Empty), CultureInfo.GetCultureInfo("en-US"));
-                                }
-                                else VAT = 0.00m;
-                            }
-
                             cmd.Parameters.AddWithValue("@Date", dtp_ISA_Date.Value);
                             cmd.Parameters.AddWithValue("@InvNum", txt_ISA_InvNum.Text.Trim());
                             cmd.Parameters.AddWithValue("@Client", txt_ISA_CName.Text.Trim());
                             cmd.Parameters.AddWithValue("@Desc", txt_ISA_Desc.Text.Trim());
-                            cmd.Parameters.AddWithValue("@Amt", amt);
-                            cmd.Parameters.AddWithValue("@VAT", VAT);
+                            cmd.Parameters.AddWithValue("@Amt", ddb_InvSendCur.selectedValue + " " + txt_ISA_Amt.Text);
+                            cmd.Parameters.AddWithValue("@VAT", txt_ISA_VAT.Text);
 
                             if (cb_ISA_Paid.Checked)
                             {
@@ -336,10 +182,6 @@ namespace QTechManagementSoftware
 
                             MessageBox.Show("New invoice successfully added.", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                            if (!isInter)
-                                parent.setNewInvoice(txt_ISA_InvNum.Text);
-                            else intParent.SetNewInvoice(txt_ISA_InvNum.Text);
-
                             this.Close();
                         }
                     }
@@ -350,17 +192,26 @@ namespace QTechManagementSoftware
                 }
             }
         }
+        #endregion
 
-
-        //================================================================================================================================================//
-        // CANCEL CLICKED                                                                                                                                 //
-        //================================================================================================================================================//
+        #region Cancel Clicked
         private void Btn_ISA_Cancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+        #endregion
 
+        #region Close Clicked
+        //================================================================================================================================================//
+        // CLOSE CLICKED                                                                                                                                  //
+        //================================================================================================================================================//
+        private void Btn_ISA_Close_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        #endregion
 
+        #region Controls Effects
         //================================================================================================================================================//
         // INVOICE NUMBER                                                                                                                                 //
         //================================================================================================================================================//
@@ -431,7 +282,13 @@ namespace QTechManagementSoftware
 
         private void Txt_ISA_Amt_MouseLeave(object sender, EventArgs e)
         {
+            if (!txt_ISA_Amt.Focused)
+                ln_ISA_Amt.LineColor = Color.Gray;
+        }
 
+        private void Txt_ISA_Amt_Leave(object sender, EventArgs e)
+        {
+            ln_ISA_Amt.LineColor = Color.Gray;
         }
 
 
@@ -452,15 +309,6 @@ namespace QTechManagementSoftware
         {
             if (!txt_ISA_VAT.Focused)
                 ln_ISA_VAT.LineColor = Color.Gray;
-        }
-
-
-        //================================================================================================================================================//
-        // CLOSE CLICKED                                                                                                                                  //
-        //================================================================================================================================================//
-        private void Btn_ISA_Close_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
 
 
@@ -504,8 +352,9 @@ namespace QTechManagementSoftware
         {
             btn_ISA_Cancel.ForeColor = Color.FromArgb(64, 64, 64);
         }
+        #endregion
 
-
+        #region ReadOnly Controls
         //================================================================================================================================================//
         // ENFORCE READONLY                                                                                                                               //
         //================================================================================================================================================//
@@ -518,8 +367,9 @@ namespace QTechManagementSoftware
         {
             e.SuppressKeyPress = true;
         }
+        #endregion
 
-
+        #region Form Movement
         //================================================================================================================================================//
         // INVOICES SENT ADD                                                                                                                              //
         //================================================================================================================================================//
@@ -542,8 +392,9 @@ namespace QTechManagementSoftware
         {
             mouseDown = false;
         }
+        #endregion
 
-
+        #region Checkbox Checked/Unchecked
         //================================================================================================================================================//
         // PAID CHECKBOX CHANGE                                                                                                                           //
         //================================================================================================================================================//
@@ -554,5 +405,33 @@ namespace QTechManagementSoftware
             else
                 dtp_ISA_DatePaid.Enabled = false;
         }
+        #endregion
+
+        #region Currency Symbol Change
+        //================================================================================================================================================//
+        // CURRENCY SYMBOL CHANGED                                                                                                                        //
+        //================================================================================================================================================//
+        private void ddb_InvSendCur_onItemSelected(object sender, EventArgs e)
+        {
+            if (!txt_ISA_VAT.Text.Equals(string.Empty))
+            {
+                if (ddb_InvSendCur.selectedValue.Equals("R"))
+                {
+
+                    if (Decimal.TryParse(txt_ISA_Amt.Text.Replace(",", string.Empty).Replace(".", string.Empty).TrimStart('0'), out decimal ul))
+                    {
+                        ul /= 100;
+
+                        decimal vat = decimal.Round(0.15m * ul, 2);
+                        txt_ISA_VAT.Text = ddb_InvSendCur.selectedValue + " " + vat.ToString("N2", nfi);
+                    }
+                }
+                else
+                {
+                    txt_ISA_VAT.Text = ddb_InvSendCur.selectedValue + " " + 0.00m;
+                }
+            }
+        }
+        #endregion
     }
 }

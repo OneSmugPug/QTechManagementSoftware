@@ -100,15 +100,6 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ButtonX.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="ClientList.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ClientList.Designer.cs">
-      <DependentUpon>ClientList.cs</DependentUpon>
-    </Compile>
     <Compile Include="Clients.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -239,12 +230,6 @@
     <Compile Include="Proj_AddExp.Designer.cs">
       <DependentUpon>Proj_AddExp.cs</DependentUpon>
     </Compile>
-    <Compile Include="Proj_Dialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Proj_Dialog.Designer.cs">
-      <DependentUpon>Proj_Dialog.cs</DependentUpon>
-    </Compile>
     <Compile Include="Proj_Edit_Del.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -270,9 +255,6 @@
     <Compile Include="Q_Edit_Del.Designer.cs">
       <DependentUpon>Q_Edit_Del.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="ClientList.resx">
-      <DependentUpon>ClientList.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Clients.resx">
       <DependentUpon>Clients.cs</DependentUpon>
     </EmbeddedResource>
@@ -335,9 +317,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Proj_AddExp.resx">
       <DependentUpon>Proj_AddExp.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Proj_Dialog.resx">
-      <DependentUpon>Proj_Dialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Proj_Edit_Del.resx">
       <DependentUpon>Proj_Edit_Del.cs</DependentUpon>

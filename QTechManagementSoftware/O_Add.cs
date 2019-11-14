@@ -1,6 +1,7 @@
 ﻿using QTechManagementSoftware.Properties;
 using System;
 using System.ComponentModel;
+using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Globalization;
@@ -12,73 +13,27 @@ namespace QTechManagementSoftware
 {
     public partial class O_Add : Form
     {
-        private bool isInter = false, mouseDown = false;
+        #region Variables
+        private bool mouseDown = false;
         private Decimal pInv, pRec;
         private StringBuilder sb;
         private Point lastLocation;
+        private NumberFormatInfo nfi = (NumberFormatInfo)CultureInfo.InvariantCulture.NumberFormat.Clone();
+        private DataTable dt;
+        private string clientName;
+        #endregion
 
+        #region Initialize Form
         public O_Add()
         {
             InitializeComponent();
+            nfi.NumberGroupSeparator = " ";
         }
+        #endregion
 
-
-        //================================================================================================================================================//
-        // FORMAT MONEY TEXTBOX                                                                                                                           //
-        //================================================================================================================================================//
-        private void Txt_OA_Amt_TextChanged(object sender, EventArgs e)
-        {
-            if (isInter)
-            {
-                if (Decimal.TryParse(txt_OA_Amt.Text.Replace(",", "").Replace("$", "").Replace(".", "").TrimStart('0'), out decimal ul))
-                {
-                    ul /= 100;
-
-                    txt_OA_Amt.TextChanged -= Txt_OA_Amt_TextChanged;
-
-                    txt_OA_Amt.Text = string.Format(CultureInfo.CreateSpecificCulture("en-US"), "{0:C2}", ul);
-                    txt_OA_Amt.TextChanged += Txt_OA_Amt_TextChanged;
-                    txt_OA_Amt.Select(txt_OA_Amt.Text.Length, 0);
-                }
-
-                if (!TextisValid(txt_OA_Amt.Text))
-                {
-                    txt_OA_Amt.Text = "$0.00";
-                    txt_OA_Amt.Select(txt_OA_Amt.Text.Length, 0);
-                }
-            }
-            else
-            {
-                if (Decimal.TryParse(txt_OA_Amt.Text.Replace(",", "").Replace("R", "").Replace(".", "").TrimStart('0'), out decimal ul))
-                {
-                    ul /= 100;
-
-                    txt_OA_Amt.TextChanged -= Txt_OA_Amt_TextChanged;
-
-                    txt_OA_Amt.Text = string.Format(CultureInfo.CreateSpecificCulture("en-ZA"), "{0:C2}", ul);
-                    txt_OA_Amt.TextChanged += Txt_OA_Amt_TextChanged;
-                    txt_OA_Amt.Select(txt_OA_Amt.Text.Length, 0);
-                }
-
-                if (!TextisValid(txt_OA_Amt.Text))
-                {
-                    txt_OA_Amt.Text = "R0.00";
-                    txt_OA_Amt.Select(txt_OA_Amt.Text.Length, 0);
-                }
-            }
-        }
-
-        private bool TextisValid(string text)
-        {
-            return new Regex("[^0-9]").IsMatch(text);
-        }
-
-
-        //================================================================================================================================================//
-        // ORDERS ADD FORM LOAD                                                                                                                         //
-        //================================================================================================================================================//
+        #region Load Form
         private void O_Add_Load(object sender, EventArgs e)
-        { 
+        {
             txt_OA_PercInv.Text = "0%";
             txt_OA_PercRec.Text = "0%";
 
@@ -88,26 +43,60 @@ namespace QTechManagementSoftware
 
                 txt_OA_CCode.Text = owner.GetClientCode();
                 txt_OA_CName.Text = owner.GetClientName();
-
-                txt_OA_Amt.Text = "R0.00";
+                clientName = owner.GetClientName();
             }
             else
             {
-                isInter = true;
                 Int_Orders owner = (Int_Orders)this.Owner;
 
                 txt_OA_CCode.Text = owner.GetClientCode();
                 txt_OA_CName.Text = owner.GetClientName();
-
-                txt_OA_Amt.Text = "$0.00";
+                clientName = owner.GetClientName();
             }
+
+            txt_OA_Amt.Text = "0.00";
             txt_OA_Amt.SelectionStart = txt_OA_Amt.Text.Length;
+
+            LoadQuotes();
         }
 
+        private void LoadQuotes()
+        {
+            using (SqlConnection conn = DBUtils.GetDBConnection())
+            {
+                conn.Open();
+                SqlDataAdapter da = new SqlDataAdapter("SELECT Quote_Number, Quote_Description FROM Quotes_Send WHERE Client = '" + clientName + "'", conn);
+                dt = new DataTable();
+                da.Fill(dt);
+            }
 
-        //================================================================================================================================================//
-        // FORMAT PERCENTAGE INVOICED TEXTBOX                                                                                                             //
-        //================================================================================================================================================//
+            foreach (DataRow row in dt.Rows)
+            {
+                string item = row["Quote_Number"].ToString() + " - " + row["Quote_Description"].ToString();
+                ddb_OA_QuoteNum.AddItem(item);
+            }
+
+            ddb_OA_QuoteNum.selectedIndex = 0;
+        }
+        #endregion
+
+        #region Amount Value Changed
+        private void Txt_OA_Amt_TextChanged(object sender, EventArgs e)
+        {
+            if (Decimal.TryParse(txt_OA_Amt.Text.Replace(",", "").Replace("$", "").Replace(".", "").TrimStart('0'), out decimal ul))
+            {
+                ul /= 100;
+
+                txt_OA_Amt.TextChanged -= Txt_OA_Amt_TextChanged;
+
+                txt_OA_Amt.Text = ul.ToString("N2", nfi);
+                txt_OA_Amt.TextChanged += Txt_OA_Amt_TextChanged;
+                txt_OA_Amt.Select(txt_OA_Amt.Text.Length, 0);
+            }
+        }
+        #endregion
+
+        #region Precentage Invoiced Value Changed
         private void Txt_OA_Perc_Inv_Validating(object sender, CancelEventArgs e)
         {
             if (double.TryParse(txt_OA_PercInv.Text, out double ul) && Convert.ToDouble(txt_OA_PercInv.Text) >= 0 && Convert.ToDouble(txt_OA_PercInv.Text) <= 1)
@@ -124,10 +113,13 @@ namespace QTechManagementSoftware
             }
         }
 
+        private void Txt_OA_Perc_Inv_Enter(object sender, EventArgs e)
+        {
+            txt_OA_PercInv.Clear();
+        }
+        #endregion
 
-        //================================================================================================================================================//
-        // FORMAT PERCENTAGE RECIEVED TEXTBOX                                                                                                             //
-        //================================================================================================================================================//
+        #region Percentage Received Value Changed
         private void Txt_OA_Perc_Rec_Validating(object sender, CancelEventArgs e)
         {
             if (double.TryParse(txt_OA_PercRec.Text, out double result) && Convert.ToDouble(txt_OA_PercRec.Text) >= 0 && Convert.ToDouble(txt_OA_PercRec.Text) <= 1)
@@ -144,20 +136,13 @@ namespace QTechManagementSoftware
             }
         }
 
-        private void Txt_OA_Perc_Inv_Enter(object sender, EventArgs e)
-        {
-            txt_OA_PercInv.Clear();
-        }
-
         private void Txt_OA_Perc_Rec_Enter(object sender, EventArgs e)
         {
             txt_OA_PercRec.Clear();
         }
+        #endregion
 
-
-        //================================================================================================================================================//
-        // BUTTON DONE CLICKED                                                                                                                            //
-        //================================================================================================================================================//
+        #region Done Clicked
         private void Btn_OA_Done_Click(object sender, EventArgs e)
         {
             string newCONum = txt_OA_CONum.Text;
@@ -175,41 +160,17 @@ namespace QTechManagementSoftware
                         {
                             using (SqlCommand cmd = new SqlCommand("INSERT INTO Orders_Received VALUES (@Date, @Client, @CONum, @Desc, @Amt, @PercInv, @PercRec, @QNum)", conn))
                             {
-                                decimal amt;
-
-                                if (isInter)
-                                {
-                                    if (txt_OA_Amt.Text.Contains("$"))
-                                    {
-                                        if (txt_OA_Amt.Text.Replace("$", string.Empty) == "0.00")
-                                        {
-                                            amt = 0.00m;
-                                        }
-                                        else amt = Decimal.Parse(txt_OA_Amt.Text.Replace("$", string.Empty), CultureInfo.GetCultureInfo("en-US"));
-                                    }
-                                    else amt = 0.00m;
-                                }
-                                else
-                                {
-                                    if (txt_OA_Amt.Text.Contains("R"))
-                                    {
-                                        if (txt_OA_Amt.Text.Replace("R", string.Empty) == "0.00")
-                                        {
-                                            amt = 0.00m;
-                                        }
-                                        else amt = Decimal.Parse(txt_OA_Amt.Text.Replace("R", string.Empty), CultureInfo.GetCultureInfo("en-ZA"));
-                                    }
-                                    else amt = 0.00m;
-                                }
-
                                 cmd.Parameters.AddWithValue("@Date", dtp_OA_Date.Value);
                                 cmd.Parameters.AddWithValue("@Client", txt_OA_CName.Text.Trim());
                                 cmd.Parameters.AddWithValue("@CONum", txt_OA_CONum.Text.Trim());
                                 cmd.Parameters.AddWithValue("@Desc", txt_OA_Desc.Text.Trim());
-                                cmd.Parameters.AddWithValue("@Amt", amt);
+                                cmd.Parameters.AddWithValue("@Amt", ddb_OrdersCur.selectedValue + " " + txt_OA_Amt.Text);
                                 cmd.Parameters.AddWithValue("@PercInv", pInv);
                                 cmd.Parameters.AddWithValue("@PercRec", pRec);
-                                cmd.Parameters.AddWithValue("@QNum", txt_OA_QNum.Text.Trim());
+
+                                string[] temp = ddb_OA_QuoteNum.selectedValue.Split('-');
+
+                                cmd.Parameters.AddWithValue("@QNum", temp[0]);
 
                                 cmd.ExecuteNonQuery();
 
@@ -230,17 +191,23 @@ namespace QTechManagementSoftware
                 MessageBox.Show("Please enter a Client Order Number to continue.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+        #endregion
 
-
-        //================================================================================================================================================//
-        // CANCEL CLICKED                                                                                                                                 //
-        //================================================================================================================================================//
+        #region Cancel Clicked
         private void Btn_OA_Cancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+        #endregion
 
+        #region Close Clicked
+        private void Btn_OA_Close_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        #endregion
 
+        #region Controls Effects
         //================================================================================================================================================//
         // CLIENT ORDER NUMBER                                                                                                                            //
         //================================================================================================================================================//
@@ -340,36 +307,6 @@ namespace QTechManagementSoftware
                 ln_OA_PercRec.LineColor = Color.Gray;
         }
 
-
-        //================================================================================================================================================//
-        // QUOTE NUMBER                                                                                                                                   //
-        //================================================================================================================================================//
-        private void Txt_OA_QNum_Leave(object sender, EventArgs e)
-        {
-            ln_OA_QNum.LineColor = Color.Gray;
-        }
-
-        private void Txt_OA_QNum_MouseEnter(object sender, EventArgs e)
-        {
-            ln_OA_QNum.LineColor = Color.FromArgb(19, 118, 188);
-        }
-
-        private void Txt_OA_QNum_MouseLeave(object sender, EventArgs e)
-        {
-            if (!txt_OA_QNum.Focused)
-                ln_OA_QNum.LineColor = Color.Gray;
-        }
-
-
-        //================================================================================================================================================//
-        // CLOSE CLICKED                                                                                                                                  //
-        //================================================================================================================================================//
-        private void Btn_OA_Close_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-
         //================================================================================================================================================//
         // CLOSE BUTTON                                                                                                                                   //
         //================================================================================================================================================//
@@ -410,11 +347,9 @@ namespace QTechManagementSoftware
         {
             btn_OA_Cancel.ForeColor = Color.FromArgb(64, 64, 64);
         }
+        #endregion
 
-
-        //================================================================================================================================================//
-        // ENFORCE READONLY                                                                                                                               //
-        //================================================================================================================================================//
+        #region ReadOnly Controls
         private void Txt_OA_CCode_KeyDown(object sender, KeyEventArgs e)
         {
             e.SuppressKeyPress = true;
@@ -425,10 +360,14 @@ namespace QTechManagementSoftware
             e.SuppressKeyPress = true;
         }
 
+        private void txt_OA_Amt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (!(e.KeyCode >= Keys.D0 && e.KeyCode <= Keys.D9) && !(e.KeyCode >= Keys.NumPad0 && e.KeyCode <= Keys.NumPad9) && !(e.KeyCode == Keys.Back))
+                e.SuppressKeyPress = true;
+        }
+        #endregion
 
-        //================================================================================================================================================//
-        // ORDER ADD                                                                                                                                      //
-        //================================================================================================================================================//
+        #region Form Movement
         private void O_Add_MouseDown(object sender, MouseEventArgs e)
         {
             mouseDown = true; //If user clicks on main form mouseDown is set to true
@@ -451,5 +390,6 @@ namespace QTechManagementSoftware
         {
             mouseDown = false;
         }
+        #endregion
     }
 }

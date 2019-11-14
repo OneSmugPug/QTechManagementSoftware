@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Inv_Send_Add));
             this.bunifuCustomLabel8 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.gb_ISA_ISDetails = new System.Windows.Forms.GroupBox();
+            this.ddb_InvSendCur = new Bunifu.Framework.UI.BunifuDropdown();
             this.dtp_ISA_Date = new Bunifu.Framework.UI.BunifuDatepicker();
             this.bunifuCustomLabel11 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.pnl_ISA_INInst = new System.Windows.Forms.Panel();
@@ -87,6 +88,7 @@
             // 
             // gb_ISA_ISDetails
             // 
+            this.gb_ISA_ISDetails.Controls.Add(this.ddb_InvSendCur);
             this.gb_ISA_ISDetails.Controls.Add(this.dtp_ISA_Date);
             this.gb_ISA_ISDetails.Controls.Add(this.bunifuCustomLabel11);
             this.gb_ISA_ISDetails.Controls.Add(this.pnl_ISA_INInst);
@@ -110,6 +112,27 @@
             this.gb_ISA_ISDetails.TabIndex = 8;
             this.gb_ISA_ISDetails.TabStop = false;
             this.gb_ISA_ISDetails.Text = "Invoice Details";
+            // 
+            // ddb_InvSendCur
+            // 
+            this.ddb_InvSendCur.BackColor = System.Drawing.Color.Transparent;
+            this.ddb_InvSendCur.BorderRadius = 2;
+            this.ddb_InvSendCur.DisabledColor = System.Drawing.Color.Gray;
+            this.ddb_InvSendCur.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ddb_InvSendCur.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
+            this.ddb_InvSendCur.Items = new string[] {
+        "R",
+        "$",
+        "£",
+        "€"};
+            this.ddb_InvSendCur.Location = new System.Drawing.Point(133, 88);
+            this.ddb_InvSendCur.Name = "ddb_InvSendCur";
+            this.ddb_InvSendCur.NomalColor = System.Drawing.Color.Silver;
+            this.ddb_InvSendCur.onHoverColor = System.Drawing.Color.LightGray;
+            this.ddb_InvSendCur.selectedIndex = 0;
+            this.ddb_InvSendCur.Size = new System.Drawing.Size(63, 28);
+            this.ddb_InvSendCur.TabIndex = 11;
+            this.ddb_InvSendCur.onItemSelected += new System.EventHandler(this.ddb_InvSendCur_onItemSelected);
             // 
             // dtp_ISA_Date
             // 
@@ -312,9 +335,9 @@
             this.txt_ISA_VAT.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
             this.txt_ISA_VAT.Location = new System.Drawing.Point(2, 3);
             this.txt_ISA_VAT.Name = "txt_ISA_VAT";
+            this.txt_ISA_VAT.ReadOnly = true;
             this.txt_ISA_VAT.Size = new System.Drawing.Size(182, 16);
             this.txt_ISA_VAT.TabIndex = 0;
-            this.txt_ISA_VAT.TextChanged += new System.EventHandler(this.Txt_ISA_VAT_TextChanged);
             this.txt_ISA_VAT.Leave += new System.EventHandler(this.Txt_ISA_VAT_Leave);
             this.txt_ISA_VAT.MouseEnter += new System.EventHandler(this.Txt_ISA_VAT_MouseEnter);
             this.txt_ISA_VAT.MouseLeave += new System.EventHandler(this.Txt_ISA_VAT_MouseLeave);
@@ -363,9 +386,9 @@
             // 
             this.pnl_ISA_Amt.Controls.Add(this.ln_ISA_Amt);
             this.pnl_ISA_Amt.Controls.Add(this.txt_ISA_Amt);
-            this.pnl_ISA_Amt.Location = new System.Drawing.Point(133, 91);
+            this.pnl_ISA_Amt.Location = new System.Drawing.Point(202, 91);
             this.pnl_ISA_Amt.Name = "pnl_ISA_Amt";
-            this.pnl_ISA_Amt.Size = new System.Drawing.Size(199, 27);
+            this.pnl_ISA_Amt.Size = new System.Drawing.Size(145, 27);
             this.pnl_ISA_Amt.TabIndex = 2;
             // 
             // ln_ISA_Amt
@@ -377,7 +400,7 @@
             this.ln_ISA_Amt.LineThickness = 1;
             this.ln_ISA_Amt.Location = new System.Drawing.Point(-1, 18);
             this.ln_ISA_Amt.Name = "ln_ISA_Amt";
-            this.ln_ISA_Amt.Size = new System.Drawing.Size(200, 10);
+            this.ln_ISA_Amt.Size = new System.Drawing.Size(146, 10);
             this.ln_ISA_Amt.TabIndex = 1;
             this.ln_ISA_Amt.TabStop = false;
             this.ln_ISA_Amt.Transparency = 255;
@@ -391,11 +414,12 @@
             this.txt_ISA_Amt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_ISA_Amt.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_ISA_Amt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.txt_ISA_Amt.Location = new System.Drawing.Point(2, 3);
+            this.txt_ISA_Amt.Location = new System.Drawing.Point(3, 5);
             this.txt_ISA_Amt.Name = "txt_ISA_Amt";
-            this.txt_ISA_Amt.Size = new System.Drawing.Size(197, 16);
+            this.txt_ISA_Amt.Size = new System.Drawing.Size(142, 16);
             this.txt_ISA_Amt.TabIndex = 0;
             this.txt_ISA_Amt.TextChanged += new System.EventHandler(this.Txt_ISA_Amt_TextChanged);
+            this.txt_ISA_Amt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_ISA_Amt_KeyDown);
             this.txt_ISA_Amt.Leave += new System.EventHandler(this.Txt_ISA_Amt_Leave);
             this.txt_ISA_Amt.MouseEnter += new System.EventHandler(this.Txt_ISA_Amt_MouseEnter);
             this.txt_ISA_Amt.MouseLeave += new System.EventHandler(this.Txt_ISA_Amt_MouseLeave);
@@ -655,5 +679,6 @@
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel11;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel6;
         private Bunifu.Framework.UI.BunifuDatepicker dtp_ISA_Date;
+        private Bunifu.Framework.UI.BunifuDropdown ddb_InvSendCur;
     }
 }

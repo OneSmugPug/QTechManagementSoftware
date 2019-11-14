@@ -10,21 +10,21 @@ namespace QTechManagementSoftware
 {
     public partial class Q_Edit_Del : Form
     {
+        #region Variables
         private bool mouseDown = false;
-        private DataTable dt;
-        private DataTable projDT;
-        private int SELECTED_QUOTE;
+        private DataTable dt, projDT;
+        private string SELECTED_QUOTE;
         private Point lastLocation;
+        #endregion
 
+        #region Initialize Form
         public Q_Edit_Del()
         {
             InitializeComponent();
         }
+        #endregion
 
-
-        //================================================================================================================================================//
-        // QUOTE EDIT DELETE FORM                                                                                                                         //
-        //================================================================================================================================================//
+        #region Load Form
         private void Q_Edit_Del_Load(object sender, EventArgs e)
         {
             if (this.Owner.GetType() == typeof(Quotes))
@@ -48,27 +48,29 @@ namespace QTechManagementSoftware
             LoadQuote();
         }
 
-
-        //================================================================================================================================================//
-        // LOAD QUOTE DETAILS                                                                                                                             //
-        //================================================================================================================================================//
         private void LoadQuote()
         {
-            txt_QED_QNum.Text = dt.Rows[SELECTED_QUOTE]["Quote_Number"].ToString().Trim();
+            int rowIdx = 0;
 
-            dtp_QED_Date.Value = (dt.Rows[SELECTED_QUOTE]["Date_Send"].ToString() == string.Empty) ? DateTime.Now : Convert.ToDateTime(dt.Rows[SELECTED_QUOTE]["Date_Send"].ToString());
+            foreach (DataRow dr in dt.Rows)
+            {
+                if (dr["Quote_Number"].ToString().Equals(SELECTED_QUOTE))
+                    rowIdx = dt.Rows.IndexOf(dr);
+            }
 
-            txt_QED_Desc.Text = dt.Rows[SELECTED_QUOTE]["Quote_Description"].ToString().Trim();
+            txt_QED_QNum.Text = dt.Rows[rowIdx]["Quote_Number"].ToString().Trim();
 
-            if (dt.Rows[SELECTED_QUOTE]["Order_Placed"].ToString() == "Yes")
+            dtp_QED_Date.Value = (dt.Rows[rowIdx]["Date_Send"].ToString() == string.Empty) ? DateTime.Now : Convert.ToDateTime(dt.Rows[rowIdx]["Date_Send"].ToString());
+
+            txt_QED_Desc.Text = dt.Rows[rowIdx]["Quote_Description"].ToString().Trim();
+
+            if (dt.Rows[rowIdx]["Order_Placed"].ToString() == "Yes")
                 cb_QED_OrderPlaced.Checked = true;
             else cb_QED_OrderPlaced.Checked = false;
         }
+        #endregion
 
-
-        //================================================================================================================================================//
-        // DONE CLICKED                                                                                                                                   //
-        //================================================================================================================================================//
+        #region Done Clicked
         private void Btn_QED_Done_Click(object sender, EventArgs e)
         {
             string qNum = txt_QED_QNum.Text;
@@ -104,26 +106,23 @@ namespace QTechManagementSoftware
                 }
             }
         }
+        #endregion
 
-
-        //================================================================================================================================================//
-        // CLOSE CLICKED                                                                                                                                  //
-        //================================================================================================================================================//
+        #region Close Clicked
         private void Btn_QED_Close_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+        #endregion
 
-
-        //================================================================================================================================================//
-        // CANCEL CLICKED                                                                                                                                 //
-        //================================================================================================================================================//
+        #region Cancel Clicked
         private void Btn_QED_Cancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+        #endregion
 
-
+        #region Controls Effects
         //================================================================================================================================================//
         // ORDER NUMBER                                                                                                                                   //
         //================================================================================================================================================//
@@ -204,11 +203,9 @@ namespace QTechManagementSoftware
         {
             btn_QED_Cancel.ForeColor = Color.FromArgb(64, 64, 64);
         }
+        #endregion
 
-
-        //================================================================================================================================================//
-        // ENFORCE READ ONLY                                                                                                                              //
-        //================================================================================================================================================//
+        #region ReadOnly Controls
         private void Txt_QED_CCode_KeyDown(object sender, KeyEventArgs e)
         {
             e.SuppressKeyPress = true;
@@ -218,11 +215,9 @@ namespace QTechManagementSoftware
         {
             e.SuppressKeyPress = true;
         }
+        #endregion
 
-
-        //================================================================================================================================================//
-        // QUOTE EDIT DELETE                                                                                                                              //
-        //================================================================================================================================================//
+        #region Form Movement
         private void Q_Edit_Del_MouseDown(object sender, MouseEventArgs e)
         {
             mouseDown = true;
@@ -242,10 +237,9 @@ namespace QTechManagementSoftware
         {
             mouseDown = false;
         }
+        #endregion
 
-        //================================================================================================================================================//
-        // ORDER PLACED CHECKBOX                                                                                                                          //
-        //================================================================================================================================================//
+        #region Project Creation
         private void Cb_QED_OrderPlaced_OnChange(object sender, EventArgs e)
         {
             bool matchFound = false;
@@ -266,8 +260,6 @@ namespace QTechManagementSoftware
                         // Checks if there exists a project with the same Quote Number
                         foreach (DataRow row in dt.Rows)
                         {
-                            //keyValues.Add(row["Quote_Number"].ToString());
-
                             if (txt_QED_QNum.Text.Equals(row["Quote_Number"].ToString().Trim()))
                                 matchFound = true;
                         }
@@ -323,5 +315,6 @@ namespace QTechManagementSoftware
                 }
             }
         }
+        #endregion
     }
 }

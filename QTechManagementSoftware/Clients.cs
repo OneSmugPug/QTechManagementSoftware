@@ -502,11 +502,17 @@ namespace QTechManagementSoftware
         private void DGV_Clients_FilterStringChanged(object sender, EventArgs e)
         {
             bs.Filter = dgv_Clients.FilterString;
+
+            if (dgv_Clients.Rows.Count > 0 && !string.IsNullOrEmpty(dgv_Clients.Rows[0].Cells[0].Value as string))
+                DGV_CellClick(dgv_Clients, new DataGridViewCellEventArgs(0, 0));
         }
 
         private void DGV_Clients_SortStringChanged(object sender, EventArgs e)
         {
             bs.Sort = dgv_Clients.SortString;
+
+            if (dgv_Clients.Rows.Count > 0 && !string.IsNullOrEmpty(dgv_Clients.Rows[0].Cells[0].Value as string))
+                DGV_CellClick(dgv_Clients, new DataGridViewCellEventArgs(0, 0));
         }
 
 

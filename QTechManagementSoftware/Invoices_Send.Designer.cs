@@ -186,6 +186,8 @@
             this.dgv_LInvSent.Size = new System.Drawing.Size(963, 489);
             this.dgv_LInvSent.TabIndex = 24;
             this.dgv_LInvSent.TimeFilter = false;
+            this.dgv_LInvSent.SortStringChanged += new System.EventHandler(this.dgv_LInvSent_SortStringChanged);
+            this.dgv_LInvSent.FilterStringChanged += new System.EventHandler(this.dgv_LInvSent_FilterStringChanged);
             this.dgv_LInvSent.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_LInvSent_CellDoubleClick);
             // 
             // dtp_LIS_To

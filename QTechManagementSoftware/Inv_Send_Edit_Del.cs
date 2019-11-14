@@ -2,7 +2,6 @@
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Globalization;
-using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using QTechManagementSoftware.Properties;
 using System;
@@ -11,19 +10,24 @@ namespace QTechManagementSoftware
 {
     public partial class Inv_Send_Edit_Del : Form
     {
-        private bool isInter = false;
+        #region Variables
         private bool mouseDown = false;
         private DataTable dt;
-        private int SELECTED_INVOICE;
-        private string oldINum;
+        private string oldINum, SELECTED_INVOICE;
         private Point lastLocation;
+        private NumberFormatInfo nfi = (NumberFormatInfo)CultureInfo.InvariantCulture.NumberFormat.Clone();
+        #endregion
 
-
+        #region Initialize Form
         public Inv_Send_Edit_Del()
         {
             InitializeComponent();
-        }
 
+            nfi.NumberGroupSeparator = " ";
+        }
+        #endregion
+
+        #region Load Form
         private void Inv_Send_Edit_Del_Load(object sender, EventArgs e)
         {
             if (this.Owner.GetType() == typeof(Invoices_Send))
@@ -39,7 +43,6 @@ namespace QTechManagementSoftware
             }
             else
             {
-                isInter = true;
                 Int_Invoices_Send owner = (Int_Invoices_Send)this.Owner;
 
                 dt = owner.GetInvoices();
@@ -59,147 +62,89 @@ namespace QTechManagementSoftware
 
         private void LoadInvSend()
         {
-            if (dt.Rows[SELECTED_INVOICE]["Invoice_Number"].ToString().Trim().Contains("."))
+            int rowIdx = 0;
+
+            foreach (DataRow dr in dt.Rows)
             {
-                string[] strArray = dt.Rows[SELECTED_INVOICE]["Invoice_Number"].ToString().Trim().Split('.');
+                if (dr["Invoice_Number"].ToString().Equals(SELECTED_INVOICE))
+                    rowIdx = dt.Rows.IndexOf(dr);
+            }
+
+            if (dt.Rows[rowIdx]["Invoice_Number"].ToString().Trim().Contains("."))
+            {
+                string[] strArray = dt.Rows[rowIdx]["Invoice_Number"].ToString().Trim().Split('.');
 
                 txt_ISED_InvNum.Text = strArray[0];
                 txt_ISED_INInst.Text = strArray[1];
             }
-            else txt_ISED_InvNum.Text = dt.Rows[SELECTED_INVOICE]["Invoice_Number"].ToString().Trim();
+            else txt_ISED_InvNum.Text = dt.Rows[rowIdx]["Invoice_Number"].ToString().Trim();
 
-            if (dt.Rows[SELECTED_INVOICE]["Date"].ToString() != string.Empty)
-                dtp_ISED_Date.Value = Convert.ToDateTime(dt.Rows[SELECTED_INVOICE]["Date"].ToString());
+            if (dt.Rows[rowIdx]["Date"].ToString() != string.Empty)
+                dtp_ISED_Date.Value = Convert.ToDateTime(dt.Rows[rowIdx]["Date"].ToString());
             else dtp_ISED_Date.Value = DateTime.Now;
 
-            txt_ISED_Desc.Text = dt.Rows[SELECTED_INVOICE]["Description"].ToString().Trim();
+            txt_ISED_Desc.Text = dt.Rows[rowIdx]["Description"].ToString().Trim();
 
-            if (!isInter)
+            if (dt.Rows[rowIdx]["Total_Amount"].ToString() != string.Empty)
             {
-                if (dt.Rows[SELECTED_INVOICE]["Total_Amount"].ToString() != string.Empty)
-                    txt_ISED_Amt.Text = Convert.ToDecimal(dt.Rows[SELECTED_INVOICE]["Total_Amount"].ToString().Trim()).ToString("C");
-                else txt_ISED_Amt.Text = "R0.00";
+                string temp = dt.Rows[rowIdx]["Total_Amount"].ToString();
+                string currency = temp.Remove(1, temp.Length - 1);
 
-                if (dt.Rows[SELECTED_INVOICE]["VAT"].ToString() != string.Empty)
-                    txt_ISED_VAT.Text = Convert.ToDecimal(dt.Rows[SELECTED_INVOICE]["VAT"].ToString().Trim()).ToString("C");
-                else txt_ISED_VAT.Text = "R0.00";
-            }
-            else
-            {
-                if (dt.Rows[SELECTED_INVOICE]["Total_Amount"].ToString() != string.Empty)
-                    txt_ISED_Amt.Text = Convert.ToDecimal(dt.Rows[SELECTED_INVOICE]["Total_Amount"].ToString().Trim()).ToString("C", (IFormatProvider)CultureInfo.GetCultureInfo("en-US"));
-                else txt_ISED_Amt.Text = "$0.00";
+                for (int i = 0; i < ddb_InvSendCur.Items.Length - 1; i++)
+                {
+                    if (ddb_InvSendCur.Items[i].Equals(currency))
+                        ddb_InvSendCur.selectedIndex = i;
+                }
 
-                if (dt.Rows[SELECTED_INVOICE]["VAT"].ToString() != string.Empty)
-                    txt_ISED_VAT.Text = Convert.ToDecimal(dt.Rows[SELECTED_INVOICE]["VAT"].ToString().Trim()).ToString("C", (IFormatProvider)CultureInfo.GetCultureInfo("en-US"));
-                else txt_ISED_VAT.Text = "$0.00";
-            }
+                txt_ISED_Amt.Text = temp.Remove(0, 1).Trim();
+            }              
+            else txt_ISED_Amt.Text = "0.00";
 
-            if (dt.Rows[SELECTED_INVOICE]["Paid"].ToString() == "Yes")
+            if (dt.Rows[rowIdx]["VAT"].ToString() != string.Empty)
+                txt_ISED_VAT.Text = dt.Rows[rowIdx]["VAT"].ToString().Trim();
+            else txt_ISED_VAT.Text = ddb_InvSendCur.selectedValue + "0.00";
+
+            if (dt.Rows[rowIdx]["Paid"].ToString() == "Yes")
             {
                 cb_ISED_Paid.Checked = true;
                 dtp_ISED_DatePaid.Enabled = true;
             }
             else cb_ISED_Paid.Checked = false;
 
-            if (dt.Rows[SELECTED_INVOICE]["Date_Paid"].ToString() != string.Empty)
-                dtp_ISED_DatePaid.Value = Convert.ToDateTime(dt.Rows[SELECTED_INVOICE]["Date_Paid"].ToString());
+            if (dt.Rows[rowIdx]["Date_Paid"].ToString() != string.Empty)
+                dtp_ISED_DatePaid.Value = Convert.ToDateTime(dt.Rows[rowIdx]["Date_Paid"].ToString());
             else dtp_ISED_DatePaid.Value = DateTime.Now;
         }
+        #endregion
 
-
-        //================================================================================================================================================//
-        // FORMAT MONEY TEXTBOX                                                                                                                           //
-        //================================================================================================================================================//
+        #region Amount Value Changed
         private void Txt_ISED_Amt_TextChanged(object sender, EventArgs e)
         {
-            if (!isInter)
+            if (Decimal.TryParse(txt_ISED_Amt.Text.Replace(",", string.Empty).Replace("R", string.Empty).Replace(".", string.Empty).TrimStart('0'), out decimal ul))
             {
-                if (Decimal.TryParse(txt_ISED_Amt.Text.Replace(",", string.Empty).Replace("R", string.Empty).Replace(".", string.Empty).TrimStart('0'), out decimal ul))
+                ul /= 100;
+
+                txt_ISED_Amt.TextChanged -= Txt_ISED_Amt_TextChanged;
+
+                txt_ISED_Amt.Text = ul.ToString("N2", nfi);
+                txt_ISED_Amt.TextChanged += Txt_ISED_Amt_TextChanged;
+                txt_ISED_Amt.Select(txt_ISED_Amt.Text.Length, 0);
+
+                if (ddb_InvSendCur.selectedValue.Equals("R"))
                 {
-                    ul /= 100;
-
-                    txt_ISED_Amt.TextChanged -= Txt_ISED_Amt_TextChanged;
-
-                    txt_ISED_Amt.Text = string.Format(CultureInfo.CreateSpecificCulture("en-ZA"), "{0:C2}", ul);
-                    txt_ISED_Amt.TextChanged += Txt_ISED_Amt_TextChanged;
-                    txt_ISED_Amt.Select(txt_ISED_Amt.Text.Length, 0);
+                    decimal temp = decimal.Round(0.15m * ul, 2);
+                    txt_ISED_VAT.Text = ddb_InvSendCur.selectedValue + " " + temp.ToString("N2", nfi);
                 }
-
-                if (!TextisValid(txt_ISED_Amt.Text))
+                else
                 {
-                    txt_ISED_Amt.Text = "R0.00";
-                    txt_ISED_Amt.Select(txt_ISED_Amt.Text.Length, 0);
-                }
-            }
-            else
-            {
-                if (Decimal.TryParse(txt_ISED_Amt.Text.Replace(",", string.Empty).Replace("$", string.Empty).Replace(".", string.Empty).TrimStart('0'), out decimal ul))
-                {
-                    ul /= 100;
-
-                    txt_ISED_Amt.TextChanged -= Txt_ISED_Amt_TextChanged;
-
-                    txt_ISED_Amt.Text = string.Format(CultureInfo.CreateSpecificCulture("en-US"), "{0:C2}", ul);
-                    txt_ISED_Amt.TextChanged += Txt_ISED_Amt_TextChanged;
-                    txt_ISED_Amt.Select(txt_ISED_Amt.Text.Length, 0);
-                }
-
-                if (!TextisValid(txt_ISED_Amt.Text))
-                {
-                    txt_ISED_Amt.Text = "$0.00";
-                    txt_ISED_Amt.Select(txt_ISED_Amt.Text.Length, 0);
+                    if (!txt_ISED_VAT.Text.Remove(0, 1).Trim().Equals("0.00"))
+                        txt_ISED_VAT.Text = ddb_InvSendCur.selectedValue + " " + 0.00m;
                 }
             }
         }
+        #endregion
 
-        private bool TextisValid(string text)
-        {
-            return new Regex("[^0-9]").IsMatch(text);
-        }
-
-        private void Txt_ISED_VAT_TextChanged(object sender, EventArgs e)
-        {
-            if (!isInter)
-            {
-                if (Decimal.TryParse(txt_ISED_VAT.Text.Replace(",", string.Empty).Replace("R", string.Empty).Replace(".", string.Empty).TrimStart('0'), out decimal ul))
-                {
-                    ul /= 100;
-
-                    txt_ISED_VAT.TextChanged -= Txt_ISED_VAT_TextChanged;
-
-                    txt_ISED_VAT.Text = string.Format(CultureInfo.CreateSpecificCulture("en-ZA"), "{0:C2}", ul);
-                    txt_ISED_VAT.TextChanged += Txt_ISED_VAT_TextChanged;
-                    txt_ISED_VAT.Select(txt_ISED_VAT.Text.Length, 0);
-                }
-
-                if (TextisValid(txt_ISED_VAT.Text))
-                {
-                    txt_ISED_VAT.Text = "R0.00";
-                    txt_ISED_VAT.Select(txt_ISED_VAT.Text.Length, 0);
-                }
-            }
-            else
-            {
-                if (Decimal.TryParse(txt_ISED_VAT.Text.Replace(",", string.Empty).Replace("$", string.Empty).Replace(".", string.Empty).TrimStart('0'), out decimal ul))
-                {
-                    ul /= 100;
-
-                    txt_ISED_VAT.TextChanged -= Txt_ISED_VAT_TextChanged;
-
-                    txt_ISED_VAT.Text = string.Format(CultureInfo.CreateSpecificCulture("en-US"), "{0:C2}", ul);
-                    txt_ISED_VAT.TextChanged += Txt_ISED_VAT_TextChanged;
-                    txt_ISED_VAT.Select(txt_ISED_VAT.Text.Length, 0);
-                }
-
-                if (!TextisValid(txt_ISED_VAT.Text))
-                {
-                    txt_ISED_VAT.Text = "$0.00";
-                    txt_ISED_VAT.Select(txt_ISED_VAT.Text.Length, 0);
-                }
-            }
-        }
-
+        #region Done Clicked
         private void Btn_ISED_Done_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Are you sure you want to update invoice?", "Confirmation", MessageBoxButtons.YesNo) != DialogResult.Yes)
@@ -211,58 +156,10 @@ namespace QTechManagementSoftware
                 {
                     using (SqlCommand cmd = new SqlCommand("UPDATE Invoices_Send SET Invoice_Number = @INum, Date = @Date, Description = @Desc, Total_Amount = @Amt, VAT = @VAT, Paid = @Paid, Date_Paid = @DPaid WHERE Invoice_Number = @oldINum", conn))
                     {
-                        decimal amt;
-                        decimal VAT;
-
-                        if (!isInter)
-                        {
-                            if (txt_ISED_Amt.Text.Contains("R"))
-                            {
-                                if (txt_ISED_Amt.Text.Replace("R", string.Empty) == "0.00")
-                                {
-                                    amt = 0.00m;
-                                }
-                                else amt = Decimal.Parse(txt_ISED_Amt.Text.Replace("R", string.Empty), CultureInfo.GetCultureInfo("en-ZA"));
-                            }
-                            else amt = 0.00m;
-
-                            if (txt_ISED_VAT.Text.Contains("R"))
-                            {
-                                if (txt_ISED_VAT.Text.Replace("R", string.Empty) == "0.00")
-                                {
-                                    VAT = 0.00m;
-                                }
-                                else VAT = Decimal.Parse(txt_ISED_VAT.Text.Replace("R", string.Empty), CultureInfo.GetCultureInfo("en-ZA"));
-                            }
-                            else VAT = 0.00m;
-                        }
-                        else
-                        {
-                            if (txt_ISED_Amt.Text.Contains("$"))
-                            {
-                                if (txt_ISED_Amt.Text.Replace("$", string.Empty) == "0.00")
-                                {
-                                    amt = 0.00m;
-                                }
-                                else amt = Decimal.Parse(txt_ISED_Amt.Text.Replace("$", string.Empty), CultureInfo.GetCultureInfo("en-US"));
-                            }
-                            else amt = 0.00m;
-
-                            if (txt_ISED_VAT.Text.Contains("$"))
-                            {
-                                if (txt_ISED_VAT.Text.Replace("$", string.Empty) == "0.00")
-                                {
-                                    VAT = 0.00m;
-                                }
-                                else VAT = Decimal.Parse(txt_ISED_VAT.Text.Replace("$", string.Empty), CultureInfo.GetCultureInfo("en-US"));
-                            }
-                            else VAT = 0.00m;
-                        }
-
                         cmd.Parameters.AddWithValue("@Date", dtp_ISED_Date.Value);
                         cmd.Parameters.AddWithValue("@Desc", txt_ISED_Desc.Text.Trim());
-                        cmd.Parameters.AddWithValue("@Amt", amt);
-                        cmd.Parameters.AddWithValue("@VAT", VAT);
+                        cmd.Parameters.AddWithValue("@Amt", ddb_InvSendCur.selectedValue + " " + txt_ISED_Amt.Text);
+                        cmd.Parameters.AddWithValue("@VAT", txt_ISED_VAT.Text);
 
                         if (cb_ISED_Paid.Checked)
                         {
@@ -294,44 +191,26 @@ namespace QTechManagementSoftware
                 }
             }
         }
+        #endregion
 
+        #region Close Clicked
         private void Btn_ISED_Close_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+        #endregion
 
-        private void Txt_ISED_Amt_Leave(object sender, EventArgs e)
-        {
-            if (!isInter)
-            {
-                string value = txt_ISED_Amt.Text.Replace("R", string.Empty);
-
-                decimal ul;
-
-                if (decimal.TryParse(value, out ul))
-                {
-                    ul *= 0.15m;
-
-                    txt_ISED_VAT.Text = string.Format(CultureInfo.CreateSpecificCulture("en-ZA"), "{0:C2}", ul);
-                }
-            }
-            else
-            {
-                string value = txt_ISED_Amt.Text.Replace("$", string.Empty);
-
-                decimal ul = decimal.Parse(value, CultureInfo.GetCultureInfo("en-US"));
-
-                ul *= 0.15m;
-
-                txt_ISED_VAT.Text = string.Format(CultureInfo.CreateSpecificCulture("en-US"), "{0:C2}", ul);
-            }
-        }
-
+        #region Cancel Clicked
         private void Btn_ISED_Cancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+        #endregion
 
+        #region Controls Effects
+        //================================================================================================================================================//
+        // INVOICE NUMBER                                                                                                                                 //
+        //================================================================================================================================================//
         private void Txt_ISED_InvNum_MouseEnter(object sender, EventArgs e)
         {
             ln_ISED_InvNum.LineColor = Color.FromArgb(19, 118, 188);
@@ -348,6 +227,10 @@ namespace QTechManagementSoftware
                 ln_ISED_InvNum.LineColor = Color.Gray;
         }
 
+
+        //================================================================================================================================================//
+        // INVOICE INSTANCE NUMBER                                                                                                                        //
+        //================================================================================================================================================//
         private void Txt_ISED_INInst_MouseEnter(object sender, EventArgs e)
         {
             ln_ISED_INInst.LineColor = Color.FromArgb(19, 118, 188);
@@ -364,6 +247,10 @@ namespace QTechManagementSoftware
                 ln_ISED_INInst.LineColor = Color.Gray;
         }
 
+
+        //================================================================================================================================================//
+        // DESCRIPTION                                                                                                                                    //
+        //================================================================================================================================================//
         private void Txt_ISED_Desc_Leave(object sender, EventArgs e)
         {
             ln_ISED_Desc.LineColor = Color.Gray;
@@ -380,6 +267,10 @@ namespace QTechManagementSoftware
                 ln_ISED_Desc.LineColor = Color.Gray;
         }
 
+
+        //================================================================================================================================================//
+        // AMOUNT                                                                                                                                         //
+        //================================================================================================================================================//
         private void Txt_ISED_Amt_MouseEnter(object sender, EventArgs e)
         {
             ln_ISED_Amt.LineColor = Color.FromArgb(19, 118, 188);
@@ -391,6 +282,15 @@ namespace QTechManagementSoftware
                 ln_ISED_Amt.LineColor = Color.Gray;
         }
 
+        private void Txt_ISED_Amt_Leave(object sender, EventArgs e)
+        {
+            ln_ISED_Amt.LineColor = Color.Gray;
+        }
+
+
+        //================================================================================================================================================//
+        // VAT                                                                                                                                            //
+        //================================================================================================================================================//
         private void Txt_ISED_VAT_Leave(object sender, EventArgs e)
         {
             ln_ISED_VAT.LineColor = Color.Gray;
@@ -407,6 +307,10 @@ namespace QTechManagementSoftware
                 ln_ISED_VAT.LineColor = Color.Gray;
         }
 
+
+        //================================================================================================================================================//
+        // CLOSE BUTTON                                                                                                                                   //
+        //================================================================================================================================================//
         private void Btn_ISED_Close_MouseEnter(object sender, EventArgs e)
         {
             btn_ISED_Close.Image = Resources.close_white;
@@ -417,6 +321,10 @@ namespace QTechManagementSoftware
             btn_ISED_Close.Image = Resources.close_black;
         }
 
+
+        //================================================================================================================================================//
+        // DONE BUTTON                                                                                                                                    //
+        //================================================================================================================================================//
         private void Btn_ISED_Done_MouseEnter(object sender, EventArgs e)
         {
             btn_ISED_Done.ForeColor = Color.White;
@@ -427,6 +335,10 @@ namespace QTechManagementSoftware
             btn_ISED_Done.ForeColor = Color.FromArgb(64, 64, 64);
         }
 
+
+        //================================================================================================================================================//
+        // CANCEL BUTTON                                                                                                                                  //
+        //================================================================================================================================================//
         private void Btn_ISED_Cancel_MouseEnter(object sender, EventArgs e)
         {
             btn_ISED_Cancel.ForeColor = Color.White;
@@ -436,7 +348,9 @@ namespace QTechManagementSoftware
         {
             btn_ISED_Cancel.ForeColor = Color.FromArgb(64, 64, 64);
         }
+        #endregion
 
+        #region ReadOnly Controls
         private void Txt_ISED_CCode_KeyDown(object sender, KeyEventArgs e)
         {
             e.SuppressKeyPress = true;
@@ -447,6 +361,14 @@ namespace QTechManagementSoftware
             e.SuppressKeyPress = true;
         }
 
+        private void txt_ISED_Amt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (!(e.KeyCode >= Keys.D0 && e.KeyCode <= Keys.D9) && !(e.KeyCode >= Keys.NumPad0 && e.KeyCode <= Keys.NumPad9) && !(e.KeyCode == Keys.Back))
+                e.SuppressKeyPress = true;
+        }
+        #endregion
+
+        #region Form Movement
         private void Inv_Send_Edit_Del_MouseDown(object sender, MouseEventArgs e)
         {
             mouseDown = true;
@@ -466,12 +388,39 @@ namespace QTechManagementSoftware
         {
             mouseDown = false;
         }
+        #endregion
 
+        #region Currency Symbol Change
+        private void ddb_InvSendCur_onItemSelected(object sender, EventArgs e)
+        {
+            if (!txt_ISED_VAT.Text.Equals(string.Empty))
+            {
+                if (ddb_InvSendCur.selectedValue.Equals("R"))
+                {
+
+                    if (Decimal.TryParse(txt_ISED_Amt.Text.Replace(",", string.Empty).Replace(".", string.Empty).TrimStart('0'), out decimal ul))
+                    {
+                        ul /= 100;
+
+                        decimal vat = decimal.Round(0.15m * ul, 2);
+                        txt_ISED_Amt.Text = ddb_InvSendCur.selectedValue + " " + vat.ToString("N2", nfi);
+                    }
+                }
+                else
+                {
+                    txt_ISED_Amt.Text = ddb_InvSendCur.selectedValue + " " + 0.00m;
+                }
+            }
+        }
+        #endregion
+
+        #region Checkbox Checked/Unchecked
         private void Cb_ISED_Paid_OnChange(object sender, EventArgs e)
         {
             if (cb_ISED_Paid.Checked)
                 dtp_ISED_DatePaid.Enabled = true;
             else dtp_ISED_DatePaid.Enabled = false;
         }
+        #endregion
     }
 }

@@ -9,21 +9,21 @@ namespace QTechManagementSoftware
 {
     public partial class Orders : Form
     {
+        #region Variables
         private BindingSource bs = new BindingSource();
         private bool isFiltered = false;
-        private int SELECTED_ORDER;
-        private string clientName, clientCode;
+        private string clientName, clientCode, SELECTED_ORDER;
         private DataTable dt;
+        #endregion
 
+        #region Initialize Form
         public Orders()
         {
             InitializeComponent();
         }
+        #endregion
 
-
-        //================================================================================================================================================//
-        // ORDERS FORM LOAD                                                                                                                               //
-        //================================================================================================================================================//
+        #region Load Form
         private void Orders_Load(object sender, EventArgs e)
         {
             dtp_LO_From.Value = DateTime.Now;
@@ -33,7 +33,6 @@ namespace QTechManagementSoftware
 
             LoadOrders();
 
-            dgv_LOrders.Columns[4].DefaultCellStyle.Format = "c";
             dgv_LOrders.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
 
             dgv_LOrders.Columns[5].DefaultCellStyle.Format = "p0";
@@ -46,10 +45,6 @@ namespace QTechManagementSoftware
             txt_LO_CName.Text = clientName;
         }
 
-
-        //================================================================================================================================================//
-        // LOAD ORDER DETAILS                                                                                                                             //
-        //================================================================================================================================================//
         private void LoadOrders()
         {
             using (SqlConnection conn = DBUtils.GetDBConnection())
@@ -62,9 +57,11 @@ namespace QTechManagementSoftware
 
             bs.DataSource = dt;
         }
+        #endregion
 
+        #region Getters & Setters
         //================================================================================================================================================//
-        // SET NEW CLIENT                                                                                                                                 //
+        // SETTERS                                                                                                                                        //
         //================================================================================================================================================//
         public void SetClient(string selectedClientCode, string selectedClientName)
         {
@@ -72,9 +69,26 @@ namespace QTechManagementSoftware
             clientName = selectedClientName;
         }
 
+
         //================================================================================================================================================//
-        // NEW ORDER ADD CLICKED                                                                                                                          //
+        // GETTERS                                                                                                                                        //
         //================================================================================================================================================//
+        public string GetSelectedOrder()
+        {
+            return SELECTED_ORDER;
+        }
+
+        public DataTable GetOrders()
+        {
+            return dt;
+        }
+
+        public string GetClientCode() { return clientCode; }
+
+        public string GetClientName() { return clientName; }
+        #endregion
+
+        #region New Order Add Clicked
         private void Btn_AddOrder_Click(object sender, EventArgs e)
         {
             if (isFiltered)
@@ -88,29 +102,9 @@ namespace QTechManagementSoftware
 
             LoadOrders();
         }
+        #endregion
 
-
-        //================================================================================================================================================//
-        // GETTERS                                                                                                                                        //
-        //================================================================================================================================================//
-        public int GetSelectedOrder()
-        {
-            return SELECTED_ORDER;
-        }
-
-        public DataTable GetOrders()
-        {
-            return dt;
-        }
-
-        public string GetClientCode() { return clientCode; }
-
-        public string GetClientName() { return clientName; }
-
-
-        //================================================================================================================================================//
-        // FILTERS                                                                                                                                        //
-        //================================================================================================================================================//
+        #region DGV Filters
         private void Dgv_Order_FilterStringChanged(object sender, EventArgs e)
         {
             bs.Filter = dgv_LOrders.FilterString;
@@ -152,13 +146,12 @@ namespace QTechManagementSoftware
             btn_LO_Filter.Visible = true;
             btn_LO_ClearFilter.Visible = false;
         }
+        #endregion
 
+        #region DGV Cell DoubleClicked
         private void Dgv_Order_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (isFiltered)
-                RemoveFilter();
-
-            SELECTED_ORDER = e.RowIndex;
+            SELECTED_ORDER = dgv_LOrders[2, e.RowIndex].Value.ToString();
 
             using (O_Edit_Del frmOED = new O_Edit_Del())
             {
@@ -168,7 +161,9 @@ namespace QTechManagementSoftware
 
             LoadOrders();
         }
+        #endregion
 
+        #region Controls Effects
         //================================================================================================================================================//
         // NEW ORDER ADD BUTTON                                                                                                                           //
         //================================================================================================================================================//
@@ -213,11 +208,9 @@ namespace QTechManagementSoftware
         {
             btn_LO_ClearFilter.ForeColor = Color.FromArgb(64, 64, 64);
         }
+        #endregion
 
-
-        //================================================================================================================================================//
-        // ENFORCE READONLY                                                                                                                               //
-        //================================================================================================================================================//
+        #region ReadOnly Controls
         private void Txt_LO_CCode_KeyDown(object sender, KeyEventArgs e)
         {
             e.SuppressKeyPress = true;
@@ -227,5 +220,6 @@ namespace QTechManagementSoftware
         {
             e.SuppressKeyPress = true;
         }
+        #endregion
     }
 }

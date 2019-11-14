@@ -14,22 +14,49 @@ namespace QTechManagementSoftware
 {
     public partial class Home : Form
     {
-        private bool mouseDown;
-        private bool isConOpen = false, isTabPanelVisible = false; //isConSelected = false;
-        private string selected = string.Empty, selectedTab = string.Empty;
-        private Form curTabForm;
-        private Form curForm = null;
-        private string selectedClientName, selectedClientCode;
-
+        #region Variables
+        private bool mouseDown, isConOpen = false, isTabPanelVisible = false;
+        private string selected = string.Empty, selectedTab = string.Empty, 
+            selectedClientName, selectedClientCode, selectedProjectCode;
+        private Form curTabForm, curForm = null;
+        private int count = 0;
         private Point lastLocation;
-
         private Bunifu.Framework.UI.BunifuCustomLabel lblComing;
 
+        private const int
+            HTLEFT = 10,
+            HTRIGHT = 11,
+            HTTOP = 12,
+            HTTOPLEFT = 13,
+            HTTOPRIGHT = 14,
+            HTBOTTOM = 15,
+            HTBOTTOMLEFT = 16,
+            HTBOTTOMRIGHT = 17,
+            SNAP_SIZE = 3,
+            _ = 10;
+
+        Rectangle Top { get { return new Rectangle(0, 0, this.ClientSize.Width, _); } }
+        Rectangle Left { get { return new Rectangle(0, 0, _, this.ClientSize.Height); } }
+        Rectangle Bottom { get { return new Rectangle(0, this.ClientSize.Height - _, this.ClientSize.Width, _); } }
+        Rectangle Right { get { return new Rectangle(this.ClientSize.Width - _, 0, _, this.ClientSize.Height); } }
+
+        Rectangle TopLeft { get { return new Rectangle(0, 0, _, _); } }
+        Rectangle TopRight { get { return new Rectangle(this.ClientSize.Width - _, 0, _, _); } }
+        Rectangle BottomLeft { get { return new Rectangle(0, this.ClientSize.Height - _, _, _); } }
+        Rectangle BottomRight { get { return new Rectangle(this.ClientSize.Width - _, this.ClientSize.Height - _, _, _); } }
+        #endregion
+
+        #region Initialize Form
         public Home()
         {
             InitializeComponent();
-        }
 
+            this.DoubleBuffered = true;
+            this.SetStyle(ControlStyles.ResizeRedraw, true); // this is to avoid visual artifacts
+        }
+        #endregion
+
+        #region Load Form
         private void Home_Load(object sender, EventArgs e)
         {
             btn_Home.BackColor = Color.FromArgb(19, 118, 188);
@@ -40,122 +67,12 @@ namespace QTechManagementSoftware
 
             CreateDashboardLabel();
         }
-
-        private void CreateDashboardLabel()
-        {
-            lblComing = new Bunifu.Framework.UI.BunifuCustomLabel();
-            lblComing.Text = "Comming Soon!";
-            lblComing.Font = new Font("Microsoft Sans Serif", 15);
-            lblComing.AutoSize = true;
-            lblComing.ForeColor = Color.DarkGray;
-            lblComing.Location = new Point((pnl_Home.Width / 2) - (lblComing.Width / 2), (pnl_Home.Height / 2) - (lblComing.Height / 2));
-
-            pnl_Home.Controls.Add(lblComing);
-        }
+        #endregion
 
 
-        //================================================================================================================================================//
-        // CLOSE FORM                                                                                                                                     //
-        //================================================================================================================================================//
-        private void Btn_Home_Close_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void Btn_Home_Close_MouseEnter(object sender, EventArgs e)
-        {
-            btn_Home_Close.Image = Resources.close_white;
-        }
-
-        private void Btn_Home_Close_MouseLeave(object sender, EventArgs e)
-        {
-            btn_Home_Close.Image = Resources.close_black;
-        }
-
-
-        //================================================================================================================================================//
-        // MAXIMIZE FORM                                                                                                                                  //
-        //================================================================================================================================================//
-        private void Btn_Home_Max_MouseEnter(object sender, EventArgs e)
-        {
-            btn_Home_Max.Image = Resources.maximize_white;
-        }
-
-        private void Btn_Home_Max_MouseLeave(object sender, EventArgs e)
-        {
-            btn_Home_Max.Image = Resources.maximize_black;
-        }
-
-        private void Btn_Home_Max_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Maximized;
-
-            if (curForm != null && !isTabPanelVisible)
-            {
-                pnl_Home.Controls.Clear();
-                SetFormInPanel();
-            }
-            else if (curTabForm != null && isTabPanelVisible)
-            {
-                pnl_Local.Controls.Clear();
-                pnl_Int.Controls.Clear();
-                SetFormInTabPanel();
-            }
-
-            btn_Home_Max.Visible = false;
-            btn_Home_Nor.Visible = true;
-            lblComing.Location = new Point((pnl_Home.Width / 2) - (lblComing.Width / 2), (pnl_Home.Height / 2) - (lblComing.Height / 2));
-        }
-
-
-        //================================================================================================================================================//
-        // NORMALIZE FORM                                                                                                                                 //
-        //================================================================================================================================================//
-        private void Btn_Home_Nor_MouseEnter(object sender, EventArgs e)
-        {
-            btn_Home_Nor.Image = Resources.restore_white;
-        }
-
-        private void Btn_Home_Nor_MouseLeave(object sender, EventArgs e)
-        {
-            btn_Home_Nor.Image = Resources.restore_black2;
-        }
-
-        private void Btn_Home_Nor_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Normal;
-            btn_Home_Nor.Visible = false;
-            btn_Home_Max.Visible = true;
-            lblComing.Location = new Point((pnl_Home.Width / 2) - (lblComing.Width / 2), (pnl_Home.Height / 2) - (lblComing.Height / 2));
-
-            //tabControlX1.RefreshPanels();
-        }
-
-
-        //================================================================================================================================================//
-        // MINIMIZE FORM                                                                                                                                  //
-        //================================================================================================================================================//
-        private void Btn_Home_Min_MouseEnter(object sender, EventArgs e)
-        {
-            btn_Home_Min.Image = Resources.minimize_white;
-        }
-
-        private void Btn_Home_Min_MouseLeave(object sender, EventArgs e)
-        {
-            btn_Home_Min.Image = Resources.minimize_grey;
-        }
-
-        private void Btn_Home_Min_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
-
-        //================================================================================================================================================//
-        // DASHBOARD BUTTON                                                                                                                               //
-        //================================================================================================================================================//
+        #region Dashboard
         private void Btn_Home_Click(object sender, EventArgs e)
-        { 
+        {
             ResetButtons(selected);
             SetSelectedButton(sender);
 
@@ -190,10 +107,21 @@ namespace QTechManagementSoftware
             }
         }
 
+        private void CreateDashboardLabel()
+        {
+            lblComing = new Bunifu.Framework.UI.BunifuCustomLabel();
+            lblComing.Text = "Comming Soon!";
+            lblComing.Font = new Font("Microsoft Sans Serif", 15);
+            lblComing.AutoSize = true;
+            lblComing.ForeColor = Color.DarkGray;
+            lblComing.Location = new Point((pnl_Home.Width / 2) - (lblComing.Width / 2), (pnl_Home.Height / 2) - (lblComing.Height / 2));
 
-        //================================================================================================================================================//
-        // LOCAL BUTTON                                                                                                                                   //
-        //================================================================================================================================================//
+            pnl_Home.Controls.Add(lblComing);
+        }
+        #endregion
+
+
+        #region Local
         private void Btn_Local_Click(object sender, EventArgs e)
         {
             ResetButtons(selected);
@@ -240,11 +168,9 @@ namespace QTechManagementSoftware
 
             isTabPanelVisible = true;
         }
+        #endregion
 
-
-        //================================================================================================================================================//
-        // LOCAL ORDERS                                                                                                                                   //
-        //================================================================================================================================================//
+        #region Local Orders
         private void btn_LOrders_Click(object sender, EventArgs e)
         {
             ResetTabButtons(selectedTab);
@@ -273,11 +199,9 @@ namespace QTechManagementSoftware
                 btn_LOrders.ForeColor = Color.White;
             }
         }
+        #endregion
 
-
-        //================================================================================================================================================//
-        // LOCAL QUOTES                                                                                                                                   //
-        //================================================================================================================================================//
+        #region Local Quotes
         private void btn_LQuotes_Click(object sender, EventArgs e)
         {
             ResetTabButtons(selectedTab);
@@ -306,11 +230,9 @@ namespace QTechManagementSoftware
                 btn_LQuotes.ForeColor = Color.White;
             }
         }
+        #endregion
 
-
-        //================================================================================================================================================//
-        // LOCAL INVOICES SENT                                                                                                                            //
-        //================================================================================================================================================//
+        #region Local Invoices Sent
         private void btn_LInvSend_Click(object sender, EventArgs e)
         {
             ResetTabButtons(selectedTab);
@@ -339,11 +261,10 @@ namespace QTechManagementSoftware
                 btn_LInvSend.ForeColor = Color.White;
             }
         }
+        #endregion
 
 
-        //================================================================================================================================================//
-        // INTERNATIONAL BUTTON                                                                                                                           //
-        //================================================================================================================================================//
+        #region International
         private void Btn_Int_Click(object sender, EventArgs e)
         {
             ResetButtons(selected);
@@ -390,11 +311,9 @@ namespace QTechManagementSoftware
 
             isTabPanelVisible = true;
         }
+        #endregion
 
-
-        //================================================================================================================================================//
-        // INTERNATIONAL ORDERS BUTTON                                                                                                                    //
-        //================================================================================================================================================//
+        #region International Orders
         private void btn_IOrders_Click(object sender, EventArgs e)
         {
             ResetTabButtons(selectedTab);
@@ -423,11 +342,9 @@ namespace QTechManagementSoftware
                 btn_IOrders.ForeColor = Color.White;
             }
         }
+        #endregion
 
-
-        //================================================================================================================================================//
-        // INTERNATIONAL QUOTES BUTTON                                                                                                                    //
-        //================================================================================================================================================//
+        #region International Quotes
         private void btn_IQuotes_Click(object sender, EventArgs e)
         {
             ResetTabButtons(selectedTab);
@@ -456,11 +373,9 @@ namespace QTechManagementSoftware
                 btn_IQuotes.ForeColor = Color.White;
             }
         }
+        #endregion
 
-
-        //================================================================================================================================================//
-        // INTERNATIONAL INVOICES SENT BUTTON                                                                                                             //
-        //================================================================================================================================================//
+        #region International Invoices Sent
         private void btn_IInvSend_Click(object sender, EventArgs e)
         {
             ResetTabButtons(selectedTab);
@@ -489,11 +404,10 @@ namespace QTechManagementSoftware
                 btn_IInvSend.ForeColor = Color.White;
             }
         }
+        #endregion
 
 
-        //================================================================================================================================================//
-        // CONTRACTORS BUTTON                                                                                                                             //
-        //================================================================================================================================================//
+        #region Contractors
         private void Btn_Contractors_Click(object sender, EventArgs e)
         {
             ResetButtons(selected);
@@ -528,11 +442,9 @@ namespace QTechManagementSoftware
                 btn_Contractors.Image = Resources.contr_white;
             }
         }
+        #endregion
 
-
-        //================================================================================================================================================//
-        // CONTRACTORS OUTSTANDING REMITTANCES BUTTON                                                                                                     //
-        //================================================================================================================================================//
+        #region Outstanding Remittances
         private void Btn_C_NoRem_Click(object sender, EventArgs e)
         {
             ResetButtons(selected);
@@ -561,11 +473,9 @@ namespace QTechManagementSoftware
                 btn_C_NoRem.ForeColor = Color.White;
             }
         }
+        #endregion
 
-
-        //================================================================================================================================================//
-        // CONTRACTORS OUTSTANDING INVOICES BUTTON                                                                                                        //
-        //================================================================================================================================================//
+        #region Outstanding Invoices
         private void btn_C_NoInv_Click(object sender, EventArgs e)
         {
             ResetButtons(selected);
@@ -594,11 +504,10 @@ namespace QTechManagementSoftware
                 btn_C_NoInv.ForeColor = Color.White;
             }
         }
+        #endregion
 
 
-        //================================================================================================================================================//
-        // PROJECTS BUTTON                                                                                                                                //
-        //================================================================================================================================================//
+        #region Projects
         private void Btn_Projects_Click(object sender, EventArgs e)
         {
             ResetButtons(selected);
@@ -631,8 +540,12 @@ namespace QTechManagementSoftware
             }
         }
 
-        public void SetProjExpForm(Proj_AddExp frmAE)
+        public void SetProjExpForm()
         {
+            Proj_AddExp frmAE = new Proj_AddExp();
+            frmAE.SetProjectCode(selectedProjectCode);
+            frmAE.SetHome(this);
+
             curForm = frmAE;
 
             pnl_Home.Controls.Clear();
@@ -644,10 +557,15 @@ namespace QTechManagementSoftware
             btn_Projects.PerformClick();
         }
 
+        public void ProjectsDoubleClick(string selectedProjectCode)
+        {
+            this.selectedProjectCode = selectedProjectCode;
 
-        //================================================================================================================================================//
-        // PETTY CASH BUTTON                                                                                                                              //
-        //================================================================================================================================================//
+            SetProjExpForm();
+        }
+        #endregion
+
+        #region Petty Cash
         private void Btn_PettyCash_Click(object sender, EventArgs e)
         {
             ResetButtons(selected);
@@ -678,11 +596,98 @@ namespace QTechManagementSoftware
                 btn_PettyCash.Image = Resources.cash_White;
             }
         }
+        #endregion
 
 
-        //================================================================================================================================================//
-        // SET & GET SELECTED BUTTON                                                                                                                      //
-        //================================================================================================================================================//
+        #region Close Clicked
+        private void Btn_Home_Close_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Btn_Home_Close_MouseEnter(object sender, EventArgs e)
+        {
+            btn_Home_Close.Image = Resources.close_white;
+        }
+
+        private void Btn_Home_Close_MouseLeave(object sender, EventArgs e)
+        {
+            btn_Home_Close.Image = Resources.close_black;
+        }
+        #endregion
+
+        #region Maximize Clicked
+        private void Btn_Home_Max_MouseEnter(object sender, EventArgs e)
+        {
+            btn_Home_Max.Image = Resources.maximize_white;
+        }
+
+        private void Btn_Home_Max_MouseLeave(object sender, EventArgs e)
+        {
+            btn_Home_Max.Image = Resources.maximize_black;
+        }
+
+        private void Btn_Home_Max_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
+
+            if (curForm != null && !isTabPanelVisible)
+            {
+                pnl_Home.Controls.Clear();
+                SetFormInPanel();
+            }
+            else if (curTabForm != null && isTabPanelVisible)
+            {
+                pnl_Local.Controls.Clear();
+                pnl_Int.Controls.Clear();
+                SetFormInTabPanel();
+            }
+
+            btn_Home_Max.Visible = false;
+            btn_Home_Nor.Visible = true;
+            lblComing.Location = new Point((pnl_Home.Width / 2) - (lblComing.Width / 2), (pnl_Home.Height / 2) - (lblComing.Height / 2));
+        }
+        #endregion
+
+        #region Normalize Clicked
+        private void Btn_Home_Nor_MouseEnter(object sender, EventArgs e)
+        {
+            btn_Home_Nor.Image = Resources.restore_white;
+        }
+
+        private void Btn_Home_Nor_MouseLeave(object sender, EventArgs e)
+        {
+            btn_Home_Nor.Image = Resources.restore_black2;
+        }
+
+        private void Btn_Home_Nor_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Normal;
+            btn_Home_Nor.Visible = false;
+            btn_Home_Max.Visible = true;
+            lblComing.Location = new Point((pnl_Home.Width / 2) - (lblComing.Width / 2), (pnl_Home.Height / 2) - (lblComing.Height / 2));
+        }
+        #endregion
+
+        #region Minimize Clicked
+        private void Btn_Home_Min_MouseEnter(object sender, EventArgs e)
+        {
+            btn_Home_Min.Image = Resources.minimize_white;
+        }
+
+        private void Btn_Home_Min_MouseLeave(object sender, EventArgs e)
+        {
+            btn_Home_Min.Image = Resources.minimize_grey;
+        }
+
+        private void Btn_Home_Min_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+        #endregion
+
+
+        #region Get & Set Selected Button
         private void SetSelectedButton(object sender)
         {
             Button b = (Button)sender;
@@ -807,10 +812,9 @@ namespace QTechManagementSoftware
                     }
             }
         }
+        #endregion
 
-        //================================================================================================================================================//
-        // RESETS PREVIOUS SELECTED BUTTON COLOUR                                                                                                         //
-        //================================================================================================================================================//
+        #region Reset Buttons
         private void ResetButtons(string name)
         {
             switch (name)
@@ -821,6 +825,8 @@ namespace QTechManagementSoftware
                         btn_Home.ForeColor = Color.White;
                         lblComing.Visible = false;
                         pnl_Home.Controls.Clear();
+                        count = 0;
+
                         break;
                     }
                 case "Local":
@@ -828,6 +834,7 @@ namespace QTechManagementSoftware
                         btn_Local.BackColor = Color.FromArgb(64, 64, 64);
                         btn_Local.ForeColor = Color.White;
                         pnl_Home.Controls.Clear();
+                        count = 0;
                         break;
                     }
                 case "Int":
@@ -922,12 +929,11 @@ namespace QTechManagementSoftware
                         break;
                     }
             }
-        }   
+        }
+        #endregion
 
 
-        //================================================================================================================================================//
-        // OPENS/CLOSES CONTRACTOR TAB                                                                                                                    //
-        //================================================================================================================================================//
+        #region Open / Close Contractor Tab
         private void Tmr_Con_Tick(object sender, EventArgs e)
         {
             if (isConOpen)
@@ -969,6 +975,15 @@ namespace QTechManagementSoftware
             }
         }
 
+        private void CheckConTabOpen()
+        {
+            if (isConOpen)
+                tmr_Con.Start();
+        }
+        #endregion
+
+
+        #region Set Forms In Panels
         private void HideTabPanels()
         {
             pnl_LocalTabs.Visible = false;
@@ -1014,21 +1029,63 @@ namespace QTechManagementSoftware
 
             curTabForm.Show();
         }
+        #endregion
 
-        private void CheckConTabOpen()
+
+        #region Form Size & Movement
+        protected override void WndProc(ref Message message)
         {
-            if (isConOpen)
-                tmr_Con.Start();
+            base.WndProc(ref message);
+
+            if (message.Msg == 0x84) // WM_NCHITTEST
+            {
+                if (this.WindowState == FormWindowState.Normal)
+                {
+                    var cursor = this.PointToClient(Cursor.Position);
+
+                    if (TopLeft.Contains(cursor)) message.Result = (IntPtr)HTTOPLEFT;
+                    else if (TopRight.Contains(cursor)) message.Result = (IntPtr)HTTOPRIGHT;
+                    else if (BottomLeft.Contains(cursor)) message.Result = (IntPtr)HTBOTTOMLEFT;
+                    else if (BottomRight.Contains(cursor)) message.Result = (IntPtr)HTBOTTOMRIGHT;
+
+                    else if (Top.Contains(cursor)) message.Result = (IntPtr)HTTOP;
+                    else if (Left.Contains(cursor)) message.Result = (IntPtr)HTLEFT;
+                    else if (Right.Contains(cursor)) message.Result = (IntPtr)HTRIGHT;
+                    else if (Bottom.Contains(cursor)) message.Result = (IntPtr)HTBOTTOM;
+                }
+            }
         }
 
-        public string GetSelectedClientCode() { return selectedClientCode; }
+        private void Home_SizeChanged(object sender, EventArgs e)
+        {
+            if (lblComing != null)
+                lblComing.Location = new Point((pnl_Home.Width / 2) - (lblComing.Width / 2), (pnl_Home.Height / 2) - (lblComing.Height / 2));
 
-        public string GetSelectedClientName() { return selectedClientName; }
+            if (count != 1)
+            {
+                if (curForm != null && !isTabPanelVisible)
+                {
+                    pnl_Home.Controls.Clear();
+                    SetFormInPanel();
+                }
+                else if (curTabForm != null && isTabPanelVisible)
+                {
+                    pnl_Local.Controls.Clear();
+                    pnl_Int.Controls.Clear();
+                    SetFormInTabPanel();
+                }
+
+                count++;
+            }              
+        }        
 
         private void windowBar_MouseMove(object sender, MouseEventArgs e)
         {
             if (mouseDown)
             {
+                if (this.WindowState == FormWindowState.Maximized)
+                    btn_Home_Nor.PerformClick();
+
                 //Moves the form to a new location as long as user has mouse click down
                 this.Location = new Point((this.Location.X - lastLocation.X) + e.X, (this.Location.Y - lastLocation.Y) + e.Y);
 
@@ -1040,6 +1097,10 @@ namespace QTechManagementSoftware
         private void windowBar_MouseUp(object sender, MouseEventArgs e)
         {
             mouseDown = false;
+
+            int cursorLoc = Cursor.Position.Y;
+
+            if ((cursorLoc >= 0) && (cursorLoc <= SNAP_SIZE) && (this.WindowState == FormWindowState.Normal)) btn_Home_Max.PerformClick();
         }
 
         private void windowBar_MouseDown(object sender, MouseEventArgs e)
@@ -1047,5 +1108,6 @@ namespace QTechManagementSoftware
             mouseDown = true;
             lastLocation = e.Location;
         }
+        #endregion
     }
 }

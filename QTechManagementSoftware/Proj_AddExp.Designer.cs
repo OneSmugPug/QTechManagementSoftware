@@ -33,21 +33,17 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Proj_AddExp));
             this.btn_PAE_RemoveLine = new System.Windows.Forms.Button();
-            this.lblTotDol = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.txt_PAE_TotDol = new System.Windows.Forms.TextBox();
             this.dtp_PAE_From = new Bunifu.Framework.UI.BunifuDatepicker();
             this.dgv_ProjAddExp = new ADGV.AdvancedDataGridView();
             this.btn_PAE_Close = new System.Windows.Forms.Button();
-            this.lblTotHours = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.txt_PAE_TotHours = new System.Windows.Forms.TextBox();
-            this.lblTotRand = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.txt_PAE_TotRand = new System.Windows.Forms.TextBox();
             this.btn_PAE_AddExp = new System.Windows.Forms.Button();
             this.btn_PAE_ClearFilter = new System.Windows.Forms.Button();
             this.btn_PAE_Filter = new System.Windows.Forms.Button();
             this.dtp_PAE_To = new Bunifu.Framework.UI.BunifuDatepicker();
             this.lblTo = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.lblFrom = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.lblProjExp = new System.Windows.Forms.Label();
+            this.btn_PAE_Export = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_ProjAddExp)).BeginInit();
             this.SuspendLayout();
             // 
@@ -70,28 +66,6 @@
             this.btn_PAE_RemoveLine.MouseEnter += new System.EventHandler(this.Btn_PAE_RemoveLine_MouseEnter);
             this.btn_PAE_RemoveLine.MouseLeave += new System.EventHandler(this.Btn_PAE_RemoveLine_MouseLeave);
             // 
-            // lblTotDol
-            // 
-            this.lblTotDol.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblTotDol.AutoSize = true;
-            this.lblTotDol.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotDol.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblTotDol.Location = new System.Drawing.Point(527, 579);
-            this.lblTotDol.Name = "lblTotDol";
-            this.lblTotDol.Size = new System.Drawing.Size(86, 17);
-            this.lblTotDol.TabIndex = 1;
-            this.lblTotDol.Text = "Subtotal ($):";
-            // 
-            // txt_PAE_TotDol
-            // 
-            this.txt_PAE_TotDol.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_PAE_TotDol.Location = new System.Drawing.Point(619, 579);
-            this.txt_PAE_TotDol.Name = "txt_PAE_TotDol";
-            this.txt_PAE_TotDol.ReadOnly = true;
-            this.txt_PAE_TotDol.Size = new System.Drawing.Size(105, 20);
-            this.txt_PAE_TotDol.TabIndex = 5;
-            this.txt_PAE_TotDol.TabStop = false;
-            // 
             // dtp_PAE_From
             // 
             this.dtp_PAE_From.BackColor = System.Drawing.Color.LightGray;
@@ -99,7 +73,7 @@
             this.dtp_PAE_From.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
             this.dtp_PAE_From.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtp_PAE_From.FormatCustom = null;
-            this.dtp_PAE_From.Location = new System.Drawing.Point(226, 12);
+            this.dtp_PAE_From.Location = new System.Drawing.Point(228, 52);
             this.dtp_PAE_From.Name = "dtp_PAE_From";
             this.dtp_PAE_From.Size = new System.Drawing.Size(187, 36);
             this.dtp_PAE_From.TabIndex = 8;
@@ -124,14 +98,15 @@
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(77)))), ((int)(((byte)(119)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgv_ProjAddExp.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_ProjAddExp.ColumnHeadersHeight = 25;
             this.dgv_ProjAddExp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgv_ProjAddExp.DateWithTime = false;
-            this.dgv_ProjAddExp.Location = new System.Drawing.Point(0, 58);
+            this.dgv_ProjAddExp.EnableHeadersVisualStyles = false;
+            this.dgv_ProjAddExp.Location = new System.Drawing.Point(0, 94);
             this.dgv_ProjAddExp.Name = "dgv_ProjAddExp";
             this.dgv_ProjAddExp.ReadOnly = true;
             this.dgv_ProjAddExp.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -139,7 +114,7 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
             this.dgv_ProjAddExp.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgv_ProjAddExp.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_ProjAddExp.Size = new System.Drawing.Size(963, 502);
+            this.dgv_ProjAddExp.Size = new System.Drawing.Size(963, 466);
             this.dgv_ProjAddExp.TabIndex = 9;
             this.dgv_ProjAddExp.TimeFilter = false;
             this.dgv_ProjAddExp.SortStringChanged += new System.EventHandler(this.dgv_ProjAddExp_SortStringChanged);
@@ -153,7 +128,7 @@
             this.btn_PAE_Close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_PAE_Close.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_PAE_Close.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btn_PAE_Close.Location = new System.Drawing.Point(12, 12);
+            this.btn_PAE_Close.Location = new System.Drawing.Point(12, 48);
             this.btn_PAE_Close.Name = "btn_PAE_Close";
             this.btn_PAE_Close.Size = new System.Drawing.Size(122, 40);
             this.btn_PAE_Close.TabIndex = 14;
@@ -162,50 +137,6 @@
             this.btn_PAE_Close.Click += new System.EventHandler(this.Btn_PAE_Close_Click);
             this.btn_PAE_Close.MouseEnter += new System.EventHandler(this.Btn_PAE_Close_MouseEnter);
             this.btn_PAE_Close.MouseLeave += new System.EventHandler(this.Btn_PAE_Close_MouseLeave);
-            // 
-            // lblTotHours
-            // 
-            this.lblTotHours.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblTotHours.AutoSize = true;
-            this.lblTotHours.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotHours.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblTotHours.Location = new System.Drawing.Point(299, 579);
-            this.lblTotHours.Name = "lblTotHours";
-            this.lblTotHours.Size = new System.Drawing.Size(86, 17);
-            this.lblTotHours.TabIndex = 15;
-            this.lblTotHours.Text = "Total Hours:";
-            // 
-            // txt_PAE_TotHours
-            // 
-            this.txt_PAE_TotHours.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_PAE_TotHours.Location = new System.Drawing.Point(391, 579);
-            this.txt_PAE_TotHours.Name = "txt_PAE_TotHours";
-            this.txt_PAE_TotHours.ReadOnly = true;
-            this.txt_PAE_TotHours.Size = new System.Drawing.Size(106, 20);
-            this.txt_PAE_TotHours.TabIndex = 16;
-            this.txt_PAE_TotHours.TabStop = false;
-            // 
-            // lblTotRand
-            // 
-            this.lblTotRand.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblTotRand.AutoSize = true;
-            this.lblTotRand.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotRand.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblTotRand.Location = new System.Drawing.Point(752, 579);
-            this.lblTotRand.Name = "lblTotRand";
-            this.lblTotRand.Size = new System.Drawing.Size(88, 17);
-            this.lblTotRand.TabIndex = 17;
-            this.lblTotRand.Text = "Subtotal (R):";
-            // 
-            // txt_PAE_TotRand
-            // 
-            this.txt_PAE_TotRand.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_PAE_TotRand.Location = new System.Drawing.Point(846, 579);
-            this.txt_PAE_TotRand.Name = "txt_PAE_TotRand";
-            this.txt_PAE_TotRand.ReadOnly = true;
-            this.txt_PAE_TotRand.Size = new System.Drawing.Size(105, 20);
-            this.txt_PAE_TotRand.TabIndex = 18;
-            this.txt_PAE_TotRand.TabStop = false;
             // 
             // btn_PAE_AddExp
             // 
@@ -218,7 +149,7 @@
             this.btn_PAE_AddExp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btn_PAE_AddExp.Image = global::QTechManagementSoftware.Properties.Resources.add_grey;
             this.btn_PAE_AddExp.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_PAE_AddExp.Location = new System.Drawing.Point(815, 12);
+            this.btn_PAE_AddExp.Location = new System.Drawing.Point(815, 48);
             this.btn_PAE_AddExp.Name = "btn_PAE_AddExp";
             this.btn_PAE_AddExp.Size = new System.Drawing.Size(136, 40);
             this.btn_PAE_AddExp.TabIndex = 19;
@@ -238,7 +169,7 @@
             this.btn_PAE_ClearFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_PAE_ClearFilter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btn_PAE_ClearFilter.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_PAE_ClearFilter.Location = new System.Drawing.Point(663, 12);
+            this.btn_PAE_ClearFilter.Location = new System.Drawing.Point(664, 48);
             this.btn_PAE_ClearFilter.Name = "btn_PAE_ClearFilter";
             this.btn_PAE_ClearFilter.Size = new System.Drawing.Size(114, 40);
             this.btn_PAE_ClearFilter.TabIndex = 20;
@@ -259,7 +190,7 @@
             this.btn_PAE_Filter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btn_PAE_Filter.Image = global::QTechManagementSoftware.Properties.Resources.filter_grey;
             this.btn_PAE_Filter.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_PAE_Filter.Location = new System.Drawing.Point(663, 12);
+            this.btn_PAE_Filter.Location = new System.Drawing.Point(664, 48);
             this.btn_PAE_Filter.Name = "btn_PAE_Filter";
             this.btn_PAE_Filter.Size = new System.Drawing.Size(114, 40);
             this.btn_PAE_Filter.TabIndex = 21;
@@ -277,7 +208,7 @@
             this.dtp_PAE_To.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
             this.dtp_PAE_To.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtp_PAE_To.FormatCustom = null;
-            this.dtp_PAE_To.Location = new System.Drawing.Point(456, 12);
+            this.dtp_PAE_To.Location = new System.Drawing.Point(458, 52);
             this.dtp_PAE_To.Name = "dtp_PAE_To";
             this.dtp_PAE_To.Size = new System.Drawing.Size(187, 36);
             this.dtp_PAE_To.TabIndex = 22;
@@ -288,7 +219,7 @@
             this.lblTo.AutoSize = true;
             this.lblTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblTo.Location = new System.Drawing.Point(419, 22);
+            this.lblTo.Location = new System.Drawing.Point(421, 58);
             this.lblTo.Name = "lblTo";
             this.lblTo.Size = new System.Drawing.Size(31, 20);
             this.lblTo.TabIndex = 23;
@@ -299,11 +230,45 @@
             this.lblFrom.AutoSize = true;
             this.lblFrom.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFrom.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblFrom.Location = new System.Drawing.Point(170, 22);
+            this.lblFrom.Location = new System.Drawing.Point(172, 58);
             this.lblFrom.Name = "lblFrom";
             this.lblFrom.Size = new System.Drawing.Size(50, 20);
             this.lblFrom.TabIndex = 24;
             this.lblFrom.Text = "From:";
+            // 
+            // lblProjExp
+            // 
+            this.lblProjExp.AutoSize = true;
+            this.lblProjExp.BackColor = System.Drawing.Color.LightGray;
+            this.lblProjExp.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProjExp.Location = new System.Drawing.Point(13, 13);
+            this.lblProjExp.Name = "lblProjExp";
+            this.lblProjExp.Size = new System.Drawing.Size(181, 22);
+            this.lblProjExp.TabIndex = 25;
+            this.lblProjExp.Text = "Expenses for Project:";
+            // 
+            // btn_PAE_Export
+            // 
+            this.btn_PAE_Export.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_PAE_Export.FlatAppearance.BorderSize = 0;
+            this.btn_PAE_Export.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
+            this.btn_PAE_Export.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
+            this.btn_PAE_Export.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_PAE_Export.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_PAE_Export.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btn_PAE_Export.Image = global::QTechManagementSoftware.Properties.Resources.doc_grey;
+            this.btn_PAE_Export.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_PAE_Export.Location = new System.Drawing.Point(833, 566);
+            this.btn_PAE_Export.Name = "btn_PAE_Export";
+            this.btn_PAE_Export.Size = new System.Drawing.Size(118, 40);
+            this.btn_PAE_Export.TabIndex = 0;
+            this.btn_PAE_Export.Text = "Export";
+            this.btn_PAE_Export.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_PAE_Export.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_PAE_Export.UseVisualStyleBackColor = true;
+            this.btn_PAE_Export.Click += new System.EventHandler(this.Btn_PAE_Export_Click);
+            this.btn_PAE_Export.MouseEnter += new System.EventHandler(this.Btn_PAE_Export_MouseEnter);
+            this.btn_PAE_Export.MouseLeave += new System.EventHandler(this.Btn_PAE_Export_MouseLeave);
             // 
             // Proj_AddExp
             // 
@@ -311,21 +276,17 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(963, 618);
+            this.Controls.Add(this.lblProjExp);
             this.Controls.Add(this.lblFrom);
             this.Controls.Add(this.lblTo);
             this.Controls.Add(this.dtp_PAE_To);
             this.Controls.Add(this.btn_PAE_Filter);
             this.Controls.Add(this.btn_PAE_ClearFilter);
             this.Controls.Add(this.btn_PAE_AddExp);
-            this.Controls.Add(this.txt_PAE_TotRand);
-            this.Controls.Add(this.lblTotRand);
-            this.Controls.Add(this.txt_PAE_TotHours);
-            this.Controls.Add(this.lblTotHours);
             this.Controls.Add(this.btn_PAE_Close);
             this.Controls.Add(this.dgv_ProjAddExp);
             this.Controls.Add(this.dtp_PAE_From);
-            this.Controls.Add(this.txt_PAE_TotDol);
-            this.Controls.Add(this.lblTotDol);
+            this.Controls.Add(this.btn_PAE_Export);
             this.Controls.Add(this.btn_PAE_RemoveLine);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -342,20 +303,16 @@
         #endregion
 
         private System.Windows.Forms.Button btn_PAE_RemoveLine;
-        private Bunifu.Framework.UI.BunifuCustomLabel lblTotDol;
-        private System.Windows.Forms.TextBox txt_PAE_TotDol;
         private Bunifu.Framework.UI.BunifuDatepicker dtp_PAE_From;
         private ADGV.AdvancedDataGridView dgv_ProjAddExp;
         private System.Windows.Forms.Button btn_PAE_Close;
-        private Bunifu.Framework.UI.BunifuCustomLabel lblTotHours;
-        private System.Windows.Forms.TextBox txt_PAE_TotHours;
-        private Bunifu.Framework.UI.BunifuCustomLabel lblTotRand;
-        private System.Windows.Forms.TextBox txt_PAE_TotRand;
         private System.Windows.Forms.Button btn_PAE_AddExp;
         private System.Windows.Forms.Button btn_PAE_ClearFilter;
         private System.Windows.Forms.Button btn_PAE_Filter;
         private Bunifu.Framework.UI.BunifuDatepicker dtp_PAE_To;
         private Bunifu.Framework.UI.BunifuCustomLabel lblTo;
         private Bunifu.Framework.UI.BunifuCustomLabel lblFrom;
+        private System.Windows.Forms.Label lblProjExp;
+        private System.Windows.Forms.Button btn_PAE_Export;
     }
 }

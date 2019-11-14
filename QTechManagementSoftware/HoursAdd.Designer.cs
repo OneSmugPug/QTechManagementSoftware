@@ -123,7 +123,7 @@
             this.groupBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
             this.groupBox2.Location = new System.Drawing.Point(12, 50);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(580, 104);
+            this.groupBox2.Size = new System.Drawing.Size(582, 104);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Contractor";
@@ -337,7 +337,7 @@
             // 
             // pb_CreateRem
             // 
-            this.pb_CreateRem.Location = new System.Drawing.Point(184, 473);
+            this.pb_CreateRem.Location = new System.Drawing.Point(180, 473);
             this.pb_CreateRem.Name = "pb_CreateRem";
             this.pb_CreateRem.Size = new System.Drawing.Size(174, 23);
             this.pb_CreateRem.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
@@ -373,7 +373,7 @@
             this.gb_OA_ODetails.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
             this.gb_OA_ODetails.Location = new System.Drawing.Point(12, 179);
             this.gb_OA_ODetails.Name = "gb_OA_ODetails";
-            this.gb_OA_ODetails.Size = new System.Drawing.Size(580, 278);
+            this.gb_OA_ODetails.Size = new System.Drawing.Size(582, 278);
             this.gb_OA_ODetails.TabIndex = 1;
             this.gb_OA_ODetails.TabStop = false;
             this.gb_OA_ODetails.Text = "Work Week";
@@ -412,6 +412,7 @@
             this.dtp_HA_DatePaid.Name = "dtp_HA_DatePaid";
             this.dtp_HA_DatePaid.Size = new System.Drawing.Size(208, 19);
             this.dtp_HA_DatePaid.TabIndex = 21;
+            this.dtp_HA_DatePaid.TabStop = false;
             this.dtp_HA_DatePaid.Value = new System.DateTime(2019, 9, 11, 11, 47, 47, 635);
             // 
             // bunifuCustomLabel14
@@ -489,7 +490,7 @@
             this.txt_HA_DolPH.Location = new System.Drawing.Point(2, 3);
             this.txt_HA_DolPH.Name = "txt_HA_DolPH";
             this.txt_HA_DolPH.Size = new System.Drawing.Size(140, 16);
-            this.txt_HA_DolPH.TabIndex = 1;
+            this.txt_HA_DolPH.TabIndex = 2;
             this.txt_HA_DolPH.TextChanged += new System.EventHandler(this.Txt_HA_PerHour_TextChanged);
             this.txt_HA_DolPH.Leave += new System.EventHandler(this.Txt_HA_DolPH_Leave);
             this.txt_HA_DolPH.MouseEnter += new System.EventHandler(this.Txt_HA_DolPH_MouseEnter);
@@ -544,8 +545,10 @@
             this.txt_HA_Code.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
             this.txt_HA_Code.Location = new System.Drawing.Point(2, 3);
             this.txt_HA_Code.Name = "txt_HA_Code";
+            this.txt_HA_Code.ReadOnly = true;
             this.txt_HA_Code.Size = new System.Drawing.Size(142, 16);
             this.txt_HA_Code.TabIndex = 0;
+            this.txt_HA_Code.TabStop = false;
             this.txt_HA_Code.Leave += new System.EventHandler(this.Txt_HA_Code_Leave);
             this.txt_HA_Code.MouseEnter += new System.EventHandler(this.Txt_HA_Code_MouseEnter);
             this.txt_HA_Code.MouseLeave += new System.EventHandler(this.Txt_HA_Code_MouseLeave);
@@ -583,7 +586,7 @@
             this.txt_HA_HW.Location = new System.Drawing.Point(2, 3);
             this.txt_HA_HW.Name = "txt_HA_HW";
             this.txt_HA_HW.Size = new System.Drawing.Size(79, 16);
-            this.txt_HA_HW.TabIndex = 0;
+            this.txt_HA_HW.TabIndex = 1;
             this.txt_HA_HW.Leave += new System.EventHandler(this.Txt_HA_HW_Leave);
             this.txt_HA_HW.MouseEnter += new System.EventHandler(this.Txt_HA_HW_MouseEnter);
             this.txt_HA_HW.MouseLeave += new System.EventHandler(this.Txt_HA_HW_MouseLeave);
@@ -623,8 +626,10 @@
             this.txt_HA_TotBE.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
             this.txt_HA_TotBE.Location = new System.Drawing.Point(2, 3);
             this.txt_HA_TotBE.Name = "txt_HA_TotBE";
+            this.txt_HA_TotBE.ReadOnly = true;
             this.txt_HA_TotBE.Size = new System.Drawing.Size(140, 16);
-            this.txt_HA_TotBE.TabIndex = 0;
+            this.txt_HA_TotBE.TabIndex = 3;
+            this.txt_HA_TotBE.TabStop = false;
             this.txt_HA_TotBE.TextChanged += new System.EventHandler(this.Txt_HA_TotalBE_TextChanged);
             this.txt_HA_TotBE.Leave += new System.EventHandler(this.Txt_HA_TotBE_Leave);
             this.txt_HA_TotBE.MouseEnter += new System.EventHandler(this.Txt_HA_TotBE_MouseEnter);
@@ -665,7 +670,7 @@
             this.txt_HA_ExcRate.Location = new System.Drawing.Point(2, 3);
             this.txt_HA_ExcRate.Name = "txt_HA_ExcRate";
             this.txt_HA_ExcRate.Size = new System.Drawing.Size(139, 16);
-            this.txt_HA_ExcRate.TabIndex = 0;
+            this.txt_HA_ExcRate.TabIndex = 3;
             this.txt_HA_ExcRate.Leave += new System.EventHandler(this.Txt_HA_ExcRate_Leave);
             this.txt_HA_ExcRate.MouseEnter += new System.EventHandler(this.Txt_HA_ExcRate_MouseEnter);
             this.txt_HA_ExcRate.MouseLeave += new System.EventHandler(this.Txt_HA_ExcRate_MouseLeave);
@@ -707,6 +712,7 @@
             this.txt_HA_TotAE.ReadOnly = true;
             this.txt_HA_TotAE.Size = new System.Drawing.Size(140, 16);
             this.txt_HA_TotAE.TabIndex = 0;
+            this.txt_HA_TotAE.TabStop = false;
             this.txt_HA_TotAE.TextChanged += new System.EventHandler(this.Txt_HA_TotalAE_TextChanged);
             this.txt_HA_TotAE.Leave += new System.EventHandler(this.Txt_HA_TotAE_Leave);
             this.txt_HA_TotAE.MouseEnter += new System.EventHandler(this.Txt_HA_TotAE_MouseEnter);
@@ -735,6 +741,7 @@
             this.dtp_HA_From.Name = "dtp_HA_From";
             this.dtp_HA_From.Size = new System.Drawing.Size(200, 25);
             this.dtp_HA_From.TabIndex = 8;
+            this.dtp_HA_From.TabStop = false;
             this.dtp_HA_From.Value = new System.DateTime(2019, 9, 11, 10, 45, 7, 799);
             // 
             // bunifuCustomLabel7
@@ -760,6 +767,7 @@
             this.dtp_HA_To.Name = "dtp_HA_To";
             this.dtp_HA_To.Size = new System.Drawing.Size(212, 25);
             this.dtp_HA_To.TabIndex = 6;
+            this.dtp_HA_To.TabStop = false;
             this.dtp_HA_To.Value = new System.DateTime(2019, 9, 11, 10, 40, 46, 293);
             // 
             // bunifuCustomLabel6
@@ -808,7 +816,7 @@
             this.txt_HA_QTCut.Location = new System.Drawing.Point(2, 3);
             this.txt_HA_QTCut.Name = "txt_HA_QTCut";
             this.txt_HA_QTCut.Size = new System.Drawing.Size(140, 16);
-            this.txt_HA_QTCut.TabIndex = 0;
+            this.txt_HA_QTCut.TabIndex = 4;
             this.txt_HA_QTCut.TextChanged += new System.EventHandler(this.Txt_HA_QTCut_TextChanged);
             this.txt_HA_QTCut.Leave += new System.EventHandler(this.Txt_HA_QTCut_Leave);
             this.txt_HA_QTCut.MouseEnter += new System.EventHandler(this.Txt_HA_QTCut_MouseEnter);
@@ -862,6 +870,7 @@
             this.txt_HA_FTotal.ReadOnly = true;
             this.txt_HA_FTotal.Size = new System.Drawing.Size(140, 16);
             this.txt_HA_FTotal.TabIndex = 0;
+            this.txt_HA_FTotal.TabStop = false;
             this.txt_HA_FTotal.TextChanged += new System.EventHandler(this.Txt_HA_FTotal_TextChanged);
             this.txt_HA_FTotal.Leave += new System.EventHandler(this.Txt_HA_FTotal_Leave);
             this.txt_HA_FTotal.MouseEnter += new System.EventHandler(this.Txt_HA_FTotal_MouseEnter);
@@ -877,7 +886,7 @@
             this.cb_HA_Paid.Location = new System.Drawing.Point(120, 233);
             this.cb_HA_Paid.Name = "cb_HA_Paid";
             this.cb_HA_Paid.Size = new System.Drawing.Size(20, 20);
-            this.cb_HA_Paid.TabIndex = 1;
+            this.cb_HA_Paid.TabIndex = 5;
             this.cb_HA_Paid.OnChange += new System.EventHandler(this.Cb_HA_Paid_CheckedChanged);
             // 
             // bunifuCustomLabel4
@@ -899,10 +908,10 @@
             this.btn_HA_Cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_HA_Cancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_HA_Cancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btn_HA_Cancel.Location = new System.Drawing.Point(486, 463);
+            this.btn_HA_Cancel.Location = new System.Drawing.Point(480, 463);
             this.btn_HA_Cancel.Name = "btn_HA_Cancel";
             this.btn_HA_Cancel.Size = new System.Drawing.Size(114, 40);
-            this.btn_HA_Cancel.TabIndex = 2;
+            this.btn_HA_Cancel.TabIndex = 7;
             this.btn_HA_Cancel.Text = "Cancel";
             this.btn_HA_Cancel.UseVisualStyleBackColor = true;
             this.btn_HA_Cancel.Click += new System.EventHandler(this.Btn_HA_Cancel_Click);
@@ -917,10 +926,10 @@
             this.btn_HA_Done.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_HA_Done.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_HA_Done.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btn_HA_Done.Location = new System.Drawing.Point(366, 463);
+            this.btn_HA_Done.Location = new System.Drawing.Point(360, 463);
             this.btn_HA_Done.Name = "btn_HA_Done";
             this.btn_HA_Done.Size = new System.Drawing.Size(114, 40);
-            this.btn_HA_Done.TabIndex = 3;
+            this.btn_HA_Done.TabIndex = 6;
             this.btn_HA_Done.Text = "Done";
             this.btn_HA_Done.UseVisualStyleBackColor = true;
             this.btn_HA_Done.Click += new System.EventHandler(this.Btn_HA_Done_Click);
@@ -939,6 +948,7 @@
             this.btn_HA_CreateRem.Name = "btn_HA_CreateRem";
             this.btn_HA_CreateRem.Size = new System.Drawing.Size(154, 40);
             this.btn_HA_CreateRem.TabIndex = 4;
+            this.btn_HA_CreateRem.TabStop = false;
             this.btn_HA_CreateRem.Text = "Create Remittance";
             this.btn_HA_CreateRem.UseVisualStyleBackColor = true;
             this.btn_HA_CreateRem.Visible = false;

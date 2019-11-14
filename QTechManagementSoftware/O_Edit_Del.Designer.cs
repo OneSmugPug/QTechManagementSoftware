@@ -34,6 +34,8 @@
             this.btn_OED_Done = new System.Windows.Forms.Button();
             this.btn_OED_Cancel = new System.Windows.Forms.Button();
             this.gb_OA_ODetails = new System.Windows.Forms.GroupBox();
+            this.ddb_OED_QuoteNum = new Bunifu.Framework.UI.BunifuDropdown();
+            this.ddb_OrdersCur = new Bunifu.Framework.UI.BunifuDropdown();
             this.bunifuCustomLabel8 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel7 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.dtp_OED_Date = new Bunifu.Framework.UI.BunifuDatepicker();
@@ -57,9 +59,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.ln_OED_PercRec = new Bunifu.Framework.UI.BunifuSeparator();
             this.txt_OED_PercRec = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.ln_OED_QNum = new Bunifu.Framework.UI.BunifuSeparator();
-            this.txt_OED_QNum = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txt_OED_CCode = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.bunifuCustomLabel10 = new Bunifu.Framework.UI.BunifuCustomLabel();
@@ -71,7 +70,6 @@
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -143,6 +141,8 @@
             // 
             // gb_OA_ODetails
             // 
+            this.gb_OA_ODetails.Controls.Add(this.ddb_OED_QuoteNum);
+            this.gb_OA_ODetails.Controls.Add(this.ddb_OrdersCur);
             this.gb_OA_ODetails.Controls.Add(this.bunifuCustomLabel8);
             this.gb_OA_ODetails.Controls.Add(this.bunifuCustomLabel7);
             this.gb_OA_ODetails.Controls.Add(this.dtp_OED_Date);
@@ -156,7 +156,6 @@
             this.gb_OA_ODetails.Controls.Add(this.panel4);
             this.gb_OA_ODetails.Controls.Add(this.panel3);
             this.gb_OA_ODetails.Controls.Add(this.panel2);
-            this.gb_OA_ODetails.Controls.Add(this.panel1);
             this.gb_OA_ODetails.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
             this.gb_OA_ODetails.Location = new System.Drawing.Point(12, 120);
             this.gb_OA_ODetails.Name = "gb_OA_ODetails";
@@ -164,6 +163,41 @@
             this.gb_OA_ODetails.TabIndex = 6;
             this.gb_OA_ODetails.TabStop = false;
             this.gb_OA_ODetails.Text = "Order Details";
+            // 
+            // ddb_OED_QuoteNum
+            // 
+            this.ddb_OED_QuoteNum.BackColor = System.Drawing.Color.Transparent;
+            this.ddb_OED_QuoteNum.BorderRadius = 3;
+            this.ddb_OED_QuoteNum.DisabledColor = System.Drawing.Color.Gray;
+            this.ddb_OED_QuoteNum.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
+            this.ddb_OED_QuoteNum.Items = new string[0];
+            this.ddb_OED_QuoteNum.Location = new System.Drawing.Point(165, 117);
+            this.ddb_OED_QuoteNum.Name = "ddb_OED_QuoteNum";
+            this.ddb_OED_QuoteNum.NomalColor = System.Drawing.Color.Silver;
+            this.ddb_OED_QuoteNum.onHoverColor = System.Drawing.Color.LightGray;
+            this.ddb_OED_QuoteNum.selectedIndex = -1;
+            this.ddb_OED_QuoteNum.Size = new System.Drawing.Size(547, 35);
+            this.ddb_OED_QuoteNum.TabIndex = 15;
+            // 
+            // ddb_OrdersCur
+            // 
+            this.ddb_OrdersCur.BackColor = System.Drawing.Color.Transparent;
+            this.ddb_OrdersCur.BorderRadius = 2;
+            this.ddb_OrdersCur.DisabledColor = System.Drawing.Color.Gray;
+            this.ddb_OrdersCur.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ddb_OrdersCur.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
+            this.ddb_OrdersCur.Items = new string[] {
+        "R",
+        "$",
+        "£",
+        "€"};
+            this.ddb_OrdersCur.Location = new System.Drawing.Point(165, 85);
+            this.ddb_OrdersCur.Name = "ddb_OrdersCur";
+            this.ddb_OrdersCur.NomalColor = System.Drawing.Color.Silver;
+            this.ddb_OrdersCur.onHoverColor = System.Drawing.Color.LightGray;
+            this.ddb_OrdersCur.selectedIndex = 0;
+            this.ddb_OrdersCur.Size = new System.Drawing.Size(63, 28);
+            this.ddb_OrdersCur.TabIndex = 13;
             // 
             // bunifuCustomLabel8
             // 
@@ -227,7 +261,7 @@
             this.bunifuCustomLabel4.AutoSize = true;
             this.bunifuCustomLabel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuCustomLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bunifuCustomLabel4.Location = new System.Drawing.Point(352, 91);
+            this.bunifuCustomLabel4.Location = new System.Drawing.Point(388, 91);
             this.bunifuCustomLabel4.Name = "bunifuCustomLabel4";
             this.bunifuCustomLabel4.Size = new System.Drawing.Size(80, 17);
             this.bunifuCustomLabel4.TabIndex = 8;
@@ -249,7 +283,7 @@
             this.bunifuCustomLabel2.AutoSize = true;
             this.bunifuCustomLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuCustomLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bunifuCustomLabel2.Location = new System.Drawing.Point(54, 123);
+            this.bunifuCustomLabel2.Location = new System.Drawing.Point(54, 127);
             this.bunifuCustomLabel2.Name = "bunifuCustomLabel2";
             this.bunifuCustomLabel2.Size = new System.Drawing.Size(105, 17);
             this.bunifuCustomLabel2.TabIndex = 6;
@@ -334,9 +368,9 @@
             this.panel4.Controls.Add(this.ln_OED_Amt);
             this.panel4.Controls.Add(this.txt_OED_Amt);
             this.panel4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.panel4.Location = new System.Drawing.Point(165, 85);
+            this.panel4.Location = new System.Drawing.Point(234, 85);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(118, 26);
+            this.panel4.Size = new System.Drawing.Size(124, 26);
             this.panel4.TabIndex = 3;
             // 
             // ln_OED_Amt
@@ -346,7 +380,7 @@
             this.ln_OED_Amt.LineThickness = 1;
             this.ln_OED_Amt.Location = new System.Drawing.Point(-1, 18);
             this.ln_OED_Amt.Name = "ln_OED_Amt";
-            this.ln_OED_Amt.Size = new System.Drawing.Size(120, 10);
+            this.ln_OED_Amt.Size = new System.Drawing.Size(125, 10);
             this.ln_OED_Amt.TabIndex = 1;
             this.ln_OED_Amt.TabStop = false;
             this.ln_OED_Amt.Transparency = 255;
@@ -363,6 +397,7 @@
             this.txt_OED_Amt.Size = new System.Drawing.Size(115, 16);
             this.txt_OED_Amt.TabIndex = 0;
             this.txt_OED_Amt.TextChanged += new System.EventHandler(this.Txt_OED_Amt_TextChanged);
+            this.txt_OED_Amt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_OED_Amt_KeyDown);
             this.txt_OED_Amt.Leave += new System.EventHandler(this.Txt_OED_Amt_Leave);
             this.txt_OED_Amt.MouseEnter += new System.EventHandler(this.Txt_OED_Amt_MouseEnter);
             this.txt_OED_Amt.MouseLeave += new System.EventHandler(this.Txt_OED_Amt_MouseLeave);
@@ -371,7 +406,7 @@
             // 
             this.panel3.Controls.Add(this.ln_OED_PercInv);
             this.panel3.Controls.Add(this.txt_OED_PercInv);
-            this.panel3.Location = new System.Drawing.Point(436, 85);
+            this.panel3.Location = new System.Drawing.Point(474, 85);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(61, 26);
             this.panel3.TabIndex = 2;
@@ -395,9 +430,9 @@
             this.txt_OED_PercInv.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_OED_PercInv.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_OED_PercInv.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.txt_OED_PercInv.Location = new System.Drawing.Point(2, 3);
+            this.txt_OED_PercInv.Location = new System.Drawing.Point(3, 3);
             this.txt_OED_PercInv.Name = "txt_OED_PercInv";
-            this.txt_OED_PercInv.Size = new System.Drawing.Size(58, 16);
+            this.txt_OED_PercInv.Size = new System.Drawing.Size(55, 16);
             this.txt_OED_PercInv.TabIndex = 0;
             this.txt_OED_PercInv.Enter += new System.EventHandler(this.Txt_OED_PercInv_Enter);
             this.txt_OED_PercInv.Leave += new System.EventHandler(this.Txt_OED_PercInv_Leave);
@@ -442,43 +477,6 @@
             this.txt_OED_PercRec.MouseEnter += new System.EventHandler(this.Txt_OED_PercRec_MouseEnter);
             this.txt_OED_PercRec.MouseLeave += new System.EventHandler(this.Txt_OED_PercRec_MouseLeave);
             this.txt_OED_PercRec.Validating += new System.ComponentModel.CancelEventHandler(this.Txt_OED_Perc_Rec_Validating);
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.ln_OED_QNum);
-            this.panel1.Controls.Add(this.txt_OED_QNum);
-            this.panel1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.panel1.Location = new System.Drawing.Point(165, 118);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(156, 26);
-            this.panel1.TabIndex = 0;
-            // 
-            // ln_OED_QNum
-            // 
-            this.ln_OED_QNum.BackColor = System.Drawing.Color.Transparent;
-            this.ln_OED_QNum.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.ln_OED_QNum.LineThickness = 1;
-            this.ln_OED_QNum.Location = new System.Drawing.Point(-1, 18);
-            this.ln_OED_QNum.Name = "ln_OED_QNum";
-            this.ln_OED_QNum.Size = new System.Drawing.Size(158, 10);
-            this.ln_OED_QNum.TabIndex = 1;
-            this.ln_OED_QNum.TabStop = false;
-            this.ln_OED_QNum.Transparency = 255;
-            this.ln_OED_QNum.Vertical = false;
-            // 
-            // txt_OED_QNum
-            // 
-            this.txt_OED_QNum.BackColor = System.Drawing.Color.Silver;
-            this.txt_OED_QNum.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_OED_QNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_OED_QNum.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.txt_OED_QNum.Location = new System.Drawing.Point(2, 3);
-            this.txt_OED_QNum.Name = "txt_OED_QNum";
-            this.txt_OED_QNum.Size = new System.Drawing.Size(153, 16);
-            this.txt_OED_QNum.TabIndex = 0;
-            this.txt_OED_QNum.Leave += new System.EventHandler(this.Txt_OED_QNum_Leave);
-            this.txt_OED_QNum.MouseEnter += new System.EventHandler(this.Txt_OED_QNum_MouseEnter);
-            this.txt_OED_QNum.MouseLeave += new System.EventHandler(this.Txt_OED_QNum_MouseLeave);
             // 
             // groupBox1
             // 
@@ -599,8 +597,6 @@
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -638,13 +634,12 @@
         private System.Windows.Forms.Panel panel2;
         private Bunifu.Framework.UI.BunifuSeparator ln_OED_PercRec;
         private System.Windows.Forms.TextBox txt_OED_PercRec;
-        private System.Windows.Forms.Panel panel1;
-        private Bunifu.Framework.UI.BunifuSeparator ln_OED_QNum;
-        private System.Windows.Forms.TextBox txt_OED_QNum;
         private System.Windows.Forms.GroupBox groupBox1;
         private Bunifu.Framework.UI.BunifuMaterialTextbox txt_OED_CCode;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel10;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel9;
         private Bunifu.Framework.UI.BunifuMaterialTextbox txt_OED_CName;
+        private Bunifu.Framework.UI.BunifuDropdown ddb_OrdersCur;
+        private Bunifu.Framework.UI.BunifuDropdown ddb_OED_QuoteNum;
     }
 }

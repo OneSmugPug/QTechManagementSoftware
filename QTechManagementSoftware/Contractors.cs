@@ -19,8 +19,7 @@ namespace QTechManagementSoftware
         private DataTable conDT;
         private DataTable dt;
         private int NUM_OF_CON;
-        private int SELECTED_HOUR;
-        private string CCODE;
+        private string CCODE, SELECTED_HOUR;
         private object send;
 
 
@@ -267,7 +266,7 @@ namespace QTechManagementSoftware
 
         public string GetEName() { return txt_C_EName.Text; }
 
-        public int GetSelectedHour() { return SELECTED_HOUR; }
+        public string GetSelectedHour() { return SELECTED_HOUR; }
 
         public DataTable GetHours() { return dt; }
 
@@ -415,11 +414,8 @@ namespace QTechManagementSoftware
         //================================================================================================================================================//
         private void Dgv_Contractors_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (isFiltered)
-                RemoveFilter();
-
             send = sender;
-            SELECTED_HOUR = e.RowIndex;
+            SELECTED_HOUR = dgv_Contractors[0, e.RowIndex].Value.ToString();
 
             using (HoursAdd frmHA = new HoursAdd())
             {

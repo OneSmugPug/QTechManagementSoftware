@@ -97,7 +97,7 @@
             this.btn_Local.Name = "btn_Local";
             this.btn_Local.Padding = new System.Windows.Forms.Padding(1, 0, 0, 0);
             this.btn_Local.Size = new System.Drawing.Size(230, 48);
-            this.btn_Local.TabIndex = 4;
+            this.btn_Local.TabIndex = 2;
             this.btn_Local.Text = "Local";
             this.btn_Local.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_Local.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -130,7 +130,7 @@
             this.btn_Contractors.Name = "btn_Contractors";
             this.btn_Contractors.Padding = new System.Windows.Forms.Padding(0, 0, 22, 0);
             this.btn_Contractors.Size = new System.Drawing.Size(230, 48);
-            this.btn_Contractors.TabIndex = 14;
+            this.btn_Contractors.TabIndex = 4;
             this.btn_Contractors.Text = "Contractors";
             this.btn_Contractors.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_Contractors.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -152,6 +152,7 @@
             this.btn_C_NoInv.Name = "btn_C_NoInv";
             this.btn_C_NoInv.Size = new System.Drawing.Size(230, 48);
             this.btn_C_NoInv.TabIndex = 13;
+            this.btn_C_NoInv.TabStop = false;
             this.btn_C_NoInv.Text = "No Invoices";
             this.btn_C_NoInv.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_C_NoInv.UseVisualStyleBackColor = false;
@@ -172,6 +173,7 @@
             this.btn_C_NoRem.Name = "btn_C_NoRem";
             this.btn_C_NoRem.Size = new System.Drawing.Size(230, 48);
             this.btn_C_NoRem.TabIndex = 13;
+            this.btn_C_NoRem.TabStop = false;
             this.btn_C_NoRem.Text = "No Remittances";
             this.btn_C_NoRem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_C_NoRem.UseVisualStyleBackColor = false;
@@ -193,7 +195,7 @@
             this.btn_Int.Name = "btn_Int";
             this.btn_Int.Padding = new System.Windows.Forms.Padding(0, 0, 15, 0);
             this.btn_Int.Size = new System.Drawing.Size(230, 48);
-            this.btn_Int.TabIndex = 9;
+            this.btn_Int.TabIndex = 3;
             this.btn_Int.Text = "International";
             this.btn_Int.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_Int.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -217,7 +219,7 @@
             this.btn_PettyCash.Name = "btn_PettyCash";
             this.btn_PettyCash.Padding = new System.Windows.Forms.Padding(0, 0, 32, 0);
             this.btn_PettyCash.Size = new System.Drawing.Size(230, 48);
-            this.btn_PettyCash.TabIndex = 12;
+            this.btn_PettyCash.TabIndex = 6;
             this.btn_PettyCash.Text = "Petty Cash";
             this.btn_PettyCash.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_PettyCash.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -240,7 +242,7 @@
             this.btn_Projects.Name = "btn_Projects";
             this.btn_Projects.Padding = new System.Windows.Forms.Padding(0, 0, 48, 0);
             this.btn_Projects.Size = new System.Drawing.Size(230, 48);
-            this.btn_Projects.TabIndex = 15;
+            this.btn_Projects.TabIndex = 5;
             this.btn_Projects.Text = "Projects";
             this.btn_Projects.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_Projects.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -263,7 +265,7 @@
             this.btn_Home.Name = "btn_Home";
             this.btn_Home.Padding = new System.Windows.Forms.Padding(0, 0, 28, 0);
             this.btn_Home.Size = new System.Drawing.Size(230, 48);
-            this.btn_Home.TabIndex = 2;
+            this.btn_Home.TabIndex = 1;
             this.btn_Home.Text = "Dashboard";
             this.btn_Home.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_Home.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -277,9 +279,10 @@
             this.pnl_Home.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnl_Home.Location = new System.Drawing.Point(236, 47);
+            this.pnl_Home.BackColor = System.Drawing.Color.LightGray;
+            this.pnl_Home.Location = new System.Drawing.Point(236, 35);
             this.pnl_Home.Name = "pnl_Home";
-            this.pnl_Home.Size = new System.Drawing.Size(1039, 586);
+            this.pnl_Home.Size = new System.Drawing.Size(1043, 602);
             this.pnl_Home.TabIndex = 8;
             this.pnl_Home.Visible = false;
             // 
@@ -313,6 +316,7 @@
             this.btn_Home_Close.Padding = new System.Windows.Forms.Padding(0, 0, 1, 0);
             this.btn_Home_Close.Size = new System.Drawing.Size(31, 29);
             this.btn_Home_Close.TabIndex = 20;
+            this.btn_Home_Close.TabStop = false;
             this.btn_Home_Close.UseVisualStyleBackColor = false;
             this.btn_Home_Close.Click += new System.EventHandler(this.Btn_Home_Close_Click);
             this.btn_Home_Close.MouseEnter += new System.EventHandler(this.Btn_Home_Close_MouseEnter);
@@ -331,6 +335,7 @@
             this.btn_Home_Nor.Padding = new System.Windows.Forms.Padding(0, 0, 1, 0);
             this.btn_Home_Nor.Size = new System.Drawing.Size(31, 29);
             this.btn_Home_Nor.TabIndex = 18;
+            this.btn_Home_Nor.TabStop = false;
             this.btn_Home_Nor.UseVisualStyleBackColor = false;
             this.btn_Home_Nor.Visible = false;
             this.btn_Home_Nor.Click += new System.EventHandler(this.Btn_Home_Nor_Click);
@@ -368,6 +373,7 @@
             this.btn_Home_Min.Padding = new System.Windows.Forms.Padding(0, 0, 1, 0);
             this.btn_Home_Min.Size = new System.Drawing.Size(31, 29);
             this.btn_Home_Min.TabIndex = 17;
+            this.btn_Home_Min.TabStop = false;
             this.btn_Home_Min.UseVisualStyleBackColor = false;
             this.btn_Home_Min.Click += new System.EventHandler(this.Btn_Home_Min_Click);
             this.btn_Home_Min.MouseEnter += new System.EventHandler(this.Btn_Home_Min_MouseEnter);
@@ -388,9 +394,9 @@
             this.pnl_LocalTabs.Controls.Add(this.btn_LQuotes);
             this.pnl_LocalTabs.Controls.Add(this.btn_LOrders);
             this.pnl_LocalTabs.Controls.Add(this.bunifuSeparator1);
-            this.pnl_LocalTabs.Location = new System.Drawing.Point(236, 47);
+            this.pnl_LocalTabs.Location = new System.Drawing.Point(236, 35);
             this.pnl_LocalTabs.Name = "pnl_LocalTabs";
-            this.pnl_LocalTabs.Size = new System.Drawing.Size(1039, 586);
+            this.pnl_LocalTabs.Size = new System.Drawing.Size(1043, 602);
             this.pnl_LocalTabs.TabIndex = 23;
             this.pnl_LocalTabs.Visible = false;
             // 
@@ -401,7 +407,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnl_Local.Location = new System.Drawing.Point(3, 39);
             this.pnl_Local.Name = "pnl_Local";
-            this.pnl_Local.Size = new System.Drawing.Size(1033, 544);
+            this.pnl_Local.Size = new System.Drawing.Size(1037, 560);
             this.pnl_Local.TabIndex = 2;
             // 
             // btn_LInvSend
@@ -414,6 +420,7 @@
             this.btn_LInvSend.Name = "btn_LInvSend";
             this.btn_LInvSend.Size = new System.Drawing.Size(100, 33);
             this.btn_LInvSend.TabIndex = 0;
+            this.btn_LInvSend.TabStop = false;
             this.btn_LInvSend.Text = "Invoices Sent";
             this.btn_LInvSend.UseVisualStyleBackColor = false;
             this.btn_LInvSend.Click += new System.EventHandler(this.btn_LInvSend_Click);
@@ -430,6 +437,7 @@
             this.btn_LQuotes.Name = "btn_LQuotes";
             this.btn_LQuotes.Size = new System.Drawing.Size(100, 33);
             this.btn_LQuotes.TabIndex = 0;
+            this.btn_LQuotes.TabStop = false;
             this.btn_LQuotes.Text = "Quotes";
             this.btn_LQuotes.UseVisualStyleBackColor = false;
             this.btn_LQuotes.Click += new System.EventHandler(this.btn_LQuotes_Click);
@@ -446,6 +454,7 @@
             this.btn_LOrders.Name = "btn_LOrders";
             this.btn_LOrders.Size = new System.Drawing.Size(100, 33);
             this.btn_LOrders.TabIndex = 0;
+            this.btn_LOrders.TabStop = false;
             this.btn_LOrders.Text = "Orders";
             this.btn_LOrders.UseVisualStyleBackColor = false;
             this.btn_LOrders.Click += new System.EventHandler(this.btn_LOrders_Click);
@@ -461,7 +470,7 @@
             this.bunifuSeparator1.LineThickness = 2;
             this.bunifuSeparator1.Location = new System.Drawing.Point(0, 16);
             this.bunifuSeparator1.Name = "bunifuSeparator1";
-            this.bunifuSeparator1.Size = new System.Drawing.Size(1039, 35);
+            this.bunifuSeparator1.Size = new System.Drawing.Size(1043, 35);
             this.bunifuSeparator1.TabIndex = 1;
             this.bunifuSeparator1.Transparency = 255;
             this.bunifuSeparator1.Vertical = false;
@@ -476,9 +485,9 @@
             this.pnl_IntTabs.Controls.Add(this.btn_IInvSend);
             this.pnl_IntTabs.Controls.Add(this.btn_IQuotes);
             this.pnl_IntTabs.Controls.Add(this.bunifuSeparator2);
-            this.pnl_IntTabs.Location = new System.Drawing.Point(236, 47);
+            this.pnl_IntTabs.Location = new System.Drawing.Point(236, 35);
             this.pnl_IntTabs.Name = "pnl_IntTabs";
-            this.pnl_IntTabs.Size = new System.Drawing.Size(1039, 586);
+            this.pnl_IntTabs.Size = new System.Drawing.Size(1043, 602);
             this.pnl_IntTabs.TabIndex = 0;
             // 
             // pnl_Int
@@ -488,7 +497,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnl_Int.Location = new System.Drawing.Point(6, 39);
             this.pnl_Int.Name = "pnl_Int";
-            this.pnl_Int.Size = new System.Drawing.Size(1027, 541);
+            this.pnl_Int.Size = new System.Drawing.Size(1031, 557);
             this.pnl_Int.TabIndex = 2;
             // 
             // btn_IOrders
@@ -501,6 +510,7 @@
             this.btn_IOrders.Name = "btn_IOrders";
             this.btn_IOrders.Size = new System.Drawing.Size(100, 33);
             this.btn_IOrders.TabIndex = 0;
+            this.btn_IOrders.TabStop = false;
             this.btn_IOrders.Text = "Orders";
             this.btn_IOrders.UseVisualStyleBackColor = false;
             this.btn_IOrders.Click += new System.EventHandler(this.btn_IOrders_Click);
@@ -517,6 +527,7 @@
             this.btn_IInvSend.Name = "btn_IInvSend";
             this.btn_IInvSend.Size = new System.Drawing.Size(100, 33);
             this.btn_IInvSend.TabIndex = 0;
+            this.btn_IInvSend.TabStop = false;
             this.btn_IInvSend.Text = "Invoices Sent";
             this.btn_IInvSend.UseVisualStyleBackColor = false;
             this.btn_IInvSend.Click += new System.EventHandler(this.btn_IInvSend_Click);
@@ -533,6 +544,7 @@
             this.btn_IQuotes.Name = "btn_IQuotes";
             this.btn_IQuotes.Size = new System.Drawing.Size(100, 33);
             this.btn_IQuotes.TabIndex = 0;
+            this.btn_IQuotes.TabStop = false;
             this.btn_IQuotes.Text = "Quotes";
             this.btn_IQuotes.UseVisualStyleBackColor = false;
             this.btn_IQuotes.Click += new System.EventHandler(this.btn_IQuotes_Click);
@@ -548,7 +560,7 @@
             this.bunifuSeparator2.LineThickness = 2;
             this.bunifuSeparator2.Location = new System.Drawing.Point(0, 16);
             this.bunifuSeparator2.Name = "bunifuSeparator2";
-            this.bunifuSeparator2.Size = new System.Drawing.Size(1039, 35);
+            this.bunifuSeparator2.Size = new System.Drawing.Size(1043, 35);
             this.bunifuSeparator2.TabIndex = 1;
             this.bunifuSeparator2.Transparency = 255;
             this.bunifuSeparator2.Vertical = false;
@@ -576,18 +588,21 @@
             this.Controls.Add(this.pnl_IntTabs);
             this.Controls.Add(this.pnl_LocalTabs);
             this.Controls.Add(this.windowBar);
-            this.Controls.Add(this.pnl_Home);
             this.Controls.Add(this.QTLogo);
             this.Controls.Add(this.pnl_Menu);
+            this.Controls.Add(this.pnl_Home);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(980, 580);
             this.Name = "Home";
             this.Padding = new System.Windows.Forms.Padding(20, 30, 20, 20);
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Home";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Home_Load);
+            this.SizeChanged += new System.EventHandler(this.Home_SizeChanged);
             this.pnl_Menu.ResumeLayout(false);
             this.pnl_Con.ResumeLayout(false);
             this.windowBar.ResumeLayout(false);

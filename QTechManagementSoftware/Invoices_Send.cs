@@ -4,26 +4,28 @@ using System.Drawing;
 using System.Windows.Forms;
 using QTechManagementSoftware.Properties;
 using System;
+using System.Globalization;
 
 namespace QTechManagementSoftware
 {
     public partial class Invoices_Send : Form
     {
-        private int CUR_CLIENT = 0, NUM_OF_CLIENTS, SELECTED_INVSEND;
+        #region Variables
         private BindingSource bs = new BindingSource();
         private bool isFiltered = false;
-        private string clientName, clientCode, NEW_INVOICE;
-        private DataTable clientsDT, dt;
+        private string clientName, clientCode, SELECTED_INVSEND;
+        private DataTable dt;
+        
+        #endregion
 
+        #region Initialize Form
         public Invoices_Send()
         {
             InitializeComponent();
         }
+        #endregion
 
-
-        //================================================================================================================================================//
-        // LOCAL INVOICES SENT FORM LOAD                                                                                                                  //
-        //================================================================================================================================================//
+        #region Load Form
         private void Invoices_Send_Load(object sender, EventArgs e)
         {
             dtp_LIS_From.Value = DateTime.Now;
@@ -33,20 +35,13 @@ namespace QTechManagementSoftware
 
             LoadInvSend();
 
-            dgv_LInvSent.Columns[4].DefaultCellStyle.Format = "c";
             dgv_LInvSent.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-
-            dgv_LInvSent.Columns[5].DefaultCellStyle.Format = "c";
             dgv_LInvSent.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
 
             txt_LIS_CCode.Text = clientCode;
             txt_LIS_CName.Text = clientName;
         }
 
-
-        //================================================================================================================================================//
-        // LOAD INVOICES SENT DETAILS                                                                                                                     //
-        //================================================================================================================================================//
         private void LoadInvSend()
         {
             using (SqlConnection conn = DBUtils.GetDBConnection())
@@ -59,34 +54,17 @@ namespace QTechManagementSoftware
 
             bs.DataSource = dt;
         }
+        #endregion
 
+        #region Getters & Setters
         //================================================================================================================================================//
-        // SET NEW CLIENT DETAILS                                                                                                                         //
+        // SETTERS                                                                                                                                        //
         //================================================================================================================================================//
         public void SetClient(string selectedClientCode, string selectedClientName)
         {
             clientCode = selectedClientCode;
             clientName = selectedClientName;
         }
-
-
-        //================================================================================================================================================//
-        // NEW INVOICE SENT CLICKED                                                                                                                       //
-        //================================================================================================================================================//
-        private void btn_LIS_NewIS_Click(object sender, EventArgs e)
-        {
-            if (isFiltered)
-                removeFilter();
-
-            using (Inv_Send_Add frmISA = new Inv_Send_Add())
-            {
-                frmISA.Owner = this;
-                frmISA.ShowDialog();
-            }
-
-            LoadInvSend();
-        }
-
 
         //================================================================================================================================================//
         // GETTERS                                                                                                                                        //
@@ -101,7 +79,7 @@ namespace QTechManagementSoftware
             return clientName;
         }
 
-        public int GetSelectedInvSend()
+        public string GetSelectedInvSend()
         {
             return SELECTED_INVSEND;
         }
@@ -110,26 +88,31 @@ namespace QTechManagementSoftware
         {
             return dt;
         }
+        #endregion
 
-
-        //================================================================================================================================================//
-        // SET NEW INVOICE                                                                                                                                //
-        //================================================================================================================================================//
-        public void setNewInvoice(string invNum)
+        #region New Invoice Sent Clicked
+        private void btn_LIS_NewIS_Click(object sender, EventArgs e)
         {
-            NEW_INVOICE = invNum;
+            if (isFiltered)
+                removeFilter();
+
+            using (Inv_Send_Add frmISA = new Inv_Send_Add())
+            {
+                frmISA.Owner = this;
+                frmISA.ShowDialog();
+            }
+
+            LoadInvSend();
         }
+        #endregion
 
-
-        //================================================================================================================================================//
-        // DATAGRIDVIEW CELL DOUBLECLICK                                                                                                                  //
-        //================================================================================================================================================//
+        #region DGV Cell DoubleClicked
         private void dgv_LInvSent_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (isFiltered)
                 removeFilter();
 
-            SELECTED_INVSEND = e.RowIndex;
+            SELECTED_INVSEND = dgv_LInvSent[1, e.RowIndex].Value.ToString();
 
             using (Inv_Send_Edit_Del frmISED = new Inv_Send_Edit_Del())
             {
@@ -139,11 +122,9 @@ namespace QTechManagementSoftware
 
             LoadInvSend();
         }
+        #endregion
 
-
-        //================================================================================================================================================//
-        // FILTERS                                                                                                                                        //
-        //================================================================================================================================================//
+        #region DGV Filters
         private void dgv_LInvSent_FilterStringChanged(object sender, EventArgs e)
         {
             bs.Filter = dgv_LInvSent.FilterString;
@@ -184,7 +165,9 @@ namespace QTechManagementSoftware
             btn_LIS_Filter.Visible = true;
             btn_LIS_ClearFilter.Visible = false;
         }
+        #endregion
 
+        #region Controls Effects
         //================================================================================================================================================//
         // NEW INVOICE SENT BUTTON                                                                                                                        //
         //================================================================================================================================================//
@@ -229,11 +212,9 @@ namespace QTechManagementSoftware
         {
             btn_LIS_ClearFilter.ForeColor = Color.FromArgb(64, 64, 64);
         }
+        #endregion
 
-
-        //================================================================================================================================================//
-        // ENFORCE READONLY                                                                                                                               //
-        //================================================================================================================================================//
+        #region ReadOnly Controls
         private void txt_LIS_CCode_KeyDown(object sender, KeyEventArgs e)
         {
             e.SuppressKeyPress = true;
@@ -243,5 +224,6 @@ namespace QTechManagementSoftware
         {
             e.SuppressKeyPress = true;
         }
+        #endregion
     }
 }

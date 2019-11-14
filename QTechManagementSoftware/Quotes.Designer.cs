@@ -37,7 +37,7 @@
             this.btn_LQ_Filter = new System.Windows.Forms.Button();
             this.dtp_LQ_From = new Bunifu.Framework.UI.BunifuDatepicker();
             this.dtp_LQ_To = new Bunifu.Framework.UI.BunifuDatepicker();
-            this.dgv_Contractors = new ADGV.AdvancedDataGridView();
+            this.dgv_LQuotes = new ADGV.AdvancedDataGridView();
             this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
@@ -45,7 +45,7 @@
             this.bunifuCustomLabel4 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.txt_LQ_CName = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.txt_LQ_CCode = new Bunifu.Framework.UI.BunifuMaterialTextbox();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_Contractors)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_LQuotes)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_LQ_ClearFilter
@@ -136,21 +136,21 @@
             this.dtp_LQ_To.TabIndex = 7;
             this.dtp_LQ_To.Value = new System.DateTime(2019, 9, 13, 13, 43, 53, 408);
             // 
-            // dgv_Contractors
+            // dgv_LQuotes
             // 
-            this.dgv_Contractors.AllowUserToAddRows = false;
-            this.dgv_Contractors.AllowUserToDeleteRows = false;
-            this.dgv_Contractors.AllowUserToResizeRows = false;
+            this.dgv_LQuotes.AllowUserToAddRows = false;
+            this.dgv_LQuotes.AllowUserToDeleteRows = false;
+            this.dgv_LQuotes.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightGray;
-            this.dgv_Contractors.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgv_Contractors.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dgv_LQuotes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgv_LQuotes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgv_Contractors.AutoGenerateContextFilters = true;
-            this.dgv_Contractors.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgv_Contractors.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgv_Contractors.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
-            this.dgv_Contractors.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgv_LQuotes.AutoGenerateContextFilters = true;
+            this.dgv_LQuotes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_LQuotes.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgv_LQuotes.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
+            this.dgv_LQuotes.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -158,25 +158,25 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(77)))), ((int)(((byte)(119)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_Contractors.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgv_Contractors.ColumnHeadersHeight = 25;
-            this.dgv_Contractors.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgv_Contractors.DateWithTime = false;
-            this.dgv_Contractors.EnableHeadersVisualStyles = false;
-            this.dgv_Contractors.Location = new System.Drawing.Point(1, 130);
-            this.dgv_Contractors.Name = "dgv_Contractors";
-            this.dgv_Contractors.ReadOnly = true;
-            this.dgv_Contractors.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dgv_Contractors.RowHeadersVisible = false;
+            this.dgv_LQuotes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgv_LQuotes.ColumnHeadersHeight = 25;
+            this.dgv_LQuotes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgv_LQuotes.DateWithTime = false;
+            this.dgv_LQuotes.EnableHeadersVisualStyles = false;
+            this.dgv_LQuotes.Location = new System.Drawing.Point(1, 130);
+            this.dgv_LQuotes.Name = "dgv_LQuotes";
+            this.dgv_LQuotes.ReadOnly = true;
+            this.dgv_LQuotes.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgv_LQuotes.RowHeadersVisible = false;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.dgv_Contractors.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgv_Contractors.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_Contractors.Size = new System.Drawing.Size(963, 489);
-            this.dgv_Contractors.TabIndex = 8;
-            this.dgv_Contractors.TimeFilter = false;
-            this.dgv_Contractors.SortStringChanged += new System.EventHandler(this.Dgv_LQuotes_SortStringChanged);
-            this.dgv_Contractors.FilterStringChanged += new System.EventHandler(this.Dgv_LQuotes_FilterStringChanged);
-            this.dgv_Contractors.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dgv_LQuotes_CellDoubleClick);
+            this.dgv_LQuotes.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgv_LQuotes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_LQuotes.Size = new System.Drawing.Size(963, 489);
+            this.dgv_LQuotes.TabIndex = 8;
+            this.dgv_LQuotes.TimeFilter = false;
+            this.dgv_LQuotes.SortStringChanged += new System.EventHandler(this.Dgv_LQuotes_SortStringChanged);
+            this.dgv_LQuotes.FilterStringChanged += new System.EventHandler(this.Dgv_LQuotes_FilterStringChanged);
+            this.dgv_LQuotes.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dgv_LQuotes_CellDoubleClick);
             // 
             // bunifuSeparator1
             // 
@@ -290,7 +290,7 @@
             this.Controls.Add(this.bunifuCustomLabel3);
             this.Controls.Add(this.bunifuCustomLabel2);
             this.Controls.Add(this.bunifuCustomLabel1);
-            this.Controls.Add(this.dgv_Contractors);
+            this.Controls.Add(this.dgv_LQuotes);
             this.Controls.Add(this.dtp_LQ_To);
             this.Controls.Add(this.dtp_LQ_From);
             this.Controls.Add(this.btn_LQ_Filter);
@@ -304,7 +304,7 @@
             this.Text = "Quotes";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Quotes_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_Contractors)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_LQuotes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -317,7 +317,7 @@
         private System.Windows.Forms.Button btn_LQ_Filter;
         private Bunifu.Framework.UI.BunifuDatepicker dtp_LQ_From;
         private Bunifu.Framework.UI.BunifuDatepicker dtp_LQ_To;
-        private ADGV.AdvancedDataGridView dgv_Contractors;
+        private ADGV.AdvancedDataGridView dgv_LQuotes;
         private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator1;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel1;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel2;

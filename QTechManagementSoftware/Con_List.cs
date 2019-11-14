@@ -15,8 +15,6 @@ namespace QTechManagementSoftware
         private SqlDataAdapter da;
         private DataTable dt;
         private Point lastLocation;
-        private AdvancedDataGridView dgv_SelCon;
-        private Button btn_SelCon_Close;
 
         public Con_List()
         {
@@ -43,8 +41,8 @@ namespace QTechManagementSoftware
 
         private void Dgv_SelCon_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            //((Contractors)((Home)this.Owner).GetCurForm()).SetNewCon(e.RowIndex);
-            //this.Close();
+            ((Contractors)this.Owner).SetNewCon(e.RowIndex);
+            this.Close();
         }
 
         private void Btn_SelCon_Close_Click(object sender, EventArgs e)

@@ -6,6 +6,8 @@ using System.Windows.Forms;
 using QTechManagementSoftware.Properties;
 using System;
 using ADGV;
+using ClosedXML.Excel;
+using System.IO;
 
 namespace QTechManagementSoftware
 {
@@ -13,7 +15,7 @@ namespace QTechManagementSoftware
     {
         private BindingSource bs = new BindingSource();
         private DataTable dt;
-        private string Proj_ID;
+        private string selectedProjectCode;
         private Home frmHome;
         private bool isFiltered;
 
@@ -31,9 +33,12 @@ namespace QTechManagementSoftware
             dtp_PAE_From.Value = DateTime.Now;
             dtp_PAE_To.Value = DateTime.Now;
 
+            lblProjExp.Text = "Expenses for Project: " + selectedProjectCode;
+
             dgv_ProjAddExp.DataSource = bs;
-            Proj_ID = ((Projects)this.Owner).GetProjID();
             LoadExpenses();
+
+            dgv_ProjAddExp.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
         }
 
 
@@ -46,59 +51,10 @@ namespace QTechManagementSoftware
             {
                 conn.Open();
 
-                SqlDataAdapter da = new SqlDataAdapter("SELECT ID, Description, Travel, Accomodation, Subsistence, Tools, Programming_Hours, Install_Hours, "
-                    + "Date, User_Log FROM Project_Expenses WHERE Project_ID = '" + Proj_ID + "'", conn);
+                SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM Project_Expenses WHERE [Project ID] = '" + selectedProjectCode + "'", conn);
                 dt = new DataTable();
                 da.Fill(dt);
             }
-
-            decimal totRand = 0.00m;
-            decimal totDol = 0.00m;
-            decimal totHours = 0.00m;
-
-            foreach (DataRow row in (InternalDataCollectionBase)dt.Rows)
-            {
-                if (row["Travel"].ToString() != "")
-                {
-                    if (row["Travel"].ToString().Contains("R"))
-                        totRand += Convert.ToDecimal(row["Travel"].ToString().Remove(0, 1));
-                    else if (row["Travel"].ToString().Contains("$"))
-                        totDol += Convert.ToDecimal(row["Travel"].ToString().Remove(0, 1));
-                }
-
-                if (row["Accomodation"].ToString() != "")
-                {
-                    if (row["Accomodation"].ToString().Contains("R"))
-                        totRand += Convert.ToDecimal(row["Accomodation"].ToString().Remove(0, 1));
-                    else if (row["Accomodation"].ToString().Contains("$"))
-                        totDol += Convert.ToDecimal(row["Accomodation"].ToString().Remove(0, 1));
-                }
-
-                if (row["Subsistence"].ToString() != "")
-                {
-                    if (row["Subsistence"].ToString().Contains("R"))
-                        totRand += Convert.ToDecimal(row["Subsistence"].ToString().Remove(0, 1));
-                    else if (row["Subsistence"].ToString().Contains("$"))
-                        totDol += Convert.ToDecimal(row["Subsistence"].ToString().Remove(0, 1));
-                }
-
-                if (row["Tools"].ToString() != "")
-                {
-                    if (row["Tools"].ToString().Contains("R"))
-                        totRand += Convert.ToDecimal(row["Tools"].ToString().Remove(0, 1));
-                    else if (row["Tools"].ToString().Contains("$"))
-                        totDol += Convert.ToDecimal(row["Tools"].ToString().Remove(0, 1));
-                }
-
-                if (row["Programming_Hours"].ToString() != "")
-                    totHours += Convert.ToDecimal(row["Programming_Hours"].ToString());
-                if (row["Install_Hours"].ToString() != "")
-                    totHours += Convert.ToDecimal(row["Install_Hours"].ToString());
-            }
-
-            txt_PAE_TotRand.Text = totRand.ToString("C");
-            txt_PAE_TotDol.Text = totDol.ToString("C", (IFormatProvider)CultureInfo.GetCultureInfo("en-US"));
-            txt_PAE_TotHours.Text = totHours.ToString();
 
             bs.DataSource = dt;
         }
@@ -136,7 +92,12 @@ namespace QTechManagementSoftware
         //================================================================================================================================================//
         public string GetProjectID()
         {
-            return Proj_ID;
+            return selectedProjectCode;
+        }
+
+        public void SetProjectCode(string selectedProjectCode)
+        {
+            this.selectedProjectCode = selectedProjectCode;
         }
 
 
@@ -164,11 +125,11 @@ namespace QTechManagementSoftware
         //================================================================================================================================================//
         private void Btn_PAE_RemoveExp_Click(object sender, EventArgs e)
         {
-            if (dgv_ProjAddExp.SelectedRows[0].Index > -1)
+            if (dgv_ProjAddExp.Rows.Count > 0)
             {
                 int index = dgv_ProjAddExp.SelectedRows[0].Index;
 
-                if (MessageBox.Show("Are you sure you want to remove selected line?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("Are you sure you want to remove selected expense?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     using (SqlConnection conn = DBUtils.GetDBConnection())
                     {
@@ -190,7 +151,7 @@ namespace QTechManagementSoftware
             }
             else
             {
-                MessageBox.Show("Please select a line to remove.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                MessageBox.Show("Table is empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
             }
         }
 
@@ -291,7 +252,7 @@ namespace QTechManagementSoftware
             using (SqlConnection conn = DBUtils.GetDBConnection())
             {
                 conn.Open();
-                SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM Projects WHERE Date BETWEEN '" + dtp_PAE_From.Value + "' AND '" + dtp_PAE_To.Value + "'", conn);
+                SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM Project_Expenses WHERE Date BETWEEN '" + dtp_PAE_From.Value + "' AND '" + dtp_PAE_To.Value + "'", conn);
                 dt = new DataTable();
                 da.Fill(dt);
             }
@@ -311,6 +272,45 @@ namespace QTechManagementSoftware
             LoadExpenses();
             btn_PAE_Filter.Visible = true;
             btn_PAE_ClearFilter.Visible = false;
+        }
+
+        private void Btn_PAE_Export_Click(object sender, EventArgs e)
+        {
+            string path = "c:\\Project Expenses";
+
+            path = Path.Combine(path, selectedProjectCode);
+
+            if (!Directory.Exists(path))
+                Directory.CreateDirectory(path);
+
+            string fileName = string.Format("{0:yyMMMdd_hh-mm-ss}.xlsx", DateTime.Now);
+            path = Path.Combine(path, fileName);
+
+            XLWorkbook wb = new XLWorkbook();
+
+            try
+            {
+                wb.Worksheets.Add(dt, fileName);
+                wb.SaveAs(path);
+
+                MessageBox.Show("Data successfully exported to " + path, "Export Complete", MessageBoxButtons.OK);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void Btn_PAE_Export_MouseEnter(object sender, EventArgs e)
+        {
+            btn_PAE_Export.Image = Resources.export_white;
+            btn_PAE_Export.ForeColor = Color.White;
+        }
+
+        private void Btn_PAE_Export_MouseLeave(object sender, EventArgs e)
+        {
+            btn_PAE_Export.Image = Resources.export_grey;
+            btn_PAE_Export.ForeColor = Color.FromArgb(64, 64, 64);
         }
     }
 }

@@ -11,8 +11,7 @@ namespace QTechManagementSoftware
     {
         private BindingSource bs = new BindingSource();
         private bool isFiltered = false;
-        private int SELECTED_QUOTE;
-        private string clientName, clientCode;
+        private string clientName, clientCode , SELECTED_QUOTE;
         private DataTable dt;
 
         public Int_Quotes()
@@ -92,7 +91,7 @@ namespace QTechManagementSoftware
             return clientName;
         }
 
-        public int GetSelectedQuote()
+        public string GetSelectedQuote()
         {
             return SELECTED_QUOTE;
         }
@@ -154,10 +153,7 @@ namespace QTechManagementSoftware
         //================================================================================================================================================//
         private void Dgv_IQuotes_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (isFiltered)
-                RemoveFilter();
-
-            SELECTED_QUOTE = e.RowIndex;
+            SELECTED_QUOTE = dgv_IQuotes[0, e.RowIndex].Value.ToString(); ;
 
             using (Q_Edit_Del frmQED = new Q_Edit_Del())
             {

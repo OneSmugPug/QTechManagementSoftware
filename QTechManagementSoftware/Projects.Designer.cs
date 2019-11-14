@@ -40,6 +40,7 @@
             this.dgv_Projects = new ADGV.AdvancedDataGridView();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.btn_P_EditProject = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Projects)).BeginInit();
             this.SuspendLayout();
             // 
@@ -94,7 +95,7 @@
             this.btn_P_Filter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btn_P_Filter.Image = global::QTechManagementSoftware.Properties.Resources.filter_grey;
             this.btn_P_Filter.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_P_Filter.Location = new System.Drawing.Point(553, 10);
+            this.btn_P_Filter.Location = new System.Drawing.Point(544, 10);
             this.btn_P_Filter.Name = "btn_P_Filter";
             this.btn_P_Filter.Size = new System.Drawing.Size(114, 40);
             this.btn_P_Filter.TabIndex = 2;
@@ -127,7 +128,7 @@
             this.dtp_P_To.FormatCustom = null;
             this.dtp_P_To.Location = new System.Drawing.Point(324, 13);
             this.dtp_P_To.Name = "dtp_P_To";
-            this.dtp_P_To.Size = new System.Drawing.Size(208, 36);
+            this.dtp_P_To.Size = new System.Drawing.Size(214, 36);
             this.dtp_P_To.TabIndex = 4;
             this.dtp_P_To.Value = new System.DateTime(2019, 9, 12, 15, 2, 16, 356);
             // 
@@ -150,13 +151,14 @@
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(77)))), ((int)(((byte)(119)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgv_Projects.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_Projects.ColumnHeadersHeight = 25;
             this.dgv_Projects.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgv_Projects.DateWithTime = false;
+            this.dgv_Projects.EnableHeadersVisualStyles = false;
             this.dgv_Projects.Location = new System.Drawing.Point(0, 57);
             this.dgv_Projects.Name = "dgv_Projects";
             this.dgv_Projects.ReadOnly = true;
@@ -194,6 +196,28 @@
             this.bunifuCustomLabel2.TabIndex = 7;
             this.bunifuCustomLabel2.Text = "From:";
             // 
+            // btn_P_EditProject
+            // 
+            this.btn_P_EditProject.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_P_EditProject.FlatAppearance.BorderSize = 0;
+            this.btn_P_EditProject.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
+            this.btn_P_EditProject.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
+            this.btn_P_EditProject.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_P_EditProject.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_P_EditProject.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btn_P_EditProject.Image = global::QTechManagementSoftware.Properties.Resources.edit_grey;
+            this.btn_P_EditProject.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_P_EditProject.Location = new System.Drawing.Point(664, 10);
+            this.btn_P_EditProject.Name = "btn_P_EditProject";
+            this.btn_P_EditProject.Size = new System.Drawing.Size(140, 40);
+            this.btn_P_EditProject.TabIndex = 0;
+            this.btn_P_EditProject.Text = "Edit Project";
+            this.btn_P_EditProject.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_P_EditProject.UseVisualStyleBackColor = true;
+            this.btn_P_EditProject.Click += new System.EventHandler(this.Btn_P_EditProject_Click);
+            this.btn_P_EditProject.MouseEnter += new System.EventHandler(this.Btn_P_EditProject_MouseEnter);
+            this.btn_P_EditProject.MouseLeave += new System.EventHandler(this.Btn_P_EditProject_MouseLeave);
+            // 
             // Projects
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -207,6 +231,7 @@
             this.Controls.Add(this.dtp_P_From);
             this.Controls.Add(this.btn_P_Filter);
             this.Controls.Add(this.btn_P_ClearFilter);
+            this.Controls.Add(this.btn_P_EditProject);
             this.Controls.Add(this.btn_P_NewProject);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -230,5 +255,6 @@
         private ADGV.AdvancedDataGridView dgv_Projects;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel1;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel2;
+        private System.Windows.Forms.Button btn_P_EditProject;
     }
 }

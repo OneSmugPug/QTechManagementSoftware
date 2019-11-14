@@ -15,9 +15,7 @@ namespace QTechManagementSoftware
         private bool isFiltered = false;
         private object send = null;
         private int NUM_OF_CLIENTS;
-        private int SELECTED_INVSEND;
-        private string clientName, clientCode;
-        private string NEW_INVOICE;
+        private string clientName, clientCode, SELECTED_INVSEND;
         private DataTable clientsDT;
         private DataTable dt;
 
@@ -130,7 +128,7 @@ namespace QTechManagementSoftware
             return clientName;
         }
 
-        public int GetSelectedInvSend()
+        public string GetSelectedInvSend()
         {
             return SELECTED_INVSEND;
         }
@@ -144,10 +142,10 @@ namespace QTechManagementSoftware
         //================================================================================================================================================//
         // SETTERS                                                                                                                                        //
         //================================================================================================================================================//
-        public void SetNewInvoice(string invNum)
-        {
-            NEW_INVOICE = invNum;
-        }
+        //public void SetNewInvoice(string invNum)
+        //{
+        //    NEW_INVOICE = invNum;
+        //}
 
         public void SetSender(object sender)
         {
@@ -160,10 +158,7 @@ namespace QTechManagementSoftware
         //================================================================================================================================================//
         private void Dgv_IInvSent_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (isFiltered)
-                RemoveFilter();
-
-            SELECTED_INVSEND = e.RowIndex;
+            SELECTED_INVSEND = dgv_IInvSent[0, e.RowIndex].Value.ToString();
 
             using (Inv_Send_Edit_Del frmISED = new Inv_Send_Edit_Del())
             {

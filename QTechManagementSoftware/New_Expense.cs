@@ -4,6 +4,7 @@ using System.Text;
 using System.Windows.Forms;
 using QTechManagementSoftware.Properties;
 using System;
+using System.Globalization;
 
 namespace QTechManagementSoftware
 {
@@ -13,10 +14,13 @@ namespace QTechManagementSoftware
         private bool mouseDown;
         private Point lastLocation;
         private Proj_AddExp parent;
+        private NumberFormatInfo nfi = (NumberFormatInfo)CultureInfo.InvariantCulture.NumberFormat.Clone();
 
         public New_Expense()
         {
             InitializeComponent();
+
+            nfi.NumberGroupSeparator = " ";
         }
 
 
@@ -36,13 +40,7 @@ namespace QTechManagementSoftware
         {
             Proj_ID = parent.GetProjectID();
 
-            foreach (DataGridViewColumn column in parent.GetLines().Columns)
-            {
-                if (!column.Name.Equals("ID") && !column.Name.Equals("Project_ID") && !column.Name.Equals("Description") && !column.Name.Equals("Date") && !column.Name.Equals("User_Log"))
-                    ddb_NE_Column.AddItem(column.Name);
-            }
-
-            ddb_NE_Column.selectedIndex = 0;
+            txt_NE_Tot.Text = "0.00";
         }
 
 
@@ -51,107 +49,39 @@ namespace QTechManagementSoftware
         //================================================================================================================================================//
         private void Btn_NE_Done_Click(object sender, EventArgs e)
         {
-            if (ddb_NE_Column.selectedValue.Equals("Travel") || ddb_NE_Column.selectedValue.Equals("Accomodation") || ddb_NE_Column.selectedValue.Equals("Subsistence") || ddb_NE_Column.selectedValue.Equals("Tools"))
+            if (MessageBox.Show(new StringBuilder().Append("Are you sure you want to add new expenses?").ToString(), "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                if (txt_NE_Val.Text.Contains("R") || txt_NE_Val.Text.Contains("$"))
-                    DoAdd();
-                else MessageBox.Show("Value field requires a 'R'/'$' symbol", "error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-            }
-            else DoAdd();
-        }
-
-        private void DoAdd()
-        {
-            if (!txt_NE_User.Text.Equals(string.Empty))
-            {
-                if (MessageBox.Show(new StringBuilder().Append("Are you sure you want to add new line?").ToString(), "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                using (SqlConnection conn = DBUtils.GetDBConnection())
                 {
-                    using (SqlConnection conn = DBUtils.GetDBConnection())
+                    conn.Open();
+                    try
                     {
-                        conn.Open();
-                        try
+                        using (SqlCommand cmd = new SqlCommand("INSERT INTO Project_Expenses VALUES (@ProjID, @Date, @Merc, @Desc, @TotPrice, @Hrs)", conn))
                         {
-                            using (SqlCommand cmd = new SqlCommand("INSERT INTO Project_Expenses VALUES (@ProjID, @Desc, @Travel, @Acc, @Sub, @Tools, @ProgHrs, @InstHrs, @Date, @User)", conn))
-                            {
-                                cmd.Parameters.AddWithValue("@ProjID", Proj_ID);
-                                cmd.Parameters.AddWithValue("@Desc", txt_NE_Desc.Text.Trim());
+                            cmd.Parameters.AddWithValue("@ProjID", Proj_ID);
+                            cmd.Parameters.AddWithValue("@Date", DateTime.Now);
+                            cmd.Parameters.AddWithValue("@Merc", txt_NE_Merc.Text.Trim());
+                            cmd.Parameters.AddWithValue("@Desc", ddb_NE_Desc.selectedValue);
+                            cmd.Parameters.AddWithValue("@TotPrice", ddb_Cur.selectedValue + " " + txt_NE_Tot.Text.Trim());
+                            
+                            if (!txt_NE_Hours.Text.Equals(string.Empty))
+                                cmd.Parameters.AddWithValue("@Hrs", Decimal.Parse(txt_NE_Hours.Text.Trim()));
+                            else cmd.Parameters.AddWithValue("@Hrs", DBNull.Value);
 
-                                if (ddb_NE_Column.selectedValue.Equals("Travel"))
-                                {
-                                    cmd.Parameters.AddWithValue("@Travel", txt_NE_Val.Text.Trim());
-                                    cmd.Parameters.AddWithValue("@Acc", DBNull.Value);
-                                    cmd.Parameters.AddWithValue("@Sub", DBNull.Value);
-                                    cmd.Parameters.AddWithValue("@Tools", DBNull.Value);
-                                    cmd.Parameters.AddWithValue("@ProgHrs", DBNull.Value);
-                                    cmd.Parameters.AddWithValue("@InstHrs", DBNull.Value);
-                                }
-                                else if (ddb_NE_Column.selectedValue.Equals("Accomodation"))
-                                {
-                                    cmd.Parameters.AddWithValue("@Travel", DBNull.Value);
-                                    cmd.Parameters.AddWithValue("@Acc", txt_NE_Val.Text.Trim());
-                                    cmd.Parameters.AddWithValue("@Sub", DBNull.Value);
-                                    cmd.Parameters.AddWithValue("@Tools", DBNull.Value);
-                                    cmd.Parameters.AddWithValue("@ProgHrs", DBNull.Value);
-                                    cmd.Parameters.AddWithValue("@InstHrs", DBNull.Value);
-                                }
-                                else if (ddb_NE_Column.selectedValue.Equals("Subsistence"))
-                                {
-                                    cmd.Parameters.AddWithValue("@Travel", DBNull.Value);
-                                    cmd.Parameters.AddWithValue("@Acc", DBNull.Value);
-                                    cmd.Parameters.AddWithValue("@Sub", txt_NE_Val.Text.Trim());
-                                    cmd.Parameters.AddWithValue("@Tools", DBNull.Value);
-                                    cmd.Parameters.AddWithValue("@ProgHrs", DBNull.Value);
-                                    cmd.Parameters.AddWithValue("@InstHrs", DBNull.Value);
-                                }
-                                else if (ddb_NE_Column.selectedValue.Equals("Tools"))
-                                {
-                                    cmd.Parameters.AddWithValue("@Travel", DBNull.Value);
-                                    cmd.Parameters.AddWithValue("@Acc", DBNull.Value);
-                                    cmd.Parameters.AddWithValue("@Sub", DBNull.Value);
-                                    cmd.Parameters.AddWithValue("@Tools", txt_NE_Val.Text.Trim());
-                                    cmd.Parameters.AddWithValue("@ProgHrs", DBNull.Value);
-                                    cmd.Parameters.AddWithValue("@InstHrs", DBNull.Value);
-                                }
-                                else if (ddb_NE_Column.selectedValue.Equals("Programming_Hours"))
-                                {
-                                    cmd.Parameters.AddWithValue("@Travel", DBNull.Value);
-                                    cmd.Parameters.AddWithValue("@Acc", DBNull.Value);
-                                    cmd.Parameters.AddWithValue("@Sub", DBNull.Value);
-                                    cmd.Parameters.AddWithValue("@Tools", DBNull.Value);
-                                    cmd.Parameters.AddWithValue("@ProgHrs", txt_NE_Val.Text.Trim());
-                                    cmd.Parameters.AddWithValue("@InstHrs", DBNull.Value);
-                                }
-                                else if (ddb_NE_Column.selectedValue.Equals("Install_Hours"))
-                                {
-                                    cmd.Parameters.AddWithValue("@Travel", DBNull.Value);
-                                    cmd.Parameters.AddWithValue("@Acc", DBNull.Value);
-                                    cmd.Parameters.AddWithValue("@Sub", DBNull.Value);
-                                    cmd.Parameters.AddWithValue("@Tools", DBNull.Value);
-                                    cmd.Parameters.AddWithValue("@ProgHrs", DBNull.Value);
-                                    cmd.Parameters.AddWithValue("@InstHrs", txt_NE_Val.Text.Trim());
-                                }
+                            cmd.ExecuteNonQuery();
 
-                                cmd.Parameters.AddWithValue("@Date", DateTime.Now.Date);
-                                cmd.Parameters.AddWithValue("@User", txt_NE_User.Text.Trim());
-                                cmd.ExecuteNonQuery();
-
-                                MessageBox.Show("New line successfully added.", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                this.Close();
-                            }
+                            MessageBox.Show("New line successfully added.", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            this.Close();
                         }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
-            else
-            {
-                MessageBox.Show("Please enter name in user field.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
         }
-
+            
 
         //================================================================================================================================================//
         // CANCEL CLICKED                                                                                                                                 //
@@ -165,60 +95,60 @@ namespace QTechManagementSoftware
         //================================================================================================================================================//
         // DESCRIPTION                                                                                                                                    //
         //================================================================================================================================================//
-        private void txt_NE_Desc_MouseEnter(object sender, EventArgs e)
+        private void txt_NE_Merc_MouseEnter(object sender, EventArgs e)
         {
-            ln_NE_Desc.LineColor = Color.FromArgb(19, 118, 188);
+            ln_NE_Merc.LineColor = Color.FromArgb(19, 118, 188);
         }
 
-        private void txt_NE_Desc_Leave(object sender, EventArgs e)
+        private void txt_NE_Merc_Leave(object sender, EventArgs e)
         {
-            ln_NE_Desc.LineColor = Color.Gray;
+            ln_NE_Merc.LineColor = Color.Gray;
         }
 
-        private void txt_NE_Desc_MouseLeave(object sender, EventArgs e)
+        private void txt_NE_Merc_MouseLeave(object sender, EventArgs e)
         {
-            if (!txt_NE_Desc.Focused)
-                ln_NE_Desc.LineColor = Color.Gray;
+            if (!txt_NE_Merc.Focused)
+                ln_NE_Merc.LineColor = Color.Gray;
         }
 
 
         //================================================================================================================================================//
         // VALUE                                                                                                                                          //
         //================================================================================================================================================//
-        private void txt_NE_Val_MouseEnter(object sender, EventArgs e)
+        private void txt_NE_Tot_MouseEnter(object sender, EventArgs e)
         {
-            ln_NE_Val.LineColor = Color.FromArgb(19, 118, 188);
+            ln_NE_Tot.LineColor = Color.FromArgb(19, 118, 188);
         }
 
-        private void txt_NE_Val_Leave(object sender, EventArgs e)
+        private void txt_NE_Tot_Leave(object sender, EventArgs e)
         {
-            ln_NE_Val.LineColor = Color.Gray;
+            ln_NE_Tot.LineColor = Color.Gray;
         }
 
-        private void txt_NE_Val_MouseLeave(object sender, EventArgs e)
+        private void txt_NE_Tot_MouseLeave(object sender, EventArgs e)
         {
-            if (!txt_NE_Val.Focused)
-                ln_NE_Val.LineColor = Color.Gray;
+            if (!txt_NE_Tot.Focused)
+                ln_NE_Tot.LineColor = Color.Gray;
         }
 
 
         //================================================================================================================================================//
         // USER                                                                                                                                           //
         //================================================================================================================================================//
-        private void txt_NE_User_MouseEnter(object sender, EventArgs e)
+        private void txt_NE_Hours_MouseEnter(object sender, EventArgs e)
         {
-            ln_NE_User.LineColor = Color.FromArgb(19, 118, 188);
+            ln_NE_Hours.LineColor = Color.FromArgb(19, 118, 188);
         }
 
-        private void txt_NE_User_Leave(object sender, EventArgs e)
+        private void txt_NE_Hours_Leave(object sender, EventArgs e)
         {
-            ln_NE_User.LineColor = Color.Gray;
+            ln_NE_Hours.LineColor = Color.Gray;
         }
 
-        private void txt_NE_User_MouseLeave(object sender, EventArgs e)
+        private void txt_NE_Hours_MouseLeave(object sender, EventArgs e)
         {
-            if (!txt_NE_User.Focused)
-                ln_NE_User.LineColor = Color.Gray;
+            if (!txt_NE_Hours.Focused)
+                ln_NE_Hours.LineColor = Color.Gray;
         }
 
 
@@ -294,6 +224,28 @@ namespace QTechManagementSoftware
         private void New_Expense_MouseUp(object sender, MouseEventArgs e)
         {
             mouseDown = false;
+        }
+
+        private void txt_NE_Tot_TextChanged(object sender, EventArgs e)
+        {
+            if (Decimal.TryParse(txt_NE_Tot.Text.Replace(",", string.Empty).Replace(".", string.Empty).TrimStart('0'), out decimal ul))
+            {
+                ul /= 100;
+
+                txt_NE_Tot.TextChanged -= txt_NE_Tot_TextChanged;
+
+                txt_NE_Tot.Text = ul.ToString("N2", nfi);
+                txt_NE_Tot.TextChanged += txt_NE_Tot_TextChanged;
+                txt_NE_Tot.Select(txt_NE_Tot.Text.Length, 0);
+
+                decimal temp = decimal.Round(0.15m * ul, 2);
+            }
+        }
+
+        private void txt_NE_Tot_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (!(e.KeyCode >= Keys.D0 && e.KeyCode <= Keys.D9) && !(e.KeyCode >= Keys.NumPad0 && e.KeyCode <= Keys.NumPad9) && !(e.KeyCode == Keys.Back))
+                e.SuppressKeyPress = true;
         }
     }
 }

@@ -14,7 +14,7 @@ namespace QTechManagementSoftware
     {
         private bool mouseDown = false;
         private DataTable dt;
-        private static int SELECTED_PROJECT;
+        private string SELECTED_PROJECT;
         private Point lastLocation;
 
         public Proj_Edit_Del()
@@ -24,10 +24,10 @@ namespace QTechManagementSoftware
 
         private void Proj_Edit_Del_Load(object sender, EventArgs e)
         {
-            //Projects curForm = (Projects)((Home)Owner).GetCurForm();
-            //dt = curForm.GetProjects();
-            //SELECTED_PROJECT = curForm.GetSelectedProj();
-            //LoadProject();
+            Projects curForm = (Projects)this.Owner;
+            dt = curForm.GetProjects();
+            SELECTED_PROJECT = curForm.GetSelectedProj();
+            LoadProject();
         }
 
 
@@ -36,14 +36,22 @@ namespace QTechManagementSoftware
         //================================================================================================================================================//
         private void LoadProject()
         {
-            txt_PED_CCode.Text = dt.Rows[SELECTED_PROJECT]["Client_Code"].ToString().Trim();
-            txt_PED_CName.Text = dt.Rows[SELECTED_PROJECT]["Client_Name"].ToString().Trim();
-            txt_PED_ProjCode.Text = dt.Rows[SELECTED_PROJECT]["Project_ID"].ToString().Trim();
+            int rowIdx = 0;
 
-            dtp_PED_Date.Value = (dt.Rows[SELECTED_PROJECT]["Date"].ToString() == string.Empty) ? DateTime.Now : Convert.ToDateTime(dt.Rows[SELECTED_PROJECT]["Date"].ToString());
+            foreach (DataRow dr in dt.Rows)
+            {
+                if (dr["Project_ID"].ToString().Equals(SELECTED_PROJECT))
+                    rowIdx = dt.Rows.IndexOf(dr);
+            }
 
-            txt_PED_Desc.Text = dt.Rows[SELECTED_PROJECT]["Description"].ToString().Trim();
-            txt_PED_QNum.Text = dt.Rows[SELECTED_PROJECT]["Quote_Number"].ToString().Trim();
+            txt_PED_CCode.Text = dt.Rows[rowIdx]["Client_Code"].ToString().Trim();
+            txt_PED_CName.Text = dt.Rows[rowIdx]["Client_Name"].ToString().Trim();
+            txt_PED_ProjCode.Text = dt.Rows[rowIdx]["Project_ID"].ToString().Trim();
+
+            dtp_PED_Date.Value = (dt.Rows[rowIdx]["Date"].ToString() == string.Empty) ? DateTime.Now : Convert.ToDateTime(dt.Rows[rowIdx]["Date"].ToString());
+
+            txt_PED_Desc.Text = dt.Rows[rowIdx]["Description"].ToString().Trim();
+            txt_PED_QNum.Text = dt.Rows[rowIdx]["Quote_Number"].ToString().Trim();
         }
 
 

@@ -34,6 +34,7 @@
             this.btn_ISED_Done = new System.Windows.Forms.Button();
             this.btn_ISED_Cancel = new System.Windows.Forms.Button();
             this.gb_ISA_ISDetails = new System.Windows.Forms.GroupBox();
+            this.ddb_InvSendCur = new Bunifu.Framework.UI.BunifuDropdown();
             this.dtp_ISED_Date = new Bunifu.Framework.UI.BunifuDatepicker();
             this.bunifuCustomLabel11 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.pnl_ISA_INInst = new System.Windows.Forms.Panel();
@@ -143,6 +144,7 @@
             // 
             // gb_ISA_ISDetails
             // 
+            this.gb_ISA_ISDetails.Controls.Add(this.ddb_InvSendCur);
             this.gb_ISA_ISDetails.Controls.Add(this.dtp_ISED_Date);
             this.gb_ISA_ISDetails.Controls.Add(this.bunifuCustomLabel11);
             this.gb_ISA_ISDetails.Controls.Add(this.pnl_ISA_INInst);
@@ -166,6 +168,27 @@
             this.gb_ISA_ISDetails.TabIndex = 14;
             this.gb_ISA_ISDetails.TabStop = false;
             this.gb_ISA_ISDetails.Text = "Invoice Details";
+            // 
+            // ddb_InvSendCur
+            // 
+            this.ddb_InvSendCur.BackColor = System.Drawing.Color.Transparent;
+            this.ddb_InvSendCur.BorderRadius = 2;
+            this.ddb_InvSendCur.DisabledColor = System.Drawing.Color.Gray;
+            this.ddb_InvSendCur.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ddb_InvSendCur.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
+            this.ddb_InvSendCur.Items = new string[] {
+        "R",
+        "$",
+        "£",
+        "€"};
+            this.ddb_InvSendCur.Location = new System.Drawing.Point(133, 89);
+            this.ddb_InvSendCur.Name = "ddb_InvSendCur";
+            this.ddb_InvSendCur.NomalColor = System.Drawing.Color.Silver;
+            this.ddb_InvSendCur.onHoverColor = System.Drawing.Color.LightGray;
+            this.ddb_InvSendCur.selectedIndex = 0;
+            this.ddb_InvSendCur.Size = new System.Drawing.Size(63, 28);
+            this.ddb_InvSendCur.TabIndex = 16;
+            this.ddb_InvSendCur.onItemSelected += new System.EventHandler(this.ddb_InvSendCur_onItemSelected);
             // 
             // dtp_ISED_Date
             // 
@@ -370,7 +393,6 @@
             this.txt_ISED_VAT.Name = "txt_ISED_VAT";
             this.txt_ISED_VAT.Size = new System.Drawing.Size(182, 16);
             this.txt_ISED_VAT.TabIndex = 0;
-            this.txt_ISED_VAT.TextChanged += new System.EventHandler(this.Txt_ISED_VAT_TextChanged);
             this.txt_ISED_VAT.Leave += new System.EventHandler(this.Txt_ISED_VAT_Leave);
             this.txt_ISED_VAT.MouseEnter += new System.EventHandler(this.Txt_ISED_VAT_MouseEnter);
             this.txt_ISED_VAT.MouseLeave += new System.EventHandler(this.Txt_ISED_VAT_MouseLeave);
@@ -419,7 +441,7 @@
             // 
             this.pnl_ISA_Amt.Controls.Add(this.ln_ISED_Amt);
             this.pnl_ISA_Amt.Controls.Add(this.txt_ISED_Amt);
-            this.pnl_ISA_Amt.Location = new System.Drawing.Point(133, 91);
+            this.pnl_ISA_Amt.Location = new System.Drawing.Point(202, 91);
             this.pnl_ISA_Amt.Name = "pnl_ISA_Amt";
             this.pnl_ISA_Amt.Size = new System.Drawing.Size(199, 27);
             this.pnl_ISA_Amt.TabIndex = 2;
@@ -452,6 +474,7 @@
             this.txt_ISED_Amt.Size = new System.Drawing.Size(197, 16);
             this.txt_ISED_Amt.TabIndex = 0;
             this.txt_ISED_Amt.TextChanged += new System.EventHandler(this.Txt_ISED_Amt_TextChanged);
+            this.txt_ISED_Amt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_ISED_Amt_KeyDown);
             this.txt_ISED_Amt.Leave += new System.EventHandler(this.Txt_ISED_Amt_Leave);
             this.txt_ISED_Amt.MouseEnter += new System.EventHandler(this.Txt_ISED_Amt_MouseEnter);
             this.txt_ISED_Amt.MouseLeave += new System.EventHandler(this.Txt_ISED_Amt_MouseLeave);
@@ -655,5 +678,6 @@
         private Bunifu.Framework.UI.BunifuMaterialTextbox txt_ISED_CName;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel10;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel12;
+        private Bunifu.Framework.UI.BunifuDropdown ddb_InvSendCur;
     }
 }

@@ -13,8 +13,7 @@ namespace QTechManagementSoftware
     {
         private BindingSource bs = new BindingSource();
         private bool isFiltered = false;
-        private int SELECTED_ORDER;
-        private string clientName, clientCode;
+        private string clientName, clientCode, SELECTED_ORDER;
         private DataTable dt;
 
         public Int_Orders()
@@ -88,7 +87,7 @@ namespace QTechManagementSoftware
 
         public string GetClientName() { return clientName; }
 
-        public int GetSelectedOrder() { return SELECTED_ORDER; }
+        public string GetSelectedOrder() { return SELECTED_ORDER; }
 
         public DataTable GetOrders() { return dt; }
 
@@ -151,10 +150,7 @@ namespace QTechManagementSoftware
         //================================================================================================================================================//
         private void Dgv_IOrders_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (isFiltered)
-                RemoveFilter();
-
-            SELECTED_ORDER = e.RowIndex;
+            SELECTED_ORDER = dgv_IOrders[2, e.RowIndex].Value.ToString();
 
             using (O_Edit_Del frmOED = new O_Edit_Del())
             {
